@@ -51,11 +51,8 @@
                         <div class="indeterminate"></div>
                     </div>
                 </div>
-                <div class="col-xs-12">
-                    <h4> Cryptography </h4>
-                    <br>
-                </div>
-                <div class="collection z-depth-2 modal-trigger">
+                <div class="col-xs-12"> <h4> Cryptography </h4><br></div>
+                <div class="collection z-depth-2">
                     <a href="1" class="collection-item">Crypto 1</a>
                     <a href="#helpmodal" class="collection-item">Crypto 2</a>
                     <a href="3" class="collection-item">Crypto 3</a>
@@ -63,44 +60,24 @@
                     <a href="5" class="collection-item">Crypto 5</a>
                     <a href="6" class="collection-item">Crypto 6</a>
                 </div>
-                <!-- <div id="submit" class="modal"> -->
-                <!--     <div class="modal-content"> -->
-                <!--         <form method="post" class="col s12" action="validate.py"> -->
-                <!--             <div class="row"> -->
-                <!--                 <div class="input-field col s12 m10 l8 offset-m1 offset-l2"> -->
-                <!--                     <input id="icon_prefix" name="flag" type="text" class="validate"> -->
-                <!--                     <label for="icon_prefix">Flag</label> -->
-                <!--                 </div> -->
-                <!--             </div> -->
-                <!--             <input type="hidden" name="id" value="0"> -->
-                <!--             <div class="row"> -->
-                <!--                 <div class="col s12 center"> -->
-                <!--                     <button class="btn waves-effect waves-light" type="submit" name="action">Submit -->
-                <!--                         <i class="mdi-content-send right"></i> -->
-                <!--                     </button> -->
-                <!--                 </div> -->
-                <!--             </div> -->
-                            <!-- <input type="hidden" name="csrfmiddlewaretoken" value="fL0YivY2vFuc2jIgewyFT7Ky8D0YMJzC"> -->
-                <!--         </form> -->
-                <!--     </div> -->
-                <!-- </div> -->
-                <div id="helpmodal" class="modal" style="display: none; opacity: 1; top: 0px;">
-                    <div class="modal-content">
-                        <h4>Challenges Help</h4>
-                        <p>This is the area where you will spend a majority of your time. Please peruse the <a target="_blank" href="/readme/#challenges">read me</a> for more information! Double click/tap the challenge tab to force refresh challenges. Something seriously messed up about the challenge page? - <a href="#" id="clear-cache">clear persistent cache</a>.</p>
-                        <br>
-                        <h5>Sort Order</h5>
-                        <p>
-                        <input name="sortorder" type="radio" id="order1" data-sort="title">
-                        <label for="order1" class="black-text">Alphabetical</label>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input name="sortorder" type="radio" id="order2" data-sort="score">
-                        <label for="order2" class="black-text">Score/Value</label>
-                        </p>
+
+                <form method="post" class="col s12" action="./graders/validate.py">
+                    <div class="row">
+                        <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                            <input id="icon_prefix" name="flag" type="text" class="validate">
+                            <label for="icon_prefix">Flag</label>
+                        </div>
                     </div>
-                    <div class="modal-footer">
-                        <button class="waves-effect waves-light btn modal-action modal-close">Got it</button>
+                    <input type="hidden" name="id" value="0">
+                    <div class="row">
+                        <div class="col s12 center">
+                            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                                <i class="mdi-content-send right"></i>
+                            </button>
+                        </div>
                     </div>
+                    <input type="hidden">
+                </form>
                 </div>
                 <br>
                 <hr>

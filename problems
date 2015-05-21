@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+        <title>IntroCTF - Problems</title>
+    </head>
+
+    <body>
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+
+        <nav role="navigation" style="background-color: #009688">
+            <div class="nav-wrapper container">
+                <a href="#" class="brand-logo">IntroCTF</a>
+                <ul class="right hide-on-med-and-down">
+
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="scoreboard.html">Scoreboard</a></li>
+                    <li><a href="problems">Problems</a></li>
+                    <li><a href="about.html">About</a></li>
+
+                    <li><a class="mdi-action-info-outline modal-trigger" href="#helpmodal"></a></li>
+                </ul>
+                <ul id="nav-mobile" class="side-nav">
+
+                    <li><a class="waves-effect waves-indigo" href="#">Home</a></li>
+                    <li><a class="waves-effect waves-indigo" href="scoreboard.html">Scoreboard</a></li>
+                    <li><a class="waves-effect waves-indigo" href="problems.html">Problems</a></li>
+                    <li><a class="waves-effect waves-indigo" href="about.html">About</a></li>
+
+                    <!-- <li><a class="waves-effect waves-indigo modal-trigger" href="#helpmodal"><i class="mdi-action-info-outline"></i></a></li> -->
+                </ul>
+                <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
+            </div>
+        </nav>
+
+        <main>
+        <div class="container">
+            <h2 class="center teal-text">Problems</h2>
+            <br>
+            <div id="chal-view">
+                <div class="valign-wrapper" style="display: none;">
+                    <div class="progress">
+                        <div class="indeterminate"></div>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <h4> Cryptography </h4>
+                    <br>
+                </div>
+                <div class="collection z-depth-2 modal-trigger">
+                    <a href="1" class="collection-item">Crypto 1</a>
+                    <a href="#helpmodal" class="collection-item">Crypto 2</a>
+                    <a href="3" class="collection-item">Crypto 3</a>
+                    <a href="4" class="collection-item">Crypto 4</a>
+                    <a href="5" class="collection-item">Crypto 5</a>
+                    <a href="6" class="collection-item">Crypto 6</a>
+                </div>
+                <!-- <div id="submit" class="modal"> -->
+                <!--     <div class="modal-content"> -->
+                <!--         <form method="post" class="col s12" action="validate.py"> -->
+                <!--             <div class="row"> -->
+                <!--                 <div class="input-field col s12 m10 l8 offset-m1 offset-l2"> -->
+                <!--                     <input id="icon_prefix" name="flag" type="text" class="validate"> -->
+                <!--                     <label for="icon_prefix">Flag</label> -->
+                <!--                 </div> -->
+                <!--             </div> -->
+                <!--             <input type="hidden" name="id" value="0"> -->
+                <!--             <div class="row"> -->
+                <!--                 <div class="col s12 center"> -->
+                <!--                     <button class="btn waves-effect waves-light" type="submit" name="action">Submit -->
+                <!--                         <i class="mdi-content-send right"></i> -->
+                <!--                     </button> -->
+                <!--                 </div> -->
+                <!--             </div> -->
+                            <!-- <input type="hidden" name="csrfmiddlewaretoken" value="fL0YivY2vFuc2jIgewyFT7Ky8D0YMJzC"> -->
+                <!--         </form> -->
+                <!--     </div> -->
+                <!-- </div> -->
+                <div id="helpmodal" class="modal" style="display: none; opacity: 1; top: 0px;">
+                    <div class="modal-content">
+                        <h4>Challenges Help</h4>
+                        <p>This is the area where you will spend a majority of your time. Please peruse the <a target="_blank" href="/readme/#challenges">read me</a> for more information! Double click/tap the challenge tab to force refresh challenges. Something seriously messed up about the challenge page? - <a href="#" id="clear-cache">clear persistent cache</a>.</p>
+                        <br>
+                        <h5>Sort Order</h5>
+                        <p>
+                        <input name="sortorder" type="radio" id="order1" data-sort="title">
+                        <label for="order1" class="black-text">Alphabetical</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input name="sortorder" type="radio" id="order2" data-sort="score">
+                        <label for="order2" class="black-text">Score/Value</label>
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="waves-effect waves-light btn modal-action modal-close">Got it</button>
+                    </div>
+                </div>
+                <br>
+                <hr>
+            </div>
+        </div>
+        </main>
+    </body>
+    <html>
+

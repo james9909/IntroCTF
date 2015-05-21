@@ -54,14 +54,14 @@
                 <div class="col-xs-12"> <h4> Cryptography </h4><br></div>
                 <div class="collection z-depth-2">
                     <a href="1" class="collection-item">Crypto 1</a>
-                    <a href="#helpmodal" class="collection-item">Crypto 2</a>
+                    <a href="2" class="collection-item">Crypto 2</a>
                     <a href="3" class="collection-item">Crypto 3</a>
                     <a href="4" class="collection-item">Crypto 4</a>
                     <a href="5" class="collection-item">Crypto 5</a>
                     <a href="6" class="collection-item">Crypto 6</a>
                 </div>
 
-                <form method="post" class="col s12" action="./validate.py">
+                <form method="post" class="col s12" action="scripts/validate.py">
                     <div class="row">
                         <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
                             <input id="icon_prefix" name="flag" type="text" class="validate">

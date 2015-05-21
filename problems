@@ -21,23 +21,21 @@
                 <a href="#" class="brand-logo">IntroCTF</a>
                 <ul class="right hide-on-med-and-down">
 
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/scoreboard">Scoreboard</a></li>
-                    <li><a href="/problems">Problems</a></li>
-                    <li><a href="/about">About</a></li>
+                    <li><a href="./">Home</a></li>
+                    <li><a href="./scoreboard">Scoreboard</a></li>
+                    <li><a href="./problems">Problems</a></li>
+                    <li><a href="./about">About</a></li>
 
-                    <li><a class="mdi-action-info-outline modal-trigger" href="#helpmodal"></a></li>
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
 
-                    <li><a class="waves-effect waves-indigo" href="/">Home</a></li>
-                    <li><a class="waves-effect waves-indigo" href="/scoreboard">Scoreboard</a></li>
-                    <li><a class="waves-effect waves-indigo" href="/problems">Problems</a></li>
-                    <li><a class="waves-effect waves-indigo" href="/about">About</a></li>
+                    <li><a class="waves-effect waves-indigo" href="./">Home</a></li>
+                    <li><a class="waves-effect waves-indigo" href="./scoreboard">Scoreboard</a></li>
+                    <li><a class="waves-effect waves-indigo" href="./problems">Problems</a></li>
+                    <li><a class="waves-effect waves-indigo" href="./about">About</a></li>
 
                     <!-- <li><a class="waves-effect waves-indigo modal-trigger" href="#helpmodal"><i class="mdi-action-info-outline"></i></a></li> -->
                 </ul>
-                <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
             </div>
         </nav>
 
@@ -45,13 +43,7 @@
         <div class="container">
             <h2 class="center teal-text">Problems</h2>
             <br>
-            <div id="chal-view">
-                <div class="valign-wrapper" style="display: none;">
-                    <div class="progress">
-                        <div class="indeterminate"></div>
-                    </div>
-                </div>
-
+            <div>
                 <!-- BEGINNING OF CRYPTO -->
                 <div class="col-xs-12"> <h5> Cryptography </h5><br></div>
                 <ul class="collapsible z-depth-2" data-collapsible="accordion">
@@ -105,18 +97,13 @@
                         </div>
                     </li>
                 </ul>
+                <br>
+                <hr>
             </div>
-            <br>
-            <hr>
             <!-- END OF CRYPTO -->
 
             <!-- BEGINNING OF PROGRAMMING -->
-            <div id="chal-view">
-                <div class="valign-wrapper" style="display: none;">
-                    <div class="progress">
-                        <div class="indeterminate"></div>
-                    </div>
-                </div>
+            <div>
                 <div class="col-xs-12"> <h5> Programming </h5><br></div>
                 <ul class="collapsible z-depth-2" data-collapsible="accordion">
                     <li>
@@ -144,18 +131,13 @@
                         </div>
                     </li>
                 </ul>
+                <br>
+                <hr>
             </div>
-            <br>
-            <hr>
             <!-- END OF PROGRAMMING -->
 
             <!-- BEGINNING OF MISC -->
-            <div id="chal-view">
-                <div class="valign-wrapper" style="display: none;">
-                    <div class="progress">
-                        <div class="indeterminate"></div>
-                    </div>
-                </div>
+            <div>
                 <div class="col-xs-12"> <h5> Miscellaneous </h5><br></div>
                 <ul class="collapsible z-depth-2" data-collapsible="accordion">
                     <li>
@@ -183,9 +165,9 @@
                         </div>
                     </li>
                 </ul>
+                <br>
+                <hr>
             </div>
-            <br>
-            <hr>
             <!-- END OF MISC -->
         </div>
         </div>

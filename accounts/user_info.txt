@@ -1,0 +1,3 @@
+super_secret_team_ayyyy,super_secure_password1337
+
+foo,3718585500762672f4d123d20e1f5511c4a6524c

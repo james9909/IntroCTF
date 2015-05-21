@@ -61,7 +61,7 @@
                     <a href="6" class="collection-item">Crypto 6</a>
                 </div>
 
-                <form method="post" class="col s12" action="./graders/validate.py">
+                <form method="post" class="col s12" action="./validate.py">
                     <div class="row">
                         <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
                             <input id="icon_prefix" name="flag" type="text" class="validate">

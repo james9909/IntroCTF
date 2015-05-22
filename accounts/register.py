@@ -21,7 +21,7 @@ print """
 
         <nav role="navigation" style="background-color: #009688">
             <div class="nav-wrapper container">
-                <a href="#" class="brand-logo">IntroCTF</a>
+                <a href="." class="brand-logo">IntroCTF</a>
                 <ul id="navbar" class="right hide-on-med-and-down">
 
                     <li><a href="../">Home</a></li>

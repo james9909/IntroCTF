@@ -21,7 +21,7 @@ print """
 
         <nav role="navigation" style="background-color: #009688">
             <div class="nav-wrapper container">
-                <a href="#" class="brand-logo">IntroCTF</a>
+                <a href=".." class="brand-logo">IntroCTF</a>
                 <ul class="right hide-on-med-and-down">
 
                     <li><a href="../">Home</a></li>
@@ -30,6 +30,7 @@ print """
                     <li><a href="../about">About</a></li>
                     <li><a href="../login.html">Login</a></li>
                     <li><a href="../register.html">Register</a></li>
+                    <li><a href="log_out.py">Log Out</a></li>
 
                     <!-- <li><a class="mdi-action-info-outline modal-trigger" href="#helpmodal"></a></li> -->
                 </ul>
@@ -41,6 +42,7 @@ print """
                     <li><a class="waves-effect waves-indigo" href="../about">About</a></li>
                     <li><a class="waves-effect waves-indigo" href="../login.html">Login</a></li>
                     <li><a class="waves-effect waves-indigo" href="../register.html">Register</a></li>
+                    <li><a class="waves-effect waves-indigo" href="log_out.py">Log Out</a></li>
 
                     <!-- <li><a class="waves-effect waves-indigo modal-trigger" href="#helpmodal"><i class="mdi-action-info-outline"></i></a></li> -->
                 </ul>

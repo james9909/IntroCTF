@@ -21,7 +21,7 @@ print """
 
         <nav role="navigation" style="background-color: #009688">
             <div class="nav-wrapper container">
-                <a href="#" class="brand-logo">IntroCTF</a>
+                <a href=".." class="brand-logo">IntroCTF</a>
                 <ul class="right hide-on-med-and-down">
 
                     <li><a href="../">Home</a></li>
@@ -50,21 +50,24 @@ print """
 """
 
 import os
-login_list = open("login_list.txt", "r+w")
+# login_list = open("login_list.txt", "r+a")
 
-team = os.environ['HTTP_COOKIE']
-team = team[6:]
-print team
+if "HTTP_COOKIE" not in os.environ:
+    print "You aren't logged in!<br>"
+    print "Log in <a href=../login.html>here</a>"
+else:
+    team = os.environ['HTTP_COOKIE']
+    team = team[5:]
 
-add_info = "\n%s,yes" %(team)
-login_list.write(add_info)
-# Use cookies
-print """<script>
-document.cookie = 'team=%s; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-</script>
-""" % (team)
+    add_info = "\n%s,no" %(team)
+    login_list.write(add_info)
+    # Use cookies
+    print """<script>
+    document.cookie = 'team=%s; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    </script>
+    """ % (team)
 
-print "Logged out"
+    print "Logged out"
 
 print "</body>"
 print "</html>"

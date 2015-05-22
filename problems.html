@@ -17,32 +17,44 @@
         <script type="text/javascript" src="js/materialize.min.js"></script>
 
         <nav role="navigation" style="background-color: #009688">
-            <div class="nav-wrapper container">
-                <a href="#" class="brand-logo">IntroCTF</a>
-                <ul class="right hide-on-med-and-down">
+        <div class="nav-wrapper container">
+            <a href="#" class="brand-logo">IntroCTF</a>
+            <ul id="navbar" class="right hide-on-med-and-down">
 
-                    <li><a href=".">Home</a></li>
-                    <li><a href="scoreboard">Scoreboard</a></li>
-                    <li><a href="problems">Problems</a></li>
-                    <li><a href="about">About</a></li>
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="register.html">Register</a></li>
-                    <li><a href="accounts/log_out.py">Log Out</a></li>
+                <li><a href=".">Home</a></li>
+                <li><a href="scoreboard">Scoreboard</a></li>
+                <li><a href="problems">Problems</a></li>
+                <li><a href="about">About</a></li>
+                <!-- If we are logged in, only show log out -->
+                <script>
+                    if (document.cookie == null) {
+                        document.getElementById("navbar").innerHTML = "<li><a href='login.html'>Login</a></li>"
+                        document.getElementById("navbar").innerHTML = "<li><a href='register.html'>Register</a></li>"
+                    } else {
+                        document.getElementById("navbar").innerHTML = "<li><a href='accounts/log_out.py'>Log Out</a></li>"
+                    }
+                </script>
 
-                </ul>
-                <ul id="nav-mobile" class="side-nav">
+            </ul>
+            <ul id="nav-mobile" class="side-nav">
 
-                    <li><a class="waves-effect waves-indigo" href=".">Home</a></li>
-                    <li><a class="waves-effect waves-indigo" href="scoreboard">Scoreboard</a></li>
-                    <li><a class="waves-effect waves-indigo" href="problems">Problems</a></li>
-                    <li><a class="waves-effect waves-indigo" href="about">About</a></li>
-                    <li><a class="waves-effect waves-indigo" href="login.html">Login</a></li>
-                    <li><a class="waves-effect waves-indigo" href="register.html">Register</a></li>
-                    <li><a class="waves-effect waves-indigo" href="accounts/log_out.py">Log Out</a></li>
+                <li><a class="waves-effect waves-indigo" href=".">Home</a></li>
+                <li><a class="waves-effect waves-indigo" href="scoreboard">Scoreboard</a></li>
+                <li><a class="waves-effect waves-indigo" href="problems">Problems</a></li>
+                <li><a class="waves-effect waves-indigo" href="about">About</a></li>
+                <!-- If we are logged in, only show log out -->
+                <script>
+                    if (document.cookie == null) {
+                        document.getElementById("nav-mobile").innerHTML = "<li><a class='waves-effect waves-indigo' href='login.html'>Login</a></li>"
+                        document.getElementById("nav-mobile").innerHTML = "<li><a class='waves-effect waves-indigo' href='register.html'>Register</a></li>"
+                    } else {
+                        document.getElementById("nav-mobile").innerHTML = "<li><a class='waves-effect waves-indigo' href='accounts/log_out.py'>Log Out</a></li>"
+                    }
+                </script>
 
-                    <!-- <li><a class="waves-effect waves-indigo modal-trigger" href="#helpmodal"><i class="mdi-action-info-outline"></i></a></li> -->
-                </ul>
-            </div>
+                <!-- <li><a class="waves-effect waves-indigo modal-trigger" href="#helpmodal"><i class="mdi-action-info-outline"></i></a></li> -->
+            </ul>
+        </div>
         </nav>
 
         <main>
@@ -54,53 +66,53 @@
                 <div class="col-xs-12"> <h5> Cryptography </h5><br></div>
                 <ul class="collapsible z-depth-2" data-collapsible="accordion">
                     <li>
-                        <div class="collapsible-header"><i class="mdi-communication-vpn-key"></i>Crypto 1</div>
-                        <div class="collapsible-body" style="">
-                            <center> description </center>
-                            <!-- Form -->
-                            <form method="post" class="col s12" action="scripts/validate.py">
-                                <div class="row">
-                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                        <input id="icon_prefix" name="flag" type="text" class="validate">
-                                        <label for="icon_prefix">Flag</label>
-                                    </div>
+                    <div class="collapsible-header"><i class="mdi-communication-vpn-key"></i>Crypto 1</div>
+                    <div class="collapsible-body" style="">
+                        <center> description </center>
+                        <!-- Form -->
+                        <form method="post" class="col s12" action="scripts/validate.py">
+                            <div class="row">
+                                <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                    <input id="icon_prefix" name="flag" type="text" class="validate">
+                                    <label for="icon_prefix">Flag</label>
                                 </div>
-                                <input type="hidden" name="id" value="0">
-                                <div class="row center">
-                                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('Hint', 4000)">Hint</a>
+                            </div>
+                            <input type="hidden" name="id" value="0">
+                            <div class="row center">
+                                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                                    <i class="mdi-content-send right"></i>
+                                </button>
+                                <a class="btn waves-effect waves-light" onclick="Materialize.toast('Hint', 4000)">Hint</a>
 
-                                </div>
-                                <input type="hidden">
-                            </form>
-                        </div>
+                            </div>
+                            <input type="hidden">
+                        </form>
+                    </div>
                     </li>
 
                     <li>
-                        <div class="collapsible-header"><i class="mdi-communication-vpn-key"></i>Crypto 2</div>
-                        <div class="collapsible-body" style="">
-                            <center> description </center>
-                            <!-- Form -->
-                            <form method="post" class="col s12" action="scripts/validate.py">
-                                <div class="row">
-                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                        <input id="icon_prefix" name="flag" type="text" class="validate">
-                                        <label for="icon_prefix">Flag</label>
-                                    </div>
+                    <div class="collapsible-header"><i class="mdi-communication-vpn-key"></i>Crypto 2</div>
+                    <div class="collapsible-body" style="">
+                        <center> description </center>
+                        <!-- Form -->
+                        <form method="post" class="col s12" action="scripts/validate.py">
+                            <div class="row">
+                                <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                    <input id="icon_prefix" name="flag" type="text" class="validate">
+                                    <label for="icon_prefix">Flag</label>
                                 </div>
-                                <input type="hidden" name="id" value="0">
-                                <div class="row center">
-                                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('Hint', 4000)">Hint</a>
+                            </div>
+                            <input type="hidden" name="id" value="0">
+                            <div class="row center">
+                                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                                    <i class="mdi-content-send right"></i>
+                                </button>
+                                <a class="btn waves-effect waves-light" onclick="Materialize.toast('Hint', 4000)">Hint</a>
 
-                                </div>
-                                <input type="hidden">
-                            </form>
-                        </div>
+                            </div>
+                            <input type="hidden">
+                        </form>
+                    </div>
                     </li>
                 </ul>
                 <br>
@@ -113,28 +125,28 @@
                 <div class="col-xs-12"> <h5> Programming </h5><br></div>
                 <ul class="collapsible z-depth-2" data-collapsible="accordion">
                     <li>
-                        <div class="collapsible-header"><i class="mdi-hardware-computer"></i>Pixels</div>
-                        <div class="collapsible-body" style="">
-                            <center> description </center>
-                            <!-- Form -->
-                            <form method="post" class="col s12" action="scripts/validate.py">
-                                <div class="row">
-                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                        <input id="icon_prefix" name="flag" type="text" class="validate">
-                                        <label for="icon_prefix">Flag</label>
-                                    </div>
+                    <div class="collapsible-header"><i class="mdi-hardware-computer"></i>Pixels</div>
+                    <div class="collapsible-body" style="">
+                        <center> description </center>
+                        <!-- Form -->
+                        <form method="post" class="col s12" action="scripts/validate.py">
+                            <div class="row">
+                                <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                    <input id="icon_prefix" name="flag" type="text" class="validate">
+                                    <label for="icon_prefix">Flag</label>
                                 </div>
-                                <input type="hidden" name="id" value="0">
-                                <div class="row center">
-                                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('Hint', 4000)">Hint</a>
+                            </div>
+                            <input type="hidden" name="id" value="0">
+                            <div class="row center">
+                                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                                    <i class="mdi-content-send right"></i>
+                                </button>
+                                <a class="btn waves-effect waves-light" onclick="Materialize.toast('Hint', 4000)">Hint</a>
 
-                                </div>
-                                <input type="hidden">
-                            </form>
-                        </div>
+                            </div>
+                            <input type="hidden">
+                        </form>
+                    </div>
                     </li>
                 </ul>
                 <br>
@@ -147,28 +159,28 @@
                 <div class="col-xs-12"> <h5> Miscellaneous </h5><br></div>
                 <ul class="collapsible z-depth-2" data-collapsible="accordion">
                     <li>
-                        <div class="collapsible-header"><i class="mdi-image-edit"></i>Linux 1</div>
-                        <div class="collapsible-body" style="">
-                            <center> description </center>
-                            <!-- Form -->
-                            <form method="post" class="col s12" action="scripts/validate.py">
-                                <div class="row">
-                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                        <input id="icon_prefix" name="flag" type="text" class="validate">
-                                        <label for="icon_prefix">Flag</label>
-                                    </div>
+                    <div class="collapsible-header"><i class="mdi-image-edit"></i>Linux 1</div>
+                    <div class="collapsible-body" style="">
+                        <center> description </center>
+                        <!-- Form -->
+                        <form method="post" class="col s12" action="scripts/validate.py">
+                            <div class="row">
+                                <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                    <input id="icon_prefix" name="flag" type="text" class="validate">
+                                    <label for="icon_prefix">Flag</label>
                                 </div>
-                                <input type="hidden" name="id" value="0">
-                                <div class="row center">
-                                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('Hint', 4000)">Hint</a>
+                            </div>
+                            <input type="hidden" name="id" value="0">
+                            <div class="row center">
+                                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                                    <i class="mdi-content-send right"></i>
+                                </button>
+                                <a class="btn waves-effect waves-light" onclick="Materialize.toast('Hint', 4000)">Hint</a>
 
-                                </div>
-                                <input type="hidden">
-                            </form>
-                        </div>
+                            </div>
+                            <input type="hidden">
+                        </form>
+                    </div>
                     </li>
                 </ul>
                 <br>
@@ -176,7 +188,7 @@
             </div>
             <!-- END OF MISC -->
         </div>
-        </div>
-        </main>
-    </body>
-    <html>
+    </div>
+    </main>
+</body>
+<html>

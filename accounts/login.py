@@ -25,9 +25,9 @@ print """
                 <ul id="navbar" class="right hide-on-med-and-down">
 
                     <li><a href="../">Home</a></li>
-                    <li><a href="../scoreboard">Scoreboard</a></li>
-                    <li><a href="../problems">Problems</a></li>
-                    <li><a href="../about">About</a></li>
+                    <li><a href="../scoreboard.html">Scoreboard</a></li>
+                    <li><a href="../problems.html">Problems</a></li>
+                    <li><a href="../about.html">About</a></li>
                     <li><a href="../login.html">Login</a></li>
                     <li><a href="../register.html">Register</a></li>
 
@@ -36,9 +36,9 @@ print """
                 <ul id="nav-mobile" class="side-nav">
 
                     <li><a class="waves-effect waves-indigo" href="../">Home</a></li>
-                    <li><a class="waves-effect waves-indigo" href="../scoreboard">Scoreboard</a></li>
-                    <li><a class="waves-effect waves-indigo" href="../problems">Problems</a></li>
-                    <li><a class="waves-effect waves-indigo" href="../about">About</a></li>
+                    <li><a class="waves-effect waves-indigo" href="../scoreboard.html">Scoreboard</a></li>
+                    <li><a class="waves-effect waves-indigo" href="../problems.html">Problems</a></li>
+                    <li><a class="waves-effect waves-indigo" href="../about.html">About</a></li>
                     <li><a class="waves-effect waves-indigo" href="../login.html">Login</a></li>
                     <li><a class="waves-effect waves-indigo" href="../register.html">Register</a></li>
 

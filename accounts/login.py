@@ -16,8 +16,8 @@ print """
 
     <body>
         <!--Import jQuery before materialize.js-->
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script type="../text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="../text/javascript" src="../js/materialize.min.js"></script>
 
         <nav role="navigation" style="background-color: #009688">
             <div class="nav-wrapper container">
@@ -67,35 +67,50 @@ if status != 1:
     team = inputs["team"].value
     password = inputs["pass"].value
 
+    # Team info
     user_info = open("user_info.txt", "r+w")
     read_info = user_info.read()
     user_list1 = read_info.split("\n")
     user_list2 = []
     user_dict = {}
 
+    # Recent log ins
+    login_list = open("login_list.txt", "r+w")
+    log = login_list.read()
+    log = log[::-1] # Read in reverse so we can find most recent login
+    logList = log.split("\n")
+    logList2 = []
+
+    while "" in logList:
+        logList.remove("")
+
+    # Reverse elements to account for above
+    for element in logList:
+        logList2.append(element[::-1])
+
+    logged_in = ""
+
     # Separate team names and password
     for info in user_list1:
         user_list2.append(info.split(","))
 
-    # Remove empty strings that will throw errors later on
+    # Remove empty lists that will throw errors later on
     while [""] in user_list2:
         user_list2.remove([""])
 
     # Link team names and password
     for info in user_list2:
         user_dict[info[0]] = info[1]
-        user_dict['logged'] = info[2] # Prevent people from doing bad things
 
     hashed.update(password)
-    password.hexdigest()
+    password = hashed.hexdigest()
 
     if password != user_dict[team]:
         status = 1
 
 if status == 0:
-    add_info = "\n%s,%s,yes" %(team, password)
-    user_info.write(add_info)
-    print "Set-Cookie: team=%s" %(team)
+    add_info = "\n%s,yes" %(team)
+    login_list.write(add_info)
     print "<meta http-equiv='refresh'>"
 
 elif status == 1:

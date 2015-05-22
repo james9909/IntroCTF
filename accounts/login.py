@@ -28,8 +28,8 @@ print """
                     <li><a href="../scoreboard">Scoreboard</a></li>
                     <li><a href="../problems">Problems</a></li>
                     <li><a href="../about">About</a></li>
-                    <li><a href="./login.html">Login</a></li>
-                    <li><a href="./register.html">Register</a></li>
+                    <li><a href="../login.html">Login</a></li>
+                    <li><a href="../register.html">Register</a></li>
 
                     <!-- <li><a class="mdi-action-info-outline modal-trigger" href="#helpmodal"></a></li> -->
                 </ul>
@@ -39,8 +39,8 @@ print """
                     <li><a class="waves-effect waves-indigo" href="../scoreboard">Scoreboard</a></li>
                     <li><a class="waves-effect waves-indigo" href="../problems">Problems</a></li>
                     <li><a class="waves-effect waves-indigo" href="../about">About</a></li>
-                    <li><a class="waves-effect waves-indigo" href="./login.html">Login</a></li>
-                    <li><a class="waves-effect waves-indigo" href="./register.html">Register</a></li>
+                    <li><a class="waves-effect waves-indigo" href="../login.html">Login</a></li>
+                    <li><a class="waves-effect waves-indigo" href="../register.html">Register</a></li>
 
                     <!-- <li><a class="waves-effect waves-indigo modal-trigger" href="#helpmodal"><i class="mdi-action-info-outline"></i></a></li> -->
                 </ul>
@@ -67,28 +67,14 @@ if status != 1:
     team = inputs["team"].value
     password = inputs["pass"].value
 
+    login_list = open("login_list.txt", "r+w")
+
     # Team info
     user_info = open("user_info.txt", "r+w")
     read_info = user_info.read()
     user_list1 = read_info.split("\n")
     user_list2 = []
     user_dict = {}
-
-    # Recent log ins
-    login_list = open("login_list.txt", "r+w")
-    log = login_list.read()
-    log = log[::-1] # Read in reverse so we can find most recent login
-    logList = log.split("\n")
-    logList2 = []
-
-    while "" in logList:
-        logList.remove("")
-
-    # Reverse elements to account for above
-    for element in logList:
-        logList2.append(element[::-1])
-
-    logged_in = ""
 
     # Separate team names and password
     for info in user_list1:
@@ -118,7 +104,7 @@ if status == 0:
     document.cookie = 'team=%s; expires=Thu, 2 Aug 9001 20:47:11 UTC; path=/';
     </script>
     """ % (team)
-    print "<meta http-equiv='refresh'>"
+    print "Logged in!"
 
 elif status == 1:
     print "Invalid credentials, please <a href='../login.html'>try again</a>"

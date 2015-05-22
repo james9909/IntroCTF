@@ -6,7 +6,7 @@ print """
 <html>
     <head>
         <!--Import materialize.css-->
-        <link type="../text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
@@ -28,8 +28,8 @@ print """
                     <li><a href="../scoreboard">Scoreboard</a></li>
                     <li><a href="../problems">Problems</a></li>
                     <li><a href="../about">About</a></li>
-                    <li><a href="./login.html">Login</a></li>
-                    <li><a href="./register.html">Register</a></li>
+                    <li><a href="../login.html">Login</a></li>
+                    <li><a href="../register.html">Register</a></li>
 
                     <!-- <li><a class="mdi-action-info-outline modal-trigger" href="#helpmodal"></a></li> -->
                 </ul>
@@ -39,8 +39,8 @@ print """
                     <li><a class="waves-effect waves-indigo" href="../scoreboard">Scoreboard</a></li>
                     <li><a class="waves-effect waves-indigo" href="../problems">Problems</a></li>
                     <li><a class="waves-effect waves-indigo" href="../about">About</a></li>
-                    <li><a class="waves-effect waves-indigo" href="./login.html">Login</a></li>
-                    <li><a class="waves-effect waves-indigo" href="./register.html">Register</a></li>
+                    <li><a class="waves-effect waves-indigo" href="../login.html">Login</a></li>
+                    <li><a class="waves-effect waves-indigo" href="../register.html">Register</a></li>
 
                     <!-- <li><a class="waves-effect waves-indigo modal-trigger" href="#helpmodal"><i class="mdi-action-info-outline"></i></a></li> -->
                 </ul>

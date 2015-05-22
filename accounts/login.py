@@ -102,15 +102,22 @@ if status != 1:
     for info in user_list2:
         user_dict[info[0]] = info[1]
 
+    # Hash the password for sekurity
     hashed.update(password)
     password = hashed.hexdigest()
 
+    # Passwords don't match
     if password != user_dict[team]:
         status = 1
 
 if status == 0:
     add_info = "\n%s,yes" %(team)
     login_list.write(add_info)
+    # Use cookies
+    print """<script>
+    document.cookie = 'team=%s; expires=Thu, 2 Aug 9001 20:47:11 UTC; path=/';
+    </script>
+    """ % (team)
     print "<meta http-equiv='refresh'>"
 
 elif status == 1:

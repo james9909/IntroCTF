@@ -68,6 +68,7 @@ if status != 1:
     password = inputs["pass"].value
 
     login_list = open("login_list.txt", "r+w")
+    read_login = login_list.read()
 
     # Team info
     user_info = open("user_info.txt", "r+w")
@@ -98,7 +99,7 @@ if status != 1:
 
 if status == 0:
     add_info = "\n%s,yes" %(team)
-    login_list.write(add_info)
+    login_list.write(read_login + add_info)
     # Use cookies
     print """<script>
     document.cookie = 'team=%s; expires=Thu, 2 Aug 9001 20:47:11 UTC; path=/';

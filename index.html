@@ -27,11 +27,12 @@
                 <li><a href="about">About</a></li>
                 <!-- If we are logged in, only show log out -->
                 <script>
-                    if (document.cookie == null) {
+                    if (document.cookie == null || document.cookie == "") {
                         document.getElementById("navbar").innerHTML += "<li><a href='login.html'>Login</a></li>"
                         document.getElementById("navbar").innerHTML += "<li><a href='register.html'>Register</a></li>"
                     } else {
                         document.getElementById("navbar").innerHTML += "<li><a href='accounts/log_out.py'>Log Out</a></li>"
+                        console.log(document.cookie)
                     }
                 </script>
 
@@ -45,7 +46,7 @@
                 <li><a class="waves-effect waves-indigo" href="about">About</a></li>
                 <!-- If we are logged in, only show log out -->
                 <script>
-                    if (document.cookie == null) {
+                    if (document.cookie == null || document.cookie == "") {
                         document.getElementById("nav-mobile").innerHTML += "<li><a class='waves-effect waves-indigo' href='login.html'>Login</a></li>"
                         document.getElementById("nav-mobile").innerHTML += "<li><a class='waves-effect waves-indigo' href='register.html'>Register</a></li>"
                     } else {

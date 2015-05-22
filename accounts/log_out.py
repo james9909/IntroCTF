@@ -50,7 +50,7 @@ print """
 """
 
 import os
-# login_list = open("login_list.txt", "r+a")
+login_list = open("login_list.txt", "r+w")
 
 if "HTTP_COOKIE" not in os.environ:
     print "You aren't logged in!<br>"

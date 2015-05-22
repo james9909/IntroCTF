@@ -61,11 +61,11 @@ else:
 
     add_info = "\n%s,no" %(team)
     login_list.write(add_info)
+
     # Use cookies
     print """<script>
-    document.cookie = 'team=%s; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-    </script>
-    """ % (team)
+    document.cookie = 'team=; expires=Thu, 01, Jan 1970 00:00:01 GMT; path=/;';
+    </script>"""
 
     print "Logged out"
 

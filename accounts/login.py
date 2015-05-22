@@ -121,7 +121,7 @@ if status == 0:
     print "<meta http-equiv='refresh'>"
 
 elif status == 1:
-    print "Invalid credentials, please <a href='login.html'>try again</a>"
+    print "Invalid credentials, please <a href='../login.html'>try again</a>"
 
 print "</body>"
 print "</html>"

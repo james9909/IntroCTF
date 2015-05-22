@@ -105,16 +105,16 @@ if status == 0:
     print "Thank you for registering! </br><a href='../index.html'>Return Home</a>"
 
 elif status == 1:
-    print "Team name is taken, <a href='register.html'>try again</a>"
+    print "Team name is taken, <a href='../register.html'>try again</a>"
 
 elif status == 2:
-    print "Passwords do not match, <a href='register.html'>try again</a>"
+    print "Passwords do not match, <a href='../register.html'>try again</a>"
 
 elif status == 3:
-    print "Please user alphanumeric characters, <a href='register.html'>try again</a>"
+    print "Please user alphanumeric characters, <a href='../register.html'>try again</a>"
 
 elif status == 4:
-    print "Something is missing ...<a href='register.html'>try again</a>"
+    print "Something is missing ...<a href='../register.html'>try again</a>"
 
 print "</body>"
 print "</html>"

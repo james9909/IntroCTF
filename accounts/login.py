@@ -52,8 +52,8 @@ if status != 1:
     # Hash the password for sekurity
     password = hashlib.sha1(password).hexdigest()
 
-    # Passwords don't match
-    if password != user_dict[team]:
+    # Team isn't even registered or passwords dont match
+    if team not in user_dict or password != user_dict[team]:
         status = 1
 
 if status == 0:

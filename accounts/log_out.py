@@ -2,8 +2,6 @@
 
 print "Content-Type: text/html\n"
 
-html = open('template.html', 'r').read()
-print html
 
 import os, hashlib
 
@@ -18,7 +16,6 @@ def logout(team):
 
     new_login = ""
     for login in login_list:
-        print hashlib.sha1(login + "salt").hexdigest()
         if hashlib.sha1(login + "salt").hexdigest() != team:
             new_login += "\n" + login
 
@@ -26,12 +23,16 @@ def logout(team):
     login.write(new_login)
 
 if "HTTP_COOKIE" not in os.environ:
+    html = open("template.html", "r").read()
+    print html
+
     print "You aren't logged in!<br>"
     print "Log in <a href=../login.html>here</a>"
 else:
+    html = open("redirect.html", "r").read()
+    print html
     team = os.environ['HTTP_COOKIE']
     team = team[5:]
-    print "\n" + team
 
     logout(team)
     # Use cookies

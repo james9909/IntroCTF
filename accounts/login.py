@@ -6,8 +6,6 @@ import cgi, hashlib, os, cgitb
 from time import strftime, localtime, time
 cgitb.enable()
 
-html = open('template.html', 'r').read()
-print html
 
 hashed = hashlib.sha1()
 status = 0
@@ -61,17 +59,21 @@ if status != 1:
 if status == 0:
     if login(team):
 
+        html = open("redirect.html", "r").read()
+        print html
         team = hashlib.sha1(team + "salt").hexdigest()
         # Use cookies
         print """<script>
         document.cookie = 'team=%s; expires=Thu, 2 Aug 9001 20:47:11 UTC; path=/';
         </script>
         """ % (team)
-        print "Logged in!"
     else:
+        html = open("template.html", "r").read()
+        print html
         print "Already logged in!"
 
 elif status == 1:
+    html = open("template.html", "r").read()
     print "Invalid credentials, please <a href='../login.html'>try again</a>"
 
 print "</body>"

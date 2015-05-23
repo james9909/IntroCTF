@@ -8,8 +8,6 @@ cgitb.enable()
 
 hashed = hashlib.sha1()
 
-def teamTaken(team):
-
 def login_status(inputs):
     status = 0
     if "team" not in inputs or "pass" not in inputs or "confirm_pass" not in inputs:
@@ -24,8 +22,8 @@ def login_status(inputs):
         newPassword = inputs["pass"].value
         confirmNewPass = inputs["confirm_pass"].value
 
-        user_info = open("user_info.txt", "r+w")
-        read_info = user_info.read()
+        users = open("users.txt", "r+w")
+        read_info = users.read()
         user_list1 = read_info.split("\n")
         user_list2 = []
         user_dict = {}
@@ -53,10 +51,14 @@ def main():
     inputs = cgi.FieldStorage()
     if login_status(inputs) == 0:
         # Hash password for higher security
+        newPassword = inputs["pass"].value
         hashed.update(newPassword)
         newPassword = hashed.hexdigest()
-        new_user = "\n%s,%s" %(newTeam, newPassword)
-        user_info.write(new_user)
+        newTeam = inputs["team"].value
+
+        new_user = "%s,%s" %(newTeam, newPassword)
+        users = open("users.txt", "w")
+        users.write(new_user)
         print "Thank you for registering! </br><a href='../index.html'>Return Home</a>"
 
     elif status == 1:

@@ -74,6 +74,7 @@ if status == 0:
 
 elif status == 1:
     html = open("template.html", "r").read()
+    print html
     print "Invalid credentials, please <a href='../login.html'>try again</a>"
 
 print "</body>"

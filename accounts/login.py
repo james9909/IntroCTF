@@ -14,15 +14,23 @@ status = 0
 
 inputs = cgi.FieldStorage()
 
+def login(team):
+    login = open("login_list.txt", "r+w")
+    login_data = login.read()
+    login_list = login_data.split("\n")
+
+    for logged_in in login_list:
+        if team in logged_in:
+            return False
+        login.write(login_data + team)
+    return True
+
 if "team" not in inputs or "pass" not in inputs:
     status = 1
 
 if status != 1:
     team = inputs["team"].value
     password = inputs["pass"].value
-
-    login_list = open("login_list.txt", "r+w")
-    read_login = login_list.read()
 
     # Team info
     user_info = open("users.txt", "r+w")
@@ -51,15 +59,17 @@ if status != 1:
         status = 1
 
 if status == 0:
-    add_info = "\n%s,yes" %(team)
-    login_list.write(read_login + add_info)
-    team = hashlib.sha1(team + "salt").hexdigest()
-    # Use cookies
-    print """<script>
-    document.cookie = 'team=%s; expires=Thu, 2 Aug 9001 20:47:11 UTC; path=/';
-    </script>
-    """ % (team)
-    print "Logged in!"
+    if login(team):
+
+        team = hashlib.sha1(team + "salt").hexdigest()
+        # Use cookies
+        print """<script>
+        document.cookie = 'team=%s; expires=Thu, 2 Aug 9001 20:47:11 UTC; path=/';
+        </script>
+        """ % (team)
+        print "Logged in!"
+    else:
+        print "Already logged in!"
 
 elif status == 1:
     print "Invalid credentials, please <a href='../login.html'>try again</a>"

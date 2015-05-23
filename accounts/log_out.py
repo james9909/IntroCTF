@@ -1,56 +1,29 @@
 #!/usr/bin/python
 
 print "Content-Type: text/html\n"
-print """
-<!DOCTYPE html>
-<html>
-    <head>
-        <!--Import materialize.css-->
-        <link type="../text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
 
-        <!--Let browser know website is optimized for mobile-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+html = open('template.html', 'r').read()
+print html
 
-        <title>IntroCTF - Login</title>
-    </head>
+import os, hashlib
 
-    <body>
-        <!--Import jQuery before materialize.js-->
-        <script type="../text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script type="../text/javascript" src="../js/materialize.min.js"></script>
+# Remove team from logged in teams
+def logout(team):
+    login = open("login_list.txt", "r")
+    login_data = login.read()
+    login_list = login_data.split("\n")
 
-        <nav role="navigation" style="background-color: #009688">
-            <div class="nav-wrapper container">
-                <a href=".." class="brand-logo">IntroCTF</a>
-                <ul class="right hide-on-med-and-down">
+    while "" in login_list:
+        login_list.remove("")
 
-                    <li><a href="../">Home</a></li>
-                    <li><a href="../scoreboard">Scoreboard</a></li>
-                    <li><a href="../problems">Problems</a></li>
-                    <li><a href="../about">About</a></li>
-                    <li><a href="../login.html">Login</a></li>
-                    <li><a href="../register.html">Register</a></li>
+    new_login = ""
+    for login in login_list:
+        print hashlib.sha1(login + "salt").hexdigest()
+        if hashlib.sha1(login + "salt").hexdigest() != team:
+            new_login += "\n" + login
 
-                    <!-- <li><a class="mdi-action-info-outline modal-trigger" href="#helpmodal"></a></li> -->
-                </ul>
-                <ul id="nav-mobile" class="side-nav">
-
-                    <li><a class="waves-effect waves-indigo" href="../">Home</a></li>
-                    <li><a class="waves-effect waves-indigo" href="../scoreboard">Scoreboard</a></li>
-                    <li><a class="waves-effect waves-indigo" href="../problems">Problems</a></li>
-                    <li><a class="waves-effect waves-indigo" href="../about">About</a></li>
-                    <li><a class="waves-effect waves-indigo" href="../login.html">Login</a></li>
-                    <li><a class="waves-effect waves-indigo" href="../register.html">Register</a></li>
-
-                    <!-- <li><a class="waves-effect waves-indigo modal-trigger" href="#helpmodal"><i class="mdi-action-info-outline"></i></a></li> -->
-                </ul>
-                <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
-            </div>
-        </nav>
-"""
-
-import os
-login_list = open("login_list.txt", "r+w")
+    login = open("login_list.txt", "w")
+    login.write(new_login)
 
 if "HTTP_COOKIE" not in os.environ:
     print "You aren't logged in!<br>"
@@ -58,10 +31,9 @@ if "HTTP_COOKIE" not in os.environ:
 else:
     team = os.environ['HTTP_COOKIE']
     team = team[5:]
+    print "\n" + team
 
-    add_info = "\n%s,no" %(team)
-    login_list.write(add_info)
-
+    logout(team)
     # Use cookies
     print """<script>
     document.cookie = 'team=; expires=Thu, 01, Jan 1970 00:00:01 GMT; path=/;';

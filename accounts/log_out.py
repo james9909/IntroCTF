@@ -23,13 +23,13 @@ def logout(team):
     login.write(new_login)
 
 if "HTTP_COOKIE" not in os.environ:
-    html = open("template.html", "r").read()
+    html = open("../templates/logged_out.html", "r").read()
     print html
 
     print "You aren't logged in!<br>"
     print "Log in <a href=../login.html>here</a>"
 else:
-    html = open("redirect.html", "r").read()
+    html = open("../templates/logged_in.html", "r").read()
     print html
     team = os.environ['HTTP_COOKIE']
     team = team[5:]

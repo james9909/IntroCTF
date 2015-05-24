@@ -73,7 +73,7 @@ def main():
     elif status == 4:
         print "Something is missing ...<a href='../register.html'>try again</a>"
 
-html = open('template.html', 'r').read()
+html = open('../templates/logged_out.html', 'r').read()
 print html
 main()
 

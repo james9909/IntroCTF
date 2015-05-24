@@ -59,7 +59,7 @@ if status != 1:
 if status == 0:
     if login(team):
 
-        html = open("redirect.html", "r").read()
+        html = open("../templates/logged_in.html", "r").read()
         print html
         team = hashlib.sha1(team + "salt").hexdigest()
         # Use cookies
@@ -68,12 +68,12 @@ if status == 0:
         </script>
         """ % (team)
     else:
-        html = open("template.html", "r").read()
+        html = open("../templates/logged_out.html", "r").read()
         print html
         print "Already logged in!"
 
 elif status == 1:
-    html = open("template.html", "r").read()
+    html = open("logged_out.html", "r").read()
     print html
     print "Invalid credentials, please <a href='../login.html'>try again</a>"
 

@@ -57,7 +57,6 @@ def addScore(uid, score):
     users.write(new_data)
 
 def handle_submit(inputs):
-    result = {}
     uid = inputs.getvalue("uid")
     pid = inputs.getvalue("pid")
     flag = inputs.getvalue("flag")
@@ -74,7 +73,6 @@ def handle_submit(inputs):
     confirm = hashlib.sha1(uid).hexdigest()
     if confirm != token:
         return "You are not who you say you are!"
-    return inputs
 
     response = grade(pid, flag)
 

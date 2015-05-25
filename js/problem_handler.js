@@ -1,15 +1,19 @@
 $(function() {
 
-    $('#post-form').on('submit', function(event){
+    $('#crypto1-form').on('submit', function(event){
         event.preventDefault();
-        submit_handle();
+        submit_handle("crypto1-form");
+    })
+    $('#crypto2-form').on('submit', function(event){
+        event.preventDefault();
+        submit_handle("crypto2-form");
     })
 
-    function submit_handle() {
+    function submit_handle(formid) {
         $.ajax({
             url: "scripts/problem_handler.py",
             type: "POST",
-            data: $("form[id=post-form]").serialize(),
+            data: $("form[id=" + formid + "]").serialize(),
             success: function(response) {
                 Materialize.toast(response, 4000);
             }

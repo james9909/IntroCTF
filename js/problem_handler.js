@@ -2,7 +2,6 @@ $(function() {
 
     $('#post-form').on('submit', function(event){
         event.preventDefault();
-        alert("d");
         submit_handle();
     })
 
@@ -10,7 +9,7 @@ $(function() {
         $.ajax({
             url: "scripts/problem_handler.py",
             type: "POST",
-            d%ata: $("form[id=post-form]").serialize(),
+            data: $("form[id=post-form]").serialize(),
             success: function(response) {
                 alert(response);
             }
@@ -18,3 +17,9 @@ $(function() {
 
     }
 });
+
+function getCookie(name) {
+    var value = "; " + document.cookie;
+    var parts = value.split("; " + name + "=");
+    if (parts.length == 2) return parts.pop().split(";").shift();
+}

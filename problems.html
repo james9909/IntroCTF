@@ -78,6 +78,12 @@
                                 </div>
                             </div>
                             <input type="hidden" name="pid" value="1">
+                            <input type="hidden" id="uid" name="uid" value="">
+                            <input type="hidden" id="token" name="token" value="">
+                            <script>
+                                document.getElementById("uid").value = getCookie("uid");
+                                document.getElementById("token").value = getCookie("token");
+                            </script>
                             <div class="row center">
                                 <button class="btn waves-effect waves-light" type="submit">Submit
                                     <i class="mdi-content-send right"></i>

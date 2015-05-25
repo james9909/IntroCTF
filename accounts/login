@@ -77,7 +77,7 @@ if status == 0:
 elif status == 1:
     html = open("../templates/logged_out.html", "r").read()
     print html
-    print "Invalid credentials, please <a href='../login.html'>try again</a>"
+    print "Invalid credentials, please <a href='../login'>try again</a>"
 
 print "</body>"
 print "</html>"

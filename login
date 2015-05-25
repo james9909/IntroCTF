@@ -21,22 +21,20 @@
                 <ul id="navbar" class="right hide-on-med-and-down">
 
                     <li><a href="./">Home</a></li>
-                    <li><a href="scoreboard.html">Scoreboard</a></li>
-                    <li><a href="problems.html">Problems</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="register.html">Register</a></li>
+                    <li><a href="scoreboard">Scoreboard</a></li>
+                    <li><a href="problems">Problems</a></li>
+                    <li><a href="login">Login</a></li>
+                    <li><a href="register">Register</a></li>
 
                     <!-- <li><a class="mdi-action-info-outline modal-trigger" href="#helpmodal"></a></li> -->
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
 
                     <li><a class="waves-effect waves-indigo" href="./">Home</a></li>
-                    <li><a class="waves-effect waves-indigo" href="scoreboard.html">Scoreboard</a></li>
-                    <li><a class="waves-effect waves-indigo" href="problems.html">Problems</a></li>
-                    <li><a class="waves-effect waves-indigo" href="about.html">About</a></li>
-                    <li><a class="waves-effect waves-indigo" href="login.html">Login</a></li>
-                    <li><a class="waves-effect waves-indigo" href="register.html">Register</a></li>
+                    <li><a class="waves-effect waves-indigo" href="scoreboard">Scoreboard</a></li>
+                    <li><a class="waves-effect waves-indigo" href="problems">Problems</a></li>
+                    <li><a class="waves-effect waves-indigo" href="login">Login</a></li>
+                    <li><a class="waves-effect waves-indigo" href="register">Register</a></li>
 
                     <!-- <li><a class="waves-effect waves-indigo modal-trigger" href="#helpmodal"><i class="mdi-action-info-outline"></i></a></li> -->
                 </ul>
@@ -46,7 +44,7 @@
 
         <h2 class="center teal-text">Login</h2>
 
-        <form class="col s12" action="accounts/login.py" method="post">
+        <form class="col s12" action="accounts/login" method="post">
             <div class="row">
                 <div class="input-field col s6 m10 l8 offset-m1 offset-l2">
                     <input autocomplete="off" placeholder="Team Name" name="team" type="text">

@@ -36,7 +36,7 @@ if "HTTP_COOKIE" not in os.environ:
     print html
 
     print "You aren't logged in!<br>"
-    print "Log in <a href=../login.html>here</a>"
+    print "Log in <a href=../login>here</a>"
 else:
     html = open("../templates/logged_in.html", "r").read()
     print html

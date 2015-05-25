@@ -58,6 +58,9 @@ def main():
 
         new_user = "%s,%s" %(newTeam, newPassword)
         users = open("users.txt", "w")
+        scores = open("scores.txt", "w")
+
+        scores.write(newTeam + ",0")
         users.write(new_user)
         print "Thank you for registering! </br><a href='../index.html'>Return Home</a>"
 

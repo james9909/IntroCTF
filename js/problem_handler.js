@@ -11,7 +11,7 @@ $(function() {
             type: "POST",
             data: $("form[id=post-form]").serialize(),
             success: function(response) {
-                alert(response);
+                Materialize.toast(response, 4000);
             }
         });
 

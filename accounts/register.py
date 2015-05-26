@@ -57,7 +57,7 @@ def main():
         newPassword = hashed.hexdigest()
         newTeam = inputs["team"].value
 
-        new_user = "%s,%s" %(newTeam, newPassword)
+        new_user = "%s,%s\n" %(newTeam, newPassword)
         users = open("users.txt", "a")
         scores = open("scores.txt", "a")
 

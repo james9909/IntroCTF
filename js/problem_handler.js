@@ -6,7 +6,7 @@ $(function() {
     })
     $('#caesar-form').on('submit', function(event){
         event.preventDefault();
-        submit_handle("crypto1-form");
+        submit_handle("caesar-form");
     })
     $('#crypto2-form').on('submit', function(event){
         event.preventDefault();

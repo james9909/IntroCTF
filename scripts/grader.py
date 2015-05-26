@@ -12,8 +12,8 @@ def grade(pid, flag):
         else:
             return incorrect("Come on, try again!")
     if pid == "0":
-        if flag == "c4354r":
-            return correct(100, "Correct!")
+        if flag == "caesar_is_easy":
+            return correct(40, "Correct!")
         else:
             return incorrect("Incorrect :(")
     if pid == "1":

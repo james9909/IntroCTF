@@ -1,0 +1,8 @@
+In order to view this guy's website, you need to meet several requirements:
+
+1. Use Internet Explorer
+2. Submit a POST request where name=foo and uwot=m8
+3. A cookie named auth with a value of 1
+4. You need to be localhost
+
+Meet all the requirements and get the flag!

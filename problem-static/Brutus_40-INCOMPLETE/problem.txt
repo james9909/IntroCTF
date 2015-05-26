@@ -1,0 +1,4 @@
+So my friend has this hotspoot, but he recently salted the password in order to keep out trolls!
+He didn't tell me what the password is, but I know that the phrase used to salt the original password
+(which was 'hotspoot') is a common english word. Additionally, he's given me the md5 hash of the new password, which is '5a42277ce25e430dc98f7bd4323e4e7f'.
+Find the new password!

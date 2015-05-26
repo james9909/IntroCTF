@@ -61,7 +61,7 @@ def main():
         users = open("users.txt", "a")
         scores = open("scores.txt", "a")
 
-        scores.write(newTeam + ",0")
+        scores.write(newTeam + ",0\n")
         users.write(new_user)
         print "Thank you for registering! </br><a href='../index.html'>Return Home</a>"
 

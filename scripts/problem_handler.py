@@ -14,11 +14,13 @@ def alreadySolved(uid, pid):
     users = open("../accounts/users.txt", "r")
     solved = users.readlines()
     for problems in solved:
+        problems = problems.strip()
         # Get only solved problems
         problems = problems.split(",")
-        problems = problems[2:]
-        if pid in problems:
-            return True
+        if problems[0] == uid:
+            problems = problems[2:]
+            if pid in problems:
+                return True
     return False
 
 def writeSolved(uid, pid):
@@ -27,14 +29,16 @@ def writeSolved(uid, pid):
     while "\n" in solved:
         solved.remove("\n")
 
+    new_data = ""
     for data in solved:
-        data.strip()
+        data = data.strip()
         data = data.split(",")
         if data[0] == uid:
             data.append(pid)
         data = ",".join(data)
-        users = open("../accounts/users.txt", "w")
-        users.write(data)
+        new_data += data + "\n"
+    users = open("../accounts/users.txt", "w")
+    users.write(new_data)
 
 def addScore(uid, score):
     scores = open("../accounts/scores.txt", "r")

@@ -8,6 +8,10 @@ $(function() {
         event.preventDefault();
         submit_handle("crypto2-form");
     })
+    $('#intro-form').on('submit', function(event){
+        event.preventDefault();
+        submit_handle("intro-form");
+    })
 
     function submit_handle(formid) {
         $.ajax({

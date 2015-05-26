@@ -49,7 +49,8 @@ def login_status(inputs):
 
 def main():
     inputs = cgi.FieldStorage()
-    if login_status(inputs) == 0:
+    status = login_status(inputs)
+    if status == 0:
         # Hash password for higher security
         newPassword = inputs["pass"].value
         hashed.update(newPassword)
@@ -57,8 +58,8 @@ def main():
         newTeam = inputs["team"].value
 
         new_user = "%s,%s" %(newTeam, newPassword)
-        users = open("users.txt", "w")
-        scores = open("scores.txt", "w")
+        users = open("users.txt", "a")
+        scores = open("scores.txt", "a")
 
         scores.write(newTeam + ",0")
         users.write(new_user)
@@ -71,7 +72,7 @@ def main():
         print "Passwords do not match, <a href='../register.html'>try again</a>"
 
     elif status == 3:
-        print "Please user alphanumeric characters, <a href='../register.html'>try again</a>"
+        print "Please use alphanumeric characters, <a href='../register.html'>try again</a>"
 
     elif status == 4:
         print "Something is missing ...<a href='../register.html'>try again</a>"

@@ -32,6 +32,8 @@ def main():
     # Data is stored team,score
     for info in data:
         info = info.strip().split(",")
+        if info[0] == "":
+            continue
         teams[info[0]] = info[1]
     gen_scoreboard(teams)
 

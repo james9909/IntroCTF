@@ -7,7 +7,7 @@ def incorrect(message):
 def grade(pid, flag):
     pid = str(pid)
     if pid == "9001":
-        if flag = "introductions_are_cool":
+        if flag == "introductions_are_cool":
             return correct(5, "Welcome to IntroCTF!")
         else:
             return incorrect("Come on, try again!")

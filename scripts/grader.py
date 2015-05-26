@@ -12,8 +12,8 @@ def grade(pid, flag):
         else:
             return incorrect("Come on, try again!")
     if pid == "0":
-        if flag == "flag":
-            return correct(100, "Congratulations on your first crypto problem!")
+        if flag == "c4354r":
+            return correct(100, "Correct!")
         else:
             return incorrect("Incorrect :(")
     if pid == "1":

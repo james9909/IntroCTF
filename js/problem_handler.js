@@ -1,16 +1,16 @@
 $(function() {
 
-    $('#crypto1-form').on('submit', function(event){
+    $('#intro-form').on('submit', function(event){
+        event.preventDefault();
+        submit_handle("intro-form");
+    })
+    $('#caesar-form').on('submit', function(event){
         event.preventDefault();
         submit_handle("crypto1-form");
     })
     $('#crypto2-form').on('submit', function(event){
         event.preventDefault();
         submit_handle("crypto2-form");
-    })
-    $('#intro-form').on('submit', function(event){
-        event.preventDefault();
-        submit_handle("intro-form");
     })
 
     function submit_handle(formid) {

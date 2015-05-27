@@ -2,7 +2,7 @@ So I want you to do a few things:
 
 1. Go through each pixel in this picture, and add its rgb values together into separate variables.
 Ex: r = all red values, g = all green values, b = all blue values.
-2. Find the md5 hash of each and append them all to one string such that string = r_hash + g_hash + b_hash
+2. Add all the values and find the md5 hash of that sum.
 3. Go through the picture in reverse and do the same thing.
-4. Append the two appended strings together into one final string, such that final = forward + reverse
+4. Append the two hashes together into one final string, such that final = forward + reverse
 5. Find the md5 hash of that final string.

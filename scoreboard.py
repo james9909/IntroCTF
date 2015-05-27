@@ -18,6 +18,9 @@ def gen_scoreboard(team_data):
         for x in range(length):
             if len(team_data) == 0:
                 return
+            for key in team_data:
+                team_data[key] = int(team_data[key])
+
             highest_score = max(team_data.values())
             for team in team_data:
                 if team_data[team] == highest_score:

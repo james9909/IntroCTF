@@ -18,8 +18,6 @@ def gen_scoreboard(team_data):
         for x in range(length):
             if len(team_data) == 0:
                 return
-            for key in team_data:
-                team_data[key] = int(team_data[key])
 
             highest_score = max(team_data.values())
             for team in team_data:
@@ -37,7 +35,7 @@ def main():
         info = info.strip().split(",")
         if info[0] == "":
             continue
-        teams[info[0]] = info[1]
+        teams[info[0]] = int(info[1])
     gen_scoreboard(teams)
 
 if 'HTTP_COOKIE' not in os.environ:

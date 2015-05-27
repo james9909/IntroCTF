@@ -65,18 +65,18 @@ def handle_submit(inputs):
     pid = inputs.getvalue("pid")
     flag = inputs.getvalue("flag")
     token = inputs.getvalue("token")
+    confirm = hashlib.sha1(uid).hexdigest()
 
     if uid == None or uid == "undefined":
         return "Log in to submit flags!"
+    if confirm != token:
+        return "You are not who you say you are!"
     if alreadySolved(uid, pid):
         return "You have already solved this problem!"
     if pid == None or pid == "undefined":
         return "Problem id not found"
     if flag == None or flag == "":
         return "Flag cannot be empty"
-    confirm = hashlib.sha1(uid).hexdigest()
-    if confirm != token:
-        return "You are not who you say you are!"
 
     response = grade(pid, flag)
 

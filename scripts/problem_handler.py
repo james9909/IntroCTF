@@ -61,6 +61,7 @@ def addScore(uid, score):
     users.write(new_data)
 
 def handle_submit(inputs):
+    return inputs
     uid = inputs.getvalue("uid")
     pid = inputs.getvalue("pid")
     flag = inputs.getvalue("flag")

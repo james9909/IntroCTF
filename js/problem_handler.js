@@ -8,10 +8,6 @@ $(function() {
         event.preventDefault();
         submit_handle("caesar-form");
     })
-    $('#crypto2-form').on('submit', function(event){
-        event.preventDefault();
-        submit_handle("crypto2-form");
-    })
 
     function submit_handle(formid) {
         $.ajax({

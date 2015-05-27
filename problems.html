@@ -131,8 +131,8 @@
                                 <input type="hidden" id="uid" name="uid" value="">
                                 <input type="hidden" id="token" name="token" value="">
                                 <script>
-                                    document.getElementById("uid").value = getCookie("uid");
-                                    document.getElementById("token").value = getCookie("token");
+                                    document.getElementsByName("uid")[1].value = getCookie("uid");
+                                    document.getElementsByName("token")[1].value = getCookie("token");
                                 </script>
                                 <div class="row center">
                                     <button class="btn waves-effect waves-light" type="submit">Submit

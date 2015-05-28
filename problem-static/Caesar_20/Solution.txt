@@ -1,0 +1,4 @@
+As the name of the problem suggests, the method used for encryption was the Caesar cipher. If we shift the
+ciphertext with a shift of 10, we get the original message:
+
+This is the Caesar cipher. Congratulations on solving it. The flag is caesar_is_easy

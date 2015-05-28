@@ -10,7 +10,7 @@ $(function() {
     })
     $('#base-form').on('submit', function(event){
         event.preventDefault();
-        submit_handle("caesar-form");
+        submit_handle("base-form");
     })
 
     function submit_handle(formid) {

@@ -1,3 +1,8 @@
+#!/usr/bin/env python
+
+del __builtins__.__dict__['__import__']
+del __builtins__.__dict__['reload']
+
 flag = "XXXXXXXXXXXXXXXXX"
 
 def main():

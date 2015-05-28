@@ -109,4 +109,3 @@ target/
 # all IntroCTF problems
 problems-static/*
 accounts/*.txt
-scripts/grader.py

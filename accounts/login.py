@@ -21,7 +21,7 @@ def login(team):
         if team in logged_in:
             return False
         login = open("login_list.txt", "w")
-        login.write(login_data + team + "\n")
+        login.write(login_data + "\n" + team)
     return True
 
 if "team" not in inputs or "pass" not in inputs:

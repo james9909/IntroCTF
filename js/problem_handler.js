@@ -12,6 +12,10 @@ $(function() {
         event.preventDefault();
         submit_handle("base-form");
     })
+    $('#brutus-form').on('submit', function(event){
+        event.preventDefault();
+        submit_handle("brutus-form");
+    })
 
     function submit_handle(formid) {
         $.ajax({

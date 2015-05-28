@@ -177,42 +177,42 @@
                         </div>
                     </li>
 
-                    <li>
-                        <div class="collapsible-header"><i class="mdi-action-lock-outline"></i>Brutus - 55</div>
-                        <div class="collapsible-body">
-                            <p class="card-content">
-                            So my friend has this hotspoot, but he recently salted the password in order to keep out trolls!
-                            He didn't tell me what the password is, but I know that the phrase that was appended to the original password,
-                            which was <code>hotspoot</code>, is a common English word (lowercase). <br>
-                            Additionally, he's given me the md5 hash of the new password, which is <code>5a42277ce25e430dc98f7bd4323e4e7f</code>.
-                            Find the new password!
-                            </p>
-                            <!-- Form -->
-                            <form method="post" class="col s12" id="brutus-form">
-                                <div class="row">
-                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
-                                        <label for="icon_prefix">Flag</label>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="pid" value="2">
-                                <input type="hidden" id="uid" name="uid" value="">
-                                <input type="hidden" id="token" name="token" value="">
-                                <script>
-                                    document.getElementsByName("uid")[3].value = getCookie("uid");
-                                    document.getElementsByName("token")[3].value = getCookie("token");
-                                </script>
-                                <div class="row center">
-                                    <button class="btn waves-effect waves-light" type="submit">Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                    <a class="waves-effect waves-light btn" onclick="Materialize.toast('<span>If you are using python, there is a nice module called hashlib. Also, you can read up on salts</span><a class=&quot;btn-flat blue-text&quot; href=&quot;https://en.wikipedia.org/wiki/Salt_%28cryptography%29&quot;>here<a>', 5000)">Hint</a>
+                    <!-- <li> -->
+                    <!--     <div class="collapsible-header"><i class="mdi-action-lock-outline"></i>Brutus - 55</div> -->
+                    <!--     <div class="collapsible-body"> -->
+                    <!--         <p class="card-content"> -->
+                    <!--         So my friend has this hotspoot, but he recently salted the password in order to keep out trolls! -->
+                    <!--         He didn't tell me what the password is, but I know that the phrase that was appended to the original password, -->
+                    <!--         which was <code>hotspoot</code>, is a common English word (lowercase). <br> -->
+                    <!--         Additionally, he's given me the md5 hash of the new password, which is <code>5a42277ce25e430dc98f7bd4323e4e7f</code>. -->
+                    <!--         Find the new password! -->
+                    <!--         </p> -->
+                    <!--         <1!-- Form --1> -->
+                    <!--         <form method="post" class="col s12" id="brutus-form"> -->
+                    <!--             <div class="row"> -->
+                    <!--                 <div class="input-field col s12 m10 l8 offset-m1 offset-l2"> -->
+                    <!--                     <input autocomplete="off" id="icon_prefix" name="flag" type="text"> -->
+                    <!--                     <label for="icon_prefix">Flag</label> -->
+                    <!--                 </div> -->
+                    <!--             </div> -->
+                    <!--             <input type="hidden" name="pid" value="2"> -->
+                    <!--             <input type="hidden" id="uid" name="uid" value=""> -->
+                    <!--             <input type="hidden" id="token" name="token" value=""> -->
+                    <!--             <script> -->
+                    <!--                 document.getElementsByName("uid")[3].value = getCookie("uid"); -->
+                    <!--                 document.getElementsByName("token")[3].value = getCookie("token"); -->
+                    <!--             </script> -->
+                    <!--             <div class="row center"> -->
+                    <!--                 <button class="btn waves-effect waves-light" type="submit">Submit -->
+                    <!--                     <i class="mdi-content-send right"></i> -->
+                    <!--                 </button> -->
+                    <!--                 <a class="waves-effect waves-light btn" onclick="Materialize.toast('<span>If you are using python, there is a nice module called hashlib. Also, you can read up on salts</span><a class=&quot;btn-flat blue-text&quot; href=&quot;https://en.wikipedia.org/wiki/Salt_%28cryptography%29&quot;>here<a>', 5000)">Hint</a> -->
 
-                                </div>
-                                <input type="hidden">
-                            </form>
-                        </div>
-                    </li>
+                    <!--             </div> -->
+                    <!--             <input type="hidden"> -->
+                    <!--         </form> -->
+                    <!--     </div> -->
+                    <!-- </li> -->
 
                 </ul>
                 <br>

@@ -8,6 +8,10 @@ $(function() {
         event.preventDefault();
         submit_handle("caesar-form");
     })
+    $('#base-form').on('submit', function(event){
+        event.preventDefault();
+        submit_handle("caesar-form");
+    })
 
     function submit_handle(formid) {
         $.ajax({

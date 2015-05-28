@@ -1,0 +1,4 @@
+If we look at the hex code of the picture, we can see that at the end, there is the flag.
+We can do so by using the strings command, hexdump, hd, or a hex editor such as bless.
+
+the flag is stegggoooooo

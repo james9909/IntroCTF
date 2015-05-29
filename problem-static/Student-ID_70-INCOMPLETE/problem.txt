@@ -1,0 +1,4 @@
+There are so many kids in the future, we've been forced to use larger numbers
+for student id's. However, the administration has decided that only the smart people
+get to have id's, and the id is given to them in the form of a puzzle. <a href="problem-static/Student-ID/check_id.py">Here</a>
+is the program I've been given. Find my id for me!

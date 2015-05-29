@@ -14,18 +14,18 @@ if ($user == "admin" && $pass == "abc123") {
     if ($auth == 1) {
         echo "Congratulations! The flag is $flag";
     } else {
-        echo "Logged in!"
+        echo "Logged in!";
     }
 } else {
-    echo "Bad login!"
+    echo "Bad login!";
 }
 ?>
 
 <form action="" method="post">
     PIN:<br>
-    <input type="text" name="user" value="">
-    <input type="password" name="PIN" value="">
-    <input type="hidden" name="auth" value=0>
+    <input type="text" name="user" value="" placeholder="Username"> <br>
+    <input type="password" name="pass" value="" placeholder="Password"> <br>
+    <input type="hidden" name="auth" value=0> <br>
     <button type="submit">Enter</button>
 </form>
 </body>

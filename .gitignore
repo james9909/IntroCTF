@@ -106,6 +106,5 @@ docs/_build/
 target/
 
 # ==============================================================================
-# all IntroCTF problems
-problems-static/*
+# IntroCTF precious login files
 accounts/*.txt

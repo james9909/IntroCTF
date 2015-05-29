@@ -1,0 +1,5 @@
+This was encrypted with a substitution cipher.
+Two ways to solve it:
+
+1. Be lazy and use quippiuq
+2. Manually infer decoded letters

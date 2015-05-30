@@ -3,6 +3,6 @@ In order to view this guy's website, you need to meet several requirements:
 1. Use Playstation 3 browser (version 3.55 to be exact)
 2. Submit a POST request where user = admin
 3. A cookie named auth with a value of 1
-4. You must have been referred to the website from Stuyvesant's computer science website
+4. You must have been referred to the website from the stuycs website
 
 Meet all the requirements and get the flag!

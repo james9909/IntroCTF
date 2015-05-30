@@ -1,0 +1,2 @@
+The Cookie Monster has hoarded all of his cookies into one big container on his website.
+Your job is to find the flag in this jumbled mess!

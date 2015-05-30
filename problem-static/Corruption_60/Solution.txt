@@ -1,0 +1,6 @@
+If we look at the header bytes of the docx file, we can see that there is a problem.
+A valid docx file has the bytes 50 4B 03 04 at the beginning, and ours has
+50 4B 13 37. We can fix the file by using a hex editor and repairing the headers so that 13 37 is replaced with
+03 04 (We used bless). If we open the newly repaired file, we can see the flag
+
+corrupt_headers

@@ -1,0 +1,3 @@
+If we view the source code of the website, we can see the flag.
+
+you_pass_inspection

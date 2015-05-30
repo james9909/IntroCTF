@@ -1,4 +1,4 @@
-flag = "XXXXXXXXXXXXXXXX"
+flag = "shoulda_been_my_final_project"
 
 ROCK = 1
 PAPER = 2

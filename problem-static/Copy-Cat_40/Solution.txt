@@ -1,0 +1,8 @@
+A few runs with the program suggests that the AI will always choose rock on the first throw.
+After that, the AI copies the last move you played. Knowing this, we just need to
+continuously throw moves that will beat our last move, until we get the flag.
+For clarity, the first few rounds will go like this:
+
+    paper-scissors-rock-paper-scissors-rock-paper
+
+shoulda_been_my_final_project

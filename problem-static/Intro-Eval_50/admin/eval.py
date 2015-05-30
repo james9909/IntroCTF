@@ -17,9 +17,9 @@ class UnbufferedStream(object):
         return getattr(self.stream, attr)
 
 sys.stdout = UnbufferedStream(sys.stdout)
-def main():
+def main():    
+    print "Welcome to the flag database! We are currently under construction. Please do not hack the flags."
     while True:
-        print "Welcome to the flag database! We are currently under construction. Please do not hack the flags."
         try:
             command = str(raw_input("What would you like to do? "))
             result = str(eval(command))

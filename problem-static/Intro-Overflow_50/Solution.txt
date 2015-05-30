@@ -1,0 +1,12 @@
+This program is very vulnerable to a buffer overflow attack, so let's overflow it!
+We want to fill up the buffer with random garbage, and we know the length of the
+buffer is 64. The program later compares the value of grade to 100.
+We know that the buffer stores characters, and the overflow will write a char to
+grade. Thus, we need to find the character with a ASCII value of 100, which is 'd'.
+Append this to the end of the 64 character string and we get the flag.
+
+Final payload: (we can do this with python and a pipe, but we can also do it manually)
+
+    python -c "print 'A'*64 + 'd'" | ./overflow
+
+0v3rf10w

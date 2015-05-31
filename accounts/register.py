@@ -11,10 +11,12 @@ hashed = hashlib.sha1()
 def login_status(inputs):
     status = 0
     if "team" not in inputs or "pass" not in inputs or "confirm_pass" not in inputs:
-        status = 4
+        status = 5
 
-    if status != 4:
+    if status != 5:
         if not inputs["team"].value.isalnum() or not inputs["pass"].value.isalnum():
+            status = 4
+        if len(inputs["team"].value) > 10:
             status = 3
 
     if status < 3:
@@ -63,22 +65,26 @@ def main():
 
         scores.write(newTeam + ",0\n")
         users.write(new_user)
-        print "Thank you for registering! </br><a href='../index.html'>Return Home</a>"
+        html = open('../templates/register_redirect.html', 'r').read()
+        return
 
-    elif status == 1:
+    html = open("../templates/register_invalid.html", "r").read()
+    print html
+    if status == 1:
         print "Team name is taken, <a href='../register.html'>try again</a>"
 
     elif status == 2:
         print "Passwords do not match, <a href='../register.html'>try again</a>"
 
     elif status == 3:
-        print "Please use alphanumeric characters, <a href='../register.html'>try again</a>"
+        print "Team name is too long!"
 
     elif status == 4:
+        print "Please use alphanumeric characters, <a href='../register.html'>try again</a>"
+
+    elif status == 5:
         print "Something is missing ...<a href='../register.html'>try again</a>"
 
-html = open('../templates/register_logged_out.html', 'r').read()
-print html
 main()
 
 print "</body>"

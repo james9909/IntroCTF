@@ -1,0 +1,6 @@
+If we listen to the recording, we can tell that it is morse code. If we write down the
+long beeps as dashes and the short ones as dots, we can get the morse code.
+Running the morse code through an interpreter gives us a bunch of 1's and 0's. This is in binary,
+like the problem seems to suggest, and if we decode that, we get the original message.
+
+theflagisbrok3n

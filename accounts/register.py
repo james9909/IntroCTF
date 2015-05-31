@@ -65,10 +65,10 @@ def main():
 
         scores.write(newTeam + ",0\n")
         users.write(new_user)
-        html = open('../templates/register_redirect.html', 'r').read()
+        html = open('../templates/register.html', 'r').read()
         return
 
-    html = open("../templates/register_invalid.html", "r").read()
+    html = open("../templates/register.html", "r").read()
     print html
     if status == 1:
         print "Team name is taken, <a href='../register.html'>try again</a>"
@@ -77,7 +77,7 @@ def main():
         print "Passwords do not match, <a href='../register.html'>try again</a>"
 
     elif status == 3:
-        print "Team name is too long!"
+        print "Team name is too long! <a href='../register.html'>Try again</a>"
 
     elif status == 4:
         print "Please use alphanumeric characters, <a href='../register.html'>try again</a>"

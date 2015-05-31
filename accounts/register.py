@@ -66,6 +66,7 @@ def main():
         scores.write(newTeam + ",0\n")
         users.write(new_user)
         html = open('../templates/register.html', 'r').read()
+        print html
         return
 
     html = open("../templates/register.html", "r").read()

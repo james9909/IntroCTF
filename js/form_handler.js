@@ -2,22 +2,22 @@ $(function() {
 
     $('#intro-form').on('submit', function(event){
         event.preventDefault();
-        submit_handle("intro-form");
+        submit_problem("intro-form");
     })
     $('#caesar-form').on('submit', function(event){
         event.preventDefault();
-        submit_handle("caesar-form");
+        submit_problem("caesar-form");
     })
     $('#base-form').on('submit', function(event){
         event.preventDefault();
-        submit_handle("base-form");
+        submit_problem("base-form");
     })
     $('#brutus-form').on('submit', function(event){
         event.preventDefault();
-        submit_handle("brutus-form");
+        submit_problem("brutus-form");
     })
 
-    function submit_handle(formid) {
+    function submit_problem(formid) {
         $.ajax({
             url: "scripts/problem_handler.py",
             type: "POST",

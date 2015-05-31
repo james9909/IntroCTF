@@ -2,15 +2,14 @@
 
 import hashlib, sys
 
-encrypted_pass = '147107ad8ee2998634c3c49666baa3a4'
-p = "hotspootsalt3617"
+encrypted_pass = '66ad2dced84182ab686bb60e00fbc7fd'
 
 words = open("words.txt", "r").readlines()
 
 for word in words:
     word = word.strip("\n")
-    for number in range(1000, 5000):
-        candidate = 'hotspoot' + word + str(number)
+    for number in range(1000, 9999):
+        candidate = word + str(number)
         print "Testing %s" %(candidate)
         hashed_candidate = hashlib.md5(candidate).hexdigest()
         if hashed_candidate == encrypted_pass:

@@ -1,0 +1,5 @@
+Welcome to IntroCTF! The main objective is to solve problems and get flags to
+gain as many points as possible. A flag is a string of text, and upon acquiring a flag, submit it in an answer field, like
+the one below. If you are stuck, feel free to look at the hint for the problem, and
+you are welcome to use the internet to help you. <br>
+Here is the flag to this problem: introductions_are_cool

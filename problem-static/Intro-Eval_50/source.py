@@ -1,18 +1,30 @@
 #!/usr/bin/python2.7
 
+import sys
+
 del __builtins__.__dict__['__import__']
 del __builtins__.__dict__['reload']
 
-flag = "XXXXXXXXXXXXX"
+flag = "XXXXXXXXXXX"
 
+class UnbufferedStream(object):
+    def __init__(self, stream):
+        self.stream = stream
+    def write(self, data):
+        self.stream.write(data)
+        self.stream.flush()
+    def __getattr__(self, attr):
+        return getattr(self.stream, attr)
+
+sys.stdout = UnbufferedStream(sys.stdout)
 def main():
-    print "Hi, welcome to the flag database. We are under construction right now, so you cannot view the flags, or do anything."
+    print "Welcome to the flag database! We are currently under construction. Please do not hack the flags."
     while True:
-        command = raw_input("What would you like to do? ")
         try:
-            result = eval(command)
-            print "Here is the result of your command: %s" %(result)
-        except:
-            print "Invalid command, try again"
+            command = str(input("What would you like to do? "))
+            print command
+        except Exception, e:
+            print "Invalid command!"
+            continue
 
 main()

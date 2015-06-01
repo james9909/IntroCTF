@@ -26,12 +26,12 @@
                     <li><a href="problems">Problems</a></li>
                     <!-- If we are logged in, only show log out -->
                     <script>
-                        if (document.cookie == null || document.cookie == "") {
-                            document.getElementById("navbar").innerHTML += "<li><a href='login'>Login</a></li>"
-                            document.getElementById("navbar").innerHTML += "<li><a href='register'>Register</a></li>"
-                        } else {
-                            document.getElementById("navbar").innerHTML += "<li><a href='accounts/logout'>Log Out</a></li>"
-                        }
+if (document.cookie == null || document.cookie == "") {
+    document.getElementById("navbar").innerHTML += "<li><a href='login'>Login</a></li>"
+        document.getElementById("navbar").innerHTML += "<li><a href='register'>Register</a></li>"
+} else {
+    document.getElementById("navbar").innerHTML += "<li><a href='accounts/logout'>Log Out</a></li>"
+}
                     </script>
 
                 </ul>
@@ -41,12 +41,12 @@
                     <li><a class="waves-effect waves-indigo" href="problems">Problems</a></li>
                     <!-- If we are logged in, only show log out -->
                     <script>
-                        if (document.cookie == null || document.cookie == "") {
-                            document.getElementById("nav-mobile").innerHTML += "<li><a class='waves-effect waves-indigo' href='login'>Login</a></li>"
-                            document.getElementById("nav-mobile").innerHTML += "<li><a class='waves-effect waves-indigo' href='register'>Register</a></li>"
-                        } else {
-                            document.getElementById("nav-mobile").innerHTML += "<li><a class='waves-effect waves-indigo' href='accounts/logout'>Log Out</a></li>"
-                        }
+if (document.cookie == null || document.cookie == "") {
+    document.getElementById("nav-mobile").innerHTML += "<li><a class='waves-effect waves-indigo' href='login'>Login</a></li>"
+        document.getElementById("nav-mobile").innerHTML += "<li><a class='waves-effect waves-indigo' href='register'>Register</a></li>"
+} else {
+    document.getElementById("nav-mobile").innerHTML += "<li><a class='waves-effect waves-indigo' href='accounts/logout'>Log Out</a></li>"
+}
                     </script>
 
                     <!-- <li><a class="waves-effect waves-indigo modal-trigger" href="#helpmodal"><i class="mdi-action-info-outline"></i></a></li> -->
@@ -86,8 +86,8 @@
                                 <input type="hidden" id="uid" name="uid" value="">
                                 <input type="hidden" id="token" name="token" value="">
                                 <script>
-                                    document.getElementById("uid").value = getCookie("uid");
-                                    document.getElementById("token").value = getCookie("token");
+document.getElementById("uid").value = getCookie("uid");
+document.getElementById("token").value = getCookie("token");
                                 </script>
                                 <div class="row center">
                                     <button class="btn waves-effect waves-light" type="submit">Submit
@@ -114,10 +114,10 @@
                     <li>
                         <div class="collapsible-header"><i class="mdi-action-lock-outline"></i>Caesar - 20</div>
                         <div class="collapsible-body">
-                        <p class="card-content">
-                        So I found this weird string of text written on my desk in comp sci. Help me decrypt it! <br><br>
-                        Drsc sc dro Mkockb mszrob. Myxqbkdevkdsyxc yx cyvfsxq sd. Dro pvkq sc mkockb_sc_okci
-                        </p>
+                            <p class="card-content">
+                            So I found this weird string of text written on my desk in comp sci. Help me decrypt it! <br><br>
+                            Drsc sc dro Mkockb mszrob. Myxqbkdevkdsyxc yx cyvfsxq sd. Dro pvkq sc mkockb_sc_okci
+                            </p>
                             <!-- Form -->
                             <form method="post" class="col s12" id="caesar-form">
                                 <div class="row">
@@ -130,8 +130,8 @@
                                 <input type="hidden" id="uid" name="uid" value="">
                                 <input type="hidden" id="token" name="token" value="">
                                 <script>
-                                    document.getElementsByName("uid")[1].value = getCookie("uid");
-                                    document.getElementsByName("token")[1].value = getCookie("token");
+document.getElementsByName("uid")[1].value = getCookie("uid");
+document.getElementsByName("token")[1].value = getCookie("token");
                                 </script>
                                 <div class="row center">
                                     <button class="btn waves-effect waves-light" type="submit">Submit
@@ -164,8 +164,8 @@
                                 <input type="hidden" id="uid" name="uid" value="">
                                 <input type="hidden" id="token" name="token" value="">
                                 <script>
-                                    document.getElementsByName("uid")[2].value = getCookie("uid");
-                                    document.getElementsByName("token")[2].value = getCookie("token");
+document.getElementsByName("uid")[2].value = getCookie("uid");
+document.getElementsByName("token")[2].value = getCookie("token");
                                 </script>
                                 <div class="row center">
                                     <button class="btn waves-effect waves-light" type="submit">Submit
@@ -177,116 +177,16 @@
                             </form>
                         </div>
                     </li>
-
-                    <!-- <li> -->
-                    <!--     <div class="collapsible-header"><i class="mdi-action-lock-outline"></i>Brutus - 55</div> -->
-                    <!--     <div class="collapsible-body"> -->
-                    <!--         <p class="card-content"> -->
-                    <!--         So my friend has this hotspoot, but he recently salted the password in order to keep out trolls! -->
-                    <!--         He didn't tell me what the password is, but I know that the phrase that was appended to the original password, -->
-                    <!--         which was <code>hotspoot</code>, is a common English word (lowercase). <br> -->
-                    <!--         Additionally, he's given me the md5 hash of the new password, which is <code>5a42277ce25e430dc98f7bd4323e4e7f</code>. -->
-                    <!--         Find the new password! -->
-                    <!--         </p> -->
-                    <!--         <1!-- Form --1> -->
-                    <!--         <form method="post" class="col s12" id="brutus-form"> -->
-                    <!--             <div class="row"> -->
-                    <!--                 <div class="input-field col s12 m10 l8 offset-m1 offset-l2"> -->
-                    <!--                     <input autocomplete="off" id="icon_prefix" name="flag" type="text"> -->
-                    <!--                     <label for="icon_prefix">Flag</label> -->
-                    <!--                 </div> -->
-                    <!--             </div> -->
-                    <!--             <input type="hidden" name="pid" value="2"> -->
-                    <!--             <input type="hidden" id="uid" name="uid" value=""> -->
-                    <!--             <input type="hidden" id="token" name="token" value=""> -->
-                    <!--             <script> -->
-                    <!--                 document.getElementsByName("uid")[3].value = getCookie("uid"); -->
-                    <!--                 document.getElementsByName("token")[3].value = getCookie("token"); -->
-                    <!--             </script> -->
-                    <!--             <div class="row center"> -->
-                    <!--                 <button class="btn waves-effect waves-light" type="submit">Submit -->
-                    <!--                     <i class="mdi-content-send right"></i> -->
-                    <!--                 </button> -->
-                    <!--                 <a class="waves-effect waves-light btn" onclick="Materialize.toast('<span>If you are using python, there is a nice module called hashlib. Also, you can read up on salts</span><a class=&quot;btn-flat blue-text&quot; href=&quot;https://en.wikipedia.org/wiki/Salt_%28cryptography%29&quot;>here<a>', 5000)">Hint</a> -->
-
-                    <!--             </div> -->
-                    <!--             <input type="hidden"> -->
-                    <!--         </form> -->
-                    <!--     </div> -->
-                    <!-- </li> -->
-
                 </ul>
+                <!-- END OF CRYPTO -->
                 <br>
                 <hr>
             </div>
-            <!-- END OF CRYPTO -->
 
             <!-- BEGINNING OF PROGRAMMING -->
-            <!-- <div> -->
-            <!--     <div class="col-xs-12"> <h5> Programming </h5><br></div> -->
-            <!--     <ul class="collapsible z-depth-2" data-collapsible="accordion"> -->
-            <!--         <li> -->
-            <!--             <div class="collapsible-header"><i class="mdi-hardware-computer"></i>Pixels</div> -->
-            <!--             <div class="collapsible-body" style=""> -->
-            <!--                 <center> description </center> -->
-            <!--                 <1!-- Form --1> -->
-            <!--                 <form method="post" class="col s12" action="scripts/validate.py"> -->
-            <!--                     <div class="row"> -->
-            <!--                         <div class="input-field col s12 m10 l8 offset-m1 offset-l2"> -->
-            <!--                             <input id="icon_prefix" name="flag" type="text" class="validate"> -->
-            <!--                             <label for="icon_prefix">Flag</label> -->
-            <!--                         </div> -->
-            <!--                     </div> -->
-            <!--                     <input type="hidden" name="id" value="0"> -->
-            <!--                     <div class="row center"> -->
-            <!--                         <button class="btn waves-effect waves-light" type="submit" name="action">Submit -->
-            <!--                             <i class="mdi-content-send right"></i> -->
-            <!--                         </button> -->
-            <!--                         <a class="btn waves-effect waves-light" onclick="Materialize.toast('Hint', 4000)">Hint</a> -->
-
-            <!--                     </div> -->
-            <!--                     <input type="hidden"> -->
-            <!--                 </form> -->
-            <!--             </div> -->
-            <!--         </li> -->
-            <!--     </ul> -->
-            <!--     <br> -->
-            <!--     <hr> -->
-            <!-- </div> -->
             <!-- END OF PROGRAMMING -->
 
             <!-- BEGINNING OF MISC -->
-            <!-- <div> -->
-            <!--     <div class="col-xs-12"> <h5> Miscellaneous </h5><br></div> -->
-            <!--     <ul class="collapsible z-depth-2" data-collapsible="accordion"> -->
-            <!--         <li> -->
-            <!--             <div class="collapsible-header"><i class="mdi-image-edit"></i>Linux 1</div> -->
-            <!--             <div class="collapsible-body" style=""> -->
-            <!--                 <center> description </center> -->
-            <!--                 <1!-- Form --1> -->
-            <!--                 <form method="post" class="col s12" action="scripts/validate.py"> -->
-            <!--                     <div class="row"> -->
-            <!--                         <div class="input-field col s12 m10 l8 offset-m1 offset-l2"> -->
-            <!--                             <input id="icon_prefix" name="flag" type="text" class="validate"> -->
-            <!--                             <label for="icon_prefix">Flag</label> -->
-            <!--                         </div> -->
-            <!--                     </div> -->
-            <!--                     <input type="hidden" name="id" value="0"> -->
-            <!--                     <div class="row center"> -->
-            <!--                         <button class="btn waves-effect waves-light" type="submit" name="action">Submit -->
-            <!--                             <i class="mdi-content-send right"></i> -->
-            <!--                         </button> -->
-            <!--                         <a class="btn waves-effect waves-light" onclick="Materialize.toast('Hint', 4000)">Hint</a> -->
-
-            <!--                     </div> -->
-            <!--                     <input type="hidden"> -->
-            <!--                 </form> -->
-            <!--             </div> -->
-            <!--         </li> -->
-            <!--     </ul> -->
-            <!--     <br> -->
-            <!--     <hr> -->
-            <!-- </div> -->
             <!-- END OF MISC -->
         </div>
         </div>

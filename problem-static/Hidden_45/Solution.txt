@@ -1,0 +1,5 @@
+If we look at the source code of the website, we can see that there is some hidden input called auth.
+If we make it visible and change its value to 1, and log in with the given credentials,
+we get the flag
+
+hidden_input_too_easy

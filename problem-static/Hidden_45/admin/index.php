@@ -14,7 +14,7 @@ if ($user == "admin" && $pass == "abc123") {
     if ($auth == 1) {
         echo "Congratulations! The flag is $flag";
     } else {
-        echo "Logged in!";
+        echo "Logged in, but you can't see the flag...";
     }
 } else {
     echo "Bad login!";

@@ -21,11 +21,10 @@ def main():
     print "Welcome to the flag database! We are currently under construction. Please do not hack the flags."
     while True:
         try:
-            command = str(raw_input("What would you like to do? "))
-            result = str(eval(command))
-            print "This is the result: %s" %(result)
+            command = str(input("What would you like to do? "))
+            print command
         except Exception, e:
-            print "Invalid command!!!! EXITING!!!!!"
-            return
+            print "Invalid command!"
+            continue
 
 main()

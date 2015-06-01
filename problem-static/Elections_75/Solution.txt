@@ -1,0 +1,13 @@
+We need to use both an overflow and format string attack to get the flag.
+The objective of the attack is not to make it such the number of votes is greater than 50,
+but to overflow the result message so that we get the flag.
+
+The programs asks for your name, which immediately suggests that we overflow the name buffer.
+After overflowing the name buffer, we add '%x' in order to pop values off the stack until we get to
+the actual flag. Afterwards, we can use '%s' to print the flag.
+
+You can also find out by incrementing the number of %x's and ending with a %s.
+
+The final payload is:
+
+    python -c "print 'A'*64 + '%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%s'" | nc server thing

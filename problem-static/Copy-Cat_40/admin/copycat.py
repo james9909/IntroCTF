@@ -1,3 +1,5 @@
+import sys
+
 flag = "shoulda_been_my_final_project"
 
 ROCK = 1
@@ -9,6 +11,16 @@ WIN = 1
 LOSE = 2
 TIE = 3
 INVALID = 4
+
+# Ignore this, just for output
+class UnbufferedStream(object):
+    def __init__(self, stream):
+        self.stream = stream
+    def write(self, data):
+        self.stream.write(data)
+        self.stream.flush()
+    def __getattr__(self, attr):
+        return getattr(self.stream, attr)
 
 class AI():
     '''Unbeatable rock-paper-scissors ai. Might as well give up now.'''
@@ -51,6 +63,7 @@ class AI():
         else:
             return INVALID
 
+sys.stdout = UnbufferedStream(sys.stdout)
 
 if __name__ == "__main__":
     print "Let's make a deal. Beat my rock paper scissors bot and I'll give you the flag."

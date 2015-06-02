@@ -2,6 +2,7 @@
 
 import sys
 
+# No sus things :)
 del __builtins__.__dict__['__import__']
 del __builtins__.__dict__['reload']
 del __builtins__.__dict__['open']
@@ -11,6 +12,7 @@ del __builtins__.__dict__['eval']
 
 flag = "eval_is_fun"
 
+# Ignore this, just used to print to stdout
 class UnbufferedStream(object):
     def __init__(self, stream):
         self.stream = stream

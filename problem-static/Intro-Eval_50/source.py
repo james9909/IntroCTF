@@ -2,11 +2,17 @@
 
 import sys
 
+# No sus things :)
 del __builtins__.__dict__['__import__']
 del __builtins__.__dict__['reload']
+del __builtins__.__dict__['open']
+del __builtins__.__dict__['file']
+del __builtins__.__dict__['execfile']
+del __builtins__.__dict__['eval']
 
-flag = "XXXXXXXXXXX"
+flag = "XXXXXXXXXXXXXXXXXX"
 
+# Ignore this, just used to print to stdout
 class UnbufferedStream(object):
     def __init__(self, stream):
         self.stream = stream

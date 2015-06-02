@@ -1,9 +1,9 @@
 #!/bin/bash
 
 SCRIPT=./eval.py
-PORT=12345
-_UID=$(id -u introeval)
-_GID=$(id -g introeval)
+PORT=54321
+_UID=$(id -u randomeval)
+_GID=$(id -g randomeval)
 
 if [[ $_UID == "" || $_GID == "" ]]; then
     printf "Missing user. Attempting to add user....\n"

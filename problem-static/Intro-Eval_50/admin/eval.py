@@ -8,7 +8,6 @@ del __builtins__.__dict__['open']
 del __builtins__.__dict__['file']
 del __builtins__.__dict__['execfile']
 del __builtins__.__dict__['eval']
-del __builtins__.__dict__['exec']
 
 flag = "eval_is_fun"
 

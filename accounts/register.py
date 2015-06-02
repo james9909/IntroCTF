@@ -67,6 +67,7 @@ def main():
         users.write(new_user)
         html = open('../templates/register.html', 'r').read()
         print html
+        print "Success!"
         return
 
     html = open("../templates/register.html", "r").read()

@@ -4,6 +4,11 @@ import sys
 
 del __builtins__.__dict__['__import__']
 del __builtins__.__dict__['reload']
+del __builtins__.__dict__['open']
+del __builtins__.__dict__['file']
+del __builtins__.__dict__['execfile']
+del __builtins__.__dict__['eval']
+del __builtins__.__dict__['exec']
 
 flag = "eval_is_fun"
 
@@ -17,7 +22,7 @@ class UnbufferedStream(object):
         return getattr(self.stream, attr)
 
 sys.stdout = UnbufferedStream(sys.stdout)
-def main():    
+def main():
     print "Welcome to the flag database! We are currently under construction. Please do not hack the flags."
     while True:
         try:

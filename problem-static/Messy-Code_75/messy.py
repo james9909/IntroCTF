@@ -1,21 +1,21 @@
-import sys as f
-nSocuysrjO=len
-nSocuysrjH=f.exit
-nSocuysrjw=f.argv
-import string as k
-nSocuysrjF=k.maketrans
-nSocuysrjV=k.ascii_lowercase
-def nSocuysrjv(ples,dank):
- nSocuysrje=nSocuysrjV
- nSocuysrjX=nSocuysrje[dank:]+nSocuysrje[:dank]
- nSocuysrjR=nSocuysrjF(nSocuysrje,nSocuysrjX)
- return ples.translate(nSocuysrjR)
-def nSocuysrjm(argv):
- if(nSocuysrjO(nSocuysrjw)!=3):
-  print 'pls'
-  nSocuysrjH(0)
- if nSocuysrjv(nSocuysrjw[1],15)==nSocuysrjv("iwtuapvxhgxedqujhrpit",26):
-  print 'ye boi'
+import sys as k
+import random as sWNfYFCGeDaXKrcwqgEOLVIndP
+import string as sWNfYFCGeDaXKrcwqgEOLVIndPymxk
+from sys import exit as sWNfYFCGeDaXKrcwqgEOLVIndPymxn
+from sys import argv as sWNfYFCGeDaXKrcwqgEOLVIndPymxq
+sWNfYFCGeDaXKrcwqgEOLVIndPymxb,sWNfYFCGeDaXKrcwqgEOLVIndPymxJ,sWNfYFCGeDaXKrcwqgEOLVIndPymxM,sWNfYFCGeDaXKrcwqgEOLVIndPymxl,sWNfYFCGeDaXKrcwqgEOLVIndPymxT,sWNfYFCGeDaXKrcwqgEOLVIndPymxa,sWNfYFCGeDaXKrcwqgEOLVIndPymx=len,sWNfYFCGeDaXKrcwqgEOLVIndPymxn,sWNfYFCGeDaXKrcwqgEOLVIndPymxk.maketrans,sWNfYFCGeDaXKrcwqgEOLVIndPymxk.ascii_lowercase,sWNfYFCGeDaXKrcwqgEOLVIndPymxq,lambda sWNfYFCGeDaXKrcwqgEOLVIndPy: sWNfYFCGeDaXKrcwqgEOLVIndPy + sWNfYFCGeDaXKrcwqgEOLVIndPy,sWNfYFCGeDaXKrcwqgEOLVIndP.choice
+sWNfYFCGeDaXKrcwqgEOLVIndPymxh = "wpqoihtjfidbnvsfiuegrhoeitjrhypitjeieuhuqywagjszhcdxkcvfjgnbflkhjlyioftijhigdurftyesdfgmkjhoiutgverfdsaqwaqazgvdxhftgyhouhgphftrkejhgsdvfbcgnhj"
+sWNfYFCGeDaXKrcwqgEOLVIndPymxZ = lambda : "".join([sWNfYFCGeDaXKrcwqgEOLVIndPymx(sWNfYFCGeDaXKrcwqgEOLVIndPymxh) for sWNfYFCGeDaXKrcwqgEOL in range(sWNfYFCGeDaXKrcwqgEOLVIndPymxa(10))])
+def sWNfYFCGeDaXKrcwqgEOLVIndPymxR(ples,dank):
+ sWNfYFCGeDaXKrcwqgEOLVIndPymxS=sWNfYFCGeDaXKrcwqgEOLVIndPymxl
+ sWNfYFCGeDaXKrcwqgEOLVIndPymxo=sWNfYFCGeDaXKrcwqgEOLVIndPymxS[dank:]+sWNfYFCGeDaXKrcwqgEOLVIndPymxS[:dank]
+ sWNfYFCGeDaXKrcwqgEOLVIndPymxj=sWNfYFCGeDaXKrcwqgEOLVIndPymxM(sWNfYFCGeDaXKrcwqgEOLVIndPymxS,sWNfYFCGeDaXKrcwqgEOLVIndPymxo)
+ return ples.translate(sWNfYFCGeDaXKrcwqgEOLVIndPymxj)
+def sWNfYFCGeDaXKrcwqgEOLVIndPymxz(argv):
+ if(sWNfYFCGeDaXKrcwqgEOLVIndPymxb(sWNfYFCGeDaXKrcwqgEOLVIndPymxT)!=sWNfYFCGeDaXKrcwqgEOLVIndPymxa(1.5)):
+  sWNfYFCGeDaXKrcwqgEOLVIndPymxJ(sWNfYFCGeDaXKrcwqgEOLVIndPymxZ())
+ if sWNfYFCGeDaXKrcwqgEOLVIndPymxR(sWNfYFCGeDaXKrcwqgEOLVIndPymxT[1],15)==sWNfYFCGeDaXKrcwqgEOLVIndPymxR("iwtuapvxhgxedqujhrpit", sWNfYFCGeDaXKrcwqgEOLVIndPymxa(13)):
+  print sWNfYFCGeDaXKrcwqgEOLVIndPymxZ()
  else:
-  print 'uw0tm8'
-nSocuysrjm(nSocuysrjw)
+  print sWNfYFCGeDaXKrcwqgEOLVIndPymxZ()
+sWNfYFCGeDaXKrcwqgEOLVIndPymxz(sWNfYFCGeDaXKrcwqgEOLVIndPymxT)

@@ -1,20 +1,19 @@
-import sys as f
-import string as k
+import sys, string
 
-def caesar(ples, dank):
-    dog = k.ascii_lowercase
-    danked_wut = dog[dank:] + dog[:dank]
-    table = k.maketrans(dog, danked_wut)
-    return ples.translate(table)
+def caesar(plaintext, shift):
+    alphabet = string.ascii_lowercase
+    shifted_alphabet = alphabet[shift:] + alphabet[:shift]
+    table = string.maketrans(alphabet, shifted_alphabet)
+    return plaintext.translate(table)
 
 def main(argv):
-    if (len(f.argv) != 3):
-        print 'pls'
-        f.exit(0)
+    if (len(sys.argv) != 3):
+        print 'Not enough arguments!'
+        sys.exit(0)
 
-    if caesar(f.argv[1], 15) == caesar("iwtuapvxhgxedqujhrpit", 26):
-        print 'ye boi'
+    if caesar(sys.argv[1], 15) == "iwtuapvxhgxedqujhrpit":
+        print 'Congrats, you got the flag!'
     else:
-        print 'uw0tm8'
+        print 'Incorrect!'
 
-main(f.argv)
+main(sys.argv)

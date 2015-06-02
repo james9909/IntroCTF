@@ -1,0 +1,11 @@
+There are two ways to solve this problem:
+
+1. Look through each file manually and search for 'flag'
+2. Use grep like the problem name suggests and do:
+
+    cat * | grep 'flag'
+
+The '|' allows us to pipe input from cat into grep. Basically, we are getting the contents
+of all the files and performing grep on it to search for the flag
+
+theflagisgrepisgood

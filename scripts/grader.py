@@ -63,6 +63,6 @@ def grade(pid, flag):
             return incorrect("Incorrect :(")
     if pid == "messy":
         if flag == "ripobfuscate":
-            return correct(60, "RAWWRRR!")
+            return correct(75, "Good job!")
         else:
             return incorrect("Incorrect :(")

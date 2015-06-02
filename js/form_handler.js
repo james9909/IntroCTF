@@ -12,9 +12,41 @@ $(function() {
         event.preventDefault();
         submit_problem("base-form");
     })
+    $('#absent-form').on('submit', function(event){
+        event.preventDefault();
+        submit_problem("absent-form");
+    })
     $('#brutus-form').on('submit', function(event){
         event.preventDefault();
         submit_problem("brutus-form");
+    })
+    $('#bb-form').on('submit', function(event){
+        event.preventDefault();
+        submit_problem("bb-form");
+    })
+    $('#stego-form').on('submit', function(event){
+        event.preventDefault();
+        submit_problem("stego-form");
+    })
+    $('#dot-form').on('submit', function(event){
+        event.preventDefault();
+        submit_problem("dot-form");
+    })
+    $('#corrupt-form').on('submit', function(event){
+        event.preventDefault();
+        submit_problem("corrupt-form");
+    })
+    $('#inverted-form').on('submit', function(event){
+        event.preventDefault();
+        submit_problem("inverted-form");
+    })
+    $('#rawr-form').on('submit', function(event){
+        event.preventDefault();
+        submit_problem("rawr-form");
+    })
+    $('#messy-form').on('submit', function(event){
+        event.preventDefault();
+        submit_problem("messy-form");
     })
 
     function submit_problem(formid) {

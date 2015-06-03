@@ -71,7 +71,7 @@ SPV: 6
 
 2. Define a triangle number as a number that strictly ascends, and then strictly descends for the same number of 
 numbers. For example, the numbers 1-9 are all triangle numbers, as well as 121, 131, 143, 1258632.
-What is the 20000th triangle number? 
+What is the 20,000th triangle number? 
 Ans: 167898753
 SPV: 9 bruh 108 lines
 

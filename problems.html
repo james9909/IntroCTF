@@ -54,6 +54,7 @@ if (document.cookie == null || document.cookie == "") {
                     <!-- <li><a class="waves-effect waves-indigo modal-trigger" href="#helpmodal"><i class="mdi-action-info-outline"></i></a></li> -->
                 </ul>
                 <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
+
             </div>
         </nav>
 
@@ -515,9 +516,194 @@ document.getElementsByName("token")[11].value = getCookie("token");
             <br>
             <!-- END OF FORENSICS -->
 
-            <!-- BEGINNING OF MISC -->
+            <!-- BEGINNING OF WEB -->
+            <div>
+                <br>
+                <div class="col-xs-12"> <h5> Web </h5><br></div>
+                <ul class="collapsible z-depth-2" data-collapsible="accordion">
+                    <li>
+                        <div class="collapsible-header"><i class="mdi-action-language"></i>Inspector - 20</div>
+                        <div class="collapsible-body">
+                            <p class="card-content">
+                            You are a website patroller, and your job is to inspect sites for suspicious activities. <br>
+                            We've stumbled upon this <a href="problem-static/Inspector_20/index.html">website</a> that we know has something valuable to us. <br>
+                            </p>
+                            <!-- Form -->
+                            <form method="post" class="col s12" id="inspect-form">
+                                <div class="row">
+                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                        <label for="icon_prefix">Flag</label>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="pid" value="inspect">
+                                <input type="hidden" id="uid" name="uid" value="">
+                                <input type="hidden" id="token" name="token" value="">
+                                <script>
+document.getElementsByName("uid")[12].value = getCookie("uid");
+document.getElementsByName("token")[12].value = getCookie("token");
+                                </script>
+                                <div class="row center">
+                                    <button class="btn waves-effect waves-light" type="submit">Submit
+                                        <i class="mdi-content-send right"></i>
+                                    </button>
+                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('Ctrl + Shift + i', 4000)">Hint</a>
 
-            <!-- END OF MISC -->
+                                </div>
+                                <input type="hidden">
+                            </form>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="collapsible-header"><i class="mdi-action-language"></i>Cookie Jar - 35</div>
+                        <div class="collapsible-body">
+                            <p class="card-content">
+                            The Cookie Monster has hoarded all of his cookies into one big container on his <a href="problem-static/Cookie-Jar_35/admin/cookies.php">website</a>.
+                            Your job is to get me the right cookie!
+                            </p>
+                            <!-- Form -->
+                            <form method="post" class="col s12" id="cookie-form">
+                                <div class="row">
+                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                        <label for="icon_prefix">Flag</label>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="pid" value="cookie">
+                                <input type="hidden" id="uid" name="uid" value="">
+                                <input type="hidden" id="token" name="token" value="">
+                                <script>
+document.getElementsByName("uid")[13].value = getCookie("uid");
+document.getElementsByName("token")[13].value = getCookie("token");
+                                </script>
+                                <div class="row center">
+                                    <button class="btn waves-effect waves-light" type="submit">Submit
+                                        <i class="mdi-content-send right"></i>
+                                    </button>
+                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('Ctrl + Shift + i', 4000)">Hint</a>
+
+                                </div>
+                                <input type="hidden">
+                            </form>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="collapsible-header"><i class="mdi-action-language"></i>Hidden - 40</div>
+                        <div class="collapsible-body">
+                            <p class="card-content">
+                            My friend gave me the username and password to his super secret <a href="problem-static/Hidden_40/admin/index.php">website</a>, but I can't find the flag! <br>
+                            The username is <code>admin</code> and the password is <code>abc123</code>. Find the flag!
+                            </p>
+                            <!-- Form -->
+                            <form method="post" class="col s12" id="hidden-form">
+                                <div class="row">
+                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                        <label for="icon_prefix">Flag</label>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="pid" value="hidden">
+                                <input type="hidden" id="uid" name="uid" value="">
+                                <input type="hidden" id="token" name="token" value="">
+                                <script>
+document.getElementsByName("uid")[14].value = getCookie("uid");
+document.getElementsByName("token")[14].value = getCookie("token");
+                                </script>
+                                <div class="row center">
+                                    <button class="btn waves-effect waves-light" type="submit">Submit
+                                        <i class="mdi-content-send right"></i>
+                                    </button>
+                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('I need a hint', 4000)">Hint</a>
+
+                                </div>
+                                <input type="hidden">
+                            </form>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="collapsible-header"><i class="mdi-action-language"></i>GET - 45</div>
+                        <div class="collapsible-body">
+                            <p class="card-content">
+                            This <a href="problem-static/GET_45/admin/index.php">website</a> is missing its login fields, but in order to get the flag, you need to log in! <br>
+                            Is there any way to get the flag?
+                            </p>
+                            <!-- Form -->
+                            <form method="post" class="col s12" id="get-form">
+                                <div class="row">
+                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                        <label for="icon_prefix">Flag</label>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="pid" value="get">
+                                <input type="hidden" id="uid" name="uid" value="">
+                                <input type="hidden" id="token" name="token" value="">
+                                <script>
+document.getElementsByName("uid")[15].value = getCookie("uid");
+document.getElementsByName("token")[15].value = getCookie("token");
+                                </script>
+                                <div class="row center">
+                                    <button class="btn waves-effect waves-light" type="submit">Submit
+                                        <i class="mdi-content-send right"></i>
+                                    </button>
+                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('How can you send information without a form?', 4000)">Hint</a>
+
+                                </div>
+                                <input type="hidden">
+                            </form>
+                        </div>
+                    </li>
+
+
+                    <li>
+                        <div class="collapsible-header"><i class="mdi-action-language"></i>Easy Spoof - 70</div>
+                        <div class="collapsible-body">
+                            <p class="card-content">
+                            In order to view this guy's website, you need to meet several requirements: <br>
+                            1. Use Playstation 3 browser (version 3.55 to be exact) <br>
+                            2. Submit a POST request where user = admin <br>
+                            3. A cookie named auth with a value of 1 <br>
+                            4. You must have been referred to the website from the stuycs website <br><br>
+
+                            Meet all the requirements and get the flag!
+                            </p>
+                            <!-- Form -->
+                            <form method="post" class="col s12" id="spoof-form">
+                                <div class="row">
+                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                        <label for="icon_prefix">Flag</label>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="pid" value="spoof">
+                                <input type="hidden" id="uid" name="uid" value="">
+                                <input type="hidden" id="token" name="token" value="">
+                                <script>
+document.getElementsByName("uid")[16].value = getCookie("uid");
+document.getElementsByName("token")[16].value = getCookie("token");
+                                </script>
+                                <div class="row center">
+                                    <button class="btn waves-effect waves-light" type="submit">Submit
+                                        <i class="mdi-content-send right"></i>
+                                    </button>
+                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('You can do this with one terminal command or use python\'s urllib2 module', 4000)">Hint</a>
+
+                                </div>
+                                <input type="hidden">
+                            </form>
+                        </div>
+                    </li>
+
+                </ul>
+                <br>
+                <hr>
+            </div>
+            <br>
+            <!-- END OF WEB -->
+
         </div>
         </div>
         </main>

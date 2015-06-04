@@ -66,3 +66,28 @@ def grade(pid, flag):
             return correct(75, "Good job!")
         else:
             return incorrect("Incorrect :(")
+    if pid == "inspect":
+        if flag == "you_pass_inspection":
+            return correct(20, "Correct!")
+        else:
+            return incorrect("Incorrect :(")
+    if pid == "cookie":
+        if flag == "coookkkkiiiieeee":
+            return correct(35, "Delicious!")
+        else:
+            return incorrect("Incorrect :(")
+    if pid == "hidden":
+        if flag == "hidden_input_too_easy":
+            return correct(40, "Delicious!")
+        else:
+            return incorrect("Incorrect :(")
+    if pid == "get":
+        if flag == "i_dont_get_it":
+            return correct(45, "Do you get it?")
+        else:
+            return incorrect("Incorrect :(")
+    if pid == "spoof":
+        if flag == "wasnt_that_easy":
+            return correct(70, "Correct!")
+        else:
+            return incorrect("Incorrect :(")

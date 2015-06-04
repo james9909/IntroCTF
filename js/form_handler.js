@@ -48,6 +48,26 @@ $(function() {
         event.preventDefault();
         submit_problem("messy-form");
     })
+    $('#inspect-form').on('submit', function(event){
+        event.preventDefault();
+        submit_problem("inspect-form");
+    })
+    $('#cookie-form').on('submit', function(event){
+        event.preventDefault();
+        submit_problem("cookie-form");
+    })
+    $('#hidden-form').on('submit', function(event){
+        event.preventDefault();
+        submit_problem("hidden-form");
+    })
+    $('#get-form').on('submit', function(event){
+        event.preventDefault();
+        submit_problem("get-form");
+    })
+    $('#spoof-form').on('submit', function(event){
+        event.preventDefault();
+        submit_problem("spoof-form");
+    })
 
     function submit_problem(formid) {
         $.ajax({

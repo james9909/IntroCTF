@@ -1,1 +1,5 @@
-MKS22 Final Project
+IntroCTF
+-------
+#### IntroCS2 Final Project by:
+- James Wang
+- Joel Ye

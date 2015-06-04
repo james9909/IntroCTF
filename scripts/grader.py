@@ -72,13 +72,13 @@ def grade(pid, flag):
         else:
             return incorrect("Incorrect :(")
     if pid == "cookie":
-        if flag == "coookkkkiiiieeee":
+        if flag == "coookkkkiiiieeeee":
             return correct(35, "Delicious!")
         else:
             return incorrect("Incorrect :(")
     if pid == "hidden":
         if flag == "hidden_input_too_easy":
-            return correct(40, "Delicious!")
+            return correct(40, "Correct!!")
         else:
             return incorrect("Incorrect :(")
     if pid == "get":

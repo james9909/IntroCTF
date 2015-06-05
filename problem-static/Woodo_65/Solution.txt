@@ -1,0 +1,14 @@
+INSPIRED BY CAMSCTF CEREBRUM PROBLEM
+
+If we know a little bit of pokemon and a little bit of linux, we can infer that we need
+to run the executable with sudo, giving us the command
+
+    sudo ./woodo
+
+Once we do this, we get a sudowoodo, but in ascii, as well as a note at the bottom.
+Looking at the ascii art shows us that some characters that are scattered around are
+weirdly placed, and the note at the bottom tells us to get mind f**ked. If we try taking the sudowoodo and
+the message the bottom and putting it in a brainfuck interpreter, then we get
+the flag.
+
+isnt_that_cool

@@ -8,6 +8,7 @@ def gen_scoreboard(team_data):
     if len(team_data) == 0:
         print "There are no teams!"
     else:
+        print '<h2 class="center teal-text">Scoreboard</h2>'
         print "<br>"
         print "<div class='container'>"
         print "<table class='responsive-table bordered hoverable centered'>"

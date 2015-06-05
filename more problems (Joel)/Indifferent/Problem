@@ -1,0 +1,6 @@
+Your math teacher has finally gone nuts. He tells you to write the first 300 positive integers in your notebook
+asks you to reduce it to one number using an algorithm. The allowed move is taking the smallest two numbers in 
+your list, and replacing them with a single number equal to their product added to their sum. While the rest of 
+your class gets busy with their work, you are indifferent and take out your computer. What are the first four
+digits of the answer?
+Ans: 617

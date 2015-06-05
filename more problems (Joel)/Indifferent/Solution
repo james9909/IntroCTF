@@ -1,0 +1,7 @@
+Not actually a CS problem! 
+Invariance math problem. Suppose a and b are the two lowest terms, first operated on. The new term, A1, is (a+1)(b+1)-1.
+This makes the number count 299. Each operation reduces count by 1, so we can repeat this procedure until number count
+is 1. If at any point A1 becomes one of the lowest two numbers, along with, say, A2 composed of (c+1)(d+1)-1, they
+will be replaced with (a+1)(b+1)(c+1)(d+1)-1. Then, the entire 300 terms will collapse into 301!/1 - 1, or just 301! - 1.
+Plug this into your calculator/computational engine of choice, and that will result in approximately 9.212E616.
+In other words, 617 digits.

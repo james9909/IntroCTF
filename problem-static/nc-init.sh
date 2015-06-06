@@ -17,7 +17,6 @@ do
     directory=$(dirname $tcpserver)
     problem_name=${tcpserver%/*/*}
     problem_name=${problem_name/.\//}
-    problem_name=${problem_name%%???}
     printf "${GREEN}Deploying $problem_name....${RESET}\n"
     bash -c "cd $directory && ./server.sh" &
 done

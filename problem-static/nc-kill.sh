@@ -5,7 +5,7 @@ GREEN="\033[1;32m"
 YELLOW="\033[1;33m"
 RESET="\033[m"
 
-declare -a ports=("11111" "12345" "13579" "54321")
+declare -a ports=("11111" "12345" "13579" "54321" "33333")
 
 function close_port() {
     for PORT in "${ports[@]}"; do

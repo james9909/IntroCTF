@@ -1,11 +1,13 @@
+#!/usr/bin/python
+
 import sys
 
 flag = "shoulda_been_my_final_project"
 
-ROCK = 1
-PAPER = 2
-SCISSORS = 3
-moves = ['r', 'p', 's']
+ROCK = "r"
+PAPER = "p"
+SCISSORS = "s"
+moves = [ROCK, PAPER, SCISSORS]
 
 WIN = 1
 LOSE = 2
@@ -44,9 +46,9 @@ class AI():
         if __name__ == "__main__":
             print "The computer chose %s!" %(computer_move)
         if player_move == computer_move:
-            return TIE
-        if player_move == ROCK:
-            if computer_move == PAPER:
+            return TIE 
+        if player_move == ROCK: 
+            if computer_move == PAPER: 
                 return LOSE
             if computer_move == SCISSORS:
                 return WIN

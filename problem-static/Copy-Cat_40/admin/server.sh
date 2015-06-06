@@ -10,6 +10,4 @@ PORT=33333
 
 if sudo tcpserver -H -R -c 500 0.0.0.0 $PORT $SCRIPT 2>&1 | grep "unable to bind" > /dev/null; then
     printf "${RED}ERROR! Port ${PORT} is already in use!${RESET}\n"
-else
-    printf "${GREEN}Success!${RESET}\n"
 fi

@@ -21,3 +21,5 @@ do
     printf "${GREEN}Deploying $problem_name....${RESET}\n"
     bash -c "cd $directory && ./server.sh" &
 done
+printf "${GREEN}Keeping VM awake...${RESET}\n"
+../scripts/stay_awake.sh > /dev/null & 

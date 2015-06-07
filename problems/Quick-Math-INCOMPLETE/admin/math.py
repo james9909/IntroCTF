@@ -29,12 +29,13 @@ print "Welcome to fast math! Here, we will be testing your abilities to math fas
 raw_input("Press any key to continue....")
 
 print "Problem 1: What is 120958 + 167063?"
-print "You have 5 second to answer:"
+print "You have 5 seconds to answer:"
 ans = wait_for_input(5)
 
 if ans != "288021":
     print "Incorrect!"
     sys.exit(0)
+print "Correct!"
 
 print "Problem 2: What is the square root of 876543212365? (6 Decimal Places)"
 print "You have 4 seconds to answer:"
@@ -43,6 +44,7 @@ ans = wait_for_input(4)
 if ans != "936238.865015":
     print "Incorrect!"
     sys.exit(0)
+print "Correct!"
 
 print "You are good, but let's step up it up"
 raw_input("Press any key to continue to stage 2....")
@@ -54,6 +56,7 @@ ans = wait_for_input(3)
 if ans != "1005":
     print "Incorrect!"
     sys.exit(0)
+print "Correct!"
 
 print "Problem 4: How many permutations are there of a 2x2x2 rubik's cube?"
 print "You have 3 seconds to answer:"
@@ -62,6 +65,7 @@ ans = wait_for_input(5)
 if str(int(float(ans))) != "88179840": #8! * 3^7
     print "Incorrect!"
     sys.exit(0)
+print "Correct!"
 
 print "Final stretch"
 raw_input("Press any key to continue to stage 3....")

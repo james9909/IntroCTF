@@ -12,7 +12,7 @@ class UnbufferedStream(object):
         self.stream.flush()
     def __getattr__(self, attr):
         return getattr(self.stream, attr)
- 
+
 sys.stdout = UnbufferedStream(sys.stdout)
 
 def wait_for_input(timeout):

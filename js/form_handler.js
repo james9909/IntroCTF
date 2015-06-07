@@ -68,6 +68,10 @@ $(function() {
         event.preventDefault();
         submit_problem("spoof-form");
     })
+    $('#donttrip-form').on('submit', function(event){
+        event.preventDefault();
+        submit_problem("donttrip-form");
+    })
 
     function submit_problem(formid) {
         $.ajax({

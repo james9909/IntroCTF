@@ -1,5 +1,5 @@
 def correct(points, message):
-    return {"status": 1, "points": points, "message": message}
+    return {"status": 1, "points": points, "message": message + " [ +" + str(points) + " ]"}
 
 def incorrect(message):
     return {"status": 0, "points": 0, "message": message}
@@ -89,5 +89,10 @@ def grade(pid, flag):
     if pid == "spoof":
         if flag == "wasnt_that_easy":
             return correct(70, "Correct!")
+        else:
+            return incorrect("Incorrect :(")
+    if pid == "donttrip":
+        if flag == "6580.5":
+            return correct(60, "What a friend")
         else:
             return incorrect("Incorrect :(")

@@ -6,7 +6,7 @@ print ""
 
 def gen_scoreboard(team_data):
     if len(team_data) == 0:
-        print "There are no teams!"
+        print '<h2 class = "center">There are no teams!<h2>'
     else:
         print '<h2 class="center teal-text">Scoreboard</h2>'
         print "<br>"

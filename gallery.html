@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="css/gallery.css"  media="screen,projection"/>    
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <title>About</title>
+    </head>
+    <body>
+         <script src="js/jquery-2.1.1.min.js"></script>
+            <script src="js/materialize.min.js"></script>
+            <script src="js/sidenav.js"></script>
+    
+            <nav role="navigation" style="background-color: #009688">
+            <div class="nav-wrapper container">
+                <a href="." class="brand-logo">IntroCTF</a>
+                <ul id="navbar" class="right hide-on-med-and-down">
+    
+                    <li><a href=".">Home</a></li>
+                    <li><a href="gallery">About</a></li>
+                    <li><a href="scoreboard">Scoreboard</a></li>
+                    <li><a href="problems">Problems</a></li>
+                    <!-- If we are logged in, only show log out -->
+                    <script>
+                        if (document.cookie == null || document.cookie == "") {
+                            document.getElementById("navbar").innerHTML += "<li><a href='login'>Login</a></li>"
+                            document.getElementById("navbar").innerHTML += "<li><a href='register'>Register</a></li>"
+                        } else {
+                            document.getElementById("navbar").innerHTML += "<li><a href='accounts/logout'>Log Out</a></li>"
+                            console.log(document.cookie)
+                        }
+                    </script>
+    
+                    <!-- <li><a class="mdi-action-info-outline modal-trigger" href="#helpmodal"></a></li> -->
+                </ul>
+                <ul id="nav-mobile" class="side-nav">
+    
+                    <li><a class="waves-effect waves-indigo" href=".">Home</a></li>
+                    <li><a href="gallery">About</a></li>
+                    <li><a class="waves-effect waves-indigo" href="scoreboard">Scoreboard</a></li>
+                    <li><a class="waves-effect waves-indigo" href="problems">Problems</a></li>
+                    <!-- If we are logged in, only show log out -->
+                    <script>
+                        if (document.cookie == null || document.cookie == "") {
+                            document.getElementById("nav-mobile").innerHTML += "<li><a class='waves-effect waves-indigo' href='login.html'>Login</a></li>"
+                            document.getElementById("nav-mobile").innerHTML += "<li><a class='waves-effect waves-indigo' href='register.html'>Register</a></li>"
+                        } else {
+                            document.getElementById("nav-mobile").innerHTML += "<li><a class='waves-effect waves-indigo' href='accounts/logout'>Log Out</a></li>"
+                        }
+                    </script>
+    
+                    <!-- <li><a class="waves-effect waves-indigo modal-trigger" href="#helpmodal"><i class="mdi-action-info-outline"></i></a></li> -->
+                </ul>
+                <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
+            </div>
+        </nav>
+        <br>
+        <div class = "center indigo-text">
+            <h4><a href = "register.html">Register Now!</a></h4>
+        </div>
+        <br>
+        <div class = "z-depth-1 container">
+            <br>
+            <div class = "indigo lighten-3">
+            <ul class="slides">
+                <input type="radio" name="radio-btn" id="frm-1" checked />
+                <li class="slide-container">
+    		        <div class="slide">
+    			           <img src = "images/Square1Banner.png" height=90%>
+                    </div>
+    		        <div class="nav">
+    		        	<label for="frm-5" class="prev">&#x2039;</label>
+    			        <label for="frm-2" class="next">&#x203a;</label>
+    		        </div>
+                </li>
+    
+                <input type="radio" name="radio-btn" id="frm-2" />
+                <li class="slide-container">
+                    <div class="slide">
+                      <img src = "images/BasicsBanner.png" height=90%>
+                    </div>
+            		<div class="nav">
+            			<label for="frm-1" class="prev">&#x2039;</label>
+            			<label for="frm-3" class="next">&#x203a;</label>
+            		</div>
+                </li>
+            
+                <input type="radio" name="radio-btn" id="frm-3" />
+                <li class="slide-container">
+                    <div class="slide">
+                        <img src = "images/ReviewBanner.png" height=90%>
+                    </div>
+            		<div class="nav">
+            			<label for="frm-2" class="prev">&#x2039;</label>
+            			<label for="frm-4" class="next">&#x203a;</label>
+            		</div>
+                </li>
+            
+                <input type="radio" name="radio-btn" id="frm-4" />
+                <li class="slide-container">
+                    <div class="slide" id="special">
+                        <img src = "images/GalleryBanner.png" height=90% >
+                    </div>
+            		<div class="nav">
+            			<label for="frm-3" class="prev">&#x2039;</label>
+            			<label for="frm-5" class="next">&#x203a;</label>
+            		</div>
+                </li>
+            
+                <input type="radio" name="radio-btn" id="frm-5" />
+                <li class="slide-container">
+                    <div class="slide">
+                      <img src = "images/ScoreBanner.png" height=90%>
+                    </div>
+            		<div class="nav">
+            			<label for="frm-4" class="prev">&#x2039;</label>
+            			<label for="frm-1" class="next">&#x203a;</label>
+            		</div>
+                </li>
+            
+                <li class="nav-dots">
+                  <label for="frm-1" class="nav-dot" id="frm-dot-1"></label>
+                  <label for="frm-2" class="nav-dot" id="frm-dot-2"></label>
+                  <label for="frm-3" class="nav-dot" id="frm-dot-3"></label>
+                  <label for="frm-4" class="nav-dot" id="frm-dot-4"></label>
+                  <label for="frm-5" class="nav-dot" id="frm-dot-5"></label>
+                </li>
+            </ul>
+            </div>
+            <br>
+        </div>
+        <br>
+    </body>
+</html>

@@ -67,7 +67,8 @@ def main():
         users.write(new_user)
         html = open('../templates/register.html', 'r').read()
         print html
-        print "Success!"
+        print '<p class = "center teal-text">Success!</p><div class = "center">'
+        print '<a href="../login" class = "blue-text">Login</a></div>'
         return
 
     html = open("../templates/register.html", "r").read()
@@ -82,10 +83,10 @@ def main():
         print "Team name is too long! <a href='../register.html'>Try again</a>"
 
     elif status == 4:
-        print "Please use alphanumeric characters, <a href='../register.html'>try again</a>"
+        print "Please use alphanumeric characters, <a href='../register.html'>Try again</a>"
 
     elif status == 5:
-        print "Something is missing ...<a href='../register.html'>try again</a>"
+        print "Something is missing ...<a href='../register.html'>Try again</a>"
 
 main()
 

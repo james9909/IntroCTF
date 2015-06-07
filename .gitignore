@@ -108,3 +108,4 @@ target/
 # ==============================================================================
 # IntroCTF precious login files
 accounts/*.txt
+scripts/change_git_user.sh

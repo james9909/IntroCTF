@@ -101,9 +101,14 @@ def grade(pid, flag):
             return correct(65, "Meh.")
         else:
             return incorrect("Incorrect :(")
+    if pid == "fast":
+        if flag == "wish_i_can_math_this_fast":
+            return correct(70, "Dam you fast")
+        else:
+            return incorrect("Incorrect :(")
     if pid == "triangle":
         if flag == "167898753":
             return correct(85, "Nice")
         else:
             return incorrect("Incorrect :(")
-            
+

@@ -29,7 +29,7 @@
                     <li><a href="problems">Problems</a></li>
                     <!-- If we are logged in, only show log out -->
                     <script>
-			validateLogin();
+validateLogin();
                     </script>
 
                 </ul>
@@ -39,7 +39,7 @@
                     <li><a class="waves-effect waves-indigo" href="problems">Problems</a></li>
                     <!-- If we are logged in, only show log out -->
                     <script>
-			validateMobileLogin();
+validateMobileLogin();
                     </script>
 
                     <!-- <li><a class="waves-effect waves-indigo modal-trigger" href="#helpmodal"><i class="mdi-action-info-outline"></i></a></li> -->
@@ -703,7 +703,7 @@ document.getElementsByName("token")[16].value = getCookie("token");
                         <div class="collapsible-header"><i class="mdi-action-settings"></i>Don't Trip - 60</div>
                         <div class="collapsible-body">
                             <p class="card-content">
-                            James has dropped his wallet and scattered a lot of his coins. A good friend came up and recorded where each coin was, and gave <a href = "problem-static/DontTrip/DontTrip.csv">this</a> to James. If James starts at a coin he dropped where he is standing, 
+                            James has dropped his wallet and scattered a lot of his coins. A good friend came up and recorded where each coin was, and gave <a href = "problem-static/DontTrip/DontTrip.csv">this</a> to James. If James starts at a coin he dropped where he is standing,
                             what area does his path enclose? (He only travels in straight lines and refuses to cross over any point where he has been before)
                             </p>
                             <!-- Form -->
@@ -737,8 +737,8 @@ document.getElementsByName("token")[17].value = getCookie("token");
                         <div class="collapsible-body">
                             <p class="card-content">
                             Your math teacher has finally gone nuts. He tells you to write the first 300 positive integers in your notebook
-                            asks you to reduce it to one number using an algorithm. The allowed move is taking the smallest two numbers in 
-                            your list, and replacing them with a single number equal to their product added to their sum. While the rest of 
+                            asks you to reduce it to one number using an algorithm. The allowed move is taking the smallest two numbers in
+                            your list, and replacing them with a single number equal to their product added to their sum. While the rest of
                             your class gets busy with their work, you are indifferent and take out your computer. What are the first four
                             digits of the answer?
                             </p>
@@ -769,10 +769,42 @@ document.getElementsByName("token")[18].value = getCookie("token");
                         </div>
                     </li>
                     <li>
+                        <div class="collapsible-header"><i class="mdi-action-settings"></i>Random Fast Math - 70</div>
+                        <div class="collapsible-body">
+                            <p class="card-content">
+                            How fast are you at mathing? Show off your skills at <code>54.173.201.167:22222</code>
+                            </p>
+                            <!-- Form -->
+                            <form method="post" class="col s12" id="fast-form">
+                                <div class="row">
+                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                        <label for="icon_prefix">Flag</label>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="pid" value="fast">
+                                <input type="hidden" id="uid" name="uid" value="">
+                                <input type="hidden" id="token" name="token" value="">
+                                <script>
+document.getElementsByName("uid")[19].value = getCookie("uid");
+document.getElementsByName("token")[19].value = getCookie("token");
+                                </script>
+                                <div class="row center">
+                                    <button class="btn waves-effect waves-light" type="submit">Submit
+                                        <i class="mdi-content-send right"></i>
+                                    </button>
+                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('Might want to take a look at the python sockets module and eval()', 4000)">Hint</a>
+
+                                </div>
+                                <input type="hidden">
+                            </form>
+                        </div>
+                    </li>
+                    <li>
                         <div class="collapsible-header"><i class="mdi-action-settings"></i>Triangles - 85</div>
                         <div class="collapsible-body">
                             <p class="card-content">
-                            Define a triangle number as a number that strictly ascends, and then strictly descends for the same number of 
+                            Define a triangle number as a number that strictly ascends, and then strictly descends for the same number of
                             numbers. For example, the numbers 1-9 are all triangle numbers, as well as 121, 131, 143, 1258632.
                             What is the 20,000th triangle number?
                             </p>
@@ -788,8 +820,8 @@ document.getElementsByName("token")[18].value = getCookie("token");
                                 <input type="hidden" id="uid" name="uid" value="">
                                 <input type="hidden" id="token" name="token" value="">
                                 <script>
-document.getElementsByName("uid")[19].value = getCookie("uid");
-document.getElementsByName("token")[19].value = getCookie("token");
+document.getElementsByName("uid")[20].value = getCookie("uid");
+document.getElementsByName("token")[20].value = getCookie("token");
                                 </script>
                                 <div class="row center">
                                     <button class="btn waves-effect waves-light" type="submit">Submit

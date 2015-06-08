@@ -72,10 +72,13 @@ $(function() {
         event.preventDefault();
         submit_problem("donttrip-form");
     })
-
     $('#indif-form').on('submit', function(event){
         event.preventDefault();
         submit_problem("indif-form");
+    })
+    $('#fast-form').on('submit', function(event){
+        event.preventDefault();
+        submit_problem("fast-form");
     })
     $('#triangle-form').on('submit', function(event){
         event.preventDefault();
@@ -90,6 +93,6 @@ $(function() {
                 Materialize.toast(response, 4000);
             }
         });
-    
+
     }
 });

@@ -10,9 +10,14 @@ sock.connect((SERVER, PORT))
 
 response = sock.recv(1024)
 print response
-response = response.translate(None, "abcdefghijklmnopqrstuvwxyz ")
 while sock:
     response = sock.recv(1024)
-    print response
-    sock.send(str(eval(response)) + "\n")
-    print sock.recv(1024)
+    print response.strip()
+    try:
+        ans = str(eval(response))
+        print ans
+        sock.send(ans + "\n")
+    except:
+        sock.close()
+        break
+    print sock.recv(1024).strip()

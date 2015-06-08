@@ -2,7 +2,6 @@
 
 import sys, random
 from select import select
-
 # Ignore this, just used to print to stdout
 class UnbufferedStream(object):
     def __init__(self, stream):
@@ -25,16 +24,18 @@ def wait_for_input(timeout):
 
 nums = "1234567890"
 def random_gen(digits):
+    # Generate a random number of digits length
     return int("".join([random.choice(nums) for x in range(digits)]))
 
 sys.stdout = UnbufferedStream(sys.stdout)
-print "Welcome to random math! Here, we will be testing your abilities to math fast with random problems.\nYou get 2 seconds to solve each of these easy math problems"
+print "Welcome to random math! Here, we will be testing your abilities to math fast with random problems.\nYou get 0.1 seconds to solve each of these easy math problems"
 a = random_gen(5)
 b = random_gen(5)
-print "%d + %d" %(a, b)
+prob = "%d + %d" %(a, b)
+print prob
 
-ans = wait_for_input(2)
-if ans != str(a + b):
+ans = wait_for_input(.1)
+if ans != str(eval(prob)):
     print "Incorrect!"
     sys.exit(0)
 print "Correct!"
@@ -42,22 +43,11 @@ print "Correct!"
 a = random_gen(8)
 b = random_gen(8)
 c = random_gen(8)
-print "%d / %d * %d" %(a, b, c)
+prob = "%d & %d * %d" %(a, b, c)
+print prob
 
-ans = wait_for_input(2)
-if ans != str(a / b * c):
-    print "Incorrect!"
-    sys.exit(0)
-print "Correct!\n\
-You are good, but let's step it up. You now have 0.5 seconds to solve each of the following:"
-
-a = random_gen(10)
-b = random_gen(10)
-c = random_gen(10)
-print "%d % %d + %d" %(a, b, c)
-
-ans = wait_for_input(.5)
-if ans != str(a % b + c):
+ans = wait_for_input(.1)
+if ans != str(eval(prob)):
     print "Incorrect!"
     sys.exit(0)
 print "Correct!"
@@ -65,20 +55,19 @@ print "Correct!"
 a = random_gen(15)
 b = random_gen(15)
 c = random_gen(15)
-print "(%d ** 2 + 4 * %d) ** %d" %(a, b, c)
-
-ans = wait_for_input(.5)
-if ans != str((a ** 2 + 4 * b) ** d):
+prob = "(%d ** 2 + 4 * %d) * (%d + %d)" %(a, b, c, random.choice([a, b, c]))
+print prob 
+ans = wait_for_input(.1)
+if ans != str(eval(prob)):
     print "Incorrect!"
     sys.exit(0)
 print "Correct!"
 
-print "Wow, you are fast, but can you beat this final stage? You get .1 seconds!"
-a = random_gen(random_gen(3))
-b = random_gen(random_gen(3))
-c = random_gen(random_gen(3))
+a = random_gen(random_gen(1))
+b = random_gen(random_gen(1))
+c = random_gen(random_gen(1))
 
-prob = "((%d * %d - %d ** %d) + (%d / %d & %d) ^ (%d + 2 * %d)) ** .5" %(random.choice([a, b, c]), random.choice([a, b, c]), random.choice([a, b, c]), random.choice([a, b, c]), random.choice([a, b, c]), random.choice([a, b, c]), random.choice([a, b, c]), random.choice([a, b, c]), random.choice([a, b, c]))
+prob = "((%d * %d + %d + %d) + (%d & %d ^ %d) ) * .5" %(random.choice([a, b, c]), random.choice([a, b, c]), random.choice([a, b, c]), random.choice([a, b, c]), random.choice([a, b, c]), random.choice([a, b, c]), random.choice([a, b, c]))
 print prob
 ans = wait_for_input(.1)
 

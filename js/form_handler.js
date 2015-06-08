@@ -86,7 +86,7 @@ $(function() {
     })
     $('#overflow-form').on('submit', function(event){
         event.preventDefault();
-        submit_problem("triangle-form");
+        submit_problem("overflow-form");
     })
     $('#eval-form').on('submit', function(event){
         event.preventDefault();

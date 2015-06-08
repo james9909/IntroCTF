@@ -111,4 +111,28 @@ def grade(pid, flag):
             return correct(85, "Nice")
         else:
             return incorrect("Incorrect :(")
-
+    if pid == "overflow":
+        if flag == "0v3rf10w":
+            return correct(50, "Correct!")
+        else:
+            return incorrect("Incorrect :(")
+    if pid == "eval":
+        if flag == "eval_is_fun":
+            return correct(50, "Correct!")
+        else:
+            return incorrect("Incorrect :(")
+    if pid == "easy-rev":
+        if flag == "that_wasnt_between_1_and_100":
+            return correct(55, "Correct!")
+        else:
+            return incorrect("Incorrect :(")
+    if pid == "inverted":
+        if flag == "color_swap":
+            return correct(60, "Correct!")
+        else:
+            return incorrect("Incorrect :(")
+    if pid == "election":
+        if flag == "not_rigged":
+            return correct(75, "Correct!")
+        else:
+            return incorrect("Incorrect :(")

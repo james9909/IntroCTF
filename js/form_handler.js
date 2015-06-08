@@ -84,6 +84,30 @@ $(function() {
         event.preventDefault();
         submit_problem("triangle-form");
     })
+    $('#overflow-form').on('submit', function(event){
+        event.preventDefault();
+        submit_problem("triangle-form");
+    })
+    $('#eval-form').on('submit', function(event){
+        event.preventDefault();
+        submit_problem("eval-form");
+    })
+    $('#easy-rev-form').on('submit', function(event){
+        event.preventDefault();
+        submit_problem("easy-rev-form");
+    })
+    $('#inverted-form').on('submit', function(event){
+        event.preventDefault();
+        submit_problem("inverted-form");
+    })
+    $('#rand-eval-form').on('submit', function(event){
+        event.preventDefault();
+        submit_problem("rand-eval-form");
+    })
+    $('#election-form').on('submit', function(event){
+        event.preventDefault();
+        submit_problem("election-form");
+    })
     function submit_problem(formid) {
         $.ajax({
             url: "scripts/problem_handler.py",

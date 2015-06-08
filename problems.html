@@ -732,6 +732,76 @@ document.getElementsByName("token")[17].value = getCookie("token");
                             </form>
                         </div>
                     </li>
+                    <li>
+                        <div class="collapsible-header"><i class="mdi-action-settings"></i>Indifferent - 65</div>
+                        <div class="collapsible-body">
+                            <p class="card-content">
+                            Your math teacher has finally gone nuts. He tells you to write the first 300 positive integers in your notebook
+                            asks you to reduce it to one number using an algorithm. The allowed move is taking the smallest two numbers in 
+                            your list, and replacing them with a single number equal to their product added to their sum. While the rest of 
+                            your class gets busy with their work, you are indifferent and take out your computer. What are the first four
+                            digits of the answer?
+                            </p>
+                            <!-- Form -->
+                            <form method="post" class="col s12" id="indif-form">
+                                <div class="row">
+                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                        <label for="icon_prefix">Flag</label>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="pid" value="indif">
+                                <input type="hidden" id="uid" name="uid" value="">
+                                <input type="hidden" id="token" name="token" value="">
+                                <script>
+document.getElementsByName("uid")[18].value = getCookie("uid");
+document.getElementsByName("token")[18].value = getCookie("token");
+                                </script>
+                                <div class="row center">
+                                    <button class="btn waves-effect waves-light" type="submit">Submit
+                                        <i class="mdi-content-send right"></i>
+                                    </button>
+                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('Script harder', 4000)">Hint</a>
+
+                                </div>
+                                <input type="hidden">
+                            </form>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="mdi-action-settings"></i>Triangles - 85</div>
+                        <div class="collapsible-body">
+                            <p class="card-content">
+                            Define a triangle number as a number that strictly ascends, and then strictly descends for the same number of 
+                            numbers. For example, the numbers 1-9 are all triangle numbers, as well as 121, 131, 143, 1258632.
+                            What is the 20,000th triangle number?
+                            </p>
+                            <!-- Form -->
+                            <form method="post" class="col s12" id="triangle-form">
+                                <div class="row">
+                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                        <label for="icon_prefix">Flag</label>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="pid" value="triangle">
+                                <input type="hidden" id="uid" name="uid" value="">
+                                <input type="hidden" id="token" name="token" value="">
+                                <script>
+document.getElementsByName("uid")[19].value = getCookie("uid");
+document.getElementsByName("token")[19].value = getCookie("token");
+                                </script>
+                                <div class="row center">
+                                    <button class="btn waves-effect waves-light" type="submit">Submit
+                                        <i class="mdi-content-send right"></i>
+                                    </button>
+                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('Script harder', 4000)">Hint</a>
+
+                                </div>
+                                <input type="hidden">
+                            </form>
+                        </div>
+                    </li>
                 </ul>
                 <br>
                 <hr>

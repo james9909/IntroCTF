@@ -73,6 +73,14 @@ $(function() {
         submit_problem("donttrip-form");
     })
 
+    $('#indif-form').on('submit', function(event){
+        event.preventDefault();
+        submit_problem("indif-form");
+    })
+    $('#triangle-form').on('submit', function(event){
+        event.preventDefault();
+        submit_problem("triangle-form");
+    })
     function submit_problem(formid) {
         $.ajax({
             url: "scripts/problem_handler.py",
@@ -82,6 +90,6 @@ $(function() {
                 Materialize.toast(response, 4000);
             }
         });
-
+    
     }
 });

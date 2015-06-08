@@ -96,3 +96,14 @@ def grade(pid, flag):
             return correct(60, "What a friend")
         else:
             return incorrect("Incorrect :(")
+    if pid == "indif":
+        if flag == "617":
+            return correct(65, "Meh.")
+        else:
+            return incorrect("Incorrect :(")
+    if pid == "triangle":
+        if flag == "167898753":
+            return correct(85, "Nice")
+        else:
+            return incorrect("Incorrect :(")
+            

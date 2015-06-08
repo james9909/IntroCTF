@@ -131,6 +131,11 @@ def grade(pid, flag):
             return correct(60, "Correct!")
         else:
             return incorrect("Incorrect :(")
+    if pid == "rand-eval":
+        if flag == "random_eval":
+            return correct(65, "Correct!")
+        else:
+            return incorrect("Incorrect :(")
     if pid == "election":
         if flag == "not_rigged":
             return correct(75, "Correct!")

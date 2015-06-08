@@ -96,10 +96,6 @@ $(function() {
         event.preventDefault();
         submit_problem("easy-rev-form");
     })
-    $('#inverted-form').on('submit', function(event){
-        event.preventDefault();
-        submit_problem("inverted-form");
-    })
     $('#rand-eval-form').on('submit', function(event){
         event.preventDefault();
         submit_problem("rand-eval-form");

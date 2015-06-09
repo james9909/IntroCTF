@@ -1,2 +1,0 @@
-I found a weird executable file, but I just can't seem to figure out what exactly it does.
-Here is the executable

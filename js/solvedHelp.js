@@ -6,6 +6,17 @@ function readFile(path) {
     return request.responseText;
 }
 
+function getTeamInfo(data, team) {
+
+    data = data.split("\n");
+    for (i = 0; i < data.length; i++) {
+        temp = data[i].split(",");
+        if (temp[0] === team) {
+            return temp;
+        }
+    }
+}
+
 // Creds to stack overflow
 Array.prototype.diff = function(a) {
     return this.filter(function(i) {return a.indexOf(i) < 0;});
@@ -17,9 +28,9 @@ function validateSolve() {
     var start = cookies.search("uid=");
     var uid = cookies.slice(start+4);
     var text = readFile("accounts/users.txt");
-    pos = text.search(uid); // Find our username
-    text = text.slice(pos).trim(); // Trim off trailing whitespace
-    var solved = text.split(",").slice(2); // Get only solved problems, ignore username and pass
+    var info = getTeamInfo(text, uid);
+    var solved = info.slice(2); // Get only solved problems, ignore username and pass
+    console.log(solved);
     // Loop through all solved problems
     for (i = 0; i < solved.length; i++) {
         document.getElementById(solved[i]).className = "collapsible-header green lighten-5";

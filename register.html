@@ -15,6 +15,7 @@
         <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
         <script src="js/sidenav.js"></script>
+        <script src="js/account_handler.js"></script>
 
         <nav role="navigation" style="background-color: #009688">
             <div class="nav-wrapper container">
@@ -48,17 +49,17 @@
         <h2 class="center teal-text">Register</h2>
         <p class="center teal-text">WARNING: ALL USERS WILL BE WIPED BEFORE OFFICIAL RELEASE</p>
 
-        <form class="col s12" action="accounts/register" method="post">
+        <form class="col s12" id="register-form" method="post">
             <div class="row">
                 <div class="input-field col s6 m10 l8 offset-m1 offset-l2">
-                    <input autocomplete="off" placeholder="Team Name" name="team" type="text">
+                    <input autocomplete="off" placeholder="Team Name" name="tid" type="text">
                 </div>
                 <div class="row">
                     <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                        <input autocomplete="off" placeholder="Password" name="pass" type="password">
+                        <input autocomplete="off" placeholder="Password" name="tpass" type="password">
                     </div>
                     <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                        <input autocomplete="off" placeholder="Confirm Password" name="confirm_pass" type="password">
+                        <input autocomplete="off" placeholder="Confirm Password" name="tpass_conf" type="password">
                     </div>
                 </div>
                 <div class="row center">

@@ -111,6 +111,12 @@ $(function() {
             data: $("form[id=" + formid + "]").serialize(),
             success: function(response) {
                 Materialize.toast(response, 4000);
+                if (response.includes("+")) {
+                    setTimeout(function(){
+                        location.reload();
+                    }, 3000);
+                }
+
             }
         });
 

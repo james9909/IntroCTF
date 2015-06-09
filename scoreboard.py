@@ -1,31 +1,53 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 
-import os
+import os, operator
 print "Content-Type: text/html\n"
 print ""
 
-def gen_scoreboard(team_data):
+def get_team(cookies):
+    return cookies[cookies.find("uid")+4:]
+
+def sort_dict(d):
+    return sorted(d.items(), key=operator.itemgetter(1))
+
+def rank_teams(team_data):
+    team_data_copy = team_data.copy()
+    ranks = {}
+    rank = 1
+    length = len(team_data_copy)
+    for x in range(length):
+        if len(team_data_copy) == 0:
+            return
+        highest_score = max(team_data_copy.values())
+        for team in team_data_copy:
+            if team_data_copy[team] == highest_score:
+                ranks[team] = rank
+                rank += 1
+                del team_data_copy[team] 
+                break
+    return ranks
+
+def get_rank(ranked, team):
+    for info in ranked:
+        teamm, rank = info
+        if teamm == team:
+            return rank
+    return False
+
+def gen_scoreboard(team_data, ranked, team):
     if len(team_data) == 0:
         print '<h2 class = "center">There are no teams!<h2>'
     else:
         print '<h2 class="center teal-text">Scoreboard</h2>'
+        print "<center>Team %s, with a rank of %d, has %d points" %(team, get_rank(ranked, team), team_data[team])
         print "<br>"
         print "<div class='container'>"
         print "<table class='responsive-table bordered hoverable centered'>"
         print "<thead>"
         print "<tr><th>Rank</th><th>Team</th><th>Score</th></tr>"
         print "</thead>"
-        length = len(team_data)
-        for x in range(length):
-            if len(team_data) == 0:
-                return
-
-            highest_score = max(team_data.values())
-            for team in team_data:
-                if team_data[team] == highest_score:
-                    print "<tr><td>%d</td><td>%s</td><td>%s</td></tr>\n" %(x+1, team, highest_score)
-                    del team_data[team]
-                    break
+        for team, rank in ranked:
+            print "<tr><td>%s</td><td>%s</td><td>%d</td></tr>" %(rank, team, team_data[team])
 
 def main():
     fin = open("accounts/scores.txt", "r")
@@ -37,12 +59,15 @@ def main():
         if info[0] == "":
             continue
         teams[info[0]] = int(info[1])
-    gen_scoreboard(teams)
+    ranked = sort_dict(rank_teams(teams))
+    gen_scoreboard(teams, ranked, team)
 
-if 'HTTP_COOKIE' not in os.environ:
+cookies = os.environ["HTTP_COOKIE"]
+if "uid" not in cookies or "token" not in cookies:
     html = open("templates/scoreboard_logged_out.html").read()
 else:
     html = open("templates/scoreboard_logged_in.html").read()
+team = get_team(cookies)
 
 print html
 main()

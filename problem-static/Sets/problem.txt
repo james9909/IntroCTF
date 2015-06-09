@@ -1,0 +1,4 @@
+Remember that a set must contain distinct elements. Define S(n) as a function that returns the sum of n and its digit sum. Write a function that tells me the 
+number of elements in {S(0),S(1),S(2)...S(9999)}.
+
+Answer: 9046 (ARML 2009 #10) :)

@@ -104,6 +104,10 @@ $(function() {
         event.preventDefault();
         submit_problem("election-form");
     })
+    $('#sets-form').on('submit', function(event){
+        event.preventDefault();
+        submit_problem("sets-form");
+    })
     function submit_problem(formid) {
         $.ajax({
             url: "scripts/problem_handler.py",

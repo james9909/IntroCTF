@@ -12,7 +12,7 @@ Array.prototype.diff = function(a) {
 };
 
 function validateSolve() {
-    var allproblems = ["intro", "caesar", "base", "absent", "brutus", "bb", "stego", "dot", "corrupt", "inverted", "rawr", "messy", "inspect", "cookie", "hidden", "get", "spoof", "donttrip", "indif", "fast", "triangle", "overflow", "eval", "easy-rev", "inverted", "rand-eval", "election"]
+    var allproblems = ["intro", "caesar", "base", "absent", "brutus", "bb", "stego", "dot", "corrupt", "inverted", "rawr", "messy", "inspect", "cookie", "hidden", "get", "spoof", "donttrip", "indif", "fast", "triangle", "overflow", "eval", "easy-rev", "rand-eval", "election"]
     var cookies = document.cookie;
     var start = cookies.search("uid=");
     var uid = cookies.slice(start+4);
@@ -22,11 +22,12 @@ function validateSolve() {
     var solved = text.split(",").slice(2); // Get only solved problems, ignore username and pass
     // Loop through all solved problems
     for (i = 0; i < solved.length; i++) {
-        document.getElementById(solved[i]).className +="green lighten-5";
+        document.getElementById(solved[i]).className = "collapsible-header green lighten-5";
         document.getElementById(solved[i]).innerHTML += "<span style='float: right'>Solved</span>"
     }
-    var unsolved = allproblems.diff(solved)
+    var unsolved = allproblems.diff(solved);
+    // Loop through all unsolved problems
     for (i = 0; i < unsolved.length; i++) {
-        document.getElementById(solved[i]).innerHTML += "<span style='float: right'>Unsolved</span>"
+        document.getElementById(unsolved[i]).innerHTML += "<span style='float: right'>Unsolved</span>"
     }
 }

@@ -55,10 +55,10 @@ validateMobileLogin();
             <!-- BEGINNING OF INTRO -->
             <div>
                 <br>
-                <div class="col-xs-12" id = "intro"> <h5> Introduction </h5><br></div>
+                <div class="col-xs-12"> <h5> Introduction </h5><br></div>
                 <ul class="collapsible z-depth-2" data-collapsible="accordion">
                     <li>
-                        <div class="collapsible-header"><i class="mdi-action-info-outline"></i>Introduction - 5</div>
+                        <div class="collapsible-header" id="intro"><i class="mdi-action-info-outline"></i>Introduction - 5</div>
                         <div class="collapsible-body">
                             <p class="card-content">
                             Welcome to IntroCTF! The main objective is to solve problems and get flags to
@@ -1013,5 +1013,8 @@ document.getElementsByName("token")[25].value = getCookie("token");
 
         </div>
         </main>
+        <script>
+            validateSolve();
+        </script>
     </body>
     </html>

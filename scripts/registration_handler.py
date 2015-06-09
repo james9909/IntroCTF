@@ -10,8 +10,10 @@ print ""
 inputs = cgi.FieldStorage()
 
 def teamTaken(tid):
-    teams = open("../accounts/teams.txt", "r")
+    fin = open("../accounts/teams.txt", "r")
+    teams = fin.readlines()
     for team in teams:
+        team = team.split(",")
         if tid == team[0]:
             return True
     return False
@@ -19,17 +21,18 @@ def teamTaken(tid):
 def createNewTeam(tid, tpass):
     hashed = hashlib.sha1(tpass).hexdigest()
     teams = open("../accounts/teams.txt", "a")
-    teams.write("%s,%s" %(tid, hashed))
+    teams.write("%s,%s\n" %(tid, hashed))
     teams.close()
     scores = open("../accounts/scores.txt", "a")
-    scores.write("%s,0" %(tid))
+    scores.write("%s,0\n" %(tid))
     scores.close()
 
 def submitNewTeam(inputs):
+    if "tid" not in inputs or "tpass" not in inputs or "tpass_conf" not in inputs:
+        return "Something is missing"
     tid = inputs.getvalue("tid")
     tpass = inputs.getvalue("tpass")
     tpass_conf = inputs.getvalue("tpass_conf")
-    return inputs
 
     if tid == None or tid == "undefined":
         return "Please enter a team name"
@@ -38,5 +41,6 @@ def submitNewTeam(inputs):
     if teamTaken(tid):
         return "Team name is already taken"
     createNewTeam(tid, tpass)
+    return "Success!"
 
 print submitNewTeam(inputs)

@@ -11,7 +11,7 @@ print ""
 inputs = cgi.FieldStorage()
 
 def alreadySolved(uid, pid):
-    users = open("../accounts/users.txt", "r")
+    users = open("../accounts/teams.txt", "r")
     solved = users.readlines()
     for problems in solved:
         problems = problems.strip()
@@ -24,7 +24,7 @@ def alreadySolved(uid, pid):
     return False
 
 def writeSolved(uid, pid):
-    users = open("../accounts/users.txt", "r")
+    users = open("../accounts/teams.txt", "r")
     solved = users.readlines()
     while "\n" in solved:
         solved.remove("\n")
@@ -37,7 +37,7 @@ def writeSolved(uid, pid):
             data.append(pid)
         data = ",".join(data)
         new_data += data + "\n"
-    users = open("../accounts/users.txt", "w")
+    users = open("../accounts/teams.txt", "w")
     users.write(new_data)
 
 def addScore(uid, score):
@@ -61,7 +61,7 @@ def addScore(uid, score):
     users.write(new_data)
 
 def handle_submit(inputs):
-    uid = inputs.getvalue("uid")
+    uid = inputs.getvalue("tid")
     pid = inputs.getvalue("pid")
     flag = inputs.getvalue("flag")
     token = inputs.getvalue("token")

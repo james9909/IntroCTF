@@ -15,6 +15,8 @@
         <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
         <script src="js/sidenav.js"></script>
+        <script src="js/account_handler.js"></script>
+        <script src="js/validate_cookie.js"></script>
 
         <nav role="navigation" style="background-color: #009688">
             <div class="nav-wrapper container">
@@ -25,8 +27,9 @@
                     <li><a href="gallery">About</a></li>
                     <li><a href="scoreboard">Scoreboard</a></li>
                     <li><a href="problems">Problems</a></li>
-                    <li><a href="login">Login</a></li>
-                    <li><a href="register">Register</a></li>
+                    <script>
+                        validateLogin();
+                    </script>
 
                     <!-- <li><a class="mdi-action-info-outline modal-trigger" href="#helpmodal"></a></li> -->
                 </ul>
@@ -36,8 +39,9 @@
                     <li><a class="waves-effect waves-indigo" href="gallery">About</a></li>
                     <li><a class="waves-effect waves-indigo" href="scoreboard">Scoreboard</a></li>
                     <li><a class="waves-effect waves-indigo" href="problems">Problems</a></li>
-                    <li><a class="waves-effect waves-indigo" href="login">Login</a></li>
-                    <li><a class="waves-effect waves-indigo" href="register">Register</a></li>
+                    <script>
+                        validateMobileLogin();
+                    </script>
 
                     <!-- <li><a class="waves-effect waves-indigo modal-trigger" href="#helpmodal"><i class="mdi-action-info-outline"></i></a></li> -->
                 </ul>
@@ -47,14 +51,14 @@
 
         <h2 class="center teal-text">Login</h2>
 
-        <form class="col s12" action="accounts/login" method="post">
+        <form class="col s12" id="login-form" method="post">
             <div class="row">
                 <div class="input-field col s6 m10 l8 offset-m1 offset-l2">
-                    <input autocomplete="off" placeholder="Team Name" name="team" type="text">
+                    <input autocomplete="off" placeholder="Team Name" name="tid" type="text">
                 </div>
                 <div class="row">
                     <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                        <input autocomplete = "off" placeholder="Password" name="pass" type="password">
+                        <input autocomplete = "off" placeholder="Password" name="tpass" type="password">
                     </div>
                 </div>
                 <div class="row center">
@@ -62,6 +66,7 @@
                         <i class="mdi-content-send right"></i>
                     </button>
                 </div>
+            </div>
         </form>
         <br>
     <footer class="page-footer teal">

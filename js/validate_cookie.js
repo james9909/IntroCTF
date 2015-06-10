@@ -15,7 +15,7 @@ function validateLogin() {
         document.getElementById("navbar").innerHTML += "<li><a href='login'>Login</a></li>"
         document.getElementById("navbar").innerHTML += "<li><a href='register'>Register</a></li>"
     } else {
-        document.getElementById("navbar").innerHTML += "<li><a href='accounts/logout'>Log Out</a></li>"
+        document.getElementById("navbar").innerHTML += "<li><a onclick='logout()'>Log Out</a></li>"
     }
 }
 
@@ -25,6 +25,6 @@ function validateMobileLogin() {
         document.getElementById("nav-mobile").innerHTML += "<li><a class='waves-effect waves-indigo' href='login'>Login</a></li>"
         document.getElementById("nav-mobile").innerHTML += "<li><a class='waves-effect waves-indigo' href='register'>Register</a></li>"
     } else {
-        document.getElementById("nav-mobile").innerHTML += "<li><a class='waves-effect waves-indigo' href='accounts/logout'>Log Out</a></li>"
+        document.getElementById("nav-mobile").innerHTML += "<li><a onclick='logout()' class='waves-effect waves-indigo'>Log Out</a></li>"
     }
 }

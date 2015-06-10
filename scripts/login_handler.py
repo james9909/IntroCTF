@@ -6,7 +6,6 @@ cgitb.enable()
 
 print "Content-Type: text/html"
 print ""
-
 inputs = cgi.FieldStorage()
     
 def writeLogin(tid):
@@ -34,7 +33,7 @@ def verify(inputs):
     for team in team_data:
         team = team.split(",")
         if tid == team[0]:
-            if hashed == team[1]:
+            if hashed == team[1].strip():
                 writeLogin(tid)
                 return "Success!"
     return "Invalid credentials"

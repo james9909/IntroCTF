@@ -15,9 +15,13 @@ $(function() {
             data: $("form[id=" + formid + "]").serialize(),
             success: function(response) {
                 Materialize.toast(response, 4000);
+                setTimeout(function(){
+                    location.reload();
+                }, 2000);
             }
         });
     }
+
     function login(formid) {
         $.ajax({
             url: "scripts/login_handler.py",
@@ -36,7 +40,7 @@ $(function() {
                             document.cookie = "tid=" + response[1] + "; expires=Thur, 2 Aug 9001 20:47:11 UTC path=/";
                             setTimeout(function(){
                                 location.reload();
-                            }, 3000);
+                            }, 2000);
         	        }
         	    });
                 }
@@ -44,4 +48,17 @@ $(function() {
         });
 
     }
+
 });
+var deleteCookie = function(name) {
+    document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+};
+function logout() {
+    deleteCookie("tid");
+    deleteCookie("token");
+    Materialize.toast("Logged out");
+    setTimeout(function(){
+        location.reload();
+    }, 2000);
+
+}

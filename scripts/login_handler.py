@@ -10,7 +10,7 @@ inputs = cgi.FieldStorage()
     
 def writeLogin(tid):
     fout = open("../accounts/login_list.txt", "a")
-    fout.write(tid+"\n")
+    fout.write("\n" + tid + "\n")
     fout.close()
 
 def alreadyLoggedIn(tid):

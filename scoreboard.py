@@ -1,11 +1,13 @@
 #!/usr/bin/python
 
-import os, operator
+import os, operator, cgitb
 print "Content-Type: text/html\n"
 print ""
 
+cgitb.enable()
+
 def get_team(cookies):
-    return cookies[cookies.find("uid")+4:]
+    return cookies[cookies.find("tid")+4:]
 
 def sort_dict(d):
     return sorted(d.items(), key=operator.itemgetter(1))
@@ -35,19 +37,19 @@ def get_rank(ranked, team):
     return False
 
 def gen_scoreboard(team_data, ranked, team):
+    print '<h2 class="center teal-text">Scoreboard</h2>'
     if len(team_data) == 0:
         print '<h2 class = "center">There are no teams!<h2>'
-    else:
-        print '<h2 class="center teal-text">Scoreboard</h2>'
+    if team != "":
         print "<center>Team %s, with a rank of %d, has %d points" %(team, get_rank(ranked, team), team_data[team])
-        print "<br>"
-        print "<div class='container'>"
-        print "<table class='responsive-table bordered hoverable centered'>"
-        print "<thead>"
-        print "<tr><th>Rank</th><th>Team</th><th>Score</th></tr>"
-        print "</thead>"
-        for team, rank in ranked:
-            print "<tr><td>%s</td><td>%s</td><td>%d</td></tr>" %(rank, team, team_data[team])
+    print "<br>"
+    print "<div class='container'>"
+    print "<table class='responsive-table bordered hoverable centered'>"
+    print "<thead>"
+    print "<tr><th>Rank</th><th>Team</th><th>Score</th></tr>"
+    print "</thead>"
+    for team, rank in ranked:
+        print "<tr><td>%s</td><td>%s</td><td>%d</td></tr>" %(rank, team, team_data[team])
 
 def main():
     fin = open("accounts/scores.txt", "r")
@@ -62,12 +64,11 @@ def main():
     ranked = sort_dict(rank_teams(teams))
     gen_scoreboard(teams, ranked, team)
 
-cookies = os.environ["HTTP_COOKIE"]
-if "uid" not in cookies or "token" not in cookies:
-    html = open("templates/scoreboard_logged_out.html").read()
-else:
-    html = open("templates/scoreboard_logged_in.html").read()
-team = get_team(cookies)
-
+try:
+    cookies = os.environ["HTTP_COOKIE"]
+    team = get_team(cookies)
+except:
+    team = ""
+html = open("templates/scoreboard.html").read()
 print html
 main()

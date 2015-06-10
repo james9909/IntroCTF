@@ -15,6 +15,8 @@
         <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
         <script src="js/sidenav.js"></script>
+        <script src="js/account_handler.js"></script>
+        <script src="js/validate_cookie.js"></script>
 
         <nav role="navigation" style="background-color: #009688">
             <div class="nav-wrapper container">
@@ -25,7 +27,9 @@
                     <li><a href="gallery">About</a></li>
                     <li><a href="scoreboard">Scoreboard</a></li>
                     <li><a href="problems">Problems</a></li>
-                    <li><a href="accounts/logout">Log Out</a></li>
+                    <script>
+                        validateLogin();
+                    </script>
 
                     <!-- <li><a class="mdi-action-info-outline modal-trigger" href="#helpmodal"></a></li> -->
                 </ul>
@@ -35,7 +39,9 @@
                     <li><a class="waves-effect waves-indigo" href="gallery">About</a></li>
                     <li><a class="waves-effect waves-indigo" href="scoreboard">Scoreboard</a></li>
                     <li><a class="waves-effect waves-indigo" href="problems">Problems</a></li>
-                    <li><a class="waves-effect waves-indigo" href="accounts/logout">Log Out</a></li>
+                    <script>
+                        validateMobileLogin();
+                    </script>
 
                     <!-- <li><a class="waves-effect waves-indigo modal-trigger" href="#helpmodal"><i class="mdi-action-info-outline"></i></a></li> -->
                 </ul>

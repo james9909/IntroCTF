@@ -6,25 +6,28 @@ function getCookie(name) {
 
 function validateCookie(name) {
     cookie = getCookie(name);
-    return (cookie == "" || cookie == null);
+    return !(cookie == "" || cookie == null);
 }
 
+function validateCookies() {
+    return validateCookie("tid") && validateCookie("token");
+}
 function validateLogin() {
-    isValid = validateCookie("tid") && validateCookie("token")
+    isValid = validateCookies();
     if (isValid) {
+        document.getElementById("navbar").innerHTML += "<li><a onclick='logout()'>Log Out</a></li>"
+    } else {
         document.getElementById("navbar").innerHTML += "<li><a href='login'>Login</a></li>"
         document.getElementById("navbar").innerHTML += "<li><a href='register'>Register</a></li>"
-    } else {
-        document.getElementById("navbar").innerHTML += "<li><a onclick='logout()'>Log Out</a></li>"
     }
 }
 
 function validateMobileLogin() {
     isValid = validateCookie("tid") && validateCookie("token")
     if (isValid) {
+        document.getElementById("nav-mobile").innerHTML += "<li><a onclick='logout()' class='waves-effect waves-indigo'>Log Out</a></li>"
+    } else {
         document.getElementById("nav-mobile").innerHTML += "<li><a class='waves-effect waves-indigo' href='login'>Login</a></li>"
         document.getElementById("nav-mobile").innerHTML += "<li><a class='waves-effect waves-indigo' href='register'>Register</a></li>"
-    } else {
-        document.getElementById("nav-mobile").innerHTML += "<li><a onclick='logout()' class='waves-effect waves-indigo'>Log Out</a></li>"
     }
 }

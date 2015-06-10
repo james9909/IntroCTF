@@ -15,9 +15,11 @@ $(function() {
             data: $("form[id=" + formid + "]").serialize(),
             success: function(response) {
                 Materialize.toast(response, 4000);
-                setTimeout(function(){
-                    location.reload();
-                }, 2000);
+                if (response.includes("Success")) {
+                    setTimeout(function(){
+                        location.reload();
+                    }, 2000);
+                }
             }
         });
     }

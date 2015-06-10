@@ -8,6 +8,31 @@ $(function() {
         event.preventDefault();
         login("login-form");
     })
+    $("#logout").click(function() {
+        event.preventDefault();
+        logout();
+    })
+    var deleteCookie = function(name) {
+        document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    };
+
+    function logout() {
+        $.ajax({
+            url: "scripts/logout.py",
+            type: "POST",
+            success: function(response) {
+                if (response.includes("Success")) {
+                    deleteCookie("tid");
+                    deleteCookie("token");
+                    Materialize.toast("Logged out");
+                    setTimeout(function(){
+                        location.reload();
+                    }, 2000);
+                }
+            }
+        });
+    }
+
     function register(formid) {
         $.ajax({
             url: "scripts/registration_handler.py",
@@ -52,15 +77,3 @@ $(function() {
     }
 
 });
-var deleteCookie = function(name) {
-    document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-};
-function logout() {
-    deleteCookie("tid");
-    deleteCookie("token");
-    Materialize.toast("Logged out");
-    setTimeout(function(){
-        location.reload();
-    }, 2000);
-
-}

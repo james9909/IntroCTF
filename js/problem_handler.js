@@ -92,6 +92,10 @@ $(function() {
         event.preventDefault();
         submit_problem("eval-form");
     })
+    $('#copy-form').on('submit', function(event){
+        event.preventDefault();
+        submit_problem("copy-form");
+    })
     $('#easy-rev-form').on('submit', function(event){
         event.preventDefault();
         submit_problem("easy-rev-form");

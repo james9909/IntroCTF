@@ -126,14 +126,14 @@ def grade(pid, flag):
             return correct(50, "Correct!")
         else:
             return incorrect("Incorrect :(")
-    if pid == "easy-rev":
-        if flag == "that_wasnt_between_1_and_100":
+    if pid == "copy":
+        if flag == "shoulda_been_my_final_project":
             return correct(55, "Correct!")
         else:
             return incorrect("Incorrect :(")
-    if pid == "inverted":
-        if flag == "color_swap":
-            return correct(60, "Correct!")
+    if pid == "easy-rev":
+        if flag == "that_wasnt_between_1_and_100":
+            return correct(65, "Correct!")
         else:
             return incorrect("Incorrect :(")
     if pid == "rand-eval":

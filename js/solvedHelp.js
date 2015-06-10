@@ -23,7 +23,7 @@ Array.prototype.diff = function(a) {
 };
 
 function validateSolve() {
-    var allproblems = ["intro", "caesar", "base", "absent", "brutus", "bb", "stego", "dot", "corrupt", "inverted", "rawr", "messy", "inspect", "cookie", "hidden", "get", "spoof", "donttrip", "indif", "fast", "triangle", "overflow", "eval", "easy-rev", "rand-eval", "election", "sets"]
+    var allproblems = ["intro", "caesar", "base", "absent", "brutus", "bb", "stego", "dot", "corrupt", "inverted", "rawr", "messy", "inspect", "cookie", "hidden", "get", "spoof", "donttrip", "indif", "fast", "triangle", "overflow", "eval", "copy", "easy-rev", "rand-eval", "election", "sets"]
     var cookies = document.cookie;
     var start = cookies.search("tid=");
     var uid = cookies.slice(start+4);

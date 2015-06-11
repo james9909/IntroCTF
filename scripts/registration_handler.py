@@ -40,6 +40,8 @@ def submitNewTeam(inputs):
 
     if tid == None or tid == "":
         return "Please enter a team name"
+    if "||&&||" in tid:
+        return "Invalid username"
     if tpass != tpass_conf:
         return "Passwords do not match"
     if tpass.strip() == "" or tpass == None:

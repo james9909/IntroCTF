@@ -8,7 +8,11 @@ print "Content-Type: text/html"
 print ""
 
 inputs = cgi.FieldStorage()
-
+ 
+def validatePassword(tpass):
+    if len(tpass) < 8:
+        return "Password should be at least 8 characters"
+    
 def teamTaken(tid):
     fin = open("../accounts/teams.txt", "r")
     teams = fin.readlines()
@@ -34,10 +38,14 @@ def submitNewTeam(inputs):
     tpass = inputs.getvalue("tpass")
     tpass_conf = inputs.getvalue("tpass_conf")
 
-    if tid == None or tid == "undefined":
+    if tid == None or tid.strip() == "":
         return "Please enter a team name"
     if tpass != tpass_conf:
         return "Passwords do not match"
+    if tpass.strip() == "" or tpass == None:
+        return "Please enter a password"
+    if len(tpass) < 8:
+        return "Password should be at least 8 or more characters"
     if teamTaken(tid):
         return "Team name is already taken"
     createNewTeam(tid, tpass)

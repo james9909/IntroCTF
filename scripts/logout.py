@@ -12,12 +12,14 @@ def getTID(cookies):
     return tid
 
 def removeFromLogged(tid):
-    fin = open("../accounts/login_list.txt", "rw")
+    fin = open("../accounts/login_list.txt", "r")
     logged_in = fin.readlines()
+    while "\n" in logged_in:
+        logged_in.remove("\n")
     for team in logged_in:
         if team.strip() == tid:
             logged_in.remove(team)
-    fin.write("".join(logged_in)) 
+    open("../accounts/login_list.txt", "w").write("".join(logged_in) + "\n") 
     return "Success!"
 
 try:
@@ -26,5 +28,5 @@ except:
     print "Not logged in!"
     sys.exit(0)
 
-tid = getTID(cookies)
+tid = getTID(cookies).strip()
 print removeFromLogged(tid)

@@ -31,7 +31,7 @@ def verify(inputs):
     team_data = fin.readlines()
     hashed = hashlib.sha1(tpass).hexdigest()
     for team in team_data:
-        team = team.split(",")
+        team = team.split("||&&||")
         if tid == team[0]:
             if hashed == team[1].strip():
                 writeLogin(tid)

@@ -12,6 +12,6 @@ inputs = cgi.FieldStorage()
 def login(tid):
     tid = inputs["tid"].value
     token = hashlib.sha1(tid).hexdigest()
-    return "%s,%s" %(token, tid)
+    return "%s||&&||%s" %(token, tid)
 
 print login(inputs)

@@ -62,7 +62,7 @@ $(function() {
         	        type: "POST",
         	        data: $("form[id=" + formid + "]").serialize(),
         	        success: function(response) {
-                            response = response.split(",");
+                            response = response.split("||&&||")
                             document.cookie = "token=" + response[0] + "; expires=Thur, 2 Aug 9001 20:47:11 UTC path=/";
                             document.cookie = "tid=" + response[1] + "; expires=Thur, 2 Aug 9001 20:47:11 UTC path=/";
                             setTimeout(function(){

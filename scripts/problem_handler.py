@@ -16,7 +16,7 @@ def alreadySolved(uid, pid):
     for problems in solved:
         problems = problems.strip()
         # Get only solved problems
-        problems = problems.split(",")
+        problems = problems.split("||&&||")
         if problems[0] == uid:
             problems = problems[2:]
             if pid in problems:
@@ -32,10 +32,10 @@ def writeSolved(uid, pid):
     new_data = ""
     for data in solved:
         data = data.strip()
-        data = data.split(",")
+        data = data.split("||&&||")
         if data[0] == uid:
             data.append(pid)
-        data = ",".join(data)
+        data = "||&&||".join(data)
         new_data += data + "\n"
     users = open("../accounts/teams.txt", "w")
     users.write(new_data)
@@ -48,13 +48,13 @@ def addScore(uid, score):
 
     new_data = ""
     for user in data:
-        user = user.split(",")
+        user = user.split("||&&||")
         if user[0] == uid:
             user[1] = int(user[1])
             user[1] += score
             user[1] = str(user[1])
 
-        user = ",".join(user)
+        user = "||&&||".join(user)
         new_data += user + "\n"
 
     users = open("../accounts/scores.txt", "w")

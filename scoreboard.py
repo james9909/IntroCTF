@@ -57,7 +57,7 @@ def main():
     teams = {}
     # Data is stored team,score
     for info in data:
-        info = info.strip().split(",")
+        info = info.strip().split("||&&||")
         if info[0] == "":
             continue
         teams[info[0]] = int(info[1])

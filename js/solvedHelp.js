@@ -10,7 +10,7 @@ function getTeamInfo(data, team) {
 
     data = data.split("\n");
     for (i = 0; i < data.length; i++) {
-        temp = data[i].split(",");
+        temp = data[i].split("||&&||");
         if (temp[0] === team) {
             return temp;
         }

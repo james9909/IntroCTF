@@ -7,6 +7,7 @@ print ""
 
 def getTID(cookies): 
     cookies = cookies.split(";")
+    print cookies
     tid = cookies[1]
     tid = tid[5:]
     return tid

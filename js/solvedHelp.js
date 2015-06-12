@@ -1,4 +1,3 @@
-//In progress - Joel
 function readFile(path) {
     var request = new XMLHttpRequest();
     request.open("GET", path, false);

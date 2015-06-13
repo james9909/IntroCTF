@@ -7,9 +7,8 @@ print ""
 
 def getUID(cookies):
     cookies = cookies.split(";")
-    print cookies
     uid = cookies[2]
-    uid = uid[5:]
+    uid = uid[3:]
     return uid
 
 def removeFromLogged(uid):
@@ -18,7 +17,7 @@ def removeFromLogged(uid):
     while "\n" in logged_in:
         logged_in.remove("\n")
     for team in logged_in:
-        if hashlib.md5(team.strip()).hexdigest() == uid:
+        if hashlib.sha1(team.strip()).hexdigest() == uid:
             logged_in.remove(team)
     open("../accounts/login_list.txt", "w").write("".join(logged_in) + "\n")
     return "Success!"

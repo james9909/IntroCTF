@@ -18,7 +18,7 @@
         <script type="text/javascript" src="js/jquery-ui.min.js"></script>
         <script src="js/sidenav.js"></script>
         <script src="js/account_handler.js"></script>
-        <script src="js/existing_new.js"></script>
+        <script src="js/registration_handler.js"></script>
 
         <nav role="navigation" style="background-color: #009688">
             <div class="nav-wrapper container">
@@ -66,6 +66,14 @@
                     </div>
                 </div>
                 <br>
+                <div class="row center">
+                    <button class="btn waves-effect waves-light" type="submit" id="button-new-team">Create a new team
+                        <i class="mdi-content-send right"></i>
+                    </button>
+                    <button class="btn waves-effect waves-light" type="submit" id="button-join-team">Join existing team
+                        <i class="mdi-content-send right"></i>
+                    </button>
+                </div>
 
                 <div class="container">
                     <div id="registration-join-team">
@@ -87,72 +95,31 @@
                 <div class="container">
                     <div id="registration-new-team">
                         <h5 class="center teal-text">Create a new team</h5>
-                        <form method="post" class="col s12" id="join-team">
+                        <form method="post" class="col s12" id="new-team">
                             <div class="row">
-                                <div class="input-field col s6">
+                                <div class="input-field col s12">
                                     <input autocomplete="off" id="icon_prefix" name="join_id" type="text">
                                     <label for="icon_prefix">Team Name</label>
                                 </div>
-                                <div class="input-field col s6">
+                                <div class="input-field col s12">
                                     <input autocomplete="off" id="icon_prefix" name="join_pass" type="password">
                                     <label for="icon_prefix">Team Password</label>
                                 </div>
-                                <div class="input-field col s6">
+                                <div class="input-field col s12">
                                     <input autocomplete="off" id="icon_prefix" name="join_pass" type="password">
                                     <label for="icon_prefix">Confirm Team Password</label>
                                 </div>
                             </div>
                         </form>
                     </div>
+                    <br>
+                    <div class="row center">
+                        <button class="btn waves-effect waves-light" action="submitRegistration()" id="submit-registration">Register
+                            <i class="mdi-content-send right"></i>
+                        </button>
+                    </div>
                 </div>
-                <div class="row center">
-                    <button class="btn waves-effect waves-light" type="submit" id="button-new-team">Create a new team
-                        <i class="mdi-content-send right"></i>
-                    </button>
-                    <button class="btn waves-effect waves-light" type="submit" id="button-join-team">Join existing team
-                        <i class="mdi-content-send right"></i>
-                    </button>
-                </div>
-                <!-- <div class="container"> -->
-                <!-- <ul class="collapsible z-depth-2" data-collapsible="accordion"> -->
-                <!--     <li> -->
-                <!--         <div class="collapsible-header">Create new team</div> -->
-                <!--         <div class="collapsible-body"> -->
-                <!--             <p class="card-content"> -->
-                <!--             pls update description -->
-                <!--             </p> -->
-                <!--             <1!-- Form --1> -->
-                <!--             <form method="post" class="col s12" id="rand-eval-form"> -->
-                <!--                 <div class="row"> -->
-                <!--                     <div class="input-field col s12 m10 l8 offset-m1 offset-l2"> -->
-                <!--                         <input autocomplete="off" id="icon_prefix" name="flag" type="text"> -->
-                <!--                         <label for="icon_prefix">Flag</label> -->
-                <!--                     </div> -->
-                <!--                 </div> -->
-                <!--                 <input type="hidden" name="pid" value="rand-eval"> -->
-                <!--             </form> -->
-                <!--         </div> -->
-                <!--     </li> -->
-                <!--     <li> -->
-                <!--         <div class="collapsible-header">Join an existing team</div> -->
-                <!--         <div class="collapsible-body"> -->
-                <!--             <p class="card-content"> -->
-                <!--             pls update description -->
-                <!--             </p> -->
-                <!--             <1!-- Form --1> -->
-                <!--             <form method="post" class="col s12" id="rand-eval-form"> -->
-                <!--                 <div class="row"> -->
-                <!--                     <div class="input-field col s12 m10 l8 offset-m1 offset-l2"> -->
-                <!--                         <input autocomplete="off" id="icon_prefix" name="flag" type="text"> -->
-                <!--                         <label for="icon_prefix">Flag</label> -->
-                <!--                     </div> -->
-                <!--                 </div> -->
-                <!--                 <input type="hidden" name="pid" value="rand-eval"> -->
-                <!--             </form> -->
-                <!--         </div> -->
-                <!--     </li> -->
-                <!-- </ul> -->
-                <!-- </div> -->
+            </div>
         </form>
         <br>
     </body>

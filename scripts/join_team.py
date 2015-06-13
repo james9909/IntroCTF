@@ -15,15 +15,15 @@ def validateTeam(tname, tpass):
     teams = fin.readlines()
     for team in teams:
         team = team.split("||&&||")
-        if tid == team[0]:
+        if tname == team[0]:
             if tpass == team[1]:
                 return True
     return False
 
 def addUser(uname, upass):
-    upass_hashed = hashlib.sha1(tpass).hexdigest()
+    upass_hashed = hashlib.sha1(upass).hexdigest()
 
-    fin = open("../accounts/users.txt", "a")
+    users = open("../accounts/users.txt", "a")
     users.write("%s||&&||%s\n" %(uname, upass_hashed))
     users.close()
 
@@ -32,7 +32,7 @@ def joinTeam(tname, uname):
     teams = fin.readlines()
     output = ""
     for team in teams:
-        team = teams.strip().split("||&&||")
+        team = team.strip().split("||&&||")
         if team[0] == tname:
             team.append(uname + "\n")
         output += "||&&||".join(team)

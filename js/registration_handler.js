@@ -36,7 +36,7 @@ function submitRegistration() {
         data: $("#"+form + ", #register-form").serialize(),
         success: function(response) {
             Materialize.toast(response, 4000);
-            if (response.includes("+")) {
+            if (response.includes("Success")) {
                 setTimeout(function(){
                     location.reload();
                 }, 3000);

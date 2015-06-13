@@ -43,8 +43,8 @@ function makeChart()
                 showArea:true
             },
         },
-        showLine:false,
-        showPoint:false,
+        showLine:true,
+        showPoint:true,
         fullWidth:true,
         };
     new Chartist.Line('.ct-chart', {

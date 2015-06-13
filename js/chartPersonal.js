@@ -5,7 +5,27 @@ function readFile(path) {
     request.send(null);
     return request.responseText;
 }
-//Assume I have the file.
+//Assume I have the file. Comma seperated tuples (problem,day - code MO TU WE TH FR SA SU).
+var data = {};
+function load(data){
+    var out = [];
+    var day = ["MO","TU","WE","TH","FR","SA","SU"];
+    for(i=0;i<data.length;i++){
+        out.push(0);
+        out[day.indexOf(data[i][1])] += data[i][0];
+    }
+    
+}
+
+function toBullet(tuple){
+    var out = "&bull; ";
+    out += tuple[0].toString();
+    out += ": ";
+    out += points;
+    out += " - ";
+    out += tuple[1];
+    return out;
+}
 
 function makeChart()
     {var graphOptions = {
@@ -23,7 +43,7 @@ function makeChart()
                 showArea:true
             },
         },
-        //showLine:false,
+        showLine:false,
         showPoint:false,
         fullWidth:true,
         };

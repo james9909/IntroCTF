@@ -7,7 +7,10 @@ print ""
 cgitb.enable()
 
 def get_team(cookies):
-    return cookies[cookies.find("tid")+4:]
+    pos = cookies.find("tid")
+    if pos != -1:
+        return cookies[cookies.find("tid")+4:]
+    return ""
 
 def sort_dict(d):
     return sorted(d.items(), key=operator.itemgetter(1))

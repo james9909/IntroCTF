@@ -1,2 +1,7 @@
 /*.ct-series .ct-series-a .ct-area{fill:#333;}*/
-.ct-area{fill:"yellow"}
+.ct-area{
+    fill: #FFFF00;
+    background-color: #FFFF00;
+    color: #FFFF00;
+    
+}

@@ -9,53 +9,59 @@ print ""
 
 inputs = cgi.FieldStorage()
 
-def validatePassword(tpass):
-    if len(tpass) < 8:
-        return "Password should be at least 8 characters"
-
-def teamTaken(tid):
+def validateTeam(tname, tpass):
+    tpass = hashlib.sha1(tpass).hexdigest()
     fin = open("../accounts/teams.txt", "r")
     teams = fin.readlines()
     for team in teams:
         team = team.split("||&&||")
         if tid == team[0]:
-            return True
+            if tpass == team[1]:
+                return True
     return False
 
-def createNewTeam(tid, tpass):
-    hashed = hashlib.sha1(tpass).hexdigest()
-    solved = open("../accounts/solved.txt", "a")
-    solved.write("%s||&&||" %(tid))
-    solved.close()
+def addUser(uname, upass):
+    upass_hashed = hashlib.sha1(tpass).hexdigest()
 
-    teams = open("../accounts/teams.txt", "a")
-    teams.write("%s||&&||%s\n" %(tid, hashed))
-    teams.close()
+    fin = open("../accounts/users.txt", "a")
+    users.write("%s||&&||%s\n" %(uname, upass_hashed))
+    users.close()
 
-    scores = open("../accounts/scores.txt", "a")
-    scores.write("%s||&&||0\n" %(tid))
-    scores.close()
+def joinTeam(tname, uname):
+    fin = open("../accounts/teams.txt", "r")
+    teams = fin.readlines()
+    output = ""
+    for team in teams:
+        team = teams.strip().split("||&&||")
+        if team[0] == tname:
+            team.append(uname + "\n")
+        output += "||&&||".join(team)
+    teams = open("../accounts/teams.txt", "w")
+    teams.write(output)
 
 def submitNewTeam(inputs):
-    if "tid" not in inputs or "tpass" not in inputs or "tpass_conf" not in inputs:
+    if "uname" not in inputs or "upass" not in inputs or "upass_conf" not in inputs or "join_id" not in inputs or "join_pass" not in inputs:
         return "Something is missing"
-    tid = inputs.getvalue("tid").strip()
-    tpass = inputs.getvalue("tpass")
-    tpass_conf = inputs.getvalue("tpass_conf")
+    uname = inputs.getvalue("uname").strip()
+    upass = inputs.getvalue("upass").strip()
+    upass_conf = inputs.getvalue("upass_conf").strip()
+    team = inputs.getvalue("join_id")
+    team_pass = inputs.getvalue("join_pass")
 
-    if tid == None or tid == "":
+    if uname == None or uname == "":
         return "Please enter a team name"
-    if "||&&||" in tid:
+    if "||&&||" in uname:
         return "Invalid username"
-    if tpass != tpass_conf:
+    if upass != upass_conf:
         return "Passwords do not match"
-    if tpass.strip() == "" or tpass == None:
+    if upass.strip() == "" or upass == None:
         return "Please enter a password"
-    if len(tpass) < 8:
+    if len(upass) < 8:
         return "Password should be at least 8 or more characters"
-    if teamTaken(tid):
-        return "Team name is already taken"
-    createNewTeam(tid, tpass)
+    if not validateTeam(team, team_pass):
+        return "Invalid team credentials"
+    joinTeam(team, uname)
+    addUser(uname, upass)
     return "Success!"
 
 print submitNewTeam(inputs)

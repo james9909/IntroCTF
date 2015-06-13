@@ -27,6 +27,26 @@ def addUser(uname, upass):
     users.write("%s||&&||%s\n" %(uname, upass_hashed))
     users.close()
 
+def fullTeam(tname):
+    fin = open("../accounts/teams.txt", "r")
+    teams = fin.readlines()
+    for team in teams:
+        team = team.strip().split("||&&||")
+        team = team[1:]
+        if len(team) == 4:
+            return True
+    return False
+
+def alreadyOnTeam(tname, uname):
+    fin = open("../accounts/teams.txt", "r")
+    teams = fin.readlines()
+    for team in teams:
+        team = team.strip.split("||&&||")
+        for user in team:
+            if user == uname:
+                return True
+    return False
+
 def joinTeam(tname, uname):
     fin = open("../accounts/teams.txt", "r")
     teams = fin.readlines()
@@ -60,6 +80,11 @@ def submitNewTeam(inputs):
         return "Password should be at least 8 or more characters"
     if not validateTeam(team, team_pass):
         return "Invalid team credentials"
+    if fullTeam(team):
+        return "That team is full"
+    if alreadyOnTeam(team, uname):
+        return "You are already on that team"
+
     joinTeam(team, uname)
     addUser(uname, upass)
     return "Success!"

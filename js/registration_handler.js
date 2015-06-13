@@ -15,6 +15,10 @@ $(function() {
             return $("#registration-join-team").slideDown(250, "linear")
         });
     });
+    $("#submit-registration").click(function() {
+        event.preventDefault();
+        submitRegistration();
+    });
 });
 
 function submitRegistration() {
@@ -29,7 +33,7 @@ function submitRegistration() {
     $.ajax({
         url: "scripts/"+form_handler,
         type: "POST",
-        data: $("#"+form, "#register-form").serialize(),
+        data: $("#"+form + ", #register-form").serialize(),
         success: function(response) {
             Materialize.toast(response, 4000);
             if (response.includes("+")) {

@@ -1806,8 +1806,13 @@ pre {
  * Address odd `em`-unit font size rendering in all browsers.
  */
 code, kbd, pre, samp {
-  font-family: monospace, monospace;
-  font-size: 1em; }
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+  font-size: 1em;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace; }
 
 /* Forms
    ========================================================================== */

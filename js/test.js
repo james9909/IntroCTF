@@ -1,3 +1,11 @@
+// Creds to the helpful guys over at stackoverflow
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+    results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
 function readFile(path) {
     var request = new XMLHttpRequest();
     request.open("GET", path, false);
@@ -5,6 +13,27 @@ function readFile(path) {
     return request.responseText;
 }
 
+function getTeamInfo(data, team) {
+    data = data.split("\n");
+    for (i = 0; i < data.length; i++) {
+        temp = data[i].split("||&&||");
+        if (temp[0] === team) {
+            return temp;
+        }
+    }
+}
+
+function getTeamData(team) {
+    data = [];
+    scores = readFile("accounts/scores.txt");
+    scores = getTeamInfo(scores, team);
+    scores = scores.slice(1);
+    for (i = 0; i < scores.length; i+=2) {
+        data.push([scores[i], scores[i+1]]);
+    }
+    return data;
+}
+var team = getParameterByName("tid");
 d = new Date();
 $(document).ready(function () {
     $('#container').highcharts({
@@ -20,7 +49,8 @@ $(document).ready(function () {
             dateTimeLabelFormats: { // don't display the dummy year
                 month: '%e. %b',
                 year: '%b'
-            }
+            },
+            max: Date.UTC(2015, 6, 22)
         },
         yAxis: {
             title: {
@@ -46,22 +76,11 @@ $(document).ready(function () {
                 }
             }
         },
-        //minTickInterval: 86400000,
-        //min: 1434312000000,
         series: [{
             pointStart: 1434312000000,
             pointInterval: 86400000,
             name: 'foo',
-            data: [
-                [1434312000000, 0 ],
-                [1434322800000, 10], 
-                [1434320320603, 25],
-                [1434320329545, 55],
-                [1434320329545, 95],
-                [d.getTime(), 200]
-            
-            ]
+            data: getTeamData(team)
         }]
     });
 })
-

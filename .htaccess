@@ -6,4 +6,3 @@ RedirectMatch 404 /users.txt$
 RedirectMatch 404 /teams.txt$
 RedirectMatch 404 /scores.txt$
 RedirectMatch 404 /login_list.txt$
-RedirectMatch 404 /solved.txt$

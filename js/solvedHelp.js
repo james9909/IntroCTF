@@ -27,7 +27,6 @@ function validateSolve() {
     var cookies = document.cookie;
     var tid = cookies.split("; ");
     tid = tid[1].slice(4);
-    console.log(tid);
     var text = readFile("accounts/solved.txt");
     var info = getTeamInfo(text, tid);
     info = info.slice(1);

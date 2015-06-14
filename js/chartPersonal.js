@@ -5,8 +5,23 @@ function readFile(path) {
     request.send(null);
     return request.responseText;
 }
-//Assume I have the file. Comma seperated tuples (problem,day - code MO TU WE TH FR SA SU).
-var data = {};
+
+function getTeamInfo(data, team) {
+
+    data = data.split("\n");
+    for (i = 0; i < data.length; i++) {
+        temp = data[i].split("||&&||");
+        if (temp[0] === team) {
+            return temp.slice(1);
+        }
+    }
+}
+
+var data = readFile("accounts/solved.txt");
+var cookies = document.cookie;
+var tid = cookies.split("; ");
+tid = tid[1].slice(4);
+var info = getTeamInfo(data, tid); //Should be list of problem, time, problem, time. (Time is list)
 function load(data){
     var out = [];
     var day = ["MO","TU","WE","TH","FR","SA","SU"];

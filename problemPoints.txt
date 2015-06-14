@@ -15,3 +15,14 @@ cookie,35
 hidden,40
 get,45
 spoof,70
+sets,50
+donttrip,60
+indif,65
+fast,70
+triangle,85
+overflow,50
+eval,50
+copy,55
+easy-rev,65
+rand-eval,65
+election,75

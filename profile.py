@@ -3,10 +3,18 @@
 print "Content-Type: text/html\n"
 print ""
 
-import cgi
+import cgi, cgitb, collections
 
-problems = {"intro": "Introduction", "caesar": "Caesar", "base": "The Best Base", "absent": "Absent", "brutus": "Brutus", "bb": "b1naryb0ts", "stego": "Intro Stego", "dot": "Dot", "corrupt": "Corruption", "inverted": "Inverted", "rawr": "RAAWWWRRRR", "messy": "Messy Code", "inspect": "Inspector", "cookie": "Cookie Jar", "hidden": "HIdden", "get": "GET", "spoof": "Easy Spoof", "donttrip": "Don't Trip", "indif": "Indifferent", "fast": "Random Fast Math", "triangle": "Triangles", "overflow": "Intro Overflow", "eval": "Intro Eval", "copy": "Copy Cat", "easy-rev": "Easy Reverse", "rand-eval": "Random Eval", "election": "Elections", "sets": "Sets"}
+cgitb.enable()
 
+pids = ["intro", "caesar", "base", "absent", "brutus", "bb", "stego", "dot", "corrupt", "inverted", "rawr", "messy", "inspect", "cookie", "hidden", "get", "spoof", "sets", "indif", "donttrip","fast", "triangle", "overflow", "eval", "copy", "easy-rev", "rand-eval", "election", "sets"]
+names = ["Introduction", "Caesar", "The Best Base", "Absent", "Brutus", "b1naryb0ts", "Intro Stego", "Dot", "Corruption", "Inverted", "RAAWWWRRRR", "Messy Code", "Inspector", "Cookie Jar", "HIdden", "GET", "Easy Spoof", "Sets", "Indifferent", "Don't Trip", "Random Fast Math", "Triangles", "Intro Overflow", "Intro Eval", "Copy Cat", "Easy Reverse", "Random Eval", "Elections"]
+
+problems = collections.OrderedDict()
+
+for pid, name in zip(pids, names):
+    problems[pid] = name
+    
 def getProblemPointValue(pid):
     fin = open("problemPoints.txt", "r")
     problems = fin.readlines()
@@ -36,29 +44,30 @@ def existsTeam(tid):
             return True
     return False
 
-def genTable(tid):
+def genProfile(tid):
     if not existsTeam(tid):
         print "Team does not exist!"
         return
     print "<h3 class='center teal-text'>%s</h3>" %(tid)
     print "<br>"
     print "<div class='container'>"
-    print "<table class='responsive-table bordered hoverable centered'>"
+    print "<table class='responsive-table bordered hoverable'>"
     print "<thead>"
     print "<tr><th>Problem</th><th>Point Value</th><th>Status</th></tr>"
     print "</thead>"
-    solved = getTeamSolved(tid)
-    for problem in solved:
+    for problem in problems:
         status = isSolved(tid, problem)
         value = getProblemPointValue(problem)
         if status:
-            print "<tr class='green lighten-4'><td>%s</td><td>%s</td><td>Solved</td></tr>" %(problem, value)
+            print "<tr class='green lighten-5'><td>%s</td><td>%s</td><td>Solved</td></tr>" %(problems[problem], value)
         else:
-            print "<tr class='red lighten-4'><td>%s</td><td>%s</td><td>Unsolved</td></tr>" %(problem, value)
+            print "<tr class='red lighten-5'><td>%s</td><td>%s</td><td>Unsolved</td></tr>" %(problems[problem], value)
 
 def main():
     inputs = cgi.FieldStorage()
     tid = inputs.getvalue("team")
-    gen_scoreboard(tid)
+    genProfile(tid)
 
+html = open("templates/profile.html", "r").read()
+print html
 main()

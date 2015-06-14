@@ -39,7 +39,7 @@ def get_rank(ranked, team):
     return False
 
 def gen_scoreboard(team_data, ranked, team):
-    print '<h1 class="center teal-text">Scoreboard</h1>'
+    print '<h2 class="center teal-text">Scoreboard</h2>'
     if len(team_data) == 0:
         print '<h5 class = "center">There are no teams!<h5>'
         return

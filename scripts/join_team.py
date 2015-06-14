@@ -41,7 +41,7 @@ def alreadyOnTeam(tname, uname):
     fin = open("../accounts/teams.txt", "r")
     teams = fin.readlines()
     for team in teams:
-        team = team.strip.split("||&&||")
+        team = team.strip().split("||&&||")
         for user in team:
             if user == uname:
                 return True

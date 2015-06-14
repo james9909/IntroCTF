@@ -32,8 +32,8 @@ def userTaken(uid):
     return False
 
 def createNewTeam(tname, tpass, uname, upass):
-    tpass_hashed = hashlib.sha1(tpass).hexdigest()
-    upass_hashed = hashlib.sha1(upass).hexdigest()
+    tpass_hashed = hashlib.sha1(tpass + "salt").hexdigest()
+    upass_hashed = hashlib.sha1(upass + "salt").hexdigest()
 
     solved = open("../accounts/solved.txt", "a")
     solved.write("%s\n" %(tname))

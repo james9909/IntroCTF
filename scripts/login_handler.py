@@ -30,7 +30,7 @@ def verify(inputs):
 
     fin = open("../accounts/users.txt")
     users = fin.readlines()
-    hashed = hashlib.sha1(upass).hexdigest()
+    hashed = hashlib.sha1(upass + "salt").hexdigest()
     for data in users:
         data = data.split("||&&||")
         if uname == data[0]:

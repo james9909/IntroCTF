@@ -10,7 +10,7 @@ print ""
 inputs = cgi.FieldStorage()
 
 def validateTeam(tname, tpass):
-    tpass = hashlib.sha1(tpass).hexdigest()
+    tpass = hashlib.sha1(tpass + "salt").hexdigest()
     fin = open("../accounts/teams.txt", "r")
     teams = fin.readlines()
     for team in teams:
@@ -21,7 +21,7 @@ def validateTeam(tname, tpass):
     return False
 
 def addUser(uname, upass):
-    upass_hashed = hashlib.sha1(upass).hexdigest()
+    upass_hashed = hashlib.sha1(upass + "salt").hexdigest()
 
     users = open("../accounts/users.txt", "a")
     users.write("%s||&&||%s\n" %(uname, upass_hashed))

@@ -22,8 +22,8 @@ def getTeam(uname):
 def login(inputs):
     uname = inputs["uname"].value
     tid = getTeam(uname)
-    token = hashlib.sha1(tid).hexdigest()
-    u = hashlib.sha1(uname).hexdigest()
+    token = hashlib.sha1(tid + "salt").hexdigest()
+    u = hashlib.sha1(uname + "salt").hexdigest()
     return "%s||&&||%s||&&||%s" %(token, tid, u)
 
 print login(inputs)

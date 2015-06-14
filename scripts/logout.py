@@ -17,7 +17,7 @@ def removeFromLogged(uid):
     while "\n" in logged_in:
         logged_in.remove("\n")
     for team in logged_in:
-        if hashlib.sha1(team.strip()).hexdigest() == uid:
+        if hashlib.sha1(team.strip() + "salt").hexdigest() == uid:
             logged_in.remove(team)
     open("../accounts/login_list.txt", "w").write("".join(logged_in) + "\n")
     return "Success!"

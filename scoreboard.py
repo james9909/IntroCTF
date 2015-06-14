@@ -27,7 +27,7 @@ def rank_teams(team_data):
             if team_data_copy[team] == highest_score:
                 ranks[team] = rank
                 rank += 1
-                del team_data_copy[team] 
+                del team_data_copy[team]
                 break
     return ranks
 
@@ -51,7 +51,7 @@ def gen_scoreboard(team_data, ranked, team):
     print "<tr><th>Rank</th><th>Team</th><th>Score</th></tr>"
     print "</thead>"
     for team, rank in ranked:
-        print "<tr><td>%s</td><td>%s</td><td>%d</td></tr>" %(rank, team, team_data[team])
+        print "<tr class='clickable-row' data-href='profile.py?team=%s'><td>%s</td><td>%s</td><td>%d</td></tr>" %(team, rank, team, team_data[team])
 
 def main():
     fin = open("accounts/scores.txt", "r")

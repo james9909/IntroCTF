@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import cgi, cgitb, hashlib,datetime
+import cgi, cgitb, hashlib,datetime, time
 from grader import grade
 
 cgitb.enable()
@@ -11,9 +11,10 @@ print ""
 inputs = cgi.FieldStorage()
 
 def logTime():
-    now = datetime.datetime.today()
-    absClock = (now.hour * 3600 + now.minute * 60 + now.second) * 1000000 + now.microsecond
-    return [now.day,absClock,now.hour,now.minute,now.second]
+#    now = datetime.datetime.today()
+#    absClock = (now.hour * 3600 + now.minute * 60 + now.second) * 1000000 + now.microsecond
+#    return [now.day,absClock,now.hour,now.minute,now.second]
+     return int(time.time() * 1000)
 
 def alreadySolved(uid, pid):
     users = open("../accounts/solved.txt", "r")
@@ -40,11 +41,20 @@ def writeSolved(uid, pid):
         data = data.split("||&&||")
         if data[0] == uid:
             data.append(pid)
-            data.append(str(logTime()))
         data = "||&&||".join(data)
         new_data += data + "\n"
     users = open("../accounts/solved.txt", "w")
     users.write(new_data)
+    
+    scores = open("../accounts/scores.txt", "r").readlines()
+    new = ""
+    for score in scores:
+        score = score.strip().split("||&&||")
+        if score[0] == uid:
+            score.append(str(logTime()))
+        new += "||&&||".join(score) + "\n"
+    scores = open("../accounts/scores.txt", "w")
+    scores.write(new)
 
 def addScore(uid, score):
     scores = open("../accounts/scores.txt", "r")
@@ -54,11 +64,11 @@ def addScore(uid, score):
 
     new_data = ""
     for user in data:
-        user = user.split("||&&||")
+        user = user.strip().split("||&&||")
         if user[0] == uid:
-            user[1] = int(user[1])
-            user[1] += score
-            user[1] = str(user[1])
+            curr_score = int(user[-2])
+            new_score = curr_score + score
+            user.append(str(new_score))
 
         user = "||&&||".join(user)
         new_data += user + "\n"
@@ -71,7 +81,7 @@ def handle_submit(inputs):
     pid = inputs.getvalue("pid")
     flag = inputs.getvalue("flag")
     token = inputs.getvalue("token")
-    confirm = hashlib.sha1(uid + "salt").hexdigest()
+    confirm = hashlib.sha1(uid).hexdigest()
 
     if uid == None or uid == "undefined":
         return "Log in to submit flags!"
@@ -87,8 +97,8 @@ def handle_submit(inputs):
     response = grade(pid, flag)
 
     if response["status"] == 1:
-        writeSolved(uid, pid)
         addScore(uid, response["points"])
+        writeSolved(uid, pid)
         return response["message"]
 
     return response["message"]

@@ -30,7 +30,7 @@ function validateSolve() {
     var text = readFile("accounts/solved.txt");
     var info = getTeamInfo(text, tid);
     info = info.slice(1);
-    for (i = 0; i < info.length; i += 2) {
+    for (i = 0; i < info.length; i++) {
         solved.push(info[i]);
 
     }

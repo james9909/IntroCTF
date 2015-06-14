@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import cgi, cgitb, hashlib
+import cgi, cgitb, hashlib, datetime, time
 
 cgitb.enable()
 
@@ -8,6 +8,12 @@ print "Content-Type: text/html"
 print ""
 
 inputs = cgi.FieldStorage()
+
+def logTime():
+    #now = datetime.datetime.today()
+    #absClock = (now.hour * 3600 + now.minute * 60 + now.second) * 1000000 + now.microsecond
+    #return [now.day,absClock,now.hour,now.minute,now.second]
+    return int(time.time() * 1000)
 
 def validatePassword(tpass):
     if len(tpass) < 8:
@@ -44,7 +50,7 @@ def createNewTeam(tname, tpass, uname, upass):
     teams.close()
 
     scores = open("../accounts/scores.txt", "a")
-    scores.write("%s||&&||0\n" %(tname))
+    scores.write("%s||&&||0||&&||%s\n" %(tname, logTime()))
     scores.close()
 
     users = open("../accounts/users.txt", "a")

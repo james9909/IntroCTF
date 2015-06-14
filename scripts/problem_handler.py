@@ -16,20 +16,20 @@ def logTime():
     return [now.day,absClock,now.hour,now.minute,now.second]
 
 def alreadySolved(uid, pid):
-    users = open("../accounts/teams.txt", "r")
+    users = open("../accounts/solved.txt", "r")
     solved = users.readlines()
     for problems in solved:
         problems = problems.strip()
         # Get only solved problems
         problems = problems.split("||&&||")
         if problems[0] == uid:
-            problems = problems[2:]
+            problems = problems[1:]
             if pid in problems:
                 return True
     return False
 
 def writeSolved(uid, pid):
-    users = open("../accounts/teams.txt", "r")
+    users = open("../accounts/solved.txt", "r")
     solved = users.readlines()
     while "\n" in solved:
         solved.remove("\n")
@@ -40,9 +40,10 @@ def writeSolved(uid, pid):
         data = data.split("||&&||")
         if data[0] == uid:
             data.append(pid)
+            data.append(str(logTime()))
         data = "||&&||".join(data)
         new_data += data + "\n"
-    users = open("../accounts/teams.txt", "w")
+    users = open("../accounts/solved.txt", "w")
     users.write(new_data)
 
 def addScore(uid, score):

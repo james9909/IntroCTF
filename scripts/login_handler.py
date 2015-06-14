@@ -21,20 +21,21 @@ def alreadyLoggedIn(tid):
     return False
 
 def verify(inputs):
-    if "tid" not in inputs or "tpass" not in inputs:
+    if "uname" not in inputs or "upass" not in inputs:
         return "Invalid credentials"
-    tid = inputs["tid"].value
-    tpass = inputs["tpass"].value
-    if alreadyLoggedIn(tid):
+    uname = inputs["uname"].value
+    upass = inputs["upass"].value
+    if alreadyLoggedIn(uname):
         return "Already logged in"
-    fin = open("../accounts/teams.txt")
-    team_data = fin.readlines()
-    hashed = hashlib.sha1(tpass).hexdigest()
-    for team in team_data:
-        team = team.split("||&&||")
-        if tid == team[0]:
-            if hashed == team[1].strip():
-                writeLogin(tid)
+
+    fin = open("../accounts/users.txt")
+    users = fin.readlines()
+    hashed = hashlib.sha1(upass).hexdigest()
+    for data in users:
+        data = data.split("||&&||")
+        if uname == data[0]:
+            if hashed == data[1].strip():
+                writeLogin(uname)
                 return "Success!"
     return "Invalid credentials"
 

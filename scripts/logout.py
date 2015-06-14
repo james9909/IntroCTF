@@ -1,26 +1,25 @@
 #!/usr/bin/python
 
-import sys, os
+import sys, os, hashlib
 
 print "Content-Type: text/html\n"
 print ""
 
-def getTID(cookies): 
+def getUID(cookies):
     cookies = cookies.split(";")
-    print cookies
-    tid = cookies[1]
-    tid = tid[5:]
-    return tid
+    uid = cookies[2]
+    uid = uid[3:]
+    return uid
 
-def removeFromLogged(tid):
+def removeFromLogged(uid):
     fin = open("../accounts/login_list.txt", "r")
     logged_in = fin.readlines()
     while "\n" in logged_in:
         logged_in.remove("\n")
     for team in logged_in:
-        if team.strip() == tid:
+        if hashlib.sha1(team.strip()).hexdigest() == uid:
             logged_in.remove(team)
-    open("../accounts/login_list.txt", "w").write("".join(logged_in) + "\n") 
+    open("../accounts/login_list.txt", "w").write("".join(logged_in) + "\n")
     return "Success!"
 
 try:
@@ -29,5 +28,5 @@ except:
     print "Not logged in!"
     sys.exit(0)
 
-tid = getTID(cookies).strip()
-print removeFromLogged(tid)
+uid = getUID(cookies).strip()
+print removeFromLogged(uid)

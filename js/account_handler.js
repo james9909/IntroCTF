@@ -24,6 +24,7 @@ $(function() {
                 if (response.includes("Success")) {
                     deleteCookie("tid");
                     deleteCookie("token");
+                    deleteCookie("u");
                     Materialize.toast("Logged out");
                     setTimeout(function(){
                         location.reload();
@@ -62,9 +63,10 @@ $(function() {
         	        type: "POST",
         	        data: $("form[id=" + formid + "]").serialize(),
         	        success: function(response) {
-                            response = response.split("||&&||")
+                            response = response.split("||&&||");
                             document.cookie = "token=" + response[0] + "; expires=Thur, 2 Aug 9001 20:47:11 UTC path=/";
                             document.cookie = "tid=" + response[1] + "; expires=Thur, 2 Aug 9001 20:47:11 UTC path=/";
+                            document.cookie = "u=" + response[2] + "; expires=Thur, 2 Aug 9001 20:47:11 UTC path=/";
                             setTimeout(function(){
                                 location.reload();
                             }, 2000);

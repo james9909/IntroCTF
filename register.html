@@ -3,6 +3,7 @@
     <head>
         <!--Import materialize.css-->
         <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="css/jquery-ui.min.css"/>
 
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
@@ -14,8 +15,9 @@
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui.min.js"></script>
         <script src="js/sidenav.js"></script>
-        <script src="js/account_handler.js"></script>
+        <script src="js/registration_handler.js"></script>
 
         <nav role="navigation" style="background-color: #009688">
             <div class="nav-wrapper container">
@@ -52,21 +54,74 @@
         <form class="col s12" id="register-form" method="post">
             <div class="row">
                 <div class="input-field col s6 m10 l8 offset-m1 offset-l2">
-                    <input autocomplete="off" placeholder="Team Name" name="tid" type="text">
+                    <input autocomplete="off" id="icon_prefix" name="uname" type="text">
+                    <label for="icon_prefix">Username</label>
                 </div>
                 <div class="row">
                     <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                        <input autocomplete="off" placeholder="Password" name="tpass" type="password">
+                        <input autocomplete="off" id="icon_prefix" name="upass" type="password">
+                        <label for="icon_prefix">Password</label>
                     </div>
                     <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                        <input autocomplete="off" placeholder="Confirm Password" name="tpass_conf" type="password">
+                        <input autocomplete="off" id="icon_prefix" name="upass_conf" type="password">
+                        <label for="icon_prefix">Confirm password</label>
                     </div>
                 </div>
+                <br>
                 <div class="row center">
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Register
+                    <button class="btn waves-effect waves-light" type="submit" id="button-new-team">Create a new team
+                        <i class="mdi-content-send right"></i>
+                    </button>
+                    <button class="btn waves-effect waves-light" type="submit" id="button-join-team">Join existing team
                         <i class="mdi-content-send right"></i>
                     </button>
                 </div>
+
+                <div class="container">
+                    <div id="registration-join-team">
+                        <h5 class="center teal-text">Join an existing team</h5>
+                        <form method="post" class="col s12" id="join-team">
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input autocomplete="off" id="icon_prefix" name="join_id" type="text">
+                                    <label for="icon_prefix">Team Name</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input autocomplete="off" id="icon_prefix" name="join_pass" type="password">
+                                    <label for="icon_prefix">Team Password</label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="container">
+                    <div id="registration-new-team">
+                        <h5 class="center teal-text">Create a new team</h5>
+                        <form method="post" class="col s12" id="new-team">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input autocomplete="off" id="icon_prefix" name="tname" type="text">
+                                    <label for="icon_prefix">Team Name</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <input autocomplete="off" id="icon_prefix" name="tpass" type="password">
+                                    <label for="icon_prefix">Team Password</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <input autocomplete="off" id="icon_prefix" name="tpass_conf" type="password">
+                                    <label for="icon_prefix">Confirm Team Password</label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <br>
+                    <div class="row center">
+                        <button class="btn waves-effect waves-light" id="submit-registration">Register
+                            <i class="mdi-content-send right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </form>
         <br>
     </body>

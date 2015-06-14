@@ -11,65 +11,65 @@
     </head>
 
     <body>
-        <div id = "wrapper">
-            <!--Import jQuery before materialize.js-->
-            <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-            <script type="text/javascript" src="js/materialize.min.js"></script>
-            <script src="js/sidenav.js"></script>
-            <script src="js/account_handler.js"></script>
-            <script src="js/validate_cookie.js"></script>
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script src="js/sidenav.js"></script>
+        <script src="js/account_handler.js"></script>
+        <script src="js/validate_cookie.js"></script>
 
-            <nav role="navigation" style="background-color: #009688">
-                <div class="nav-wrapper container">
-                    <a href="." class="brand-logo">IntroCTF</a>
-                    <ul id="navbar" class="right hide-on-med-and-down">
-    
-                        <li><a href="./">Home</a></li>
-                        <li><a href="gallery">About</a></li>
-                        <li><a href="scoreboard">Scoreboard</a></li>
-                        <li><a href="problems">Problems</a></li>
-                        <script>
-                            validateLogin();
-                        </script>
-    
-                        <!-- <li><a class="mdi-action-info-outline modal-trigger" href="#helpmodal"></a></li> -->
-                    </ul>
-                    <ul id="nav-mobile" class="side-nav">
-    
-                        <li><a class="waves-effect waves-indigo" href="./">Home</a></li>
-                        <li><a class="waves-effect waves-indigo" href="gallery">About</a></li>
-                        <li><a class="waves-effect waves-indigo" href="scoreboard">Scoreboard</a></li>
-                        <li><a class="waves-effect waves-indigo" href="problems">Problems</a></li>
-                        <script>
-                            validateMobileLogin();
-                        </script>
-    
-                        <!-- <li><a class="waves-effect waves-indigo modal-trigger" href="#helpmodal"><i class="mdi-action-info-outline"></i></a></li> -->
-                    </ul>
-                    <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
+        <nav role="navigation" style="background-color: #009688">
+            <div class="nav-wrapper container">
+                <a href="." class="brand-logo">IntroCTF</a>
+                <ul id="navbar" class="right hide-on-med-and-down">
+
+                    <li><a href="./">Home</a></li>
+                    <li><a href="gallery">About</a></li>
+                    <li><a href="scoreboard">Scoreboard</a></li>
+                    <li><a href="problems">Problems</a></li>
+                    <script>
+validateLogin();
+                    </script>
+
+                    <!-- <li><a class="mdi-action-info-outline modal-trigger" href="#helpmodal"></a></li> -->
+                </ul>
+                <ul id="nav-mobile" class="side-nav">
+
+                    <li><a class="waves-effect waves-indigo" href="./">Home</a></li>
+                    <li><a class="waves-effect waves-indigo" href="gallery">About</a></li>
+                    <li><a class="waves-effect waves-indigo" href="scoreboard">Scoreboard</a></li>
+                    <li><a class="waves-effect waves-indigo" href="problems">Problems</a></li>
+                    <script>
+validateMobileLogin();
+                    </script>
+
+                    <!-- <li><a class="waves-effect waves-indigo modal-trigger" href="#helpmodal"><i class="mdi-action-info-outline"></i></a></li> -->
+                </ul>
+                <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
+            </div>
+        </nav>
+
+        <h2 class="center teal-text">Login</h2>
+
+        <form class="col s12" id="login-form" method="post">
+            <div class="row">
+                <div class="input-field col s6 m10 l8 offset-m1 offset-l2">
+                    <input autocomplete="off" placeholder="Username" name="uname" type="text">
                 </div>
-            </nav>
-            <h2 class="center teal-text">Login</h2>
-
-            <form class="col s12" id="login-form" method="post">
                 <div class="row">
-                    <div class="input-field col s6 m10 l8 offset-m1 offset-l2">
-                        <input autocomplete="off" placeholder="Team Name" name="tid" type="text">
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                            <input autocomplete = "off" placeholder="Password" name="tpass" type="password">
-                        </div>
-                    </div>
-                    <div class="row center">
-                        <button class="btn waves-effect waves-light" type="submit" name="action">Login
-                            <i class="mdi-content-send right"></i>
-                        </button>
+                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                        <input autocomplete = "off" placeholder="Password" name="upass" type="password">
                     </div>
                 </div>
-            </form>
+                <div class="row center">
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Login
+                        <i class="mdi-content-send right"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
         <!--<br><br><br><br><br><br><br><br><br><br><br><br><br>-->
-            <div id = "push"></div>
+        <div id = "push"></div>
         </div>
         <footer class="page-footer teal">
             <div class="container">

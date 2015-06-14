@@ -51,1037 +51,1057 @@ validateMobileLogin();
 
         <main>
         <div class="container">
-            <h2 class="center teal-text">Problems</h2>
-            <p class="center teal-text">WARNING: ALL USERS WILL BE WIPED BEFORE OFFICIAL RELEASE</p>
-            <!-- Problem html IDs are same as grader.py's -->
-            <!-- BEGINNING OF INTRO -->
-            <div>
-                <br>
-                <div class="col-xs-12"> <h5> Introduction </h5><br></div>
-                <ul class="collapsible z-depth-2" data-collapsible="accordion">
-                    <li>
-                        <div class="collapsible-header" id="intro"><i class="mdi-action-info-outline"></i>Introduction - 5</div>
-                        <div class="collapsible-body">
-                            <p class="card-content">
-                            Welcome to IntroCTF! The main objective is to solve problems and get flags to
-                            gain as many points as possible. A flag is a string of text, and upon acquiring a flag, submit it in an answer field, like
-                            the one below. If you are stuck, feel free to look at the hint for the problem, and
-                            you are welcome to use the internet to help you. <br>
-                            Here is the flag to this problem: introductions_are_cool
-                            </p>
-                            <!-- Form -->
-                            <form method="post" class="col s12" id="intro-form">
-                                <div class="row">
-                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
-                                        <label for="icon_prefix">Flag</label>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="pid" value="intro">
-                                <input type="hidden" id="tid" name="tid" value="">
-                                <input type="hidden" id="token" name="token" value="">
-                                <script>
+            <div class="row">
+                <div class="col s12 m9 l10">
+                    <h2 class="center teal-text">Problems</h2>
+                    <p class="center teal-text">WARNING: ALL USERS WILL BE WIPED BEFORE OFFICIAL RELEASE</p>
+                    <!-- Problem html IDs are same as grader.py's -->
+                    <!-- BEGINNING OF INTRO -->
+                    <div>
+                        <br>
+                        <div id="introduction" class="section scrollspy col-xs-12"> <h5> Introduction </h5><br></div>
+                        <ul class="collapsible z-depth-2" data-collapsible="accordion">
+                            <li>
+                                <div class="collapsible-header" id="intro"><i class="mdi-action-info-outline"></i>Introduction - 5</div>
+                                <div class="collapsible-body">
+                                    <p class="card-content">
+                                    Welcome to IntroCTF! The main objective is to solve problems and get flags to
+                                    gain as many points as possible. A flag is a string of text, and upon acquiring a flag, submit it in an answer field, like
+                                    the one below. If you are stuck, feel free to look at the hint for the problem, and
+                                    you are welcome to use the internet to help you. <br>
+                                    Here is the flag to this problem: introductions_are_cool
+                                    </p>
+                                    <!-- Form -->
+                                    <form method="post" class="col s12" id="intro-form">
+                                        <div class="row">
+                                            <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                                <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                                <label for="icon_prefix">Flag</label>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="pid" value="intro">
+                                        <input type="hidden" id="tid" name="tid" value="">
+                                        <input type="hidden" id="token" name="token" value="">
+                                        <script>
 document.getElementById("tid").value = getCookie("tid");
 document.getElementById("token").value = getCookie("token");
-                                </script>
-                                <div class="row center">
-                                    <button class="btn waves-effect waves-light" type="submit">Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('Do you really need a hint?', 4000)">Hint</a>
+                                        </script>
+                                        <div class="row center">
+                                            <button class="btn waves-effect waves-light" type="submit">Submit
+                                                <i class="mdi-content-send right"></i>
+                                            </button>
+                                            <a class="btn waves-effect waves-light" onclick="Materialize.toast('Do you really need a hint?', 4000)">Hint</a>
 
+                                        </div>
+                                        <input type="hidden">
+                                    </form>
                                 </div>
-                                <input type="hidden">
-                            </form>
-                        </div>
-                    </li>
-                </ul>
-                <br>
-                <hr>
-            </div>
-            <br>
-            <!-- END OF INTRO -->
+                            </li>
+                        </ul>
+                        <br>
+                        <hr>
+                    </div>
+                    <br>
+                    <!-- END OF INTRO -->
 
-            <!-- BEGINNING OF CRYPTO -->
-            <div>
-                <div class="col-xs-12"> <h5> Cryptography </h5><br></div>
-                <ul class="collapsible z-depth-2" data-collapsible="accordion">
-                    <li>
-                        <div class="collapsible-header" id = "caesar"><i class="mdi-action-lock-outline"></i>Caesar - 20</div>
-                        <div class="collapsible-body">
-                            <p class="card-content">
-                            So I found this weird string of text written on my desk in comp sci. Help me decrypt it! <br><br>
-                            Drsc sc dro Mkockb mszrob. Myxqbkdevkdsyxc yx cyvfsxq sd. Dro pvkq sc mkockb_sc_okci
-                            </p>
-                            <!-- Form -->
-                            <form method="post" class="col s12" id="caesar-form">
-                                <div class="row">
-                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
-                                        <label for="icon_prefix">Flag</label>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="pid" value="caesar">
-                                <input type="hidden" id="tid" name="tid" value="">
-                                <input type="hidden" id="token" name="token" value="">
-                                <script>
+                    <!-- BEGINNING OF CRYPTO -->
+                    <div>
+                        <div id="crypto" class="section scrollspy col-xs-12"> <h5> Cryptography </h5><br></div>
+                        <ul class="collapsible z-depth-2" data-collapsible="accordion">
+                            <li>
+                                <div class="collapsible-header" id = "caesar"><i class="mdi-action-lock-outline"></i>Caesar - 20</div>
+                                <div class="collapsible-body">
+                                    <p class="card-content">
+                                    So I found this weird string of text written on my desk in comp sci. Help me decrypt it! <br><br>
+                                    Drsc sc dro Mkockb mszrob. Myxqbkdevkdsyxc yx cyvfsxq sd. Dro pvkq sc mkockb_sc_okci
+                                    </p>
+                                    <!-- Form -->
+                                    <form method="post" class="col s12" id="caesar-form">
+                                        <div class="row">
+                                            <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                                <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                                <label for="icon_prefix">Flag</label>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="pid" value="caesar">
+                                        <input type="hidden" id="tid" name="tid" value="">
+                                        <input type="hidden" id="token" name="token" value="">
+                                        <script>
 document.getElementsByName("tid")[1].value = getCookie("tid");
 document.getElementsByName("token")[1].value = getCookie("token");
-                                </script>
-                                <div class="row center">
-                                    <button class="btn waves-effect waves-light" type="submit">Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('What is the name of this problem?', 4000)">Hint</a>
+                                        </script>
+                                        <div class="row center">
+                                            <button class="btn waves-effect waves-light" type="submit">Submit
+                                                <i class="mdi-content-send right"></i>
+                                            </button>
+                                            <a class="btn waves-effect waves-light" onclick="Materialize.toast('What is the name of this problem?', 4000)">Hint</a>
 
+                                        </div>
+                                        <input type="hidden">
+                                    </form>
                                 </div>
-                                <input type="hidden">
-                            </form>
-                        </div>
-                    </li>
+                            </li>
 
-                    <li>
-                        <div class="collapsible-header" id = "base"><i class="mdi-action-lock-outline"></i>The Best Base - 30</div>
-                        <div class="collapsible-body">
-                            <p class="card-content">
-                            A new CTF team has come to challenge BaseZero. They come with a message. What does it mean?<br><br>
-                            V2UgYXJlIEJhc2VTaXh0eS1Gb3VyIGFuZCB0aGUgZmxhZyBpcyBob3dfbWFueV9iYXNlcz8=
-                            </p>
-                            <!-- Form -->
-                            <form method="post" class="col s12" id="base-form">
-                                <div class="row">
-                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
-                                        <label for="icon_prefix">Flag</label>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="pid" value="base">
-                                <input type="hidden" id="tid" name="tid" value="">
-                                <input type="hidden" id="token" name="token" value="">
-                                <script>
+                            <li>
+                                <div class="collapsible-header" id = "base"><i class="mdi-action-lock-outline"></i>The Best Base - 30</div>
+                                <div class="collapsible-body">
+                                    <p class="card-content">
+                                    A new CTF team has come to challenge BaseZero. They come with a message. What does it mean?<br><br>
+                                    V2UgYXJlIEJhc2VTaXh0eS1Gb3VyIGFuZCB0aGUgZmxhZyBpcyBob3dfbWFueV9iYXNlcz8=
+                                    </p>
+                                    <!-- Form -->
+                                    <form method="post" class="col s12" id="base-form">
+                                        <div class="row">
+                                            <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                                <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                                <label for="icon_prefix">Flag</label>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="pid" value="base">
+                                        <input type="hidden" id="tid" name="tid" value="">
+                                        <input type="hidden" id="token" name="token" value="">
+                                        <script>
 document.getElementsByName("tid")[2].value = getCookie("tid");
 document.getElementsByName("token")[2].value = getCookie("token");
-                                </script>
-                                <div class="row center">
-                                    <button class="btn waves-effect waves-light" type="submit">Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('What encoding method leaves behind = signs at the end?', 4000)">Hint</a>
+                                        </script>
+                                        <div class="row center">
+                                            <button class="btn waves-effect waves-light" type="submit">Submit
+                                                <i class="mdi-content-send right"></i>
+                                            </button>
+                                            <a class="btn waves-effect waves-light" onclick="Materialize.toast('What encoding method leaves behind = signs at the end?', 4000)">Hint</a>
+                                        </div>
+                                        <input type="hidden">
+                                    </form>
                                 </div>
-                                <input type="hidden">
-                            </form>
-                        </div>
-                    </li>
+                            </li>
 
-                    <li>
-                        <div class="collapsible-header" id = "absent"><i class="mdi-action-lock-outline"></i>Absent - 40</div>
-                        <div class="collapsible-body">
-                            <p class="card-content">
+                            <li>
+                                <div class="collapsible-header" id = "absent"><i class="mdi-action-lock-outline"></i>Absent - 40</div>
+                                <div class="collapsible-body">
+                                    <p class="card-content">
 
-                            My comp sci teacher is absent, but she left us a message saying what she wanted us to do. <br>
-                            Help us decrypt it! <br><br>
+                                    My comp sci teacher is absent, but she left us a message saying what she wanted us to do. <br>
+                                    Help us decrypt it! <br><br>
 
-                            Gh, yzbyfhfzfu futdguo, fghy hy vgtf muuky fn gtppum: <br>
-                            - Etlu yfzkumfy kn vnol <br>
-                            - Futdg fghmiy <br>
-                            - Kn vgtfuquo rnz vtmf <br>
-                            - Tmmnzmdu fgu wati <br>
-                            - Ihqu taa yfzkumfy t 100 nm fguho fuyf <br>
-                            Tmk fgtf'y taa! H gnpu fghy euyytiu iufy fn rnz zmfnzdguk. <br><br>
+                                    Gh, yzbyfhfzfu futdguo, fghy hy vgtf muuky fn gtppum: <br>
+                                    - Etlu yfzkumfy kn vnol <br>
+                                    - Futdg fghmiy <br>
+                                    - Kn vgtfuquo rnz vtmf <br>
+                                    - Tmmnzmdu fgu wati <br>
+                                    - Ihqu taa yfzkumfy t 100 nm fguho fuyf <br>
+                                    Tmk fgtf'y taa! H gnpu fghy euyytiu iufy fn rnz zmfnzdguk. <br><br>
 
-                            P.Y. Fgu wati hy yzby_tou_ioutf <br>
-                            </p>
-                            <!-- Form -->
-                            <form method="post" class="col s12" id="absent-form">
-                                <div class="row">
-                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
-                                        <label for="icon_prefix">Flag</label>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="pid" value="absent">
-                                <input type="hidden" id="tid" name="tid" value="">
-                                <input type="hidden" id="token" name="token" value="">
-                                <script>
+                                    P.Y. Fgu wati hy yzby_tou_ioutf <br>
+                                    </p>
+                                    <!-- Form -->
+                                    <form method="post" class="col s12" id="absent-form">
+                                        <div class="row">
+                                            <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                                <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                                <label for="icon_prefix">Flag</label>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="pid" value="absent">
+                                        <input type="hidden" id="tid" name="tid" value="">
+                                        <input type="hidden" id="token" name="token" value="">
+                                        <script>
 document.getElementsByName("tid")[3].value = getCookie("tid");
 document.getElementsByName("token")[3].value = getCookie("token");
-                                </script>
-                                <div class="row center">
-                                    <button class="btn waves-effect waves-light" type="submit">Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('What happens when a teacher is absent?', 4000)">Hint</a>
+                                        </script>
+                                        <div class="row center">
+                                            <button class="btn waves-effect waves-light" type="submit">Submit
+                                                <i class="mdi-content-send right"></i>
+                                            </button>
+                                            <a class="btn waves-effect waves-light" onclick="Materialize.toast('What happens when a teacher is absent?', 4000)">Hint</a>
+                                        </div>
+                                        <input type="hidden">
+                                    </form>
                                 </div>
-                                <input type="hidden">
-                            </form>
-                        </div>
-                    </li>
+                            </li>
 
-                    <li>
-                        <div class="collapsible-header" id = "brutus"><i class="mdi-action-lock-outline"></i>Brutus - 45</div>
-                        <div class="collapsible-body">
-                            <p class="card-content">
-                            I want to hack into the school system in order to change my grades, but I don't know the password... <br>
-                            However, my 1337 h4x0r friend told me the  md5 hash of the password, and that it consists of a common word<br>
-                            followed by a number between 1000 and 9999. <br>
-                            The hashed password is <span class='red lighten-4 red-text text-darken-2'>66ad2dced84182ab686bb60e00fbc7fd</span>. Find the password! <br>
-                            </p>
-                            <!-- Form -->
-                            <form method="post" class="col s12" id="brutus-form">
-                                <div class="row">
-                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
-                                        <label for="icon_prefix">Flag</label>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="pid" value="brutus">
-                                <input type="hidden" id="tid" name="tid" value="">
-                                <input type="hidden" id="token" name="token" value="">
-                                <script>
+                            <li>
+                                <div class="collapsible-header" id = "brutus"><i class="mdi-action-lock-outline"></i>Brutus - 45</div>
+                                <div class="collapsible-body">
+                                    <p class="card-content">
+                                    I want to hack into the school system in order to change my grades, but I don't know the password... <br>
+                                    However, my 1337 h4x0r friend told me the  md5 hash of the password, and that it consists of a common word<br>
+                                    followed by a number between 1000 and 9999. <br>
+                                    The hashed password is <span class='red lighten-4 red-text text-darken-2'>66ad2dced84182ab686bb60e00fbc7fd</span>. Find the password! <br>
+                                    </p>
+                                    <!-- Form -->
+                                    <form method="post" class="col s12" id="brutus-form">
+                                        <div class="row">
+                                            <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                                <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                                <label for="icon_prefix">Flag</label>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="pid" value="brutus">
+                                        <input type="hidden" id="tid" name="tid" value="">
+                                        <input type="hidden" id="token" name="token" value="">
+                                        <script>
 document.getElementsByName("tid")[4].value = getCookie("tid");
 document.getElementsByName("token")[4].value = getCookie("token");
-                                </script>
-                                <div class="row center">
-                                    <button class="btn waves-effect waves-light" type="submit">Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('Python has a nice hashlib module that you can use', 4000)">Hint</a>
+                                        </script>
+                                        <div class="row center">
+                                            <button class="btn waves-effect waves-light" type="submit">Submit
+                                                <i class="mdi-content-send right"></i>
+                                            </button>
+                                            <a class="btn waves-effect waves-light" onclick="Materialize.toast('Python has a nice hashlib module that you can use', 4000)">Hint</a>
+                                        </div>
+                                        <input type="hidden">
+                                    </form>
                                 </div>
-                                <input type="hidden">
-                            </form>
-                        </div>
-                    </li>
+                            </li>
 
-                    <li>
-                        <div class="collapsible-header" id = "bb"><i class="mdi-action-lock-outline"></i>b1naryb0ts - 80</div>
-                        <div class="collapsible-body">
-                            <p class="card-content">
-                            I've made a robot that records what I say, but it seems to be broken... <br>
-                            My friend has recorded a message using this robot, and left it to me, but I don't understand it. <br>
-                            Help me uncover the original <a href="problem-static/b1naryb0ts/message.wav">message</a>! <br>
-                            </p>
-                            <!-- Form -->
-                            <form method="post" class="col s12" id="bb-form">
-                                <div class="row">
-                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
-                                        <label for="icon_prefix">Flag</label>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="pid" value="bb">
-                                <input type="hidden" id="tid" name="tid" value="">
-                                <input type="hidden" id="token" name="token" value="">
-                                <script>
+                            <li>
+                                <div class="collapsible-header" id = "bb"><i class="mdi-action-lock-outline"></i>b1naryb0ts - 80</div>
+                                <div class="collapsible-body">
+                                    <p class="card-content">
+                                    I've made a robot that records what I say, but it seems to be broken... <br>
+                                    My friend has recorded a message using this robot, and left it to me, but I don't understand it. <br>
+                                    Help me uncover the original <a href="problem-static/b1naryb0ts/message.wav">message</a>! <br>
+                                    </p>
+                                    <!-- Form -->
+                                    <form method="post" class="col s12" id="bb-form">
+                                        <div class="row">
+                                            <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                                <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                                <label for="icon_prefix">Flag</label>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="pid" value="bb">
+                                        <input type="hidden" id="tid" name="tid" value="">
+                                        <input type="hidden" id="token" name="token" value="">
+                                        <script>
 document.getElementsByName("tid")[5].value = getCookie("tid");
 document.getElementsByName("token")[5].value = getCookie("token");
-                                </script>
-                                <div class="row center">
-                                    <button class="btn waves-effect waves-light" type="submit">Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('Have you tried listening to the message?', 4000)">Hint</a>
+                                        </script>
+                                        <div class="row center">
+                                            <button class="btn waves-effect waves-light" type="submit">Submit
+                                                <i class="mdi-content-send right"></i>
+                                            </button>
+                                            <a class="btn waves-effect waves-light" onclick="Materialize.toast('Have you tried listening to the message?', 4000)">Hint</a>
+                                        </div>
+                                        <input type="hidden">
+                                    </form>
                                 </div>
-                                <input type="hidden">
-                            </form>
-                        </div>
-                    </li>
+                            </li>
 
-                </ul>
-                <br>
-                <hr>
-            </div>
-            <!-- END OF CRYPTO -->
+                        </ul>
+                        <br>
+                        <hr>
+                    </div>
+                    <!-- END OF CRYPTO -->
 
-            <!-- BEGINNING OF FORENSICS -->
-            <div>
-                <br>
-                <div class="col-xs-12"> <h5> Forensics </h5><br></div>
-                <ul class="collapsible z-depth-2" data-collapsible="accordion">
-                    <li>
-                        <div class="collapsible-header" id = "stego"><i class="mdi-action-search"></i>Intro Stego - 50</div>
-                        <div class="collapsible-body">
-                            <p class="card-content">
-                            Steganography is the art of concealing messages within other files. <br>
-                            The flag is hidden somewhere within this picture. Go find it! <br>
-                            <img src="problem-static/Intro-Stego/stego.jpg" width="300" height="300">
-                            </p>
-                            <!-- Form -->
-                            <form method="post" class="col s12" id="stego-form">
-                                <div class="row">
-                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
-                                        <label for="icon_prefix">Flag</label>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="pid" value="stego">
-                                <input type="hidden" id="tid" name="tid" value="">
-                                <input type="hidden" id="token" name="token" value="">
-                                <script>
+                    <!-- BEGINNING OF FORENSICS -->
+                    <div>
+                        <br>
+                        <div id="forensics" class="section scrollspy col-xs-12"> <h5> Forensics </h5><br></div>
+                        <ul class="collapsible z-depth-2" data-collapsible="accordion">
+                            <li>
+                                <div class="collapsible-header" id = "stego"><i class="mdi-action-search"></i>Intro Stego - 50</div>
+                                <div class="collapsible-body">
+                                    <p class="card-content">
+                                    Steganography is the art of concealing messages within other files. <br>
+                                    The flag is hidden somewhere within this picture. Go find it! <br>
+                                    <img src="problem-static/Intro-Stego/stego.jpg" width="300" height="300">
+                                    </p>
+                                    <!-- Form -->
+                                    <form method="post" class="col s12" id="stego-form">
+                                        <div class="row">
+                                            <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                                <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                                <label for="icon_prefix">Flag</label>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="pid" value="stego">
+                                        <input type="hidden" id="tid" name="tid" value="">
+                                        <input type="hidden" id="token" name="token" value="">
+                                        <script>
 document.getElementsByName("tid")[6].value = getCookie("tid");
 document.getElementsByName("token")[6].value = getCookie("token");
-                                </script>
-                                <div class="row center">
-                                    <button class="btn waves-effect waves-light" type="submit">Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('Try looking at the hex code', 4000)">Hint</a>
+                                        </script>
+                                        <div class="row center">
+                                            <button class="btn waves-effect waves-light" type="submit">Submit
+                                                <i class="mdi-content-send right"></i>
+                                            </button>
+                                            <a class="btn waves-effect waves-light" onclick="Materialize.toast('Try looking at the hex code', 4000)">Hint</a>
 
+                                        </div>
+                                        <input type="hidden">
+                                    </form>
                                 </div>
-                                <input type="hidden">
-                            </form>
-                        </div>
-                    </li>
+                            </li>
 
-                    <li>
-                        <div class="collapsible-header" id = "dot"><i class="mdi-action-search"></i>Dot - 50</div>
-                        <div class="collapsible-body">
-                            <p class="card-content">
-                            So my friend did something to my account. I know he left the flag somewhere.
-                            Here is my <a href="problem-static/Dot/joe.smith.zip" download>home directory</a>. Find the flag!!!!
-                            </p>
-                            <!-- Form -->
-                            <form method="post" class="col s12" id="dot-form">
-                                <div class="row">
-                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
-                                        <label for="icon_prefix">Flag</label>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="pid" value="dot">
-                                <input type="hidden" id="tid" name="tid" value="">
-                                <input type="hidden" id="token" name="token" value="">
-                                <script>
+                            <li>
+                                <div class="collapsible-header" id = "dot"><i class="mdi-action-search"></i>Dot - 50</div>
+                                <div class="collapsible-body">
+                                    <p class="card-content">
+                                    So my friend did something to my account. I know he left the flag somewhere.
+                                    Here is my <a href="problem-static/Dot/joe.smith.zip" download>home directory</a>. Find the flag!!!!
+                                    </p>
+                                    <!-- Form -->
+                                    <form method="post" class="col s12" id="dot-form">
+                                        <div class="row">
+                                            <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                                <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                                <label for="icon_prefix">Flag</label>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="pid" value="dot">
+                                        <input type="hidden" id="tid" name="tid" value="">
+                                        <input type="hidden" id="token" name="token" value="">
+                                        <script>
 document.getElementsByName("tid")[7].value = getCookie("tid");
 document.getElementsByName("token")[7].value = getCookie("token");
-                                </script>
-                                <div class="row center">
-                                    <button class="btn waves-effect waves-light" type="submit">Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('How can you make hidden files?', 4000)">Hint</a>
+                                        </script>
+                                        <div class="row center">
+                                            <button class="btn waves-effect waves-light" type="submit">Submit
+                                                <i class="mdi-content-send right"></i>
+                                            </button>
+                                            <a class="btn waves-effect waves-light" onclick="Materialize.toast('How can you make hidden files?', 4000)">Hint</a>
 
+                                        </div>
+                                        <input type="hidden">
+                                    </form>
                                 </div>
-                                <input type="hidden">
-                            </form>
-                        </div>
-                    </li>
+                            </li>
 
-                    <li>
-                        <div class="collapsible-header" id = "corrupt"><i class="mdi-action-search"></i>Corruption - 60</div>
-                        <div class="collapsible-body">
-                            <p class="card-content">
-                            Something happened to my English <a href="problem-static/Corruption/corrupted.docx" download>essay</a>, and now it's corrupt! I don't have any backups, <br>
-                            and I don't remember what I wrote! Get my essay back!
-                            </p>
-                            <!-- Form -->
-                            <form method="post" class="col s12" id="corrupt-form">
-                                <div class="row">
-                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
-                                        <label for="icon_prefix">Flag</label>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="pid" value="corrupt">
-                                <input type="hidden" id="tid" name="tid" value="">
-                                <input type="hidden" id="token" name="token" value="">
-                                <script>
+                            <li>
+                                <div class="collapsible-header" id = "corrupt"><i class="mdi-action-search"></i>Corruption - 60</div>
+                                <div class="collapsible-body">
+                                    <p class="card-content">
+                                    Something happened to my English <a href="problem-static/Corruption/corrupted.docx" download>essay</a>, and now it's corrupt! I don't have any backups, <br>
+                                    and I don't remember what I wrote! Get my essay back!
+                                    </p>
+                                    <!-- Form -->
+                                    <form method="post" class="col s12" id="corrupt-form">
+                                        <div class="row">
+                                            <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                                <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                                <label for="icon_prefix">Flag</label>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="pid" value="corrupt">
+                                        <input type="hidden" id="tid" name="tid" value="">
+                                        <input type="hidden" id="token" name="token" value="">
+                                        <script>
 document.getElementsByName("tid")[8].value = getCookie("tid");
 document.getElementsByName("token")[8].value = getCookie("token");
-                                </script>
-                                <div class="row center">
-                                    <button class="btn waves-effect waves-light" type="submit">Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('You might want to look into docx file signatures and hex code', 4000)">Hint</a>
+                                        </script>
+                                        <div class="row center">
+                                            <button class="btn waves-effect waves-light" type="submit">Submit
+                                                <i class="mdi-content-send right"></i>
+                                            </button>
+                                            <a class="btn waves-effect waves-light" onclick="Materialize.toast('You might want to look into docx file signatures and hex code', 4000)">Hint</a>
 
+                                        </div>
+                                        <input type="hidden">
+                                    </form>
                                 </div>
-                                <input type="hidden">
-                            </form>
-                        </div>
-                    </li>
+                            </li>
 
-                    <li>
-                        <div class="collapsible-header" id = "inverted"><i class="mdi-action-search"></i>Inverted - 60</div>
-                        <div class="collapsible-body">
-                            <p class="card-content">
-                            There is something wrong with this <a href="problem-static/Inverted/barcode.jpg">barcode</a>! Please fix it for me!
-                            </p>
-                            <!-- Form -->
-                            <form method="post" class="col s12" id="inverted-form">
-                                <div class="row">
-                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
-                                        <label for="icon_prefix">Flag</label>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="pid" value="inverted">
-                                <input type="hidden" id="tid" name="tid" value="">
-                                <input type="hidden" id="token" name="token" value="">
-                                <script>
+                            <li>
+                                <div class="collapsible-header" id = "inverted"><i class="mdi-action-search"></i>Inverted - 60</div>
+                                <div class="collapsible-body">
+                                    <p class="card-content">
+                                    There is something wrong with this <a href="problem-static/Inverted/barcode.jpg">barcode</a>! Please fix it for me!
+                                    </p>
+                                    <!-- Form -->
+                                    <form method="post" class="col s12" id="inverted-form">
+                                        <div class="row">
+                                            <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                                <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                                <label for="icon_prefix">Flag</label>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="pid" value="inverted">
+                                        <input type="hidden" id="tid" name="tid" value="">
+                                        <input type="hidden" id="token" name="token" value="">
+                                        <script>
 document.getElementsByName("tid")[9].value = getCookie("tid");
 document.getElementsByName("token")[9].value = getCookie("token");
-                                </script>
-                                <div class="row center">
-                                    <button class="btn waves-effect waves-light" type="submit">Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('Paint', 4000)">Hint</a>
+                                        </script>
+                                        <div class="row center">
+                                            <button class="btn waves-effect waves-light" type="submit">Submit
+                                                <i class="mdi-content-send right"></i>
+                                            </button>
+                                            <a class="btn waves-effect waves-light" onclick="Materialize.toast('Paint', 4000)">Hint</a>
 
+                                        </div>
+                                        <input type="hidden">
+                                    </form>
                                 </div>
-                                <input type="hidden">
-                            </form>
-                        </div>
-                    </li>
+                            </li>
 
-                    <li>
-                        <div class="collapsible-header" id = "rawr"><i class="mdi-action-search"></i>RAAWWWRRRR - 60</div>
-                        <div class="collapsible-body">
-                            <p class="card-content">
-                            This dinosaur is hiding something important. Go find it. <br>
-                            <img src="problem-static/RAAWWWRRRR/raawwwrrrr.jpg" width="307" height="164">
-                            </p>
-                            <!-- Form -->
-                            <form method="post" class="col s12" id="rawr-form">
-                                <div class="row">
-                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
-                                        <label for="icon_prefix">Flag</label>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="pid" value="rawr">
-                                <input type="hidden" id="tid" name="tid" value="">
-                                <input type="hidden" id="token" name="token" value="">
-                                <script>
+                            <li>
+                                <div class="collapsible-header" id = "rawr"><i class="mdi-action-search"></i>RAAWWWRRRR - 60</div>
+                                <div class="collapsible-body">
+                                    <p class="card-content">
+                                    This dinosaur is hiding something important. Go find it. <br>
+                                    <img src="problem-static/RAAWWWRRRR/raawwwrrrr.jpg" width="307" height="164">
+                                    </p>
+                                    <!-- Form -->
+                                    <form method="post" class="col s12" id="rawr-form">
+                                        <div class="row">
+                                            <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                                <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                                <label for="icon_prefix">Flag</label>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="pid" value="rawr">
+                                        <input type="hidden" id="tid" name="tid" value="">
+                                        <input type="hidden" id="token" name="token" value="">
+                                        <script>
 document.getElementsByName("tid")[10].value = getCookie("tid");
 document.getElementsByName("token")[10].value = getCookie("token");
-                                </script>
-                                <div class="row center">
-                                    <button class="btn waves-effect waves-light" type="submit">Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('This isn\'t just a picture...', 4000)">Hint</a>
+                                        </script>
+                                        <div class="row center">
+                                            <button class="btn waves-effect waves-light" type="submit">Submit
+                                                <i class="mdi-content-send right"></i>
+                                            </button>
+                                            <a class="btn waves-effect waves-light" onclick="Materialize.toast('This isn\'t just a picture...', 4000)">Hint</a>
 
+                                        </div>
+                                        <input type="hidden">
+                                    </form>
                                 </div>
-                                <input type="hidden">
-                            </form>
-                        </div>
-                    </li>
+                            </li>
 
-                    <li>
-                        <div class="collapsible-header" id = "messy"><i class="mdi-action-search"></i>Messy Code - 75</div>
-                        <div class="collapsible-body">
-                            <p class="card-content">
-                            My coding partner doesn't know any programming conventions, and as a result, he <br>
-                            writes incredibly messy, hard to read code. Can you help me figure out what he <a href="problem-static/Messy-Code/messy" download>wrote</a>?
-                            </p>
-                            <!-- Form -->
-                            <form method="post" class="col s12" id="messy-form">
-                                <div class="row">
-                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
-                                        <label for="icon_prefix">Flag</label>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="pid" value="messy">
-                                <input type="hidden" id="tid" name="tid" value="">
-                                <input type="hidden" id="token" name="token" value="">
-                                <script>
+                            <li>
+                                <div class="collapsible-header" id = "messy"><i class="mdi-action-search"></i>Messy Code - 75</div>
+                                <div class="collapsible-body">
+                                    <p class="card-content">
+                                    My coding partner doesn't know any programming conventions, and as a result, he <br>
+                                    writes incredibly messy, hard to read code. Can you help me figure out what he <a href="problem-static/Messy-Code/messy" download>wrote</a>?
+                                    </p>
+                                    <!-- Form -->
+                                    <form method="post" class="col s12" id="messy-form">
+                                        <div class="row">
+                                            <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                                <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                                <label for="icon_prefix">Flag</label>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="pid" value="messy">
+                                        <input type="hidden" id="tid" name="tid" value="">
+                                        <input type="hidden" id="token" name="token" value="">
+                                        <script>
 document.getElementsByName("tid")[11].value = getCookie("tid");
 document.getElementsByName("token")[11].value = getCookie("token");
-                                </script>
-                                <div class="row center">
-                                    <button class="btn waves-effect waves-light" type="submit">Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('How can you make it easier to read?', 4000)">Hint</a>
+                                        </script>
+                                        <div class="row center">
+                                            <button class="btn waves-effect waves-light" type="submit">Submit
+                                                <i class="mdi-content-send right"></i>
+                                            </button>
+                                            <a class="btn waves-effect waves-light" onclick="Materialize.toast('How can you make it easier to read?', 4000)">Hint</a>
 
+                                        </div>
+                                        <input type="hidden">
+                                    </form>
                                 </div>
-                                <input type="hidden">
-                            </form>
-                        </div>
-                    </li>
+                            </li>
 
-                </ul>
-                <br>
-                <hr>
-            </div>
-            <br>
-            <!-- END OF FORENSICS -->
+                        </ul>
+                        <br>
+                        <hr>
+                    </div>
+                    <br>
+                    <!-- END OF FORENSICS -->
 
-            <!-- BEGINNING OF WEB -->
-            <div>
-                <br>
-                <div class="col-xs-12"> <h5> Web </h5><br></div>
-                <ul class="collapsible z-depth-2" data-collapsible="accordion">
-                    <li>
-                        <div class="collapsible-header" id = "inspect"><i class="mdi-action-language"></i>Inspector - 20</div>
-                        <div class="collapsible-body">
-                            <p class="card-content">
-                            You are a website patroller, and your job is to inspect sites for suspicious activities. <br>
-                            We've stumbled upon this <a href="problem-static/Inspector/index.html">website</a> that we know has something valuable to us. <br>
-                            </p>
-                            <!-- Form -->
-                            <form method="post" class="col s12" id="inspect-form">
-                                <div class="row">
-                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
-                                        <label for="icon_prefix">Flag</label>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="pid" value="inspect">
-                                <input type="hidden" id="tid" name="tid" value="">
-                                <input type="hidden" id="token" name="token" value="">
-                                <script>
+                    <!-- BEGINNING OF WEB -->
+                    <div>
+                        <br>
+                        <div id="web" class="section scrollspy col-xs-12"> <h5> Web </h5><br></div>
+                        <ul class="collapsible z-depth-2" data-collapsible="accordion">
+                            <li>
+                                <div class="collapsible-header" id = "inspect"><i class="mdi-action-language"></i>Inspector - 20</div>
+                                <div class="collapsible-body">
+                                    <p class="card-content">
+                                    You are a website patroller, and your job is to inspect sites for suspicious activities. <br>
+                                    We've stumbled upon this <a href="problem-static/Inspector/index.html">website</a> that we know has something valuable to us. <br>
+                                    </p>
+                                    <!-- Form -->
+                                    <form method="post" class="col s12" id="inspect-form">
+                                        <div class="row">
+                                            <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                                <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                                <label for="icon_prefix">Flag</label>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="pid" value="inspect">
+                                        <input type="hidden" id="tid" name="tid" value="">
+                                        <input type="hidden" id="token" name="token" value="">
+                                        <script>
 document.getElementsByName("tid")[12].value = getCookie("tid");
 document.getElementsByName("token")[12].value = getCookie("token");
-                                </script>
-                                <div class="row center">
-                                    <button class="btn waves-effect waves-light" type="submit">Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('Ctrl + Shift + i', 4000)">Hint</a>
+                                        </script>
+                                        <div class="row center">
+                                            <button class="btn waves-effect waves-light" type="submit">Submit
+                                                <i class="mdi-content-send right"></i>
+                                            </button>
+                                            <a class="btn waves-effect waves-light" onclick="Materialize.toast('Ctrl + Shift + i', 4000)">Hint</a>
 
+                                        </div>
+                                        <input type="hidden">
+                                    </form>
                                 </div>
-                                <input type="hidden">
-                            </form>
-                        </div>
-                    </li>
+                            </li>
 
-                    <li>
-                        <div class="collapsible-header" id = "cookie"><i class="mdi-action-language"></i>Cookie Jar - 35</div>
-                        <div class="collapsible-body">
-                            <p class="card-content">
-                            The Cookie Monster has hoarded all of his cookies into one big container on his <a href="problem-static/Cookie-Jar/index.php">website</a>.
-                            Your job is to get me the right cookie!
-                            </p>
-                            <!-- Form -->
-                            <form method="post" class="col s12" id="cookie-form">
-                                <div class="row">
-                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
-                                        <label for="icon_prefix">Flag</label>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="pid" value="cookie">
-                                <input type="hidden" id="tid" name="tid" value="">
-                                <input type="hidden" id="token" name="token" value="">
-                                <script>
+                            <li>
+                                <div class="collapsible-header" id = "cookie"><i class="mdi-action-language"></i>Cookie Jar - 35</div>
+                                <div class="collapsible-body">
+                                    <p class="card-content">
+                                    The Cookie Monster has hoarded all of his cookies into one big container on his <a href="problem-static/Cookie-Jar/index.php">website</a>.
+                                    Your job is to get me the right cookie!
+                                    </p>
+                                    <!-- Form -->
+                                    <form method="post" class="col s12" id="cookie-form">
+                                        <div class="row">
+                                            <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                                <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                                <label for="icon_prefix">Flag</label>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="pid" value="cookie">
+                                        <input type="hidden" id="tid" name="tid" value="">
+                                        <input type="hidden" id="token" name="token" value="">
+                                        <script>
 document.getElementsByName("tid")[13].value = getCookie("tid");
 document.getElementsByName("token")[13].value = getCookie("token");
-                                </script>
-                                <div class="row center">
-                                    <button class="btn waves-effect waves-light" type="submit">Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('No hint', 4000)">Hint</a>
+                                        </script>
+                                        <div class="row center">
+                                            <button class="btn waves-effect waves-light" type="submit">Submit
+                                                <i class="mdi-content-send right"></i>
+                                            </button>
+                                            <a class="btn waves-effect waves-light" onclick="Materialize.toast('No hint', 4000)">Hint</a>
 
+                                        </div>
+                                        <input type="hidden">
+                                    </form>
                                 </div>
-                                <input type="hidden">
-                            </form>
-                        </div>
-                    </li>
+                            </li>
 
-                    <li>
-                        <div class="collapsible-header" id = "hidden"><i class="mdi-action-language"></i>Hidden - 40</div>
-                        <div class="collapsible-body">
-                            <p class="card-content">
-                            My friend gave me the username and password to his super secret <a href="problem-static/Hidden/index.php">website</a>, but I can't find the flag! <br>
-                            The username is <span class="red lighten-4 red-text text-darken-2">admin</span> and the password is <span class="red lighten-4 red-text text-darken-2">abc123</span>. Find the flag!
-                            </p>
-                            <!-- Form -->
-                            <form method="post" class="col s12" id="hidden-form">
-                                <div class="row">
-                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
-                                        <label for="icon_prefix">Flag</label>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="pid" value="hidden">
-                                <input type="hidden" id="tid" name="tid" value="">
-                                <input type="hidden" id="token" name="token" value="">
-                                <script>
+                            <li>
+                                <div class="collapsible-header" id = "hidden"><i class="mdi-action-language"></i>Hidden - 40</div>
+                                <div class="collapsible-body">
+                                    <p class="card-content">
+                                    My friend gave me the username and password to his super secret <a href="problem-static/Hidden/index.php">website</a>, but I can't find the flag! <br>
+                                    The username is <span class="red lighten-4 red-text text-darken-2">admin</span> and the password is <span class="red lighten-4 red-text text-darken-2">abc123</span>. Find the flag!
+                                    </p>
+                                    <!-- Form -->
+                                    <form method="post" class="col s12" id="hidden-form">
+                                        <div class="row">
+                                            <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                                <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                                <label for="icon_prefix">Flag</label>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="pid" value="hidden">
+                                        <input type="hidden" id="tid" name="tid" value="">
+                                        <input type="hidden" id="token" name="token" value="">
+                                        <script>
 document.getElementsByName("tid")[14].value = getCookie("tid");
 document.getElementsByName("token")[14].value = getCookie("token");
-                                </script>
-                                <div class="row center">
-                                    <button class="btn waves-effect waves-light" type="submit">Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('No hint', 4000)">Hint</a>
+                                        </script>
+                                        <div class="row center">
+                                            <button class="btn waves-effect waves-light" type="submit">Submit
+                                                <i class="mdi-content-send right"></i>
+                                            </button>
+                                            <a class="btn waves-effect waves-light" onclick="Materialize.toast('No hint', 4000)">Hint</a>
 
+                                        </div>
+                                        <input type="hidden">
+                                    </form>
                                 </div>
-                                <input type="hidden">
-                            </form>
-                        </div>
-                    </li>
+                            </li>
 
-                    <li>
-                        <div class="collapsible-header" id = "get"><i class="mdi-action-language"></i>GET - 45</div>
-                        <div class="collapsible-body">
-                            <p class="card-content">
-                            This <a href="problem-static/GET/index.php">website</a> is missing its login fields, but in order to get the flag, you need to log in! <br>
-                            Is there any way to get the flag?
-                            </p>
-                            <!-- Form -->
-                            <form method="post" class="col s12" id="get-form">
-                                <div class="row">
-                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
-                                        <label for="icon_prefix">Flag</label>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="pid" value="get">
-                                <input type="hidden" id="tid" name="tid" value="">
-                                <input type="hidden" id="token" name="token" value="">
-                                <script>
+                            <li>
+                                <div class="collapsible-header" id = "get"><i class="mdi-action-language"></i>GET - 45</div>
+                                <div class="collapsible-body">
+                                    <p class="card-content">
+                                    This <a href="problem-static/GET/index.php">website</a> is missing its login fields, but in order to get the flag, you need to log in! <br>
+                                    Is there any way to get the flag?
+                                    </p>
+                                    <!-- Form -->
+                                    <form method="post" class="col s12" id="get-form">
+                                        <div class="row">
+                                            <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                                <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                                <label for="icon_prefix">Flag</label>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="pid" value="get">
+                                        <input type="hidden" id="tid" name="tid" value="">
+                                        <input type="hidden" id="token" name="token" value="">
+                                        <script>
 document.getElementsByName("tid")[15].value = getCookie("tid");
 document.getElementsByName("token")[15].value = getCookie("token");
-                                </script>
-                                <div class="row center">
-                                    <button class="btn waves-effect waves-light" type="submit">Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('No hint', 4000)">Hint</a>
+                                        </script>
+                                        <div class="row center">
+                                            <button class="btn waves-effect waves-light" type="submit">Submit
+                                                <i class="mdi-content-send right"></i>
+                                            </button>
+                                            <a class="btn waves-effect waves-light" onclick="Materialize.toast('No hint', 4000)">Hint</a>
 
+                                        </div>
+                                        <input type="hidden">
+                                    </form>
                                 </div>
-                                <input type="hidden">
-                            </form>
-                        </div>
-                    </li>
+                            </li>
 
 
-                    <li>
-                        <div class="collapsible-header" id = "spoof"><i class="mdi-action-language"></i>Easy Spoof - 70</div>
-                        <div class="collapsible-body">
-                            <p class="card-content">
-                            In order to view this guy's <a href="problem-static/Easy-Spoof/index.php">website</a>, you need to meet several requirements: <br>
-                            1. Use Playstation 3 browser (version 3.55 to be exact) <br>
-                            2. Submit a POST request where user = admin <br>
-                            3. A cookie named auth with a value of 1 <br>
-                            4. You must have been referred to the website from the stuycs website <br><br>
+                            <li>
+                                <div class="collapsible-header" id = "spoof"><i class="mdi-action-language"></i>Easy Spoof - 70</div>
+                                <div class="collapsible-body">
+                                    <p class="card-content">
+                                    In order to view this guy's <a href="problem-static/Easy-Spoof/index.php">website</a>, you need to meet several requirements: <br>
+                                    1. Use Playstation 3 browser (version 3.55 to be exact) <br>
+                                    2. Submit a POST request where user = admin <br>
+                                    3. A cookie named auth with a value of 1 <br>
+                                    4. You must have been referred to the website from the stuycs website <br><br>
 
-                            Meet all the requirements and get the flag!
-                            </p>
-                            <!-- Form -->
-                            <form method="post" class="col s12" id="spoof-form">
-                                <div class="row">
-                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
-                                        <label for="icon_prefix">Flag</label>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="pid" value="spoof">
-                                <input type="hidden" id="tid" name="tid" value="">
-                                <input type="hidden" id="token" name="token" value="">
-                                <script>
+                                    Meet all the requirements and get the flag!
+                                    </p>
+                                    <!-- Form -->
+                                    <form method="post" class="col s12" id="spoof-form">
+                                        <div class="row">
+                                            <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                                <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                                <label for="icon_prefix">Flag</label>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="pid" value="spoof">
+                                        <input type="hidden" id="tid" name="tid" value="">
+                                        <input type="hidden" id="token" name="token" value="">
+                                        <script>
 document.getElementsByName("tid")[16].value = getCookie("tid");
 document.getElementsByName("token")[16].value = getCookie("token");
-                                </script>
-                                <div class="row center">
-                                    <button class="btn waves-effect waves-light" type="submit">Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('You can do this with one terminal command or use python\'s urllib2 module', 4000)">Hint</a>
+                                        </script>
+                                        <div class="row center">
+                                            <button class="btn waves-effect waves-light" type="submit">Submit
+                                                <i class="mdi-content-send right"></i>
+                                            </button>
+                                            <a class="btn waves-effect waves-light" onclick="Materialize.toast('You can do this with one terminal command or use python\'s urllib2 module', 4000)">Hint</a>
 
+                                        </div>
+                                        <input type="hidden">
+                                    </form>
                                 </div>
-                                <input type="hidden">
-                            </form>
-                        </div>
-                    </li>
+                            </li>
 
-                </ul>
-                <br>
-                <hr>
-            </div>
-            <br>
-            <!-- END OF WEB -->
-            <!-- BEGINNING OF ALGO -->
-            <div>
-                <br>
-                <div class="col-xs-12"> <h5> Algorithms </h5><br></div>
-                <ul class="collapsible z-depth-2" data-collapsible="accordion">
-                    <li>
-                        <div class="collapsible-header" id="sets"><i class="mdi-action-settings"></i>Sets - 50</div>
-                        <div class="collapsible-body">
-                            <p class="card-content">
-                            Remember that a set must contain distinct elements. Define S(n) as a function that returns the sum of n and its digit sum. Write a function that tells me the
-                            number of elements in {S(0),S(1),S(2)...S(9999)}.
-                            </p>
-                            <!-- Form -->
-                            <form method="post" class="col s12" id="sets-form">
-                                <div class="row">
-                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
-                                        <label for="icon_prefix">Flag</label>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="pid" value="sets">
-                                <input type="hidden" id="tid" name="tid" value="">
-                                <input type="hidden" id="token" name="token" value="">
-                                <script>
+                        </ul>
+                        <br>
+                        <hr>
+                    </div>
+                    <br>
+                    <!-- END OF WEB -->
+                    <!-- BEGINNING OF ALGO -->
+                    <div>
+                        <br>
+                        <div id="algo" class="section scrollspy col-xs-12"> <h5> Algorithms </h5><br></div>
+                        <ul class="collapsible z-depth-2" data-collapsible="accordion">
+                            <li>
+                                <div class="collapsible-header" id="sets"><i class="mdi-action-settings"></i>Sets - 50</div>
+                                <div class="collapsible-body">
+                                    <p class="card-content">
+                                    Remember that a set must contain distinct elements. Define S(n) as a function that returns the sum of n and its digit sum. Write a function that tells me the
+                                    number of elements in {S(0),S(1),S(2)...S(9999)}.
+                                    </p>
+                                    <!-- Form -->
+                                    <form method="post" class="col s12" id="sets-form">
+                                        <div class="row">
+                                            <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                                <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                                <label for="icon_prefix">Flag</label>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="pid" value="sets">
+                                        <input type="hidden" id="tid" name="tid" value="">
+                                        <input type="hidden" id="token" name="token" value="">
+                                        <script>
 document.getElementsByName("tid")[17].value = getCookie("tid");
 document.getElementsByName("token")[17].value = getCookie("token");
-                                </script>
-                                <div class="row center">
-                                    <button class="btn waves-effect waves-light" type="submit">Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('Patterns?', 4000)">Hint</a>
+                                        </script>
+                                        <div class="row center">
+                                            <button class="btn waves-effect waves-light" type="submit">Submit
+                                                <i class="mdi-content-send right"></i>
+                                            </button>
+                                            <a class="btn waves-effect waves-light" onclick="Materialize.toast('Patterns?', 4000)">Hint</a>
 
+                                        </div>
+                                        <input type="hidden">
+                                    </form>
                                 </div>
-                                <input type="hidden">
-                            </form>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header" id = "indif"><i class="mdi-action-settings"></i>Indifferent - 65</div>
-                        <div class="collapsible-body">
-                            <p class="card-content">
-                            Your math teacher has finally gone nuts. He tells you to write the first 300 positive integers in your notebook
-                            asks you to reduce it to one number using an algorithm. The allowed move is taking the smallest two numbers in
-                            your list, and replacing them with a single number equal to their product added to their sum. While the rest of
-                            your class gets busy with their work, you are indifferent and take out your computer. What are the first four
-                            digits of the answer?
-                            </p>
-                            <!-- Form -->
-                            <form method="post" class="col s12" id="indif-form">
-                                <div class="row">
-                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
-                                        <label for="icon_prefix">Flag</label>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="pid" value="indif">
-                                <input type="hidden" id="tid" name="tid" value="">
-                                <input type="hidden" id="token" name="token" value="">
-                                <script>
+                            </li>
+                            <li>
+                                <div class="collapsible-header" id = "indif"><i class="mdi-action-settings"></i>Indifferent - 65</div>
+                                <div class="collapsible-body">
+                                    <p class="card-content">
+                                    Your math teacher has finally gone nuts. He tells you to write the first 300 positive integers in your notebook
+                                    asks you to reduce it to one number using an algorithm. The allowed move is taking the smallest two numbers in
+                                    your list, and replacing them with a single number equal to their product added to their sum. While the rest of
+                                    your class gets busy with their work, you are indifferent and take out your computer. What are the first four
+                                    digits of the answer?
+                                    </p>
+                                    <!-- Form -->
+                                    <form method="post" class="col s12" id="indif-form">
+                                        <div class="row">
+                                            <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                                <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                                <label for="icon_prefix">Flag</label>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="pid" value="indif">
+                                        <input type="hidden" id="tid" name="tid" value="">
+                                        <input type="hidden" id="token" name="token" value="">
+                                        <script>
 document.getElementsByName("tid")[18].value = getCookie("tid");
 document.getElementsByName("token")[18].value = getCookie("token");
-                                </script>
-                                <div class="row center">
-                                    <button class="btn waves-effect waves-light" type="submit">Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('Script harder', 4000)">Hint</a>
+                                        </script>
+                                        <div class="row center">
+                                            <button class="btn waves-effect waves-light" type="submit">Submit
+                                                <i class="mdi-content-send right"></i>
+                                            </button>
+                                            <a class="btn waves-effect waves-light" onclick="Materialize.toast('Script harder', 4000)">Hint</a>
 
+                                        </div>
+                                        <input type="hidden">
+                                    </form>
                                 </div>
-                                <input type="hidden">
-                            </form>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header" id = "donttrip"><i class="mdi-action-settings"></i>Don't Trip - 60</div>
-                        <div class="collapsible-body">
-                            <p class="card-content">
-                            James has dropped his wallet and scattered a lot of his coins. A good friend came up and recorded where each coin was, and gave <a href = "problem-static/DontTrip/DontTrip.csv">this</a> to James. If James starts at a coin he dropped where he is standing,
-                            what area does his path enclose? (He only travels in straight lines and refuses to cross over any point where he has been before)
-                            </p>
-                            <!-- Form -->
-                            <form method="post" class="col s12" id="donttrip-form">
-                                <div class="row">
-                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
-                                        <label for="icon_prefix">Flag</label>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="pid" value="donttrip">
-                                <input type="hidden" id="tid" name="tid" value="">
-                                <input type="hidden" id="token" name="token" value="">
-                                <script>
+                            </li>
+                            <li>
+                                <div class="collapsible-header" id = "donttrip"><i class="mdi-action-settings"></i>Don't Trip - 60</div>
+                                <div class="collapsible-body">
+                                    <p class="card-content">
+                                    James has dropped his wallet and scattered a lot of his coins. A good friend came up and recorded where each coin was, and gave <a href = "problem-static/DontTrip/DontTrip.csv">this</a> to James. If James starts at a coin he dropped where he is standing,
+                                    what area does his path enclose? (He only travels in straight lines and refuses to cross over any point where he has been before)
+                                    </p>
+                                    <!-- Form -->
+                                    <form method="post" class="col s12" id="donttrip-form">
+                                        <div class="row">
+                                            <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                                <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                                <label for="icon_prefix">Flag</label>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="pid" value="donttrip">
+                                        <input type="hidden" id="tid" name="tid" value="">
+                                        <input type="hidden" id="token" name="token" value="">
+                                        <script>
 document.getElementsByName("tid")[19].value = getCookie("tid");
 document.getElementsByName("token")[19].value = getCookie("token");
-                                </script>
-                                <div class="row center">
-                                    <button class="btn waves-effect waves-light" type="submit">Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('Tie your shoelaces', 4000)">Hint</a>
+                                        </script>
+                                        <div class="row center">
+                                            <button class="btn waves-effect waves-light" type="submit">Submit
+                                                <i class="mdi-content-send right"></i>
+                                            </button>
+                                            <a class="btn waves-effect waves-light" onclick="Materialize.toast('Tie your shoelaces', 4000)">Hint</a>
 
+                                        </div>
+                                        <input type="hidden">
+                                    </form>
                                 </div>
-                                <input type="hidden">
-                            </form>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header" id="fast"><i class="mdi-action-settings"></i>Random Fast Math - 70</div>
-                        <div class="collapsible-body">
-                            <p class="card-content">
-                            How fast are you at mathing? Show off your skills at <span class='red lighten-4 red-text text-darken-2'>54.173.201.167:22222</span>
-                            </p>
-                            <!-- Form -->
-                            <form method="post" class="col s12" id="fast-form">
-                                <div class="row">
-                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
-                                        <label for="icon_prefix">Flag</label>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="pid" value="fast">
-                                <input type="hidden" id="tid" name="tid" value="">
-                                <input type="hidden" id="token" name="token" value="">
-                                <script>
+                            </li>
+                            <li>
+                                <div class="collapsible-header" id="fast"><i class="mdi-action-settings"></i>Random Fast Math - 70</div>
+                                <div class="collapsible-body">
+                                    <p class="card-content">
+                                    How fast are you at mathing? Show off your skills at <span class='red lighten-4 red-text text-darken-2'>54.173.201.167:22222</span>
+                                    </p>
+                                    <!-- Form -->
+                                    <form method="post" class="col s12" id="fast-form">
+                                        <div class="row">
+                                            <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                                <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                                <label for="icon_prefix">Flag</label>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="pid" value="fast">
+                                        <input type="hidden" id="tid" name="tid" value="">
+                                        <input type="hidden" id="token" name="token" value="">
+                                        <script>
 document.getElementsByName("tid")[20].value = getCookie("tid");
 document.getElementsByName("token")[20].value = getCookie("token");
-                                </script>
-                                <div class="row center">
-                                    <button class="btn waves-effect waves-light" type="submit">Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('Might want to take a look at the python sockets module and eval()', 4000)">Hint</a>
+                                        </script>
+                                        <div class="row center">
+                                            <button class="btn waves-effect waves-light" type="submit">Submit
+                                                <i class="mdi-content-send right"></i>
+                                            </button>
+                                            <a class="btn waves-effect waves-light" onclick="Materialize.toast('Might want to take a look at the python sockets module and eval()', 4000)">Hint</a>
 
+                                        </div>
+                                        <input type="hidden">
+                                    </form>
                                 </div>
-                                <input type="hidden">
-                            </form>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header" id = "triangle"><i class="mdi-action-settings"></i>Triangles - 85</div>
-                        <div class="collapsible-body">
-                            <p class="card-content">
-                            Define a triangle number as a number that strictly ascends, and then strictly descends for the same number of
-                            numbers. For example, the numbers 1-9 are all triangle numbers, as well as 121, 131, 143, 1258632.
-                            What is the 20,000th triangle number?
-                            </p>
-                            <!-- Form -->
-                            <form method="post" class="col s12" id="triangle-form">
-                                <div class="row">
-                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
-                                        <label for="icon_prefix">Flag</label>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="pid" value="triangle">
-                                <input type="hidden" id="tid" name="tid" value="">
-                                <input type="hidden" id="token" name="token" value="">
-                                <script>
+                            </li>
+                            <li>
+                                <div class="collapsible-header" id = "triangle"><i class="mdi-action-settings"></i>Triangles - 85</div>
+                                <div class="collapsible-body">
+                                    <p class="card-content">
+                                    Define a triangle number as a number that strictly ascends, and then strictly descends for the same number of
+                                    numbers. For example, the numbers 1-9 are all triangle numbers, as well as 121, 131, 143, 1258632.
+                                    What is the 20,000th triangle number?
+                                    </p>
+                                    <!-- Form -->
+                                    <form method="post" class="col s12" id="triangle-form">
+                                        <div class="row">
+                                            <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                                <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                                <label for="icon_prefix">Flag</label>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="pid" value="triangle">
+                                        <input type="hidden" id="tid" name="tid" value="">
+                                        <input type="hidden" id="token" name="token" value="">
+                                        <script>
 document.getElementsByName("tid")[21].value = getCookie("tid");
 document.getElementsByName("token")[21].value = getCookie("token");
-                                </script>
-                                <div class="row center">
-                                    <button class="btn waves-effect waves-light" type="submit">Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('Script harder', 4000)">Hint</a>
+                                        </script>
+                                        <div class="row center">
+                                            <button class="btn waves-effect waves-light" type="submit">Submit
+                                                <i class="mdi-content-send right"></i>
+                                            </button>
+                                            <a class="btn waves-effect waves-light" onclick="Materialize.toast('Script harder', 4000)">Hint</a>
 
+                                        </div>
+                                        <input type="hidden">
+                                    </form>
                                 </div>
-                                <input type="hidden">
-                            </form>
-                        </div>
-                    </li>
-                </ul>
-                <br>
-                <hr>
-            </div>
-            <br>
-            <!-- END OF ALGO -->
+                            </li>
+                        </ul>
+                        <br>
+                        <hr>
+                    </div>
+                    <br>
+                    <!-- END OF ALGO -->
 
-            <!-- BEGINNING OF REVERSE ENGINEERING -->
-            <div>
-                <br>
-                <div class="col-xs-12"> <h5> Reverse Engineering </h5><br></div>
-                <ul class="collapsible z-depth-2" data-collapsible="accordion">
-                    <li>
-                        <div class="collapsible-header" id = "overflow"><i class="mdi-image-flip"></i>Intro Overflow - 50</div>
-                        <div class="collapsible-body">
-                            <p class="card-content">
-                            pls update description
-                            </p>
-                            <!-- Form -->
-                            <form method="post" class="col s12" id="overflow-form">
-                                <div class="row">
-                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
-                                        <label for="icon_prefix">Flag</label>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="pid" value="overflow">
-                                <input type="hidden" id="tid" name="tid" value="">
-                                <input type="hidden" id="token" name="token" value="">
-                                <script>
+                    <!-- BEGINNING OF REVERSE ENGINEERING -->
+                    <div>
+                        <br>
+                        <div id="rev" class="section scrollspy col-xs-12"> <h5> Reverse Engineering </h5><br></div>
+                        <ul class="collapsible z-depth-2" data-collapsible="accordion">
+                            <li>
+                                <div class="collapsible-header" id = "overflow"><i class="mdi-image-flip"></i>Intro Overflow - 50</div>
+                                <div class="collapsible-body">
+                                    <p class="card-content">
+                                    pls update description
+                                    </p>
+                                    <!-- Form -->
+                                    <form method="post" class="col s12" id="overflow-form">
+                                        <div class="row">
+                                            <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                                <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                                <label for="icon_prefix">Flag</label>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="pid" value="overflow">
+                                        <input type="hidden" id="tid" name="tid" value="">
+                                        <input type="hidden" id="token" name="token" value="">
+                                        <script>
 document.getElementsByName("tid")[22].value = getCookie("tid");
 document.getElementsByName("token")[22].value = getCookie("token");
-                                </script>
-                                <div class="row center">
-                                    <button class="btn waves-effect waves-light" type="submit">Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('Gimme a hint', 4000)">Hint</a>
+                                        </script>
+                                        <div class="row center">
+                                            <button class="btn waves-effect waves-light" type="submit">Submit
+                                                <i class="mdi-content-send right"></i>
+                                            </button>
+                                            <a class="btn waves-effect waves-light" onclick="Materialize.toast('Gimme a hint', 4000)">Hint</a>
 
+                                        </div>
+                                        <input type="hidden">
+                                    </form>
                                 </div>
-                                <input type="hidden">
-                            </form>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header" id = "eval"><i class="mdi-image-flip"></i>Intro Eval - 50</div>
-                        <div class="collapsible-body">
-                            <p class="card-content">
-                            pls update description
-                            </p>
-                            <!-- Form -->
-                            <form method="post" class="col s12" id="eval-form">
-                                <div class="row">
-                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
-                                        <label for="icon_prefix">Flag</label>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="pid" value="eval">
-                                <input type="hidden" id="tid" name="tid" value="">
-                                <input type="hidden" id="token" name="token" value="">
-                                <script>
+                            </li>
+                            <li>
+                                <div class="collapsible-header" id = "eval"><i class="mdi-image-flip"></i>Intro Eval - 50</div>
+                                <div class="collapsible-body">
+                                    <p class="card-content">
+                                    pls update description
+                                    </p>
+                                    <!-- Form -->
+                                    <form method="post" class="col s12" id="eval-form">
+                                        <div class="row">
+                                            <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                                <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                                <label for="icon_prefix">Flag</label>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="pid" value="eval">
+                                        <input type="hidden" id="tid" name="tid" value="">
+                                        <input type="hidden" id="token" name="token" value="">
+                                        <script>
 document.getElementsByName("tid")[23].value = getCookie("tid");
 document.getElementsByName("token")[23].value = getCookie("token");
-                                </script>
-                                <div class="row center">
-                                    <button class="btn waves-effect waves-light" type="submit">Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('Gimme a hint', 4000)">Hint</a>
+                                        </script>
+                                        <div class="row center">
+                                            <button class="btn waves-effect waves-light" type="submit">Submit
+                                                <i class="mdi-content-send right"></i>
+                                            </button>
+                                            <a class="btn waves-effect waves-light" onclick="Materialize.toast('Gimme a hint', 4000)">Hint</a>
 
+                                        </div>
+                                        <input type="hidden">
+                                    </form>
                                 </div>
-                                <input type="hidden">
-                            </form>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header" id = "copy"><i class="mdi-image-flip"></i>Copy Cat - 55</div>
-                        <div class="collapsible-body">
-                            <p class="card-content">
-                            So this guy in my computer science class thinks that he's a programming god, but all he does is copy Chesley.
-                            For his MKS22 final project, he's made this rock-paper-scissors program, which he claims to be unbeatable, but
-                            is that really the case? Bring him to shame by winning 100 out of 100 rounds against his ai! <br>
-                            He uploaded his program at <span class='red lighten-4 red-text text-darken-2'>plsgimmeip:33333</span>
-                            </p>
-                            <!-- Form -->
-                            <form method="post" class="col s12" id="copy-form">
-                                <div class="row">
-                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
-                                        <label for="icon_prefix">Flag</label>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="pid" value="copy">
-                                <input type="hidden" id="tid" name="tid" value="">
-                                <input type="hidden" id="token" name="token" value="">
-                                <script>
+                            </li>
+                            <li>
+                                <div class="collapsible-header" id = "copy"><i class="mdi-image-flip"></i>Copy Cat - 55</div>
+                                <div class="collapsible-body">
+                                    <p class="card-content">
+                                    So this guy in my computer science class thinks that he's a programming god, but all he does is copy Chesley.
+                                    For his MKS22 final project, he's made this rock-paper-scissors program, which he claims to be unbeatable, but
+                                    is that really the case? Bring him to shame by winning 100 out of 100 rounds against his ai! <br>
+                                    He uploaded his program at <span class='red lighten-4 red-text text-darken-2'>plsgimmeip:33333</span>
+                                    </p>
+                                    <!-- Form -->
+                                    <form method="post" class="col s12" id="copy-form">
+                                        <div class="row">
+                                            <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                                <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                                <label for="icon_prefix">Flag</label>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="pid" value="copy">
+                                        <input type="hidden" id="tid" name="tid" value="">
+                                        <input type="hidden" id="token" name="token" value="">
+                                        <script>
 document.getElementsByName("tid")[24].value = getCookie("tid");
 document.getElementsByName("token")[24].value = getCookie("token");
-                                </script>
-                                <div class="row center">
-                                    <button class="btn waves-effect waves-light" type="submit">Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('Gimme a hint', 4000)">Hint</a>
+                                        </script>
+                                        <div class="row center">
+                                            <button class="btn waves-effect waves-light" type="submit">Submit
+                                                <i class="mdi-content-send right"></i>
+                                            </button>
+                                            <a class="btn waves-effect waves-light" onclick="Materialize.toast('Gimme a hint', 4000)">Hint</a>
 
+                                        </div>
+                                        <input type="hidden">
+                                    </form>
                                 </div>
-                                <input type="hidden">
-                            </form>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header" id = "easy-rev"><i class="mdi-image-flip"></i>Easy Reverse - 60</div>
-                        <div class="collapsible-body">
-                            <p class="card-content">
-                            pls update description
-                            </p>
-                            <!-- Form -->
-                            <form method="post" class="col s12" id="easy-rev-form">
-                                <div class="row">
-                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
-                                        <label for="icon_prefix">Flag</label>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="pid" value="easy-rev">
-                                <input type="hidden" id="tid" name="tid" value="">
-                                <input type="hidden" id="token" name="token" value="">
-                                <script>
+                            </li>
+                            <li>
+                                <div class="collapsible-header" id = "easy-rev"><i class="mdi-image-flip"></i>Easy Reverse - 60</div>
+                                <div class="collapsible-body">
+                                    <p class="card-content">
+                                    pls update description
+                                    </p>
+                                    <!-- Form -->
+                                    <form method="post" class="col s12" id="easy-rev-form">
+                                        <div class="row">
+                                            <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                                <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                                <label for="icon_prefix">Flag</label>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="pid" value="easy-rev">
+                                        <input type="hidden" id="tid" name="tid" value="">
+                                        <input type="hidden" id="token" name="token" value="">
+                                        <script>
 document.getElementsByName("tid")[25].value = getCookie("tid");
 document.getElementsByName("token")[25].value = getCookie("token");
-                                </script>
-                                <div class="row center">
-                                    <button class="btn waves-effect waves-light" type="submit">Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('Gimme a hint', 4000)">Hint</a>
+                                        </script>
+                                        <div class="row center">
+                                            <button class="btn waves-effect waves-light" type="submit">Submit
+                                                <i class="mdi-content-send right"></i>
+                                            </button>
+                                            <a class="btn waves-effect waves-light" onclick="Materialize.toast('Gimme a hint', 4000)">Hint</a>
 
+                                        </div>
+                                        <input type="hidden">
+                                    </form>
                                 </div>
-                                <input type="hidden">
-                            </form>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header" id = "rand-eval"><i class="mdi-image-flip"></i>Random Eval - 65</div>
-                        <div class="collapsible-body">
-                            <p class="card-content">
-                            pls update description
-                            </p>
-                            <!-- Form -->
-                            <form method="post" class="col s12" id="rand-eval-form">
-                                <div class="row">
-                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
-                                        <label for="icon_prefix">Flag</label>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="pid" value="rand-eval">
-                                <input type="hidden" id="tid" name="tid" value="">
-                                <input type="hidden" id="token" name="token" value="">
-                                <script>
+                            </li>
+                            <li>
+                                <div class="collapsible-header" id = "rand-eval"><i class="mdi-image-flip"></i>Random Eval - 65</div>
+                                <div class="collapsible-body">
+                                    <p class="card-content">
+                                    pls update description
+                                    </p>
+                                    <!-- Form -->
+                                    <form method="post" class="col s12" id="rand-eval-form">
+                                        <div class="row">
+                                            <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                                <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                                <label for="icon_prefix">Flag</label>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="pid" value="rand-eval">
+                                        <input type="hidden" id="tid" name="tid" value="">
+                                        <input type="hidden" id="token" name="token" value="">
+                                        <script>
 document.getElementsByName("tid")[26].value = getCookie("tid");
 document.getElementsByName("token")[26].value = getCookie("token");
-                                </script>
-                                <div class="row center">
-                                    <button class="btn waves-effect waves-light" type="submit">Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('Gimme a hint', 4000)">Hint</a>
+                                        </script>
+                                        <div class="row center">
+                                            <button class="btn waves-effect waves-light" type="submit">Submit
+                                                <i class="mdi-content-send right"></i>
+                                            </button>
+                                            <a class="btn waves-effect waves-light" onclick="Materialize.toast('Gimme a hint', 4000)">Hint</a>
 
+                                        </div>
+                                        <input type="hidden">
+                                    </form>
                                 </div>
-                                <input type="hidden">
-                            </form>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header" id = "election"><i class="mdi-image-flip"></i>Elections - 75</div>
-                        <div class="collapsible-body">
-                            <p class="card-content">
-                            pls update description
-                            </p>
-                            <!-- Form -->
-                            <form method="post" class="col s12" id="election-form">
-                                <div class="row">
-                                    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                        <input autocomplete="off" id="icon_prefix" name="flag" type="text">
-                                        <label for="icon_prefix">Flag</label>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="pid" value="election">
-                                <input type="hidden" id="tid" name="tid" value="">
-                                <input type="hidden" id="token" name="token" value="">
-                                <script>
+                            </li>
+                            <li>
+                                <div class="collapsible-header" id = "election"><i class="mdi-image-flip"></i>Elections - 75</div>
+                                <div class="collapsible-body">
+                                    <p class="card-content">
+                                    pls update description
+                                    </p>
+                                    <!-- Form -->
+                                    <form method="post" class="col s12" id="election-form">
+                                        <div class="row">
+                                            <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                                <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                                <label for="icon_prefix">Flag</label>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="pid" value="election">
+                                        <input type="hidden" id="tid" name="tid" value="">
+                                        <input type="hidden" id="token" name="token" value="">
+                                        <script>
 document.getElementsByName("tid")[27].value = getCookie("tid");
 document.getElementsByName("token")[27].value = getCookie("token");
-                                </script>
-                                <div class="row center">
-                                    <button class="btn waves-effect waves-light" type="submit">Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                    <a class="btn waves-effect waves-light" onclick="Materialize.toast('Gimme a hint', 4000)">Hint</a>
+                                        </script>
+                                        <div class="row center">
+                                            <button class="btn waves-effect waves-light" type="submit">Submit
+                                                <i class="mdi-content-send right"></i>
+                                            </button>
+                                            <a class="btn waves-effect waves-light" onclick="Materialize.toast('Gimme a hint', 4000)">Hint</a>
 
+                                        </div>
+                                        <input type="hidden">
+                                    </form>
                                 </div>
-                                <input type="hidden">
-                            </form>
-                        </div>
-                    </li>
-                </ul>
-                <br>
-                <hr>
-            </div>
-            <br>
-            <!-- END OF REVERSE ENGINEERING -->
+                            </li>
+                        </ul>
+                        <br>
+                        <hr>
+                    </div>
+                    <br>
+                    <!-- END OF REVERSE ENGINEERING -->
+                </div>
 
+                <div class="col hide-on-small-only m3 l2">
+                    <div class="toc-wrapper pinned" style="top: 0px;">
+                        <div style="height: 1px;">
+                            <ul class="section table-of-contents" style="padding-left: 50px">
+                                <!-- &nbsp; is invisible character -->
+                                <p>Problem&nbsp;Categories</p>
+                                <li><a href="#introduction" class="">Introduction</a></li>
+                                <li><a href="#crypto" class="">Cryptography</a></li>
+                                <li><a href="#forensics" class="">Forensics</a></li>
+                                <li><a href="#web" class="">Web</a></li>
+                                <li><a href="#algo" class="">Algorithms</a></li>
+                                <li><a href="#rev" class="">Reverse&nbsp;Engineering</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         </main>
         <script>

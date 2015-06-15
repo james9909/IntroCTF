@@ -10,3 +10,7 @@ corrupt,60
 inverted,60
 rawr,60
 messy,75
+sets,50
+indif,65
+donttrip,60
+triangle,85

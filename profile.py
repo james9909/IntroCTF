@@ -5,8 +5,8 @@ print ""
 
 import cgi, collections
 
-pids = ["intro", "caesar", "base", "absent", "brutus", "bb", "stego", "dot", "corrupt", "inverted", "rawr", "messy", "inspect", "cookie", "hidden", "get", "spoof", "sets", "indif", "donttrip","fast", "triangle", "overflow", "eval", "copy", "easy-rev", "rand-eval", "election", "sets"]
-names = ["Introduction", "Caesar", "The Best Base", "Absent", "Brutus", "b1naryb0ts", "Intro Stego", "Dot", "Corruption", "Inverted", "RAAWWWRRRR", "Messy Code", "Inspector", "Cookie Jar", "HIdden", "GET", "Easy Spoof", "Sets", "Indifferent", "Don't Trip", "Random Fast Math", "Triangles", "Intro Overflow", "Intro Eval", "Copy Cat", "Easy Reverse", "Random Eval", "Elections"]
+pids = ["intro", "caesar", "base", "absent", "brutus", "bb", "stego", "dot", "corrupt", "inverted", "rawr", "messy", "sets", "indif", "donttrip", "triangle"]
+names = ["Introduction", "Caesar", "The Best Base", "Absent", "Brutus", "b1naryb0ts", "Intro Stego", "Dot", "Corruption", "Inverted", "RAAWWWRRRR", "Messy Code", "Sets", "Indifferent", "Don't Trip", "Triangles"]
 
 problems = collections.OrderedDict()
 

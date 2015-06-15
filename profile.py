@@ -63,9 +63,26 @@ def genProfile(tid):
         else:
             print "<tr class='red lighten-5'><td>%s</td><td>%s</td><td>Unsolved</td></tr>" %(problems[problem], value)
 
+def getTeamMembers(tid):
+    fin = open("accounts/teams.txt", "r")
+    teams = fin.readlines()
+    for team in teams:
+        team = team.strip().split("||&&||")
+        if team[0] == tid:
+            return team[2:]
+
 def main():
     inputs = cgi.FieldStorage()
     tid = inputs.getvalue("team")
+    members = getTeamMembers(tid)
+    print "<h4 class='center teal-text'>Team Members</h4>"
+    print "<ol>"
+    for member in members:
+        print "<li>%s</li>" %(member)
+    print "</ol>"
+    print "Up to %d more member(s) can join this team" %(4 - len(members))
+    print "</div>"
+    print "</div>"
     genProfile(tid)
 
 html = open("templates/profile.html", "r").read()

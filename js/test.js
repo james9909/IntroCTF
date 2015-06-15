@@ -31,12 +31,13 @@ function getTeamData(team) {
     for (i = 0; i < scores.length; i+=2) {
         data.push([parseInt(scores[i+1], 10), parseInt(scores[i], 10)]);
     }
+    date = new Date();
+    data.push([date.getTime(), data[data.length - 1][1]]);
     return data;
 }
 
 var team = getParameterByName("team");
 console.log(getTeamData(team));
-d = new Date();
 $(document).ready(function () {
     $('#container').highcharts({
         chart: {

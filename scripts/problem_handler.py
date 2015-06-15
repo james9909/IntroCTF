@@ -76,7 +76,7 @@ def handle_submit(inputs):
     pid = inputs.getvalue("pid")
     flag = inputs.getvalue("flag")
     token = inputs.getvalue("token")
-    confirm = hashlib.sha1(uid).hexdigest()
+    confirm = hashlib.sha1(uid + "salt").hexdigest()
 
     if uid == None or uid == "undefined":
         return "Log in to submit flags!"

@@ -49,7 +49,7 @@ $(document).ready(function () {
         },
         xAxis: {
             type: "datetime",
-            dateTimeLabelFormats: { 
+            dateTimeLabelFormats: {
                 month: '%e. %b',
                 year: '%b'
             }

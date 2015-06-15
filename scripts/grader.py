@@ -33,7 +33,7 @@ def grade(pid, flag):
             return incorrect("Incorrect :(")
     if pid == "bb":
         if flag == "br0k3n":
-            return correct(80, "Correct!")
+            return correct(55, "Correct!")
         else:
             return incorrect("Incorrect :(")
     if pid == "stego":
@@ -64,85 +64,5 @@ def grade(pid, flag):
     if pid == "messy":
         if flag == "ripobfuscate":
             return correct(75, "Good job!")
-        else:
-            return incorrect("Incorrect :(")
-    if pid == "inspect":
-        if flag == "you_pass_inspection":
-            return correct(20, "Correct!")
-        else:
-            return incorrect("Incorrect :(")
-    if pid == "cookie":
-        if flag == "coookkkkiiiieeeee":
-            return correct(35, "Delicious!")
-        else:
-            return incorrect("Incorrect :(")
-    if pid == "hidden":
-        if flag == "hidden_input_too_easy":
-            return correct(40, "Correct!!")
-        else:
-            return incorrect("Incorrect :(")
-    if pid == "get":
-        if flag == "i_dont_get_it":
-            return correct(45, "Do you get it?")
-        else:
-            return incorrect("Incorrect :(")
-    if pid == "spoof":
-        if flag == "wasnt_that_easy":
-            return correct(70, "Correct!")
-        else:
-            return incorrect("Incorrect :(")
-    if pid == "sets":
-        if flag == "9046":
-            return correct(50,"ARML 2009 #10")
-        else:
-            return incorrect("Incorrect :(")
-    if pid == "donttrip":
-        if flag == "6580.5":
-            return correct(60, "What a friend")
-        else:
-            return incorrect("Incorrect :(")
-    if pid == "indif":
-        if flag == "617":
-            return correct(65, "Meh.")
-        else:
-            return incorrect("Incorrect :(")
-    if pid == "fast":
-        if flag == "wish_i_can_math_this_fast":
-            return correct(70, "Dam you fast")
-        else:
-            return incorrect("Incorrect :(")
-    if pid == "triangle":
-        if flag == "167898753":
-            return correct(85, "Nice")
-        else:
-            return incorrect("Incorrect :(")
-    if pid == "overflow":
-        if flag == "0v3rf10w":
-            return correct(50, "Correct!")
-        else:
-            return incorrect("Incorrect :(")
-    if pid == "eval":
-        if flag == "eval_is_fun":
-            return correct(50, "Correct!")
-        else:
-            return incorrect("Incorrect :(")
-    if pid == "copy":
-        if flag == "shoulda_been_my_final_project":
-            return correct(55, "Correct!")
-        else:
-            return incorrect("Incorrect :(")
-    if pid == "easy-rev":
-        if flag == "that_wasnt_between_1_and_100":
-            return correct(65, "Correct!")
-        else:
-            return incorrect("Incorrect :(")
-    if pid == "rand-eval":
-        if flag == "random_eval":
-            return correct(65, "Correct!")
-        else:
-            return incorrect("Incorrect :(")
-    if pid == "election":
-        if flag == "not_rigged":
-            return correct(75, "Correct!")
         else:
             return incorrect("Incorrect :(")

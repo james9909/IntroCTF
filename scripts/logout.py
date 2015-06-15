@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import sys, hashlib
+import sys, hashlib, os
 
 print "Content-Type: text/html\n"
 print ""

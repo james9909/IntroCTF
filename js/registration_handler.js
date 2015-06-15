@@ -1,20 +1,6 @@
 $(function() {
-    $("#registration-new-team").hide();
-    $("#registration-join-team").hide();
     pageTransitionSpeed = 200;
     offset = 0;
-    $("#button-new-team").click(function() {
-        event.preventDefault();
-        return $("#registration-join-team").hide("fast", function() {
-            return $("#registration-new-team").slideDown(250, "linear")
-        });
-    });
-    $("#button-join-team").click(function() {
-        event.preventDefault();
-        return $("#registration-new-team").hide("fast", function() {
-            return $("#registration-join-team").slideDown(250, "linear")
-        });
-    });
     $("#submit-registration").click(function() {
         event.preventDefault();
         submitRegistration();

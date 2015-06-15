@@ -64,7 +64,11 @@ def main():
         info = info.strip().split("||&&||")
         if info[0] == "":
             continue
-        teams[info[0]] = int(info[-2])
+        try:
+            teams[info[0]] = int(info[-2])
+        except:
+            print '<h5 class = "center">There are no teams!<h5>'
+            return
     ranked = sort_dict(rank_teams(teams))
     gen_scoreboard(teams, ranked, team)
 

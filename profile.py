@@ -45,11 +45,11 @@ def existsTeam(tid):
     return False
 
 def genProfile(tid):
+    print "<br><br>"
     if not existsTeam(tid):
         print "Team does not exist!"
         return
     print "<h3 class='center teal-text'>%s</h3>" %(tid)
-    print "<br>"
     print "<div class='container'>"
     print "<table class='responsive-table bordered hoverable'>"
     print "<thead>"
@@ -75,13 +75,23 @@ def main():
     inputs = cgi.FieldStorage()
     tid = inputs.getvalue("team")
     members = getTeamMembers(tid)
-    print "<h4 class='center teal-text'>Team Members</h4>"
+    if not existsTeam(tid):
+        print "Team does not exist!"
+        return
+    print "<h3 class='center teal-text'>Team %s</h3>" %(tid)
     print "<ol>"
     for member in members:
         print "<li>%s</li>" %(member)
     print "</ol>"
     print "Up to %d more member(s) can join this team" %(4 - len(members))
     print "</div>"
+    """print '<div class="row">'
+    print '<div class="card medium col s6">'
+    print '<h5 class="center teal-text">Rank</h5>'
+    print "test"
+    print "</div>"
+    print "</div>"
+    print "</div>"""
     print "</div>"
     genProfile(tid)
 

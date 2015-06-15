@@ -3,19 +3,17 @@
     <head>
         <!--Import materialize.css-->
         <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
-        <link type="text/css" rel="stylesheet" href="css/jquery-ui.min.css"/>
-
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
-        <title>IntroCTF - Register</title>
+        <title>Welcome to IntroCTF!</title>
     </head>
 
     <body>
         <!--Import jQuery before materialize.js-->
         <script src="js/jquery-2.1.1.min.js"></script>
         <script src="js/materialize.js"></script>
-        <script src="js/jquery-ui.min.js"></script>
+        <script src="js/validate_cookie.js"></script>
         <script src="js/init.js"></script>
         <script src="js/registration_handler.js"></script>
 
@@ -28,10 +26,10 @@
                     <li><a href="gallery">About</a></li>
                     <li><a href="scoreboard.py">Scoreboard</a></li>
                     <li><a href="problems">Problems</a></li>
-                    <li><a href="login">Login</a></li>
-                    <li><a href="register">Register</a></li>
-
-                    <!-- <li><a class="mdi-action-info-outline modal-trigger" href="#helpmodal"></a></li> -->
+                    <!-- If we are logged in, only show log out -->
+                    <script>
+validateLogin();
+                    </script>
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
 
@@ -39,17 +37,15 @@
                     <li><a class="waves-effect waves-indigo" href="gallery">About</a></li>
                     <li><a class="waves-effect waves-indigo" href="scoreboard.py">Scoreboard</a></li>
                     <li><a class="waves-effect waves-indigo" href="problems">Problems</a></li>
-                    <li><a class="waves-effect waves-indigo" href="login">Login</a></li>
-                    <li><a class="waves-effect waves-indigo" href="register">Register</a></li>
-
-                    <!-- <li><a class="waves-effect waves-indigo modal-trigger" href="#helpmodal"><i class="mdi-action-info-outline"></i></a></li> -->
+                    <!-- If we are logged in, only show log out -->
+                    <script>
+validateMobileLogin();
+                    </script>
                 </ul>
                 <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
             </div>
         </nav>
-
-        <h2 class="center teal-text">Register</h2>
-        <p class="center teal-text">WARNING: ALL USERS WILL BE WIPED BEFORE OFFICIAL RELEASE</p>
+        <h2 class="center teal-text">IntroCTF</h2>
 
         <form class="col s12" id="register-form" method="post">
             <div class="row">
@@ -68,25 +64,25 @@
                     </div>
                 </div>
                 <br>
-                <div class="row center">
-                    <button class="btn waves-effect waves-light" type="submit" id="button-new-team">Create a new team
-                        <i class="mdi-content-send right"></i>
-                    </button>
-                    <button class="btn waves-effect waves-light" type="submit" id="button-join-team">Join existing team
-                        <i class="mdi-content-send right"></i>
-                    </button>
-                </div>
 
+
+            </div>
+            <div class='container'>
+                <ul class="tabs tab z-depth-1">
+                    <li class="tab col s6"><a href="#registration-join-team">Test 1</a></li>
+                    <li class="tab col s6"><a href="#registration-new-team">Test 2</a></li>
+                </ul>
+                <br>
                 <div class="container">
                     <div id="registration-join-team">
                         <h5 class="center teal-text">Join an existing team</h5>
                         <form method="post" class="col s12" id="join-team">
                             <div class="row">
-                                <div class="input-field col s6">
+                                <div class="input-field col s12">
                                     <input autocomplete="off" id="icon_prefix" name="join_id" type="text">
                                     <label for="icon_prefix">Team Name</label>
                                 </div>
-                                <div class="input-field col s6">
+                                <div class="input-field col s12">
                                     <input autocomplete="off" id="icon_prefix" name="join_pass" type="password">
                                     <label for="icon_prefix">Team Password</label>
                                 </div>
@@ -114,40 +110,16 @@
                             </div>
                         </form>
                     </div>
-                    <br>
-                    <div class="row center">
-                        <button class="btn waves-effect waves-light" id="submit-registration">Register
-                            <i class="mdi-content-send right"></i>
-                        </button>
-                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <br>
+                <div class="row center">
+                    <button class="btn waves-effect waves-light" id="submit-registration">Register
+                        <i class="mdi-content-send right"></i>
+                    </button>
                 </div>
             </div>
         </form>
-        <br>
     </body>
-    <footer class="page-footer teal">
-        <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">About</h5>
-                    <p class="grey-text text-lighten-4">A CTF competition made by James Wang and Joel Ye for students taking Intro to Computer Science 2,
-                    written using Python, HTML, Materialize CSS, and JavaScript.
-                    </p>
-                </div>
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Resources</h5>
-                    <ul>
-                        <li><a class="grey-text text-lighten-3" href="https://github.com/james9909/IntroCTF">GitHub</a></li>
-                        <li><a class="grey-text text-lighten-3" href="http://materializecss.com">Materialize CSS</a></li>
-                        <li><a class="grey-text text-lighten-3" href="https://jquery.com">jQuery</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright">
-            <div class="container">
-                &copy; 2015 IntroCTF
-            </div>
-        </div>
-    </footer>
 </html>

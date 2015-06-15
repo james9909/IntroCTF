@@ -18,9 +18,13 @@ function getTeamInfo(data, team) {
 }
 
 var data = readFile("accounts/solved.txt");
-var cookies = document.cookie;
-var tid = cookies.split("; ");
-tid = tid[1].slice(4);
+function getTID() {
+    var cookies = document.cookie;
+    var tid = cookies.split("; ");
+    tid = tid[1].slice(4);
+    return tid
+}
+tid = getTID()
 var info = getTeamInfo(data, tid); //Should be list of problem, time, problem, time. (Time is list)
 function load(data){
     var out = [];

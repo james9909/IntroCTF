@@ -63,7 +63,7 @@ def main():
         info = info.strip().split("||&&||")
         if info[0] == "":
             continue
-        teams[info[0]] = int(info[1])
+        teams[info[0]] = int(info[-2])
     ranked = sort_dict(rank_teams(teams))
     gen_scoreboard(teams, ranked, team)
 

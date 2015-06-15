@@ -29,11 +29,13 @@ function getTeamData(team) {
     scores = getTeamInfo(scores, team);
     scores = scores.slice(1);
     for (i = 0; i < scores.length; i+=2) {
-        data.push([scores[i], scores[i+1]]);
+        data.push([parseInt(scores[i+1], 10), parseInt(scores[i], 10)]);
     }
     return data;
 }
-var team = getParameterByName("tid");
+
+var team = getParameterByName("team");
+console.log(getTeamData(team));
 d = new Date();
 $(document).ready(function () {
     $('#container').highcharts({
@@ -46,11 +48,10 @@ $(document).ready(function () {
         },
         xAxis: {
             type: "datetime",
-            dateTimeLabelFormats: { // don't display the dummy year
+            dateTimeLabelFormats: { 
                 month: '%e. %b',
                 year: '%b'
-            },
-            max: Date.UTC(2015, 6, 22)
+            }
         },
         yAxis: {
             title: {
@@ -79,7 +80,7 @@ $(document).ready(function () {
         series: [{
             pointStart: 1434312000000,
             pointInterval: 86400000,
-            name: 'foo',
+            name: team,
             data: getTeamData(team)
         }]
     });

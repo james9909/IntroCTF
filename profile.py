@@ -81,9 +81,11 @@ def main():
     print "<h3 class='center teal-text'>Team %s</h3>" %(tid)
     print "<ol>"
     for member in members:
-        print "<li>%s</li>" %(member)
+        print "<br>"
+        print "<li style='font-weight:800;'>%s</li>" %(member)
     print "</ol>"
-    print "Up to %d more member(s) can join this team" %(4 - len(members))
+    print "<br>"
+    print "<center>Up to %d more member(s) can join this team</center>" %(4 - len(members))
     print "</div>"
     """print '<div class="row">'
     print '<div class="card medium col s6">'

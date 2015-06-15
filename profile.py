@@ -14,7 +14,7 @@ problems = collections.OrderedDict()
 
 for pid, name in zip(pids, names):
     problems[pid] = name
-    
+
 def getProblemPointValue(pid):
     fin = open("problemPoints.txt", "r")
     problems = fin.readlines()
@@ -87,13 +87,6 @@ def main():
     print "<br>"
     print "<center>Up to %d more member(s) can join this team</center>" %(4 - len(members))
     print "</div>"
-    """print '<div class="row">'
-    print '<div class="card medium col s6">'
-    print '<h5 class="center teal-text">Rank</h5>'
-    print "test"
-    print "</div>"
-    print "</div>"
-    print "</div>"""
     print "</div>"
     genProfile(tid)
 

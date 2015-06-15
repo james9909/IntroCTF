@@ -46,11 +46,11 @@ def createNewTeam(tname, tpass, uname, upass):
     solved.close()
 
     teams = open("../accounts/teams.txt", "a")
-    teams.write("%s||&&||%s||&&||%s\n" %(tname, tpass_hashed, uname))
+    teams.write("\n%s||&&||%s||&&||%s\n" %(tname, tpass_hashed, uname))
     teams.close()
 
     scores = open("../accounts/scores.txt", "a")
-    scores.write("%s||&&||0||&&||%s\n" %(tname, logTime()))
+    scores.write("\n%s||&&||0||&&||%s\n" %(tname, logTime()))
     scores.close()
 
     users = open("../accounts/users.txt", "a")

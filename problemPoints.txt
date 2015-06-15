@@ -3,7 +3,7 @@ caesar,20
 base,30
 absent,40
 brutus,45
-bb,80
+bb,55
 stego,50
 dot,50
 corrupt,60

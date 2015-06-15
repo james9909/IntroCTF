@@ -34,7 +34,7 @@ def fullTeam(tname):
         team = team.strip().split("||&&||")
         if team[0] == tname:
             team = team[2:]
-            if len(team) == 4:
+            if len(team) == 3:
                 return True
     return False
 

@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import os, operator
+import os, operator, cgitb
 print "Content-Type: text/html\n"
 print ""
 
@@ -42,7 +42,7 @@ def gen_scoreboard(team_data, ranked, team):
     if len(team_data) == 0:
         print '<h5 class = "center">There are no teams!<h5>'
         return
-    if team != "":
+    if team != "" and team != None:
         print "<center>Team %s, with a rank of %d, has %d points" %(team, get_rank(ranked, team), team_data[team])
     print "<br>"
     print "<div class='container'>"

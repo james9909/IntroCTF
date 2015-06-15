@@ -32,9 +32,10 @@ def fullTeam(tname):
     teams = fin.readlines()
     for team in teams:
         team = team.strip().split("||&&||")
-        team = team[2:]
-        if len(team) == 4:
-            return True
+        if team[0] == tname:
+            team = team[2:]
+            if len(team) == 4:
+                return True
     return False
 
 def alreadyOnTeam(tname, uname):

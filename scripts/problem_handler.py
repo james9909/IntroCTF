@@ -1,9 +1,7 @@
 #!/usr/bin/python
 
-import cgi, cgitb, hashlib,datetime, time
+import cgi, hashlib, time
 from grader import grade
-
-cgitb.enable()
 
 print "Content-Type: text/html"
 print ""
@@ -11,9 +9,6 @@ print ""
 inputs = cgi.FieldStorage()
 
 def logTime():
-#    now = datetime.datetime.today()
-#    absClock = (now.hour * 3600 + now.minute * 60 + now.second) * 1000000 + now.microsecond
-#    return [now.day,absClock,now.hour,now.minute,now.second]
      return int(time.time() * 1000)
 
 def alreadySolved(uid, pid):
@@ -45,7 +40,7 @@ def writeSolved(uid, pid):
         new_data += data + "\n"
     users = open("../accounts/solved.txt", "w")
     users.write(new_data)
-    
+
     scores = open("../accounts/scores.txt", "r").readlines()
     new = ""
     for score in scores:

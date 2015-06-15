@@ -1,10 +1,8 @@
 #!/usr/bin/python
 
-import os, operator, cgitb
+import os, operator
 print "Content-Type: text/html\n"
 print ""
-
-cgitb.enable()
 
 def get_team(cookies):
     cookies = cookies.split("; ")

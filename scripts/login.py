@@ -1,8 +1,6 @@
 #!/usr/bin/python
 
-import cgi, cgitb, hashlib
-
-cgitb.enable()
+import cgi, hashlib
 
 print "Content-Type: text/html"
 print ""

@@ -1,8 +1,6 @@
 #!/usr/bin/python
 
-import cgi, cgitb, hashlib, datetime, time
-
-cgitb.enable()
+import cgi, hashlib, time
 
 print "Content-Type: text/html"
 print ""
@@ -10,9 +8,6 @@ print ""
 inputs = cgi.FieldStorage()
 
 def logTime():
-    #now = datetime.datetime.today()
-    #absClock = (now.hour * 3600 + now.minute * 60 + now.second) * 1000000 + now.microsecond
-    #return [now.day,absClock,now.hour,now.minute,now.second]
     return int(time.time() * 1000)
 
 def validatePassword(tpass):

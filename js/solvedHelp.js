@@ -1,3 +1,9 @@
+function getCookie(name) {
+  var value = "; " + document.cookie;
+  var parts = value.split("; " + name + "=");
+  if (parts.length == 2) return parts.pop().split(";").shift();
+}
+
 function readFile(path) {
     var request = new XMLHttpRequest();
     request.open("GET", path, false);
@@ -24,9 +30,7 @@ Array.prototype.diff = function(a) {
 function validateSolve() {
     var allproblems = ["intro", "caesar", "base", "absent", "brutus", "bb", "stego", "dot", "corrupt", "inverted", "rawr", "messy", "inspect", "cookie", "hidden", "get", "spoof", "donttrip", "indif", "fast", "triangle", "overflow", "eval", "copy", "easy-rev", "rand-eval", "election", "sets"];
     var solved = [];
-    var cookies = document.cookie;
-    var tid = cookies.split("; ");
-    tid = tid[1].slice(4);
+    var tid = getCookie("tid");
     var text = readFile("accounts/solved.txt");
     var info = getTeamInfo(text, tid);
     info = info.slice(1);

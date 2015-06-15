@@ -8,8 +8,9 @@ cgitb.enable()
 
 def get_team(cookies):
     cookies = cookies.split("; ")
-    tid = cookies[1][4:]
-    return tid
+    for cookie in cookies:
+        if cookie[:3] == "tid":
+            return cookie[4:]
 
 def sort_dict(d):
     return sorted(d.items(), key=operator.itemgetter(1))

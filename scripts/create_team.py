@@ -15,10 +15,6 @@ def logTime():
     #return [now.day,absClock,now.hour,now.minute,now.second]
     return int(time.time() * 1000)
 
-def validatePassword(tpass):
-    if len(tpass) < 4:
-        return "Password should be at least 4 characters"
-
 def teamTaken(tid):
     fin = open("../accounts/teams.txt", "r")
     teams = fin.readlines()
@@ -81,8 +77,8 @@ def submitNewTeam(inputs):
         return "Please enter a team password"
     if upass == "" or upass == None:
         return "Please enter a user password"
-    if len(tpass) < 8 or len(upass) < 8:
-        return "Password should be at least 8 or more characters"
+    if len(tpass) < 4 or len(upass) < 4:
+        return "Password should be at least 4 characters"
     if teamTaken(tname):
         return "Team name is already taken"
     if userTaken(uname):

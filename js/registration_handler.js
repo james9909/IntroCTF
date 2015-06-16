@@ -23,11 +23,8 @@ function submitRegistration() {
         success: function(response) {
             Materialize.toast(response, 4000);
             if (response.includes("Success")) {
-                setTimeout(function(){
-                    location.reload();
-                }, 3000);
+                window.location.replace("http://introctf.me/login");
             }
-
         }
     });
 }

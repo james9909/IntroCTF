@@ -16,8 +16,8 @@ def logTime():
     return int(time.time() * 1000)
 
 def validatePassword(tpass):
-    if len(tpass) < 8:
-        return "Password should be at least 8 characters"
+    if len(tpass) < 4:
+        return "Password should be at least 4 characters"
 
 def teamTaken(tid):
     fin = open("../accounts/teams.txt", "r")

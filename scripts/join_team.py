@@ -77,8 +77,8 @@ def submitNewTeam(inputs):
         return "Passwords do not match"
     if upass.strip() == "" or upass == None:
         return "Please enter a password"
-    if len(upass) < 8:
-        return "Password should be at least 8 or more characters"
+    if len(upass) < 4:
+        return "Password should be at least 4 characters"
     if not validateTeam(team, team_pass):
         return "Invalid team credentials"
     if fullTeam(team):

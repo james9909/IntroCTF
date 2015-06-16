@@ -31,11 +31,6 @@ def grade(pid, flag):
             return correct(45, "Correct!")
         else:
             return incorrect("Incorrect :(")
-    if pid == "bb":
-        if flag == "br0k3n":
-            return correct(55, "Correct!")
-        else:
-            return incorrect("Incorrect :(")
     if pid == "stego":
         if flag == "stegggoooooo":
             return correct(50, "LEGOOOOO!")

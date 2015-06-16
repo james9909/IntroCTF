@@ -28,7 +28,7 @@ Array.prototype.diff = function(a) {
 };
 
 function validateSolve() {
-    var allproblems = ["intro", "caesar", "base", "absent", "brutus", "bb", "stego", "dot", "corrupt", "inverted", "rawr", "messy", "inspect", "cookie", "hidden", "get", "spoof", "donttrip", "indif", "fast", "triangle", "overflow", "eval", "copy", "easy-rev", "rand-eval", "election", "sets"];
+    var allproblems = ["intro", "caesar", "base", "absent", "brutus", "stego", "dot", "corrupt", "inverted", "rawr", "messy", "inspect", "cookie", "hidden", "get", "spoof", "donttrip", "indif", "fast", "triangle", "overflow", "eval", "copy", "easy-rev", "rand-eval", "election", "sets"];
     var solved = [];
     var tid = getCookie("tid");
     var text = readFile("accounts/solved.txt");

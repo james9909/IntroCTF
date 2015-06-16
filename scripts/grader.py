@@ -17,7 +17,7 @@ def grade(pid, flag):
         else:
             return incorrect("Incorrect :(")
     if pid == "base":
-        if flag == "how_many_bases?":
+        if flag == "how_many_bases?" or flag == "how_many_bases":
             return correct(30, "Nice!")
         else:
             return incorrect("Incorrect :(")

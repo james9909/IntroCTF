@@ -9,7 +9,6 @@ $(function() {
         login("login-form");
     })
     $("#logout").click(function() {
-        event.preventDefault();
         logout();
     })
     var deleteCookie = function(name) {
@@ -17,21 +16,10 @@ $(function() {
     };
 
     function logout() {
-        $.ajax({
-            url: "scripts/logout.py",
-            type: "POST",
-            success: function(response) {
-                if (response.includes("Success")) {
-                    deleteCookie("tid");
-                    deleteCookie("token");
-                    deleteCookie("u");
-                    Materialize.toast("Logged out");
-                    setTimeout(function(){
-                        location.reload();
-                    }, 2000);
-                }
-            }
-        });
+        deleteCookie("tid");
+        deleteCookie("token");
+        deleteCookie("u");
+        window.location.replace("http://introctf.me");
     }
 
     function register(formid) {
@@ -42,9 +30,7 @@ $(function() {
             success: function(response) {
                 Materialize.toast(response, 4000);
                 if (response.includes("Success")) {
-                    setTimeout(function(){
-                        location.reload();
-                    }, 2000);
+                    window.location.replace("http://introctf.me/login");
                 }
             }
         });
@@ -67,9 +53,7 @@ $(function() {
                             document.cookie = "token=" + response[0] + "; expires=Thur, 2 Aug 9001 20:47:11 UTC path=/";
                             document.cookie = "tid=" + response[1] + "; expires=Thur, 2 Aug 9001 20:47:11 UTC path=/";
                             document.cookie = "u=" + response[2] + "; expires=Thur, 2 Aug 9001 20:47:11 UTC path=/";
-                            setTimeout(function(){
-                                location.reload();
-                            }, 2000);
+                            window.location.replace("http://introctf.me/problems");
         	        }
         	    });
                 }

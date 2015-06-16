@@ -58,5 +58,8 @@ def main():
         if guess == serial:
             print "You win!"
             sys.exit(0)
+        else:
+            print "Wrong!"
+            sys.exit(0)
 
 main()

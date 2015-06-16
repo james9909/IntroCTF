@@ -6,4 +6,4 @@ the flag length is 24, and we get the flag.
 
 This can be done by doing flag+"11111111111111" (14 1's because the length of the flag is 10)
 
-random_eval
+random_fun

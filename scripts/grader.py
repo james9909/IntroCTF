@@ -137,7 +137,7 @@ def grade(pid, flag):
         else:
             return incorrect("Incorrect :(")
     if pid == "rand-eval":
-        if flag == "random_eval":
+        if flag == "random_fun":
             return correct(65, "Correct!")
         else:
             return incorrect("Incorrect :(")

@@ -31,6 +31,6 @@ def main():
             print command
         except Exception, e:
             print "Invalid command!"
-            continue
+            return
 
 main()

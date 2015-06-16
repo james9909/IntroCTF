@@ -1,11 +1,11 @@
 <?php
 
 $browser = $_SERVER["HTTP_USER_AGENT"];
-if($browser == "User-Agent: Mozilla/5.0 (PLAYSTATION 3; 3.55)") {
+if($browser == "Mozilla/5.0 (PLAYSTATION 3; 3.55)") {
     $user = $_POST["user"];
     if ($user == "admin") {
         if ($_COOKIE["auth"] == 1) {
-            if ($_SERVER['HTTP_REFERER'] == "www.stuycs.org") {
+            if ($_SERVER['HTTP_REFERER'] == "http://www.stuycs.org/" or $_SERVER['HTTP_REFERER'] == "http://www.stuycs.org" or $_SERVER['HTTP_REFERER'] == "www.stuycs.org") {
                 echo "The flag is wasnt_that_easy";
             } else {
                 echo "Wrong referer!";
@@ -19,5 +19,3 @@ if($browser == "User-Agent: Mozilla/5.0 (PLAYSTATION 3; 3.55)") {
 } else {
     echo "Wrong browser!";
 }
-
-?>

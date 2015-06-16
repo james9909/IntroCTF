@@ -50,7 +50,7 @@ def createNewTeam(tname, tpass, uname, upass):
     scores.close()
 
     users = open("../accounts/users.txt", "a")
-    users.write("%s||&&||%s\n" %(uname, upass_hashed))
+    users.write("\n%s||&&||%s\n" %(uname, upass_hashed))
     users.close()
 
 def submitNewTeam(inputs):

@@ -10,4 +10,4 @@ mkdir accounts
 cd accounts
 touch login_list.txt teams.txt solved.txt scores.txt users.txt
 chmod 707 *.txt
-printf "${GREEN}Success!${RESET}"
+printf "${GREEN}Success!${RESET}\n"

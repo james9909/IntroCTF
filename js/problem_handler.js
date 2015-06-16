@@ -122,7 +122,7 @@ $(function() {
                 if (response.includes("+")) {
                     setTimeout(function(){
                         location.reload();
-                    }, 3000);
+                    }, 1000);
                 }
 
             }

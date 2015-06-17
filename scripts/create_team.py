@@ -45,7 +45,7 @@ def createNewTeam(tname, tpass, uname, upass):
     teams.write("\n%s||&&||%s||&&||%s\n" %(tname, tpass_hashed, uname))
     teams.close()
 
-    scores = open("../accounts/scores.txt", "a")
+    scores = open("../accounts/test/scores.txt", "a")
     scores.write("\n%s||&&||0||&&||%s\n" %(tname, logTime()))
     scores.close()
 

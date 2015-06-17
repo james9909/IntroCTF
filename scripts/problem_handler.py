@@ -46,18 +46,18 @@ def writeSolved(uid, pid):
     users = open("../accounts/solved.txt", "w")
     users.write(new_data)
     
-    scores = open("../accounts/scores.txt", "r").readlines()
+    scores = open("../accounts/test/scores.txt", "r").readlines()
     new = ""
     for score in scores:
         score = score.strip().split("||&&||")
         if score[0] == uid:
             score.append(str(logTime()))
         new += "||&&||".join(score) + "\n"
-    scores = open("../accounts/scores.txt", "w")
+    scores = open("../accounts/test/scores.txt", "w")
     scores.write(new)
 
 def addScore(uid, score):
-    scores = open("../accounts/scores.txt", "r")
+    scores = open("../accounts/test/scores.txt", "r")
     data = scores.readlines()
     while "\n" in data:
         data.remove("\n")
@@ -73,7 +73,7 @@ def addScore(uid, score):
         user = "||&&||".join(user)
         new_data += user + "\n"
 
-    users = open("../accounts/scores.txt", "w")
+    users = open("../accounts/test/scores.txt", "w")
     users.write(new_data)
 
 def handle_submit(inputs):

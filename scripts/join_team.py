@@ -56,7 +56,7 @@ def joinTeam(tname, uname):
         team = team.strip().split("||&&||")
         if team[0] == tname:
             team.append(uname + "\n")
-        output += "||&&||".join(team)
+        output += "||&&||".join(team) + "\n"
     teams = open("../accounts/teams.txt", "w")
     teams.write(output)
 

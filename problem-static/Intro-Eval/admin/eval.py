@@ -1,6 +1,6 @@
 #!/usr/bin/python2.7
 
-import sys
+import sys, ast
 
 # No sus things :)
 del __builtins__.__dict__['__import__']

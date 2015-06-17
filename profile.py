@@ -85,7 +85,7 @@ def main():
         print "<li style='font-weight:800;'>%s</li>" %(member)
     print "</ol>"
     print "<br>"
-    print "<center>Up to %d more member(s) can join this team</center>" %(4 - len(members))
+    print "<center>Up to %d more member(s) can join this team</center>" %(3 - len(members))
     print "</div>"
     print "</div>"
     genProfile(tid)

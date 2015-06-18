@@ -2,7 +2,4 @@ Options All -Indexes
 RewriteEngine On
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteRule ^([^.]+)$ $1.html [NC,L]
-RedirectMatch 404 /users.txt$
-RedirectMatch 404 /teams.txt$
-RedirectMatch 404 /login_list.txt$
 RedirectMatch 404 /Solution.*$

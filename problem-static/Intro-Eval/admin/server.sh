@@ -21,6 +21,6 @@ if [[ $_UID == "" || $_GID == "" ]]; then
     fi
 fi
 
-if sudo tcpserver -g $_GID -u $_UID -H -R -c 500 0.0.0.0 $PORT $SCRIPT 2>&1 | grep "unable to bind" > /dev/null; then
+if sudo tcpserver -g $_GID -u $_UID -H -R -c 10 0.0.0.0 $PORT $SCRIPT 2>&1 | grep "unable to bind" > /dev/null; then
     printf "${RED}ERROR! Port ${PORT} is already in use!${RESET}\n"
 fi

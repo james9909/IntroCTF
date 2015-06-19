@@ -25,7 +25,7 @@ function getTeamInfo(data, team) {
 
 function getTeamData(team) {
     data = [];
-    scores = readFile("accounts/test/scores.txt");
+    scores = readFile("../accounts/scores.txt");
     scores = getTeamInfo(scores, team);
     scores = scores.slice(1);
     for (i = 0; i < scores.length; i+=2) {

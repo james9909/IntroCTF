@@ -56,7 +56,7 @@ def gen_scoreboard(team_data, ranked, team):
         print "<tr class='clickable-row' data-href='profile.py?team=%s'><td>%s</td><td>%s</td><td>%d</td></tr>" %(team, rank, team, team_data[team])
 
 def main():
-    fin = open("accounts/test/scores.txt", "r")
+    fin = open("accounts/scores.txt", "r")
     data = fin.readlines()
     teams = {}
     # Data is stored team,score
@@ -65,7 +65,10 @@ def main():
         if info[0] == "":
             continue
         try:
-            teams[info[0]] = int(info[-2])
+            score = int(info[-2])
+            if score > 1935:
+                score = 1935
+            teams[info[0]] = score
         except:
             print '<h5 class = "center">There are no teams!<h5>'
             return

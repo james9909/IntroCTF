@@ -77,6 +77,7 @@ def addScore(uid, score):
     users.write(new_data)
 
 def handle_submit(inputs):
+    return "The competition has ended!"
     uid = inputs.getvalue("tid")
     pid = inputs.getvalue("pid")
     flag = inputs.getvalue("flag")

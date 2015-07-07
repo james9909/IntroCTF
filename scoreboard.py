@@ -66,7 +66,7 @@ def main():
             continue
         try:
             score = int(info[-2])
-            if score > 1935:
+            if score > 1935 and score != 13371337:
                 score = 1935
             teams[info[0]] = score
         except:

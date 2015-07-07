@@ -31,8 +31,6 @@ function getTeamData(team) {
     for (i = 0; i < scores.length; i+=2) {
         data.push([parseInt(scores[i+1], 10), parseInt(scores[i], 10)]);
     }
-    date = new Date();
-    data.push([date.getTime(), data[data.length - 1][1]]);
     return data;
 }
 
@@ -81,6 +79,7 @@ $(document).ready(function () {
         series: [{
             pointStart: 1434312000000,
             pointInterval: 86400000,
+            pointEnd: 1435017862000,
             name: team,
             data: getTeamData(team)
         }]

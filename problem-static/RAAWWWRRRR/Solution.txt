@@ -1,5 +1,0 @@
-If we look at the file headers in the hex code of the picture, we can find the header for
-a rar file. We can extract this rar file using unrar raawwwrrrr.jpg. Within the extracted
-stuff, we can find the flag.
-
-rawr_rar

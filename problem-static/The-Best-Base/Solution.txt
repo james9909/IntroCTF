@@ -1,5 +1,0 @@
-The = signs at the end of the encoded text suggests that the method used for encryption
-was base 64. If we use an online decoder (you can use www.base64decode.org), we
-can see the original message:
-
-We are BaseSixty-Four and the flag is how_many_bases?

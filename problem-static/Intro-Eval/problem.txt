@@ -1,2 +1,0 @@
-Python eval is good... for exploiting! This fool wrote his server for python eval.
-Find the flag!

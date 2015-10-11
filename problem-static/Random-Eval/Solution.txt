@@ -1,9 +1,0 @@
-Even though the problem says to get the correct serial, it won't help us get the flag.
-Also, we cannot simply type out 'flag' like last time in order to view the flag, since
-The program seems to check the length of the guess, but what it actually does is check the length
-of the evaluated expression. All we need to do is append a string to the flag such that
-the flag length is 24, and we get the flag.
-
-This can be done by doing flag+"11111111111111" (14 1's because the length of the flag is 10)
-
-random_fun

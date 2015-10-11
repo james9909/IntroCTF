@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css') }}"  media="screen,projection"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        {% block title %}
+        <title>IntroCTF</title>
+        {% endblock title %}
+
+        {% block scripts %}
+            <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-2.1.1.min.js') }}"></script>
+            <script type="text/javascript" src="{{ url_for('static', filename='js/materialize.min.js')}}"></script>
+            <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+        {% endblock scripts %}
+
+    {% block headcontent %}
+    {% endblock headcontent %}
+    </head>
+
+    <div id="flashed_messages">
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <script>
+            var flashed_messages = [];
+            {% for message in messages %}
+            flashed_messages.push("{{ message }}");
+            {% endfor %}
+          </script>
+        {% endif %}
+      {% endwith %}
+    </div>
+
+    <body>
+        <nav role="navigation" style="background-color: #009688">
+            <div class="nav-wrapper container">
+                <a href="." class="brand-logo">IntroCTF</a>
+                <ul id="navbar" class="right hide-on-med-and-down">
+                    {% block navbar_right %}
+
+                        <li><a href=".">Home</a></li>
+                        <li><a href="gallery">About</a></li>
+                        <li><a href="scoreboard">Scoreboard</a></li>
+                        <li><a href="problems">Problems</a></li>
+                        {% if logged_in %}
+                        <li><a href="logout">Log Out</a></li>
+                        {% else %}
+                        <li><a href="register">Register</a></li>
+                        <li><a href="login">Login</a></li>
+                        {% endif %}
+                    {% endblock navbar_right %}
+                </ul>
+                <ul id="nav-mobile" class="side-nav">
+                    {{ self.navbar_right() }}
+                </ul>
+                <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
+            </div>
+        </nav>
+    </body>
+
+    <main>
+        {% block body_content %}
+        {% endblock body_content %}
+    </main>
+
+    <footer class="page-footer teal">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">About</h5>
+                    <p class="grey-text text-lighten-4">A CTF competition made by James Wang and Joel Ye for students taking Intro to Computer Science 2,
+                    written using Python, HTML, Materialize CSS, and JavaScript.
+                    </p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Resources</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="https://github.com/james9909/IntroCTF">GitHub</a></li>
+                        <li><a class="grey-text text-lighten-3" href="http://materializecss.com">Materialize CSS</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://jquery.com">jQuery</a></li>
+                        <li><a class="grey-text text-lighten-3" href="http://www.highcharts.com/">High Charts</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                &copy; 2015 IntroCTF
+            </div>
+        </div>
+    </footer>
+</html>

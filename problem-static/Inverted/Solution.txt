@@ -1,4 +1,0 @@
-If we swap black with white and white with black, and scan the modified image,
-we get the flag.
-
-color_swap

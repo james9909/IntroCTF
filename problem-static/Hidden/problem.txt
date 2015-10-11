@@ -1,2 +1,0 @@
-My friend gave me the username and password to his super secret website, but I can't find the flag!
-The username is 'admin' and the password is 'abc123'. Find the flag!

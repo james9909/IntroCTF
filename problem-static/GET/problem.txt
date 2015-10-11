@@ -1,2 +1,0 @@
-This website is missing its login fields, but in order to get the flag, you need to log in!
-Is there any way to get the flag?

@@ -1,4 +1,0 @@
-If we view the cookies of the webpage with a cookie editor such as EditThisCookie,
-we can find the flag cookie within.
-
-coookkkkiiiieeee

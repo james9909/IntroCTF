@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}
+<title>IntroCTF - Login</title>
+{% endblock title %}
+
+{% block body_content %}
+<h2 class="center teal-text">Login</h2>
+<form class="col s12" id="login-form" method="post">
+    <div class="row">
+	<div class="input-field col s6 m10 l8 offset-m1 offset-l2">
+	    <input autocomplete="off" id="username" name="username" type="text">
+	    <label for="icon_prefix">Username</label>
+	</div>
+	<div class="row">
+	    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+		<input autocomplete="off" id="password" name="password" type="password">
+		<label for="icon_prefix">Password</label>
+	    </div>
+	</div>
+	<div class="row center">
+	    <button class="btn waves-effect waves-light" type="submit" name="action">Login
+		<i class="mdi-content-send right"></i>
+	    </button>
+	</div>
+    </div>
+</form>
+{% endblock body_content %}

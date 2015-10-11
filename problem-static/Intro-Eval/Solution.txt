@@ -1,8 +1,0 @@
-We can't exactly print out the value of 'flag', since 'print flag' is not a valid expression in
-python, so let's try something else.
-
-We know that python eval evaluates an expression, and that the program prints out
-what the result of that expression is. So, if we do something that would evaluate the flag,
-such as 'flag' or 'str(flag)', we can get the flag.
-
-eval_is_fun

@@ -1,9 +1,0 @@
-The code is obfuscated, and it looks incredibly scary at first to decode.
-However, we can note, that at the top, there are a bunch of declarations that tell us that
-some functions are being renamed. If we rename them, we can get a much clearer image of what is going on.
-The first function turns out to be a caesar encryption, and in the second one,
-they are comparing the first input with a certain string that is shifted by 26 (which doesn't do anything)
-We don't need to actually input anything, since we know that this string is the flag, shifted.
-If we brute force the caesar shift on it, we get the original message.
-
-theflagisripobfuscate

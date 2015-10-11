@@ -1,4 +1,0 @@
-This program prints the flag if you have the right number. Input the correct number,
-and get the flag.
-
-P.S. (The number is the same every time)

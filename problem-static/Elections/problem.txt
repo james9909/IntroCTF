@@ -1,3 +1,0 @@
-People are running for president of the world, and someone's made a program to see if you will win.
-It looks pretty legit, but I know that there is a secret flag within the program.
-Help me get the flag and I'll give you my vote!

@@ -1,5 +1,0 @@
-James has dropped his wallet and scattered a lot of his coins. A good friend came up and recorded 
-where each coin was, and gave this LIST to James. If James starts at a coin he dropped 
-where he is standing, what area does his path enclose? (He only travels in straight lines and refuses to cross
-over any point where he has been before)
-Ans: 6580.5

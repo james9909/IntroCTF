@@ -1,3 +1,0 @@
-So this guy in my computer science class thinks that he's a programming god, but all he does is copy Chesley.
-For his MKS22 final project, he's made this rock-paper-scissors program, which he claims to be unbeatable, but
-is that really the case? Bring him to shame by winning 100 out of 100 rounds against his ai!

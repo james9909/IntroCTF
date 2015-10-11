@@ -1,3 +1,0 @@
-My coding partner doesn't know any programming conventions, and as a result, he
-writes incredibly messy, hard to read code. Can you help me figure out what
-he wrote?

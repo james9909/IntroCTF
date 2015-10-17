@@ -68,6 +68,7 @@ def register():
 def logout():
     global logged_in
     session.clear()
+    logged_in = False
     flash("Logout successful")
     return redirect(url_for("index"))
 

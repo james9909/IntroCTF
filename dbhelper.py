@@ -1,46 +1,12 @@
-import psycopg2
-import psycopg2.extras
 import utils
 import userdb
 import teamdb
+import sqlite3
 
-def connect():
-    try:
-        psycopg2.extras.register_uuid()
-        return psycopg2.connect("dbname='%s' password='%s'" % ("introctf", "password"))
-    except psycopg2.DatabaseError, e:
-        print "Error: %s" % e
-        return None
-
-def setup():
-    conn = connect()
-    if conn == None:
-        return "Database Error"
-    c = conn.cursor()
-    try:
-        c.execute("CREATE TABLE users( \
-                name text NOT NULL, \
-                password text NOT NULL, \
-                team text NOT NULL);")
-        c.execute("CREATE TABLE teams( \
-                name text NOT NULL, \
-                password text NOT NULL, \
-                points numeric CHECK (points >= 0) NOT NULL, \
-                members text[] NOT NULL, \
-                solved text[] NOT NULL);")
-        c.execute("CREATE TABLE problems( \
-                name text NOT NULL, \
-                value numeric CHECK (value >= 0) NOT NULL, \
-                solves text NOT NULL);")
-        conn.commit()
-    except psycopg2.DatabaseError, e:
-        print "Error %s: " % e
-    finally:
-        if conn:
-            conn.close()
+db_name = "introctf.db"
 
 def wipe_tables():
-    conn = connect()
+    conn = sqlite3.connect(db_name)
     if conn == None:
         return "Database Error"
     c = conn.cursor()
@@ -49,14 +15,14 @@ def wipe_tables():
         c.execute("DROP TABLE teams;")
         c.execute("DROP TABLE problems;")
         conn.commit()
-    except psycopg2.DatabaseError, e:
-        print "Error %s: " % e
+    except:
+        return
     finally:
         if conn:
             conn.close()
 
 def authenticate(type, name, password, team_name, team_pass, _session):
-    conn = connect()
+    conn = sqlite3.connect(db_name)
     if conn == None:
         return (False, "Database Error")
     c = conn.cursor()
@@ -71,7 +37,6 @@ def authenticate(type, name, password, team_name, team_pass, _session):
             if not teamdb.team_exists(team_name):
                 userdb.add_user(name, password, team_name)
                 teamdb.add_team(team_name, team_pass, 0)
-                teamdb.add_user_to_team(team_name, name)
                 return True, "Successfully created new team"
             else:
                 return False, "A team with that name already exists!"
@@ -86,7 +51,6 @@ def authenticate(type, name, password, team_name, team_pass, _session):
             return False, "A user with that name already exists!"
         if utils.check_password(stored_team_password, team_pass):
             userdb.add_user(name, password, team_name)
-            teamdb.add_user_to_team(team_name, name)
             return True, "Successfully joined team"
         else:
             return False, "Invalid team credentials"
@@ -103,4 +67,3 @@ def authenticate(type, name, password, team_name, team_pass, _session):
 
 if __name__ == '__main__':
     wipe_tables()
-    setup()

@@ -106,8 +106,4 @@ docs/_build/
 target/
 
 # ==============================================================================
-# IntroCTF precious login files
-accounts/*.txt
-scripts/change_git_user.sh
-# Annoying swap files
-.*.*.swp
+introctf.db

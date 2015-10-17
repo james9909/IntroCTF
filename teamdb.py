@@ -14,7 +14,7 @@ def add_team(name, password, conn=None):
 
     c = conn.cursor()
     try:
-        c.execute("INSERT into teams VALUES(%s, %s, 0)", (name, utils.hash_password(password)))
+        c.execute("INSERT into teams VALUES (?, ?, 0)", (name, utils.hash_password(password),))
         conn.commit()
     except sqlite3.DatabaseError, e:
         print "Error %s: " % e
@@ -33,7 +33,7 @@ def remove_team(name, conn=None):
 
     c = conn.cursor()
     try:
-        c.execute("DELETE FROM teams WHERE name = %s" % (name))
+        c.execute("DELETE FROM teams WHERE name = ?", (name,))
         conn.commit()
     except sqlite3.DatabaseError, e:
         print "Error %s: " % e
@@ -47,7 +47,7 @@ def team_exists(name):
         return "Database Error"
     c = conn.cursor()
     try:
-        c.execute("SELECT 1 from teams where name = %s LIMIT 1" % (name))
+        c.execute("SELECT 1 from teams where name = ? LIMIT 1", (name,))
         return c.fetchone()
     except sqlite3.DatabaseError, e:
         print 'Error %s' % e
@@ -61,9 +61,23 @@ def get_team_password(name):
         return "Database Error"
     c = conn.cursor()
     try:
-        c.execute("SELECT password from teams where name = %s LIMIT 1" % (name))
+        c.execute("SELECT password from teams where name = ? LIMIT 1", (name,))
         results = c.fetchone()
         return results[0] if results else None
+    except sqlite3.DatabaseError, e:
+        print 'Error %s' % e
+    finally:
+        if conn:
+            conn.close()
+
+def get_team_score(name):
+    conn = sqlite3.connect(db_name)
+    if conn == None:
+        return "Database Error"
+    c = conn.cursor()
+    try:
+        c.execute("SELECT score from teams where name = ? LIMIT 1", (name,))
+        return c.fetchone()
     except sqlite3.DatabaseError, e:
         print 'Error %s' % e
     finally:

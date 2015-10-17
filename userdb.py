@@ -14,7 +14,7 @@ def add_user(name, password, team, conn=None):
 
     c = conn.cursor()
     try:
-	c.execute("INSERT INTO users VALUES('%s', '%s', '%s')" % (name, utils.hash_password(password), team))
+	c.execute("INSERT INTO users VALUES(?, ?, ?)", (name, utils.hash_password(password), team,))
 	conn.commit()
     except sqlite3.DatabaseError, e:
         print "Error %s: " % e
@@ -33,7 +33,7 @@ def remove_user(name, conn=None):
 
     c = conn.cursor()
     try:
-        c.execute("DELETE FROM users WHERE username = %s" % (name))
+        c.execute("DELETE FROM users WHERE username = ?", (name,))
         conn.commit()
     except sqlite3.DatabaseError, e:
         print "Error %s: " % e
@@ -47,7 +47,7 @@ def user_exists(name):
         return "Database Error"
     c = conn.cursor()
     try:
-        c.execute("SELECT 1 FROM users where username = '%s' LIMIT 1" % (name))
+        c.execute("SELECT 1 FROM users where username = ? LIMIT 1", (name,))
         return c.fetchone()
     except sqlite3.DatabaseError, e:
         print 'Error %s' % e
@@ -61,7 +61,7 @@ def get_user_password(name):
         return "Database Error"
     c = conn.cursor()
     try:
-        c.execute("SELECT password from users where username = '%s' LIMIT 1" % (name))
+        c.execute("SELECT password from users where username = ? LIMIT 1", (name,))
         results = c.fetchone()
         return results[0] if results else None
     except sqlite3.DatabaseError, e:
@@ -76,7 +76,7 @@ def get_user_team(name):
         return "Database Error"
     c = conn.cursor()
     try:
-        c.execute("SELECT team_name from users where username = '%s' LIMIT 1" % (name))
+        c.execute("SELECT team_name from users where username = ? LIMIT 1", (name,))
         results = c.fetchone()
         return results[0] if results else None
     except sqlite3.DatabaseError, e:

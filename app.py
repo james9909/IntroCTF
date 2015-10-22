@@ -1,7 +1,8 @@
 import dbhelper
+import userdb
 import utils
-
-from flask import Flask, render_template, request, flash, session, redirect, url_for
+from functools import wraps
+from flask import Flask, render_template, request, flash, session, redirect, url_for, g
 
 app = Flask(__name__)
 app.debug = True
@@ -38,6 +39,12 @@ def login():
             response = dbhelper.authenticate("AUTH_LOGIN", username, password, "", "", session)
             if response[0]:
                 logged_in = True
+                session["username"] = username
+                session["password"] = password
+                session["logged_in"] = True
+                if userdb.is_admin(username, password):
+                    session["is_admin"] = True
+
             flash(response[1])
 
     return render_template("login.html")

@@ -43,6 +43,14 @@
                         <li><a href="scoreboard">Scoreboard</a></li>
                         <li><a href="problems">Problems</a></li>
                         {% if logged_in %}
+                        <ul id="dropdown1" class="dropdown-content">
+                            {% if admin %}
+                            <li><a href="#!">Admin</a></li>
+                            {% endif %}
+                            <li><a href="#!">Team</a></li>
+                          <li class="divider"></li>
+                            <li><a href="#!">Log Out</a></li>
+                        </ul>
                         <li><a href="logout">Log Out</a></li>
                         {% else %}
                         <li><a href="register">Register</a></li>

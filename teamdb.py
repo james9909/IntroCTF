@@ -103,16 +103,20 @@ def add_admin_team(name, password, conn=None):
         if conn and not persist_conn:
             conn.close()
 
-def is_admin(team_name, password):
+def is_admin(team_name):
     conn = sqlite3.connect(db_name)
     if conn == None:
         return "Database Error"
     c = conn.cursor()
     try:
-        c.execute("SELECT * FROM teams WHERE name = ? AND password = ? AND admin = 1" , (team_name, utils.hash_password(password),))
-        return True if c.fetchone() else False
+        c.execute("SELECT admin FROM teams WHERE name = ?", (team_name,))
+        result = c.fetchone()
+        return 1 in result
     except sqlite3.DatabaseError, e:
         print 'Error %s' % e
     finally:
         if conn:
             conn.close()
+
+if __name__ == '__main__':
+    print is_admin("admin")

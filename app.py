@@ -9,28 +9,24 @@ app.debug = True
 
 app.secret_key="123"
 
-logged_in = False
-
 @app.route('/')
 def index():
-    global logged_in
-    return render_template("index.html", logged_in=logged_in)
+    return render_template("index.html", logged_in=is_logged_in(), admin=is_admin())
 
 @app.route("/about")
 def about():
-    return render_template("about.html", logged_in=logged_in)
+    return render_template("about.html", logged_in=is_logged_in(), admin=is_admin())
 
 @app.route("/scoreboard")
 def scoreboard():
-    return render_template("scoreboard.html", logged_in=logged_in)
+    return render_template("scoreboard.html", logged_in=is_logged_in(), admin=is_admin())
 
 @app.route("/problems")
 def problems():
-    return render_template("problems.html", logged_in=logged_in)
+    return render_template("problems.html", logged_in=is_logged_in(), admin=is_admin())
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    global logged_in
     if request.method == "POST":
         login_keys = ['team_name', 'password']
         if  utils.is_valid_request(request.form, login_keys):
@@ -38,14 +34,14 @@ def login():
             password = request.form['password']
             response = dbhelper.authenticate("AUTH_LOGIN", team_name, password, session)
             if response[0]:
-                logged_in = True
                 session["team_name"] = team_name
                 session["password"] = password
                 session["logged_in"] = True
-                if teamdb.is_admin(team_name, password):
-                    session["is_admin"] = True
+                if teamdb.is_admin(team_name):
+                    session["admin"] = True
 
             flash(response[1])
+            return redirect(url_for("index"))
 
     return render_template("login.html")
 
@@ -63,11 +59,15 @@ def register():
 
 @app.route("/logout", methods=["GET"])
 def logout():
-    global logged_in
     session.clear()
-    logged_in = False
     flash("Logout successful")
     return redirect(url_for("index"))
+
+def is_logged_in():
+    return "logged_in" in session and session["logged_in"]
+
+def is_admin():
+    return "admin" in session and session["admin"]
 
 if __name__ == '__main__':
     app.run()

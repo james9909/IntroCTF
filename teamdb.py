@@ -14,7 +14,7 @@ def add_team(name, password, conn=None):
 
     c = conn.cursor()
     try:
-        c.execute("INSERT into teams VALUES (?, ?, 0)", (name, utils.hash_password(password),))
+        c.execute("INSERT into teams VALUES (?, ?, 0, 0)", (name, utils.hash_password(password),))
         conn.commit()
     except sqlite3.DatabaseError, e:
         print "Error %s: " % e
@@ -78,6 +78,39 @@ def get_team_score(name):
     try:
         c.execute("SELECT score from teams where name = ? LIMIT 1", (name,))
         return c.fetchone()
+    except sqlite3.DatabaseError, e:
+        print 'Error %s' % e
+    finally:
+        if conn:
+            conn.close()
+
+def add_admin_team(name, password, conn=None):
+    persist_conn = True
+
+    if not conn:
+        conn = sqlite3.connect(db_name)
+        persist_conn = False
+    if conn == None:
+        return "Database Error"
+
+    c = conn.cursor()
+    try:
+        c.execute("INSERT into teams VALUES (?, ?, 0, 1)", (name, utils.hash_password(password),))
+        conn.commit()
+    except sqlite3.DatabaseError, e:
+        print "Error %s: " % e
+    finally:
+        if conn and not persist_conn:
+            conn.close()
+
+def is_admin(team_name, password):
+    conn = sqlite3.connect(db_name)
+    if conn == None:
+        return "Database Error"
+    c = conn.cursor()
+    try:
+        c.execute("SELECT * FROM teams WHERE name = ? AND password = ? AND admin = 1" , (team_name, utils.hash_password(password),))
+        return True if c.fetchone() else False
     except sqlite3.DatabaseError, e:
         print 'Error %s' % e
     finally:

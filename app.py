@@ -1,5 +1,5 @@
 import dbhelper
-import userdb
+import teamdb
 import utils
 from functools import wraps
 from flask import Flask, render_template, request, flash, session, redirect, url_for, g
@@ -32,17 +32,17 @@ def problems():
 def login():
     global logged_in
     if request.method == "POST":
-        login_keys = ['username', 'password']
+        login_keys = ['team_name', 'password']
         if  utils.is_valid_request(request.form, login_keys):
-            username = request.form['username']
+            team_name = request.form['team_name']
             password = request.form['password']
-            response = dbhelper.authenticate("AUTH_LOGIN", username, password, "", "", session)
+            response = dbhelper.authenticate("AUTH_LOGIN", team_name, password, session)
             if response[0]:
                 logged_in = True
-                session["username"] = username
+                session["team_name"] = team_name
                 session["password"] = password
                 session["logged_in"] = True
-                if userdb.is_admin(username, password):
+                if teamdb.is_admin(team_name, password):
                     session["is_admin"] = True
 
             flash(response[1])
@@ -53,21 +53,11 @@ def login():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
-        join_keys = ['username', 'password', 'join_id', 'join_pass']
-        create_keys = ['username', 'password', 'team_name', 'team_pass']
-        if utils.is_valid_request(request.form, join_keys):
-            name = request.form['username']
+        create_keys = ['team_name', 'password', 'password2']
+        if utils.is_valid_request(request.form, create_keys):
+            name = request.form['team_name']
             password = request.form['password']
-            team_name = request.form['join_id']
-            team_pass = request.form['join_pass']
-            response = dbhelper.authenticate("REGISTER_JOIN_TEAM", name, password, team_name, team_pass, _session=None)
-            flash(response[1])
-        elif utils.is_valid_request(request.form, create_keys):
-            name = request.form['username']
-            password = request.form['password']
-            team_name = request.form['team_name']
-            team_pass = request.form['team_pass']
-            response = dbhelper.authenticate("REGISTER_NEW_TEAM", name, password, team_name, team_pass, _session=None)
+            response = dbhelper.authenticate("REGISTER_NEW_TEAM", name, password, _session=None)
             flash(response[1])
     return render_template("register.html")
 

@@ -5,12 +5,12 @@
 
 {% block body_content %}
 <h2 class="center teal-text">Register</h2>
-<form class="col s12" action="{{ url_for('register') }}"  method="POST" onsubmit="return validPassword('password', 'password2') && validPassword('team_pass', 'team_pass2')">
+<form class="col s12" action="{{ url_for('register') }}"  method="POST" onsubmit="return validPassword('password', 'password2')">
     <input type="hidden" name="register">
     <div class="row">
         <div class="input-field col s6 m10 l8 offset-m1 offset-l2">
-            <input autocomplete="off" name="username" id="username" type="text" required>
-            <label for="icon_prefix">Username</label>
+            <input autocomplete="off" name="team_name" id="team_name" type="text" required>
+            <label for="icon_prefix">Team Name</label>
         </div>
         <div class="row">
             <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
@@ -25,47 +25,6 @@
         <br>
     </div>
 
-    <div class='container'>
-        <ul class="tabs tab z-depth-1">
-            <li class="tab col s6"><a href="#create-team">Create</a></li>
-            <li class="tab col s6"><a href="#join-team">Join</a></li>
-        </ul>
-        <br>
-        <div class="container">
-            <div id="create-team">
-                <h5 class="center teal-text">Create a new team</h5>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input autocomplete="off" name="team_name" id="team_name" type="text">
-                        <label for="icon_prefix">Team Name</label>
-                    </div>
-                    <div class="input-field col s12">
-                        <input autocomplete="off" name="team_pass" id="team_pass" type="password">
-                        <label for="icon_prefix">Team Password</label>
-                    </div>
-                    <div class="input-field col s12">
-                        <input autocomplete="off" name="team_pass2" id="team_pass2" type="password">
-                        <label for="icon_prefix">Confirm Team Password</label>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div id="join-team">
-                <h5 class="center teal-text">Join an existing team</h5>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input autocomplete="off" name="join_id" id="join_id" type="text">
-                        <label for="icon_prefix">Team Name</label>
-                    </div>
-                    <div class="input-field col s12">
-                        <input autocomplete="off" name="join_pass" id="join_pass" type="password">
-                        <label for="icon_prefix">Team Password</label>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="container">
         <br>
         <div class="row center">

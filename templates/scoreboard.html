@@ -2,17 +2,3 @@
 {% block title %}
 <title>IntroCTF - Scoreboard</title>
 {% endblock title %}
-
-{% block navbar_right %}
-
-    <li><a href=".">Home</a></li>
-    <li><a href="gallery">About</a></li>
-    <li><a href="scoreboard">Scoreboard</a></li>
-    <li><a href="problems">Problems</a></li>
-    {% if logged_in %}
-    <li><a href="logout">Log Out</a></li>
-    {% else %}
-    <li><a href="register">Register</a></li>
-    <li><a href="login">Login</a></li>
-    {% endif %}
-{% endblock navbar_right %}

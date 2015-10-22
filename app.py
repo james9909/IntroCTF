@@ -13,10 +13,6 @@ app.secret_key="123"
 def index():
     return render_template("index.html", logged_in=is_logged_in(), admin=is_admin())
 
-@app.route("/about")
-def about():
-    return render_template("about.html", logged_in=is_logged_in(), admin=is_admin())
-
 @app.route("/scoreboard")
 def scoreboard():
     return render_template("scoreboard.html", logged_in=is_logged_in(), admin=is_admin())

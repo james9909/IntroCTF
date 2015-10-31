@@ -63,7 +63,7 @@ def get_team_password(name):
     try:
         c.execute("SELECT password from teams where name = ? LIMIT 1", (name,))
         results = c.fetchone()
-        return results[0] if results else None
+        return results[0] if results else ""
     except sqlite3.DatabaseError, e:
         print 'Error %s' % e
     finally:

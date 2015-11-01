@@ -48,7 +48,7 @@ def team_exists(name):
     c = conn.cursor()
     try:
         c.execute("SELECT 1 from teams where name = ? LIMIT 1", (name,))
-        return c.fetchone()
+        return True if c.fetchone() else False
     except sqlite3.DatabaseError, e:
         print 'Error %s' % e
     finally:

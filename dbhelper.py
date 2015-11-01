@@ -29,7 +29,7 @@ def authenticate(type, team_name, password, _session):
         if not response[0]:
             return False, response[1]
         if not teamdb.team_exists(team_name):
-            teamdb.add_team(team_name, password, 0)
+            teamdb.add_team(team_name, password)
             return True, "Successfully created new team"
         else:
             return False, "A team with that name already exists!"

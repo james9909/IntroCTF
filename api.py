@@ -3,6 +3,7 @@ from flask import current_app as app
 import sqlite3
 import utils
 import teamdb
+import problemdb
 
 api = Blueprint("api", __name__)
 db_name = "introctf.db"
@@ -26,7 +27,6 @@ def register():
 
 @api.route("/api/login", methods=["POST"])
 def login():
-    print request.form
     team = request.form["team"]
     password = request.form["password"]
     conn = sqlite3.connect(db_name)
@@ -42,3 +42,22 @@ def login():
         return "1"
     else:
         return "0"
+
+@api.route("/api/add_problem", methods=["POST"])
+def add_problem():
+    name = request.form["problem_name"]
+    desc = request.form["problem_desc"]
+    hint = request.form["problem_hint"]
+    category = request.form["problem_category"]
+    value = request.form["problem_value"]
+    conn = sqlite3.connect(db_name)
+    if conn == None:
+        return "-1"
+    c = conn.cursor()
+    if problemdb.problem_exists(name):
+        return "0"
+    else:
+        problemdb.add_problem(name, desc, hint, category, value)
+        return "1"
+    if conn:
+        conn.close()

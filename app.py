@@ -36,6 +36,10 @@ def logout():
     flash("Logout successful")
     return redirect(url_for("index"))
 
+@app.route("/admin", methods=["GET"])
+def admin():
+    return render_template("admin_dashboard.html")
+
 def is_logged_in():
     return "logged_in" in session and session["logged_in"]
 

@@ -5,8 +5,7 @@
 
 {% block body_content %}
 <h2 class="center teal-text">Register</h2>
-<form class="col s12" action="{{ url_for('register') }}"  method="POST" onsubmit="return validPassword('password', 'password2')">
-    <input type="hidden" name="register">
+<div class="col s12">
     <div class="row">
         <div class="input-field col s6 m10 l8 offset-m1 offset-l2">
             <input autocomplete="off" name="team_name" id="team_name" type="text" required>
@@ -28,10 +27,11 @@
     <div class="container">
         <br>
         <div class="row center">
-            <button type="submit" class="btn waves-effect waves-light" value="register">Register
+            <button class="btn waves-effect waves-light" name="register" id="register">Register
                 <i class="mdi-content-send right"></i>
             </button>
         </div>
     </div>
-</form>
+</div>
+<script type="text/javascript" src="{{ url_for('static', filename='js/register.js') }}"></script>
 {% endblock body_content %}

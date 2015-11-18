@@ -1,4 +1,5 @@
 import dbhelper
+import problemdb
 import teamdb
 import utils
 from api import api
@@ -20,7 +21,8 @@ def scoreboard():
 
 @app.route("/problems")
 def problems():
-    return render_template("problems.html", logged_in=is_logged_in(), admin=is_admin())
+    problems = problemdb.get_problems()
+    return render_template("problems.html", logged_in=is_logged_in(), admin=is_admin(), problems=problems)
 
 @app.route("/login", methods=["GET"])
 def login():

@@ -14,7 +14,7 @@ def add_team(name, password, conn=None):
 
     c = conn.cursor()
     try:
-        c.execute("INSERT into teams VALUES (?, ?, 0, 0)", (name, utils.hash_password(password),))
+        c.execute("INSERT into teams VALUES (?, ?, 0, 0, '')", (name, utils.hash_password(password),))
         conn.commit()
     except sqlite3.DatabaseError, e:
         print "Error %s: " % e
@@ -95,7 +95,7 @@ def add_admin_team(name, password, conn=None):
 
     c = conn.cursor()
     try:
-        c.execute("INSERT into teams VALUES (?, ?, 0, 1)", (name, utils.hash_password(password),))
+        c.execute("INSERT into teams VALUES (?, ?, 0, 1, '')", (name, utils.hash_password(password),))
         conn.commit()
     except sqlite3.DatabaseError, e:
         print "Error %s: " % e

@@ -54,10 +54,5 @@ def add_problem():
     if conn == None:
         return "-1"
     c = conn.cursor()
-    if problemdb.problem_exists(name):
-        return "0"
-    else:
-        problemdb.add_problem(name, desc, hint, category, value)
-        return "1"
-    if conn:
-        conn.close()
+    problemdb.add_problem(name, desc, hint, category, value)
+    return "1"

@@ -18,8 +18,6 @@ function add(problem_name, problem_desc, problem_hint, problem_category, problem
     }, function (data) {
         if (data == -1) {
             Materialize.toast("Database error. You should not be seeing this message :(", 2000);
-        } else if (data == 0) {
-            Materialize.toast("Problem with that name already exists!", 2000);
         } else if (data == 1) {
             Materialize.toast("Successfully added problem", 2000);
         }

@@ -40,7 +40,8 @@ def logout():
 
 @app.route("/admin", methods=["GET"])
 def admin():
-    return render_template("admin_dashboard.html")
+    problems = problemdb.get_problems()
+    return render_template("admin_dashboard.html", problems=problems)
 
 def is_logged_in():
     return "logged_in" in session and session["logged_in"]

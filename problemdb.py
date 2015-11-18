@@ -70,3 +70,20 @@ def get_problems_from_category(category):
         print e
     if conn:
         conn.close()
+
+def submit_flag(pid, flag):
+    conn = sqlite3.connect(db_name)
+    if conn == None:
+        return "Database Error"
+    c = conn.cursor()
+    try:
+        c.execute("SELECT * FROM problems WHERE id = ? AND flag = ?", (pid, flag,))
+        if c.fetchone():
+            c.execute("UPDATE problems set solves = solves + 1 WHERE pid = ?", (pid,))
+            return True
+        else:
+            return False
+    except sqlite3.DatabaseError, e:
+        print e
+    if conn:
+        conn.close()

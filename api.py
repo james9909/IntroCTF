@@ -56,3 +56,12 @@ def add_problem():
     c = conn.cursor()
     problemdb.add_problem(name, desc, hint, category, value)
     return "1"
+
+@api.route("/api/submit_flag", methods=["POST"])
+def submit_flag():
+    flag = request.form["flag"]
+    pid = request.form["pid"]
+    response = problemdb.submit_flag(pid, flag)
+    if response:
+        return "1"
+    return "0"

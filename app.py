@@ -17,7 +17,8 @@ def index():
 
 @app.route("/scoreboard")
 def scoreboard():
-    return render_template("scoreboard.html", logged_in=is_logged_in(), admin=is_admin())
+    teams = teamdb.get_teams()
+    return render_template("scoreboard.html", logged_in=is_logged_in(), admin=is_admin(), teams=teams)
 
 @app.route("/problems")
 def problems():

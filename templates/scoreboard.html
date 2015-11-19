@@ -2,3 +2,20 @@
 {% block title %}
 <title>IntroCTF - Scoreboard</title>
 {% endblock title %}
+{% block body_content %}
+<h2 class="center teal-text">Scoreboard</h2>
+{% if teams|length == 0 %}
+<h5 class = "center">There are no teams!<h5>
+{% else %}
+<div class="container">
+<table class='responsive-table bordered highlight centered'>
+<thead>
+<tr><th>Rank</th><th>Team</th><th>Score</th></tr>
+</thead>
+{% for team in teams %}
+<tr class='clickable-row'><td>{{ loop.index }}</td><td>{{ team[0] }}</td><td>{{ team[2] }}</td></tr>
+{% endfor %}
+</table>
+</div>
+{% endif %}
+{% endblock body_content %}

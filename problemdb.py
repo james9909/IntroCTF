@@ -65,8 +65,21 @@ def get_problems_from_category(category):
         return "Database Error"
     c = conn.cursor()
     try:
-        c.execute("SELECT * FROM problems WHERE category = ? ORDER BY points ASC", (category,))
+        c.execute("SELECT * FROM problems WHERE category = ? ORDER BY points ASC, last_solve DESC", (category,))
         return c.fetchall()
+    except sqlite3.DatabaseError, e:
+        print e
+    if conn:
+        conn.close()
+
+def get_problem_data(pid):
+    conn = sqlite3.connect(db_name)
+    if conn == None:
+        return "Database Error"
+    c = conn.cursor()
+    try:
+        c.execute("SELECT * FROM problems WHERE pid = ?", (pid,))
+        return c.fetchone()
     except sqlite3.DatabaseError, e:
         print e
     if conn:
@@ -85,7 +98,8 @@ def submit_flag(team, pid, flag):
             c.execute("UPDATE problems SET solves = solves + 1 WHERE pid = ?", (pid,))
             solves = teamdb.get_solves(team)
             solves.append(pid)
-            c.execute("UPDATE teams SET solves = ? WHERE name = ?", (",".join(solves), team,))
+            data = get_problem_data(pid)
+            c.execute("UPDATE teams SET solves = ?, score = score + ?, last_solve = datetime('now') WHERE name = ?", (",".join(solves), data[5], team,))
             conn.commit()
             return "1"
         else:

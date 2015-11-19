@@ -14,7 +14,7 @@ def add_team(name, password, conn=None):
 
     c = conn.cursor()
     try:
-        c.execute("INSERT into teams VALUES (?, ?, 0, 0, '')", (name, utils.hash_password(password),))
+        c.execute("INSERT into teams VALUES (?, ?, 0, 0, '', '')", (name, utils.hash_password(password),))
         conn.commit()
     except sqlite3.DatabaseError, e:
         print "Error %s: " % e
@@ -95,7 +95,7 @@ def add_admin_team(name, password, conn=None):
 
     c = conn.cursor()
     try:
-        c.execute("INSERT into teams VALUES (?, ?, 0, 1, '')", (name, utils.hash_password(password),))
+        c.execute("INSERT into teams VALUES (?, ?, 0, 1, '', '')", (name, utils.hash_password(password),))
         conn.commit()
     except sqlite3.DatabaseError, e:
         print "Error %s: " % e
@@ -137,5 +137,15 @@ def already_solved(pid, team):
         return True
     return False
 
-if __name__ == '__main__':
-    print is_admin("admin")
+def get_teams():
+    conn = sqlite3.connect(db_name)
+    if conn == None:
+        return "Database Error"
+    c = conn.cursor()
+    try:
+        c.execute("SELECT * FROM teams ORDER BY score DESC, last_solve ASC")
+        return c.fetchall()
+    except sqlite3.DatabaseError, e:
+        print e
+    if conn:
+        conn.close()

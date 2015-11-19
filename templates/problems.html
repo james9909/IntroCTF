@@ -11,7 +11,11 @@
         <ul class="collapsible popout z-depth-2" data-collapsible="expandable">
             {% for problem in problems %}
             <li>
-                <div class="collapsible-header"></i>{{ problem[1] }} - {{ problem[5] }} points<span style='float: right'>{{  problem[4] }} - Solved</span></div>
+                {% if problem[0] in solved %}
+                <div class="collapsible-header green lighten-5"></i>{{ problem[1] }} - {{ problem[5] }} points<span style='float: right'>{{  problem[4] }} - Solved</span></div>
+                {% else %}
+                <div class="collapsible-header"></i>{{ problem[1] }} - {{ problem[5] }} points<span style='float: right'>{{  problem[4] }} - Unsolved</span></div>
+                {% endif %}
                 <div class="collapsible-body">
                     <p class="card-content">
                     {{ problem[2] }}

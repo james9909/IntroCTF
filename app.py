@@ -22,7 +22,9 @@ def scoreboard():
 @app.route("/problems")
 def problems():
     problems = problemdb.get_problems()
-    return render_template("problems.html", logged_in=is_logged_in(), admin=is_admin(), problems=problems)
+    team = session["tid"]
+    solved = teamdb.get_solves(team)
+    return render_template("problems.html", logged_in=is_logged_in(), admin=is_admin(), problems=problems, solved=solved)
 
 @app.route("/login", methods=["GET"])
 def login():

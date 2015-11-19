@@ -125,7 +125,7 @@ def get_solves(team):
     c = conn.cursor()
     try:
         c.execute("SELECT solves FROM teams WHERE name = ?", (team,))
-        return str(c.fetchone()).split(",")
+        return list(c.fetchone())[0].split(",")
     except sqlite3.DatabaseError, e:
         print e
     if conn:

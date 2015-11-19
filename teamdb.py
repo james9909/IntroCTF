@@ -118,5 +118,24 @@ def is_admin(team_name):
         if conn:
             conn.close()
 
+def get_solves(team):
+    conn = sqlite3.connect(db_name)
+    if conn == None:
+        return "Database Error"
+    c = conn.cursor()
+    try:
+        c.execute("SELECT solves FROM teams WHERE name = ?", (team,))
+        return str(c.fetchone()).split(",")
+    except sqlite3.DatabaseError, e:
+        print e
+    if conn:
+        conn.close()
+
+def already_solved(pid, team):
+    solves = get_solves(team)
+    if pid in solves:
+        return True
+    return False
+
 if __name__ == '__main__':
     print is_admin("admin")

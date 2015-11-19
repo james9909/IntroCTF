@@ -50,18 +50,18 @@ def add_problem():
     hint = request.form["problem_hint"]
     category = request.form["problem_category"]
     value = request.form["problem_value"]
+    flag = request.form["problem_flag"]
     conn = sqlite3.connect(db_name)
     if conn == None:
         return "-1"
     c = conn.cursor()
-    problemdb.add_problem(name, desc, hint, category, value)
+    problemdb.add_problem(name, desc, hint, category, value, flag)
     return "1"
 
 @api.route("/api/submit_flag", methods=["POST"])
 def submit_flag():
     flag = request.form["flag"]
     pid = request.form["pid"]
-    response = problemdb.submit_flag(pid, flag)
-    if response:
-        return "1"
-    return "0"
+    team = session["tid"]
+    response = problemdb.submit_flag(team, pid, flag)
+    return response

@@ -11,22 +11,22 @@
         <ul class="collapsible popout z-depth-2" data-collapsible="expandable">
             {% for problem in problems %}
             <li>
-                <div class="collapsible-header" id = "absent"></i>{{ problem[1] }} - {{ problem[5] }} points<span style='float: right'>{{  problem[4] }} - Solved</span></div>
+                <div class="collapsible-header"></i>{{ problem[1] }} - {{ problem[5] }} points<span style='float: right'>{{  problem[4] }} - Solved</span></div>
                 <div class="collapsible-body">
                     <p class="card-content">
                     {{ problem[2] }}
                     </p>
                     <!-- Form -->
-                    <form method="post" class="col s12" id="absent-form">
+                    <form method="post" class="col s12">
+                        <input type="hidden" name="pid" value="{{ problem[0] }}">
                         <div class="row">
                             <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
                                 <input autocomplete="off" id="icon_prefix" name="flag" type="text">
                                 <label for="icon_prefix">Flag</label>
                             </div>
                         </div>
-                        <input type="hidden" name="pid" value="absent">
                         <div class="row center">
-                            <button class="btn waves-effect waves-light" type="submit">Submit
+                            <button class="btn waves-effect waves-light" name="submit">Submit
                                 <i class="mdi-content-send right"></i>
                             </button>
                             <a class="btn waves-effect waves-light" onclick="Materialize.toast('{{ problem[3] }}', 4000)">Hint</a>
@@ -37,6 +37,6 @@
             {% endfor %}
     </div>
 </div>
-<script type="text/javascript" src="{{ url_for('static', filename='js/admin.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/problems.js') }}"></script>
 {% endif %}
 {% endblock body_content %}

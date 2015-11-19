@@ -1,5 +1,6 @@
 import sqlite3
 import utils
+import teamdb
 
 db_name = "introctf.db"
 
@@ -16,7 +17,7 @@ def get_problems():
     if conn:
         conn.close()
 
-def add_problem(name, description, hint, category, points):
+def add_problem(name, description, hint, category, points, flag):
     conn = sqlite3.connect(db_name)
     pid = utils.generate_string(16)
     while pid_exists(pid):
@@ -25,7 +26,7 @@ def add_problem(name, description, hint, category, points):
         return "Database Error"
     c = conn.cursor()
     try:
-        c.execute("INSERT into problems VALUES (?, ?, ?, ?, ?, ?, 0)", (pid, name, description, hint, category, points,))
+        c.execute("INSERT into problems VALUES (?, ?, ?, ?, ?, ?, ?, 0)", (pid, name, description, hint, category, points, flag,))
         conn.commit()
     except sqlite3.DatabaseError, e:
         print e
@@ -71,18 +72,24 @@ def get_problems_from_category(category):
     if conn:
         conn.close()
 
-def submit_flag(pid, flag):
+def submit_flag(team, pid, flag):
+    if teamdb.already_solved(pid, team):
+        return "-1"
     conn = sqlite3.connect(db_name)
     if conn == None:
         return "Database Error"
     c = conn.cursor()
     try:
-        c.execute("SELECT * FROM problems WHERE id = ? AND flag = ?", (pid, flag,))
+        c.execute("SELECT * FROM problems WHERE pid = ? AND flag = ?", (pid, flag,))
         if c.fetchone():
-            c.execute("UPDATE problems set solves = solves + 1 WHERE pid = ?", (pid,))
-            return True
+            c.execute("UPDATE problems SET solves = solves + 1 WHERE pid = ?", (pid,))
+            solves = teamdb.get_solves(team)
+            solves.append(pid)
+            c.execute("UPDATE teams SET solves = ? WHERE name = ?", (",".join(solves), team,))
+            conn.commit()
+            return "1"
         else:
-            return False
+            return "0"
     except sqlite3.DatabaseError, e:
         print e
     if conn:

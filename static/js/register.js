@@ -1,12 +1,19 @@
 $('#register').click(function (e) {
-    register($("#team_name").val(), $("#password").val(), $("#password2").val());
-});
-
-function register(team, password, password2) {
+    var team_name = $("#team_name").val();
+    var password = $("#password").val();
+    var password2 = $("#password2").val();
     if (password != password2) {
         Materialize.toast("Passwords do not match.");
         return;
     }
+    if (password.length < 4) {
+        Materialize.toast("Passwords should be at least 4 characters long", 2000);
+        return;
+    }
+    register(team_name, password);
+});
+
+function register(team, password) {
     $.post("/api/register", {
         team: team,
         password: password
@@ -17,8 +24,6 @@ function register(team, password, password2) {
             Materialize.toast("Team name already in use", 2000);
         } else if (data == 1) {
             Materialize.toast("Success!", 2000);
-        } else if (data == 2) {
-            Materialize.toast("Invalid password", 2000);
         }
     });
 }

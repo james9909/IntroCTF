@@ -2,6 +2,7 @@ from flask import Flask, Blueprint, request, session
 from flask import current_app as app
 import sqlite3
 import utils
+from utils import admins_only, redirect_if_not_logged_in
 import teamdb
 import problemdb
 
@@ -43,6 +44,7 @@ def login():
     else:
         return "0"
 
+@admins_only
 @api.route("/api/add_problem", methods=["POST"])
 def add_problem():
     name = request.form["problem_name"]
@@ -58,6 +60,7 @@ def add_problem():
     problemdb.add_problem(name, desc, hint, category, value, flag)
     return "1"
 
+@admins_only
 @api.route("/api/submit_flag", methods=["POST"])
 def submit_flag():
     flag = request.form["flag"]

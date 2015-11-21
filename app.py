@@ -2,6 +2,7 @@ import dbhelper
 import problemdb
 import teamdb
 import utils
+from utils import admins_only, redirect_if_not_logged_in
 from api import api
 from functools import wraps
 from flask import Flask, render_template, request, flash, session, redirect, url_for, g
@@ -21,6 +22,7 @@ def scoreboard():
     return render_template("scoreboard.html", logged_in=is_logged_in(), admin=is_admin(), teams=teams)
 
 @app.route("/problems")
+@redirect_if_not_logged_in
 def problems():
     problems = problemdb.get_problems()
     team = session["tid"]
@@ -29,7 +31,7 @@ def problems():
 
 @app.route("/login", methods=["GET"])
 def login():
-    return render_template("login.html")
+    return render_template("login.html", logged_in=is_logged_in(), admin=is_admin())
 
 @app.route("/register", methods=["GET"])
 def register():
@@ -42,9 +44,10 @@ def logout():
     return redirect(url_for("index"))
 
 @app.route("/admin", methods=["GET"])
+@admins_only
 def admin():
     problems = problemdb.get_problems()
-    return render_template("admin_dashboard.html", problems=problems)
+    return render_template("admin_dashboard.html", problems=problems, logged_in=is_logged_in(), admin=is_admin())
 
 def is_logged_in():
     return "logged_in" in session and session["logged_in"]

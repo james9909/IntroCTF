@@ -49,27 +49,62 @@
         <ul class="collapsible popout z-depth-2" data-collapsible="expandable">
             {% for problem in problems %}
             <li>
-                <div class="collapsible-header" id = "absent"></i>{{ problem[1] }} - {{ problem[5] }} points<span style='float: right'>{{  problem[4] }} - Solved</span></div>
+                <div class="collapsible-header"></i>{{ problem[1] }} - {{ problem[5] }} points<span style='float: right'>{{  problem[4] }}</span></div>
                 <div class="collapsible-body">
-                    <p class="card-content">
-                    {{ problem[2] }}
-                    </p>
-                    <!-- Form -->
-                    <form method="post" class="col s12" id="absent-form">
-                        <div class="row">
-                            <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                <input autocomplete="off" id="icon_prefix" name="flag-{{ problem[0] }}" type="text">
-                                <label for="icon_prefix">Flag</label>
+
+                    <ul class="tabs tab z-depth-1">
+                        <li class="tab col s6"><a style="color: teal" href="#{{ problem[0] }}-edit" name="edit">Edit</a></li>
+                        <li class="tab col s6"><a style="color: teal" href="#{{ problem[0] }}-preview" name="edit">Preview</a></li>
+                    </ul>
+                    <div id="{{ problem[0] }}-edit" name="edit-problem">
+                        <div class="container">
+                            <div class="input-field">
+                                <input autocomplete="off" name="problem_name" id="problem_name" type="text" required>
+                                <label for="problem_name">Problem Name</label>
+                            </div>
+                            <div class="input-field">
+                                <textarea id="problem_desc" class="materialize-textarea"></textarea>
+                                <label for="problem_desc">Problem Description</label>
+                            </div>
+                            <div class="input-field">
+                                <input autocomplete="off" name="problem_hint" id="problem_hint" type="text" required>
+                                <label for="problem_hint">Problem Hint</label>
+                            </div>
+                            <div class="input-field">
+                                <input autocomplete="off" name="problem_category" id="problem_category" type="text" required>
+                                <label for="problem_category">Problem Category</label>
+                            </div>
+                            <div class="input-field">
+                                <input autocomplete="off" name="problem_value" id="problem_value" type="number" required>
+                                <label for="problem_value">Problem Value</label>
+                            </div>
+                            <div class="input-field">
+                                <input autocomplete="off" name="problem_flag" id="problem_flag" type="text" required>
+                                <label for="problem_flag">Problem Flag</label>
                             </div>
                         </div>
-                        <input type="hidden" name="pid" value="absent">
-                        <div class="row center">
-                            <button class="btn waves-effect waves-light" type="submit">Submit
-                                <i class="mdi-content-send right"></i>
-                            </button>
-                            <a class="btn waves-effect waves-light" onclick="Materialize.toast('{{ problem[3] }}', 4000)">Hint</a>
-                        </div>
-                    </form>
+                    </div>
+                    <div id="{{ problem[0] }}-preview" name="preview-problem">
+                        <p class="card-content">
+                        {{ problem[2] }}
+                        </p>
+                        <!-- Form -->
+                        <form method="post" class="col s12">
+                            <input type="hidden" name="pid" value="{{ problem[0] }}">
+                            <div class="row">
+                                <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                                    <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+                                    <label for="icon_prefix">Flag</label>
+                                </div>
+                            </div>
+                            <div class="row center">
+                                <button class="btn waves-effect waves-light" name="submit">Submit
+                                    <i class="mdi-content-send right"></i>
+                                </button>
+                                <a class="btn waves-effect waves-light" onclick="Materialize.toast('{{ problem[3] }}', 4000)">Hint</a>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </li>
             {% endfor %}

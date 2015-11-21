@@ -24,3 +24,17 @@ function submit_flag(pid, flag) {
         }
     });
 }
+
+function render_descriptions() {
+    var desc = $('p[name=problem-desc]').map(function(){
+                   return $.trim($(this).text());
+                }).get();
+    $("p[name=problem-desc]").each(function() {
+        $(this).html(marked(desc[0]));
+        desc = desc.splice(1, desc.length);
+    });
+}
+
+$(document).ready(function() {
+    render_descriptions();
+});

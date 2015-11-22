@@ -12,27 +12,27 @@
         <div class="modal-content">
             <h4>Add problem</h4>
             <div class="input-field">
-                <input autocomplete="off" name="problem_name" id="problem_name" type="text" required>
+                <input autocomplete="off" name="problem_name" type="text" required>
                 <label for="problem_name">Problem Name</label>
             </div>
             <div class="input-field">
-                <textarea id="problem_desc" class="materialize-textarea"></textarea>
+                <textarea name="problem_desc" class="materialize-textarea"></textarea>
                 <label for="problem_desc">Problem Description</label>
             </div>
             <div class="input-field">
-                <input autocomplete="off" name="problem_hint" id="problem_hint" type="text" required>
+                <input autocomplete="off" name="problem_hint" type="text" required>
                 <label for="problem_hint">Problem Hint</label>
             </div>
             <div class="input-field">
-                <input autocomplete="off" name="problem_category" id="problem_category" type="text" required>
+                <input autocomplete="off" name="problem_category" type="text" required>
                 <label for="problem_category">Problem Category</label>
             </div>
             <div class="input-field">
-                <input autocomplete="off" name="problem_value" id="problem_value" type="number" required>
+                <input autocomplete="off" name="problem_value" type="number" required>
                 <label for="problem_value">Problem Value</label>
             </div>
             <div class="input-field">
-                <input autocomplete="off" name="problem_flag" id="problem_flag" type="text" required>
+                <input autocomplete="off" name="problem_flag" type="text" required>
                 <label for="problem_flag">Problem Flag</label>
             </div>
         </div>
@@ -51,67 +51,79 @@
             <li>
                 <div class="collapsible-header"></i>{{ problem[1] }} - {{ problem[5] }} points<span style='float: right'>{{  problem[4] }}</span></div>
                 <div class="collapsible-body">
-
-                    <ul class="tabs tab z-depth-1">
-                        <li class="tab col s6"><a style="color: teal" href="#{{ problem[0] }}-edit" name="edit">Edit</a></li>
-                        <li class="tab col s6"><a style="color: teal" href="#{{ problem[0] }}-preview" name="edit">Preview</a></li>
-                    </ul>
-                    <div id="{{ problem[0] }}-edit" name="edit-problem">
+                    <br>
+                    <div>
                         <div class="container">
-                            <div class="input-field">
-                                <input autocomplete="off" name="problem_name" id="problem_name" type="text" required>
-                                <label for="problem_name">Problem Name</label>
-                            </div>
-                            <div class="input-field">
-                                <textarea id="problem_desc" class="materialize-textarea"></textarea>
-                                <label for="problem_desc">Problem Description</label>
-                            </div>
-                            <div class="input-field">
-                                <input autocomplete="off" name="problem_hint" id="problem_hint" type="text" required>
-                                <label for="problem_hint">Problem Hint</label>
-                            </div>
-                            <div class="input-field">
-                                <input autocomplete="off" name="problem_category" id="problem_category" type="text" required>
-                                <label for="problem_category">Problem Category</label>
-                            </div>
-                            <div class="input-field">
-                                <input autocomplete="off" name="problem_value" id="problem_value" type="number" required>
-                                <label for="problem_value">Problem Value</label>
-                            </div>
-                            <div class="input-field">
-                                <input autocomplete="off" name="problem_flag" id="problem_flag" type="text" required>
-                                <label for="problem_flag">Problem Flag</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="{{ problem[0] }}-preview" name="preview-problem">
-                        <p class="card-content">
-                        {{ problem[2] }}
-                        </p>
-                        <!-- Form -->
-                        <form method="post" class="col s12">
-                            <input type="hidden" name="pid" value="{{ problem[0] }}">
-                            <div class="row">
-                                <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                                    <input autocomplete="off" id="icon_prefix" name="flag" type="text">
-                                    <label for="icon_prefix">Flag</label>
+                            <form method="post" class="col s12">
+                                <div class="row center">
+                                    <a class="btn waves-effect waves-light modal-trigger" href="#preview-modal" name="preview">Preview</a>
+                                    <a class="btn waves-effect waves-light modal-trigger" href="#delete-modal" name="delete-modal">Delete</a>
                                 </div>
-                            </div>
-                            <div class="row center">
-                                <button class="btn waves-effect waves-light" name="submit">Submit
-                                    <i class="mdi-content-send right"></i>
-                                </button>
-                                <a class="btn waves-effect waves-light" onclick="Materialize.toast('{{ problem[3] }}', 4000)">Hint</a>
-                            </div>
-                        </form>
+                                <input type="hidden" name="pid" value="{{ problem[0] }}">
+                                <div class="input-field">
+                                    <input autocomplete="off" name="problem_name" type="text" value="{{ problem[1] }}" required>
+                                    <label for="problem_name">Problem Name</label>
+                                </div>
+                                <div class="input-field">
+                                    <textarea name="problem_desc" class="materialize-textarea">{{ problem[2] }}</textarea>
+                                    <label for="problem_desc">Problem Description</label>
+                                </div>
+                                <div class="input-field">
+                                    <input autocomplete="off" name="problem_hint" type="text" value="{{ problem[3] }}" required>
+                                    <label for="problem_hint">Problem Hint</label>
+                                </div>
+                                <div class="input-field">
+                                    <input autocomplete="off" name="problem_category" type="text" value="{{ problem[4] }}" required>
+                                    <label for="problem_category">Problem Category</label>
+                                </div>
+                                <div class="input-field">
+                                    <input autocomplete="off" name="problem_value" type="number" value="{{ problem[5] }}" required>
+                                    <label for="problem_value">Problem Value</label>
+                                </div>
+                                <div class="input-field">
+                                    <input autocomplete="off" name="problem_flag" type="text" value="{{ problem[6] }}" required>
+                                    <label for="problem_flag">Problem Flag</label>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </li>
             {% endfor %}
     </div>
 </div>
-<script type="text/javascript" src="{{ url_for('static', filename='js/admin.js') }}"></script>
 {% endif %}
+
+<div id="preview-modal" class="modal">
+    <br>
+    <h4 class="center teal-text" id="preview-name"></h4>
+    <div class="modal-content">
+        <p id="preview-desc"></p>
+    </div>
+    <div class="row">
+        <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+            <input autocomplete="off" id="icon_prefix" name="flag" type="text">
+            <label for="icon_prefix">Flag</label>
+        </div>
+    </div>
+    <div class="row center">
+        <button class="btn waves-effect waves-light" name="submit" id="preview-submit">Submit
+            <i class="mdi-content-send right"></i>
+        </button>
+        <a class="btn waves-effect waves-light" id="preview-hint">Hint</a>
+    </div>
+</div>
+
+<div id="delete-modal" class="modal">
+    <div class="modal-content">
+        <h4>Delete problem</h4>
+        <p>Are you sure you want to delete this problem? This cannot be undone.</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">No</a>
+        <button id="delete" name="delete" class="modal-action waves-effect waves-teal btn-flat">Yes</button>
+    </div>
+</div>
 
 <script type="text/javascript" src="{{ url_for('static', filename='js/admin.js') }}"></script>
 {% endblock body_content %}

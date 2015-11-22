@@ -68,3 +68,10 @@ def submit_flag():
     team = session["tid"]
     response = problemdb.submit_flag(team, pid, flag)
     return response
+
+@admins_only
+@api.route("/api/remove_problem", methods=["POST"])
+def remove_problem():
+    pid = request.form["pid"]
+    response = problemdb.remove_problem(pid)
+    return response

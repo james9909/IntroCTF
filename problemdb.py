@@ -33,16 +33,20 @@ def add_problem(name, description, hint, category, points, flag):
     if conn:
         conn.close()
 
-def remove_problem(name):
+def remove_problem(pid):
+    if not pid_exists(pid):
+        return "0"
     conn = sqlite3.connect(db_name)
     if conn == None:
-        return "Database Error"
+        return "-1"
     c = conn.cursor()
     try:
-        c.execute("DELETE from problems WHERE name = ?", (name,))
+        c.execute("DELETE from problems WHERE pid = ?", (pid,))
         conn.commit()
+        return "1"
     except sqlite3.DatabaseError, e:
         print e
+        return "-1"
     if conn:
         conn.close()
 

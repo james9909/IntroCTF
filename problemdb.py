@@ -18,6 +18,8 @@ def get_problems():
         conn.close()
 
 def add_problem(name, description, hint, category, points, flag):
+    if name_exists(name):
+        return "0"
     conn = sqlite3.connect(db_name)
     pid = utils.generate_string(16)
     while pid_exists(pid):
@@ -28,6 +30,7 @@ def add_problem(name, description, hint, category, points, flag):
     try:
         c.execute("INSERT into problems VALUES (?, ?, ?, ?, ?, ?, ?, 0)", (pid, name, description, hint, category, points, flag,))
         conn.commit()
+        return "1"
     except sqlite3.DatabaseError, e:
         print e
     if conn:
@@ -57,6 +60,19 @@ def pid_exists(pid):
     c = conn.cursor()
     try:
         c.execute("SELECT 1 FROM problems WHERE pid = ? LIMIT 1", (pid,))
+        return True if c.fetchone() else False
+    except sqlite3.DatabaseError, e:
+        print e
+    if conn:
+        conn.close()
+
+def name_exists(name):
+    conn = sqlite3.connect(db_name)
+    if conn == None:
+        return "Database Error"
+    c = conn.cursor()
+    try:
+        c.execute("SELECT 1 FROM problems WHERE name = ? LIMIT 1", (name,))
         return True if c.fetchone() else False
     except sqlite3.DatabaseError, e:
         print e

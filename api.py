@@ -57,8 +57,8 @@ def add_problem():
     if conn == None:
         return "-1"
     c = conn.cursor()
-    problemdb.add_problem(name, desc, hint, category, value, flag)
-    return "1"
+    response = problemdb.add_problem(name, desc, hint, category, value, flag)
+    return response
 
 @admins_only
 @api.route("/api/submit_flag", methods=["POST"])

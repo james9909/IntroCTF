@@ -5,6 +5,9 @@ $('#add').click(function (e) {
     var problem_category = $("input[name=problem_category]").val();
     var problem_value = $("input[name=problem_value]").val();
     var problem_flag = $("input[name=problem_flag]").val();
+    if (problem_name == "" || problem_value == "" || problem_flag == "") {
+        Materialize.toast("Something is missing...", 2000);
+    }
 
     add(problem_name, problem_desc, problem_hint, problem_category, problem_value, problem_flag);
 });

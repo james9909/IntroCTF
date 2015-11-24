@@ -1,4 +1,4 @@
-$("[name='submit']").click(function (e) {
+$("[name='submit']").click(function(e) {
     e.preventDefault();
     var form = $(this).parents('form:first');
     var flag = $("input[name='flag']", form).val();
@@ -14,7 +14,7 @@ function submit_flag(pid, flag) {
     $.post("/api/submit_flag", {
         pid: pid,
         flag: flag
-    }, function (data) {
+    }, function(data) {
         if (data == 1) {
             Materialize.toast("Correct!", 2000);
         } else if (data == 0) {

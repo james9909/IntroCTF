@@ -1,4 +1,4 @@
-$('#register').click(function (e) {
+$('#register').click(function(e) {
     var team_name = $("#team_name").val();
     var password = $("#password").val();
     var password2 = $("#password2").val();
@@ -17,7 +17,7 @@ function register(team, password) {
     $.post("/api/register", {
         team: team,
         password: password
-    }, function (data) {
+    }, function(data) {
         if (data == -1) {
             Materialize.toast("Database error... Please contact an admin as soon as possible", 2000);
         } else if (data == 0) {

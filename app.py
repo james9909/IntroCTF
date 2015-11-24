@@ -1,11 +1,9 @@
-import dbhelper
 import problemdb
 import teamdb
 import utils
 from utils import admins_only, redirect_if_not_logged_in
 from api import api
-from functools import wraps
-from flask import Flask, render_template, request, flash, session, redirect, url_for, g
+from flask import Flask, render_template, session, redirect, url_for
 
 app = Flask(__name__)
 app.debug = True
@@ -56,5 +54,6 @@ def is_admin():
     return "admin" in session and session["admin"]
 
 if __name__ == '__main__':
+    app.jinja_env.trim_blocks = True
     app.register_blueprint(api)
     app.run()

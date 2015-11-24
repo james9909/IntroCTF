@@ -1,10 +1,10 @@
-from flask import Flask, Blueprint, request, session
-from flask import current_app as app
 import sqlite3
 import utils
-from utils import admins_only, redirect_if_not_logged_in
 import teamdb
 import problemdb
+from flask import Flask, Blueprint, request, session
+from flask import current_app as app
+from utils import admins_only, redirect_if_not_logged_in
 
 api = Blueprint("api", __name__)
 db_name = "introctf.db"
@@ -13,10 +13,6 @@ db_name = "introctf.db"
 def register():
     team = request.form["team"]
     password = request.form["password"]
-    conn = sqlite3.connect(db_name)
-    if conn == None:
-        return "-1"
-    c = conn.cursor()
     response = utils.is_valid_password(password)
     if not response[0]:
         return "2"
@@ -30,10 +26,6 @@ def register():
 def login():
     team = request.form["team"]
     password = request.form["password"]
-    conn = sqlite3.connect(db_name)
-    if conn == None:
-        return "-1"
-    c = conn.cursor()
     stored_team_password = teamdb.get_team_password(team)
     if utils.check_password(stored_team_password, password):
         session["tid"] = team
@@ -53,10 +45,6 @@ def add_problem():
     category = request.form["problem_category"]
     value = request.form["problem_value"]
     flag = request.form["problem_flag"]
-    conn = sqlite3.connect(db_name)
-    if conn == None:
-        return "-1"
-    c = conn.cursor()
     response = problemdb.add_problem(name, desc, hint, category, value, flag)
     return response
 

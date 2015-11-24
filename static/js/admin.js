@@ -1,4 +1,4 @@
-$('#add').click(function (e) {
+$('#add').click(function(e) {
     var problem_name = $("input[name=problem_name]").val();
     var problem_desc = $("textarea[name=problem_desc]").val();
     var problem_hint = $("input[name=problem_hint]").val();
@@ -7,12 +7,13 @@ $('#add').click(function (e) {
     var problem_flag = $("input[name=problem_flag]").val();
     if (problem_name == "" || problem_value == "" || problem_flag == "") {
         Materialize.toast("Something is missing...", 2000);
+        return;
     }
 
     add(problem_name, problem_desc, problem_hint, problem_category, problem_value, problem_flag);
 });
 
-$("[name='preview']").click(function (e) {
+$("[name='preview']").click(function(e) {
     var problem = $(this).parents("form:first");
     var name = $("input[name=problem_name]", problem).val();
     var desc = $("textarea[name=problem_desc]", problem).val();
@@ -33,7 +34,7 @@ $("[name='preview']").click(function (e) {
     }
 });
 
-$("#update").click(function (e) {
+$("[name=update]").click(function(e) {
     var problem = $(this).parents("form:first");
     var pid = $("input[name=pid]", problem).val();
     var name = $("input[name=problem_name]", problem).val();
@@ -45,10 +46,10 @@ $("#update").click(function (e) {
     update_problem(pid, name, desc, hint, category, points, flag);
 });
 
-$("[name='delete-modal']").click(function (e) {
+$("[name='delete-modal']").click(function(e) {
     var form = $(this).parents("form:first");
     var pid = $("input[name=pid]", form).val();
-    $("[name='delete']").click(function (e) {
+    $("[name='delete']").click(function(e) {
         remove_problem(pid);
     });
 })
@@ -62,7 +63,7 @@ function add(problem_name, problem_desc, problem_hint, problem_category, problem
         problem_category: problem_category,
         problem_value: problem_value,
         problem_flag: problem_flag
-    }, function (data) {
+    }, function(data) {
         if (data == -1) {
             Materialize.toast("Database error. You should not be seeing this message :(", 2000);
         } else if (data == 0) {
@@ -76,7 +77,7 @@ function add(problem_name, problem_desc, problem_hint, problem_category, problem
 function remove_problem(pid) {
     $.post("/api/remove_problem", {
         pid: pid
-    }, function (data) {
+    }, function(data) {
         if (data == -1) {
             Materialize.toast("Database error. You should not be seeing this message :(", 2000);
         } else if (data == 0) {
@@ -96,7 +97,7 @@ function update_problem(pid, name, description, hint, category, points, flag) {
         category: category,
         points: points,
         flag: flag
-    }, function (data) {
+    }, function(data) {
         if (data == -1) {
             Materialize.toast("Database error. You should not be seeing this message :(", 2000);
         } else if (data == 1) {

@@ -11,26 +11,13 @@
         {% block scripts %}
             <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-2.1.1.min.js') }}"></script>
             <script type="text/javascript" src="{{ url_for('static', filename='js/materialize.min.js')}}"></script>
-            <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+            <script type="text/javascript" src="{{ url_for('static', filename='js/init.js') }}"></script>
             <script type="text/javascript" src="{{ url_for('static', filename='js/marked.min.js') }}"></script>
         {% endblock scripts %}
 
     {% block headcontent %}
     {% endblock headcontent %}
     </head>
-
-    <div id="flashed_messages">
-      {% with messages = get_flashed_messages() %}
-        {% if messages %}
-          <script>
-            var flashed_messages = [];
-            {% for message in messages %}
-            flashed_messages.push("{{ message }}");
-            {% endfor %}
-          </script>
-        {% endif %}
-      {% endwith %}
-    </div>
 
     <body>
         <nav role="navigation" style="background-color: #009688">

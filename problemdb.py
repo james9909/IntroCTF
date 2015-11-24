@@ -7,15 +7,17 @@ db_name = "introctf.db"
 def get_problems():
     conn = sqlite3.connect(db_name)
     if conn == None:
-        return "Database Error"
+        return "-1"
     c = conn.cursor()
     try:
         c.execute("SELECT * FROM problems ORDER BY points ASC")
         return c.fetchall()
     except sqlite3.DatabaseError, e:
         print e
-    if conn:
-        conn.close()
+        return "-1"
+    finally:
+        if conn:
+            conn.close()
 
 def add_problem(name, description, hint, category, points, flag):
     if name_exists(name):
@@ -25,7 +27,7 @@ def add_problem(name, description, hint, category, points, flag):
     while pid_exists(pid):
         pid = utils.generate_string(16)
     if conn == None:
-        return "Database Error"
+        return "-1"
     c = conn.cursor()
     try:
         c.execute("INSERT into problems VALUES (?, ?, ?, ?, ?, ?, ?, 0)", (pid, name, description, hint, category, points, flag,))
@@ -33,8 +35,10 @@ def add_problem(name, description, hint, category, points, flag):
         return "1"
     except sqlite3.DatabaseError, e:
         print e
-    if conn:
-        conn.close()
+        return "-1"
+    finally:
+        if conn:
+            conn.close()
 
 def remove_problem(pid):
     if not pid_exists(pid):
@@ -50,67 +54,76 @@ def remove_problem(pid):
     except sqlite3.DatabaseError, e:
         print e
         return "-1"
-    if conn:
-        conn.close()
+    finally:
+        if conn:
+            conn.close()
 
 def pid_exists(pid):
     conn = sqlite3.connect(db_name)
     if conn == None:
-        return "Database Error"
+        return "-1"
     c = conn.cursor()
     try:
         c.execute("SELECT 1 FROM problems WHERE pid = ? LIMIT 1", (pid,))
         return True if c.fetchone() else False
     except sqlite3.DatabaseError, e:
         print e
-    if conn:
-        conn.close()
+        return "-1"
+    finally:
+        if conn:
+            conn.close()
 
 def name_exists(name):
     conn = sqlite3.connect(db_name)
     if conn == None:
-        return "Database Error"
+        return "-1"
     c = conn.cursor()
     try:
         c.execute("SELECT 1 FROM problems WHERE name = ? LIMIT 1", (name,))
         return True if c.fetchone() else False
     except sqlite3.DatabaseError, e:
         print e
-    if conn:
-        conn.close()
+        return "-1"
+    finally:
+        if conn:
+            conn.close()
 
 def get_problems_from_category(category):
     conn = sqlite3.connect(db_name)
     if conn == None:
-        return "Database Error"
+        return "-1"
     c = conn.cursor()
     try:
         c.execute("SELECT * FROM problems WHERE category = ? ORDER BY points ASC, last_solve DESC", (category,))
         return c.fetchall()
     except sqlite3.DatabaseError, e:
         print e
-    if conn:
-        conn.close()
+        return "-1"
+    finally:
+        if conn:
+            conn.close()
 
 def get_problem_data(pid):
     conn = sqlite3.connect(db_name)
     if conn == None:
-        return "Database Error"
+        return "-1"
     c = conn.cursor()
     try:
         c.execute("SELECT * FROM problems WHERE pid = ?", (pid,))
         return c.fetchone()
     except sqlite3.DatabaseError, e:
         print e
-    if conn:
-        conn.close()
+        return "-1"
+    finally:
+        if conn:
+            conn.close()
 
 def submit_flag(team, pid, flag):
     if teamdb.already_solved(pid, team):
         return "-1"
     conn = sqlite3.connect(db_name)
     if conn == None:
-        return "Database Error"
+        return "-1"
     c = conn.cursor()
     try:
         c.execute("SELECT * FROM problems WHERE pid = ? AND flag = ?", (pid, flag,))
@@ -126,13 +139,15 @@ def submit_flag(team, pid, flag):
             return "0"
     except sqlite3.DatabaseError, e:
         print e
-    if conn:
-        conn.close()
+        return "-1"
+    finally:
+        if conn:
+            conn.close()
 
 def update_problem(pid, name, desc, hint, category, points, flag):
     conn = sqlite3.connect(db_name)
     if conn == None:
-        return "Database Error"
+        return "-1"
     c = conn.cursor()
     try:
         c.execute("UPDATE problems SET name = ?, description = ?, hint = ?, category = ?, points = ?, flag = ? WHERE pid = ?", (name, desc, hint, category, points, flag, pid,))
@@ -140,5 +155,7 @@ def update_problem(pid, name, desc, hint, category, points, flag):
         return "1"
     except sqlite3.DatabaseError, e:
         print e
-    if conn:
-        conn.close()
+        return "-1"
+    finally:
+        if conn:
+            conn.close()

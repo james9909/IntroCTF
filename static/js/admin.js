@@ -33,6 +33,18 @@ $("[name='preview']").click(function (e) {
     }
 });
 
+$("#update").click(function (e) {
+    var problem = $(this).parents("form:first");
+    var pid = $("input[name=pid]", problem).val();
+    var name = $("input[name=problem_name]", problem).val();
+    var desc = $("textarea[name=problem_desc]", problem).val();
+    var hint = $("input[name=problem_hint]", problem).val();
+    var category = $("input[name=problem_category]", problem).val();
+    var points = $("input[name=problem_value]", problem).val();
+    var flag = $("input[name=problem_flag]", problem).val();
+    update_problem(pid, name, desc, hint, category, points, flag);
+});
+
 $("[name='delete-modal']").click(function (e) {
     var form = $(this).parents("form:first");
     var pid = $("input[name=pid]", form).val();
@@ -71,6 +83,24 @@ function remove_problem(pid) {
             Materialize.toast("Problem does not exist", 2000);
         } else if (data == 1) {
             Materialize.toast("Successfully removed problem", 2000);
+        }
+    });
+}
+
+function update_problem(pid, name, description, hint, category, points, flag) {
+    $.post("/api/update_problem", {
+        pid: pid,
+        name: name,
+        description: description,
+        hint: hint,
+        category: category,
+        points: points,
+        flag: flag
+    }, function (data) {
+        if (data == -1) {
+            Materialize.toast("Database error. You should not be seeing this message :(", 2000);
+        } else if (data == 1) {
+            Materialize.toast("Problem updated", 2000);
         }
     });
 }

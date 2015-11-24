@@ -128,3 +128,17 @@ def submit_flag(team, pid, flag):
         print e
     if conn:
         conn.close()
+
+def update_problem(pid, name, desc, hint, category, points, flag):
+    conn = sqlite3.connect(db_name)
+    if conn == None:
+        return "Database Error"
+    c = conn.cursor()
+    try:
+        c.execute("UPDATE problems SET name = ?, description = ?, hint = ?, category = ?, points = ?, flag = ? WHERE pid = ?", (name, desc, hint, category, points, flag, pid,))
+        conn.commit()
+        return "1"
+    except sqlite3.DatabaseError, e:
+        print e
+    if conn:
+        conn.close()

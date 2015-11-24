@@ -44,8 +44,8 @@ def login():
     else:
         return "0"
 
-@admins_only
 @api.route("/api/add_problem", methods=["POST"])
+@admins_only
 def add_problem():
     name = request.form["problem_name"]
     desc = request.form["problem_desc"]
@@ -60,8 +60,8 @@ def add_problem():
     response = problemdb.add_problem(name, desc, hint, category, value, flag)
     return response
 
-@admins_only
 @api.route("/api/submit_flag", methods=["POST"])
+@admins_only
 def submit_flag():
     flag = request.form["flag"]
     pid = request.form["pid"]
@@ -69,9 +69,22 @@ def submit_flag():
     response = problemdb.submit_flag(team, pid, flag)
     return response
 
-@admins_only
 @api.route("/api/remove_problem", methods=["POST"])
+@admins_only
 def remove_problem():
     pid = request.form["pid"]
     response = problemdb.remove_problem(pid)
+    return response
+
+@api.route("/api/update_problem", methods=["POST"])
+@admins_only
+def update_problem():
+    pid = request.form["pid"]
+    name = request.form["name"]
+    desc = request.form["description"]
+    hint = request.form["hint"]
+    category = request.form["category"]
+    points = request.form["points"]
+    flag = request.form["flag"]
+    response = problemdb.update_problem(pid, name, desc, hint, category, points, flag)
     return response

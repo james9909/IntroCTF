@@ -53,6 +53,10 @@ def is_logged_in():
 def is_admin():
     return "admin" in session and session["admin"]
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
 if __name__ == '__main__':
     app.jinja_env.trim_blocks = True
     app.register_blueprint(api)

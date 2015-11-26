@@ -8,7 +8,7 @@ from flask import Flask, render_template, session, redirect, url_for
 app = Flask(__name__)
 app.debug = True
 
-app.secret_key="123"
+app.secret_key = open(".secret_key", "r").read()
 
 @app.route('/')
 def index():

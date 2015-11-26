@@ -29,10 +29,3 @@ def redirect_if_not_logged_in(f):
             return redirect(url_for("index"))
         return f(*args, **kwargs)
     return decorated_function
-
-def convert(dictionary):
-    """Recursively converts dictionary keys to strings."""
-    if not isinstance(dictionary, dict):
-        return dictionary
-    return dict((str(k), convert(v))
-            for k, v in dictionary.items())

@@ -1,8 +1,9 @@
+import json
 import sqlite3
 import utils
 import teamdb
 import problemdb
-from flask import Flask, Blueprint, request, session
+from flask import Flask, Blueprint, request, session, jsonify, make_response
 from flask import current_app as app
 from utils import admins_only, redirect_if_not_logged_in
 
@@ -13,9 +14,6 @@ db_name = "introctf.db"
 def register():
     team = request.form["team"]
     password = request.form["password"]
-    response = utils.is_valid_password(password)
-    if not response[0]:
-        return "2"
     if teamdb.team_exists(team):
         return "0"
     else:
@@ -49,7 +47,6 @@ def add_problem():
     return response
 
 @api.route("/api/submit_flag", methods=["POST"])
-@admins_only
 def submit_flag():
     flag = request.form["flag"]
     pid = request.form["pid"]
@@ -76,3 +73,53 @@ def update_problem():
     flag = request.form["flag"]
     response = problemdb.update_problem(pid, name, desc, hint, category, points, flag)
     return response
+
+@api.route("/api/export_data", methods=["GET", "POST"])
+@admins_only
+def export_data():
+    data = {}
+    form = request.form
+    if "problems" in form:
+        problem_list = []
+        problems = problemdb.get_problems()
+        for problem in problems:
+            jason = {}
+            jason["pid"] = problem[0]
+            jason["name"] = problem[1]
+            jason["description"] = problem[2]
+            jason["hint"] = problem[3]
+            jason["category"] = problem[4]
+            jason["points"] = problem[5]
+            jason["flag"] = problem[6]
+            problem_list.append(jason)
+        data["problems"] = problem_list
+    if "scoreboard" in form:
+        scoreboard = []
+        teams = teamdb.get_scoreboard_data()
+        for team in teams:
+            jason = {}
+            jason["name"] = team[0]
+            jason["score"] = team[2]
+            jason["solves"] = [problemdb.get_name_from_pid(pid) for pid in team[4].split(",")[1:]]
+            jason["last_solve"] = team[5]
+            scoreboard.append(jason)
+        data["scoreboard"] = scoreboard
+    if "teams" in form:
+        team_list = []
+        teams = teamdb.get_teams()
+        for team in teams:
+            jason = {}
+            jason["name"] = team[0]
+            jason["password"] = team[1]
+            jason["score"] = team[2]
+            jason["admin"] = team[3]
+            jason["solves"] = [problemdb.get_name_from_pid(pid) for pid in team[4].split(",")[1:]]
+            jason["last_solve"] = team[5]
+            team_list.append(jason)
+        data["teams"] = team_list
+    data = json.dumps(data, indent=4)
+    if "download" in form:
+        response = make_response(data)
+        response.headers["Content-Disposition"] = "attachment; filename=data.json"
+        return response
+    return jsonify(data=json.loads(data))

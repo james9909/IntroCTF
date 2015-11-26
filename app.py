@@ -16,8 +16,8 @@ def index():
 
 @app.route("/scoreboard")
 def scoreboard():
-    teams = teamdb.get_teams()
-    return render_template("scoreboard.html", logged_in=is_logged_in(), admin=is_admin(), teams=teams)
+    scoreboard = teamdb.get_scoreboard_data()
+    return render_template("scoreboard.html", logged_in=is_logged_in(), admin=is_admin(), scoreboard=scoreboard)
 
 @app.route("/problems")
 @redirect_if_not_logged_in
@@ -38,7 +38,6 @@ def register():
 @app.route("/logout", methods=["GET"])
 def logout():
     session.clear()
-    flash("Logout successful")
     return redirect(url_for("index"))
 
 @app.route("/admin", methods=["GET"])

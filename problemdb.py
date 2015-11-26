@@ -159,3 +159,18 @@ def update_problem(pid, name, desc, hint, category, points, flag):
     finally:
         if conn:
             conn.close()
+
+def get_name_from_pid(pid):
+    conn = sqlite3.connect(db_name)
+    if conn == None:
+        return "-1"
+    c = conn.cursor()
+    try:
+        c.execute("SELECT name FROM problems WHERE pid = ?", (pid,))
+        return c.fetchone()[0]
+    except sqlite3.DatabaseError, e:
+        print e
+        return "-1"
+    finally:
+        if conn:
+            conn.close()

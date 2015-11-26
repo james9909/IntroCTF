@@ -7,6 +7,7 @@
 <h2 class="center teal-text">Admin</h2>
 <div class="center">
     <a class="waves-effect waves-light btn modal-trigger" href="#add_problem">Add Problem</a>
+    <a class="waves-effect waves-light btn modal-trigger" href="#export_data">Export data</a>
 
     <div id="add_problem" class="modal">
         <div class="modal-content">
@@ -40,6 +41,45 @@
             <a href="#!" class="modal-action modal-close waves-effect waves-teal btn-flat">Close</a>
             <button id="add" name="add" class="modal-action waves-effect waves-teal btn-flat">Add</button>
         </div>
+    </div>
+    <div id="export_data" class="modal">
+        <form action="/api/export_data" method="POST">
+            <div class="modal-content">
+                <h4>Export data</h4>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label>Data to export:</label>
+                        <br/>
+                    </div>
+                    <div class="input-field col m4 s12 center-align">
+                        <input type="checkbox" name="problems" id="problems"/>
+                        <label for="problems">Problems</label>
+                    </div>
+                    <div class="input-field col m4 s12 center-align">
+                        <input type="checkbox" name="scoreboard" id="scoreboard"/>
+                        <label for="scoreboard">Scoreboard</label>
+                    </div>
+                    <div class="input-field col m4 s12 center-align">
+                        <input type="checkbox" name="teams" id="teams"/>
+                        <label for="teams">Teams</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label>Export options:</label>
+                        <br/>
+                    </div>
+                    <div class="input-field center">
+                        <input type="checkbox" name="download" id="download"/>
+                        <label for="download">Download data</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-teal btn-flat">Close</a>
+                <button id="export" class="waves-effect waves-teal btn-flat submit" type="submit">Export</button>
+            </div>
+        </form>
     </div>
 </div>
 {% if problems %}

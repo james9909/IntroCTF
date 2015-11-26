@@ -130,13 +130,27 @@ def already_solved(pid, team):
         return True
     return False
 
+def get_scoreboard_data():
+    conn = sqlite3.connect(db_name)
+    if conn == None:
+        return "-1"
+    c = conn.cursor()
+    try:
+        c.execute("SELECT * FROM teams WHERE name != 'admin' ORDER BY score DESC, last_solve ASC")
+        return c.fetchall()
+    except sqlite3.DatabaseError, e:
+        print e
+        return "-1"
+    if conn:
+        conn.close()
+
 def get_teams():
     conn = sqlite3.connect(db_name)
     if conn == None:
         return "-1"
     c = conn.cursor()
     try:
-        c.execute("SELECT * FROM teams ORDER BY score DESC, last_solve ASC")
+        c.execute("SELECT * FROM teams")
         return c.fetchall()
     except sqlite3.DatabaseError, e:
         print e

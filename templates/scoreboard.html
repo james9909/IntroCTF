@@ -1,50 +1,21 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <!--Import materialize.css-->
-        <link rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
-
-        <!--Let browser know website is optimized for mobile-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-
-        <title>IntroCTF - Scoreboard</title>
-    </head>
-
-    <body>
-        <!--Import jQuery before materialize.js-->
-        <script src="js/jquery-2.1.1.min.js"></script>
-        <script src="js/materialize.js"></script>
-        <script src="js/init.js"></script>
-        <script src="js/account_handler.js"></script>
-        <script src="js/validate_cookie.js"></script>
-
-        <nav role="navigation" style="background-color: #009688">
-        <div class="nav-wrapper container">
-            <a href="." class="brand-logo">IntroCTF</a>
-            <ul id="navbar" class="right hide-on-med-and-down">
-
-                <li><a href=".">Home</a></li>
-                <li><a href="gallery">About</a></li>
-                <li><a href="scoreboard.py">Scoreboard</a></li>
-                <li><a href="problems">Problems</a></li>
-                <script>
-                    validateLogin();
-                </script>
-
-                <!-- <li><a class="mdi-action-info-outline modal-trigger" href="#helpmodal"></a></li> -->
-            </ul>
-            <ul id="nav-mobile" class="side-nav">
-
-                <li><a class="waves-effect waves-indigo" href=".">Home</a></li>
-                <li><a class="waves-effect waves-indigo" href="gallery">About</a></li>
-                <li><a class="waves-effect waves-indigo" href="scoreboard.py">Scoreboard</a></li>
-                <li><a class="waves-effect waves-indigo" href="problems">Problems</a></li>
-                <script>
-                    validateMobileLogin();
-                </script>
-
-                <!-- <li><a class="waves-effect waves-indigo modal-trigger" href="#helpmodal"><i class="mdi-action-info-outline"></i></a></li> -->
-            </ul>
-            <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
-        </div>
-        </nav>
+{% extends "base.html" %}
+{% block title %}
+<title>IntroCTF - Scoreboard</title>
+{% endblock title %}
+{% block body_content %}
+<h2 class="center teal-text">Scoreboard</h2>
+{% if teams|length == 0 %}
+<h5 class = "center">There are no teams!<h5>
+{% else %}
+<div class="container">
+<table class='responsive-table bordered highlight centered'>
+<thead>
+<tr><th>Rank</th><th>Team</th><th>Score</th></tr>
+</thead>
+{% for team in teams %}
+<tr class='clickable-row'><td>{{ loop.index }}</td><td>{{ team[0] }}</td><td>{{ team[2] }}</td></tr>
+{% endfor %}
+</table>
+</div>
+{% endif %}
+{% endblock body_content %}

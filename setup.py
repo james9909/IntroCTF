@@ -14,7 +14,7 @@ def init_db():
     conn = sqlite3.connect(db_name)
     c = conn.cursor()
     c.execute("CREATE TABLE problems (pid text PRIMARY KEY, name text, description text, hint text, category text, points integer, flag text, solves integer);")
-    c.execute("CREATE TABLE teams (name text, password text, score integer, admin integer, solves text, last_solve text);")
+    c.execute("CREATE TABLE teams (name text, password text, score integer, admin integer, solves text, last_solve text, progression text);")
     response = str(raw_input("An admin team does not currently exist. Would you like to make one? [y/n] "))
     if response.lower() == "y":
         name = str(raw_input("Please input a name: "))

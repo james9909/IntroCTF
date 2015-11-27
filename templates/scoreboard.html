@@ -7,6 +7,7 @@
 {% if scoreboard|length == 0 %}
 <h5 class = "center">There are no teams!<h5>
 {% else %}
+<div id="graph" class="center container"></div>
 <div class="container">
 <table class='responsive-table bordered highlight centered'>
 <thead>
@@ -18,4 +19,6 @@
 </table>
 </div>
 {% endif %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/highcharts.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/scoreboard.js') }}"></script>
 {% endblock body_content %}

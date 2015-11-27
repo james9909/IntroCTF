@@ -102,6 +102,7 @@ def export_data():
             jason["score"] = team[2]
             jason["solves"] = [problemdb.get_name_from_pid(pid) for pid in team[4].split(",")[1:]]
             jason["last_solve"] = team[5]
+            jason["progression"] = team[6] + ",%s,%s" % (team[2], utils.get_time_since_epoch()) # Add current time score to make graph look nicer
             scoreboard.append(jason)
         data["scoreboard"] = scoreboard
     if "teams" in form:
@@ -115,6 +116,7 @@ def export_data():
             jason["admin"] = team[3]
             jason["solves"] = [problemdb.get_name_from_pid(pid) for pid in team[4].split(",")[1:]]
             jason["last_solve"] = team[5]
+            jason["progression"] = team[6]
             team_list.append(jason)
         data["teams"] = team_list
     data = json.dumps(data, indent=4)

@@ -9,7 +9,7 @@ def add_team(name, password):
         return "-1"
     c = conn.cursor()
     try:
-        c.execute("INSERT into teams VALUES (?, ?, 0, 0, '', '')", (name, utils.hash_password(password),))
+        c.execute("INSERT into teams VALUES (?, ?, 0, 0, '', '', ?)", (name, utils.hash_password(password), "0,"+str(utils.get_time_since_epoch())))
         conn.commit()
     except sqlite3.DatabaseError, e:
         print e
@@ -85,7 +85,7 @@ def add_admin_team(name, password, conn=None):
         return "-1"
     c = conn.cursor()
     try:
-        c.execute("INSERT into teams VALUES (?, ?, 0, 1, '', '')", (name, utils.hash_password(password),))
+        c.execute("INSERT into teams VALUES (?, ?, 0, 1, '', '', ?)", (name, utils.hash_password(password), "0,"+str(utils.get_time_since_epoch())))
         conn.commit()
     except sqlite3.DatabaseError, e:
         print e
@@ -130,13 +130,16 @@ def already_solved(pid, team):
         return True
     return False
 
-def get_scoreboard_data():
+def get_scoreboard_data(limit=None):
     conn = sqlite3.connect(db_name)
     if conn == None:
         return "-1"
     c = conn.cursor()
     try:
-        c.execute("SELECT * FROM teams WHERE name != 'admin' ORDER BY score DESC, last_solve ASC")
+        if limit is None:
+            c.execute("SELECT * FROM teams WHERE name != 'admin' ORDER BY score DESC, last_solve ASC")
+        else:
+            c.execute("SELECT * FROM teams WHERE name != 'admin' ORDER BY score DESC, last_solve ASC LIMIT ?", (limit,))
         return c.fetchall()
     except sqlite3.DatabaseError, e:
         print e
@@ -152,6 +155,34 @@ def get_teams():
     try:
         c.execute("SELECT * FROM teams")
         return c.fetchall()
+    except sqlite3.DatabaseError, e:
+        print e
+        return "-1"
+    if conn:
+        conn.close()
+
+def get_progression(team):
+    conn = sqlite3.connect(db_name)
+    if conn == None:
+        return "-1"
+    c = conn.cursor()
+    try:
+        c.execute("SELECT progression FROM teams WHERE name = ?", (team,))
+        return c.fetchone()[0].split(",")
+    except sqlite3.DatabaseError, e:
+        print e
+        return "-1"
+    if conn:
+        conn.close()
+
+def get_score(team):
+    conn = sqlite3.connect(db_name)
+    if conn == None:
+        return "-1"
+    c = conn.cursor()
+    try:
+        c.execute("SELECT score FROM teams WHERE name = ?", (team,))
+        return c.fetchone()[0]
     except sqlite3.DatabaseError, e:
         print e
         return "-1"

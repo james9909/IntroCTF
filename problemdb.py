@@ -131,8 +131,10 @@ def submit_flag(team, pid, flag):
             c.execute("UPDATE problems SET solves = solves + 1 WHERE pid = ?", (pid,))
             solves = teamdb.get_solves(team)
             solves.append(pid)
+            progression = teamdb.get_progression(team)
             data = get_problem_data(pid)
-            c.execute("UPDATE teams SET solves = ?, score = score + ?, last_solve = datetime('now') WHERE name = ?", (",".join(solves), data[5], team,))
+            progression.append(str(int(teamdb.get_score(team))+int(data[5]))+","+str(utils.get_time_since_epoch()))
+            c.execute("UPDATE teams SET solves = ?, score = score + ?, last_solve = ?, progression = ? WHERE name = ?", (",".join(solves), data[5], str(utils.get_time_since_epoch()), ",".join(progression), team,))
             conn.commit()
             return "1"
         else:

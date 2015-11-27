@@ -1,3 +1,4 @@
+from datetime import datetime
 import string
 import random
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -29,3 +30,10 @@ def redirect_if_not_logged_in(f):
             return redirect(url_for("index"))
         return f(*args, **kwargs)
     return decorated_function
+
+def unix_time_millis(dt):
+    epoch = datetime.utcfromtimestamp(0)
+    return (dt - epoch).total_seconds() * 1000.0
+
+def get_time_since_epoch():
+    return unix_time_millis(datetime.now())

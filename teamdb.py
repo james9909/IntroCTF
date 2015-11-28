@@ -3,13 +3,15 @@ import sqlite3
 
 db_name = "introctf.db"
 
-def add_team(name, password):
+def add_team(name, password, date=None):
     conn = sqlite3.connect(db_name)
     if conn == None:
         return "-1"
     c = conn.cursor()
     try:
-        c.execute("INSERT into teams VALUES (?, ?, 0, 0, '', '', ?)", (name, utils.hash_password(password), "0,"+str(utils.get_time_since_epoch())))
+        if date is None:
+            date = str(utils.get_time_since_epoch())
+        c.execute("INSERT into teams VALUES (?, ?, 0, 0, '', '', ?)", (name, utils.hash_password(password), "0,"+date))
         conn.commit()
     except sqlite3.DatabaseError, e:
         print e
@@ -79,13 +81,15 @@ def get_team_score(name):
         if conn:
             conn.close()
 
-def add_admin_team(name, password, conn=None):
+def add_admin_team(name, password, date=None):
     conn = sqlite3.connect(db_name)
     if conn == None:
         return "-1"
     c = conn.cursor()
     try:
-        c.execute("INSERT into teams VALUES (?, ?, 0, 1, '', '', ?)", (name, utils.hash_password(password), "0,"+str(utils.get_time_since_epoch())))
+        if date is None:
+            date = str(utils.get_time_since_epoch())
+        c.execute("INSERT into teams VALUES (?, ?, 0, 1, '', '', ?)", (name, utils.hash_password(password), "0,"+date))
         conn.commit()
     except sqlite3.DatabaseError, e:
         print e

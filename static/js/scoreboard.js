@@ -13,7 +13,7 @@ function graph() {
             for (var j = 0; j < progression.length; j+=2) {
                 data.push([parseFloat(progression[j+1]), parseInt(progression[j])]);
             }
-            team["data"] = data;
+            team["data"] = data.sort();
             series.push(team);
         }
         // Graph

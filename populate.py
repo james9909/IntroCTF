@@ -1,3 +1,4 @@
+import datetime
 import random
 import teamdb
 import problemdb
@@ -12,7 +13,7 @@ categories = [
         ]
 
 def random_words(number):
-    return str(" ".join(random.sample(words, number)))
+    return str(" ".join([word.capitalize() for word in random.sample(words, number)])).replace("'", "")
 
 def generate_sentence():
     return random_words(60)
@@ -32,25 +33,34 @@ def generate_points():
 def generate_category():
     return random.choice(categories)
 
-def generate_challenges(number):
-    for x in range(number):
-        problemdb.add_problem(generate_problem_name(), generate_sentence(), generate_hint(), generate_category(), generate_points(), "flag")
+def random_date(start, end):
+    return start + datetime.timedelta(
+	seconds=random.randint(0, int((end - start).total_seconds())))
 
-def generate_teams(number):
-    for x in range(number):
-        teamdb.add_team(generate_team_name(), "password")
+epoch = datetime.datetime.utcfromtimestamp(0)
+def unix_time_millis(dt):
+    return (dt - epoch).total_seconds() * 1000.0
 
 def main():
-    num = int(raw_input("How many challenges would you like to create? "))
-    if num > 50:
-        print "That's a lot of challenges..."
-        return
-    generate_challenges(num)
-    num = int(raw_input("How many teams would you like to create? "))
-    if num > 100:
-        print "That's a lot of teams..."
-        return
-    generate_teams(num)
+    num_problems = int(raw_input("How many problems would you like to create? "))
+    for x in range(num_problems):
+        problemdb.add_problem(generate_problem_name(), generate_sentence(), generate_hint(), generate_category(), generate_points(), "flag")
+
+    num_teams = int(raw_input("How many teams would you like to create? "))
+    for x in range(num_teams):
+        base_time = datetime.datetime.utcnow() + datetime.timedelta(minutes=-(60*num_problems))
+        solved = []
+        team_name = generate_team_name()
+        teamdb.add_team(team_name, "password", str(unix_time_millis(base_time)))
+        problems = problemdb.get_problems()
+
+        for x in range(random.randint(1, num_problems)):
+            pid = random.choice(problems)[0]
+            if pid not in solved:
+                new_base = random_date(base_time, base_time + datetime.timedelta(minutes=60))
+                problemdb.submit_flag(team_name, pid, "flag", str(unix_time_millis(new_base)))
+                base_time = new_base
+                solved.append(pid)
 
 if __name__ == '__main__':
     main()

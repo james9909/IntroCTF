@@ -29,7 +29,6 @@ if not os.path.isfile(".secret_key"):
     generate_secret_key()
     print "Done!"
 
-if not os.path.isfile(db_name):
-    print "Initializing the database..."
-    init_db()
-    print "Done!"
+print "Initializing the database..."
+init_db()
+print "Done!"

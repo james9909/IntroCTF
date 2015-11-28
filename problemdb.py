@@ -118,7 +118,7 @@ def get_problem_data(pid):
         if conn:
             conn.close()
 
-def submit_flag(team, pid, flag):
+def submit_flag(team, pid, flag, date=None):
     if teamdb.already_solved(pid, team):
         return "-1"
     conn = sqlite3.connect(db_name)
@@ -133,8 +133,10 @@ def submit_flag(team, pid, flag):
             solves.append(pid)
             progression = teamdb.get_progression(team)
             data = get_problem_data(pid)
-            progression.append(str(int(teamdb.get_score(team))+int(data[5]))+","+str(utils.get_time_since_epoch()))
-            c.execute("UPDATE teams SET solves = ?, score = score + ?, last_solve = ?, progression = ? WHERE name = ?", (",".join(solves), data[5], str(utils.get_time_since_epoch()), ",".join(progression), team,))
+            if date is None:
+                date = str(utils.get_time_since_epoch())
+            progression.append(str(int(teamdb.get_score(team))+int(data[5]))+","+date)
+            c.execute("UPDATE teams SET solves = ?, score = score + ?, last_solve = ?, progression = ? WHERE name = ?", (",".join(solves), data[5], date, ",".join(progression), team,))
             conn.commit()
             return "1"
         else:

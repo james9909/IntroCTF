@@ -42,13 +42,17 @@ function graph() {
                     width: 1,
                     color: "#808080"
                 }],
-                floor: 0
+
+                min: 0
             },
             tooltip: {
                 valueSuffix: " points"
             },
             series: series
-        });
+        }, function (chart) {
+		if (chart.series[0].dataMax <= 0) chart.yAxis[0].update({
+			max: 1
+        })});
     });
 }
 

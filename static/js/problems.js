@@ -26,10 +26,6 @@ function submit_flag(pid, flag) {
 }
 
 function render_descriptions() {
-    Renderer.prototype.paragraph = function(text) {
-        return text;
-    };
-
     var desc = $('p[name=problem-desc]').map(function(){
                    return $.trim($(this).text());
                 }).get();

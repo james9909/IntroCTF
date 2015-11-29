@@ -51,6 +51,7 @@ def register():
         return {"success": 1, "message": "Success!"}
 
 @api.route("/api/login", methods=["POST"])
+@api_wrapper
 def login():
     team = request.form["team"]
     password = request.form["password"]

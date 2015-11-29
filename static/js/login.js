@@ -13,7 +13,11 @@ function login(team, password) {
         if (data.success == 1) {
             setTimeout(function() {
                 $("#login").removeClass("disabled").removeAttr("disabled");
+                document.location.href = "/";
             }, 2000)
         }
+        setTimeout(function() {
+            $("#login").removeClass("disabled").removeAttr("disabled");
+        }, 2000)
     });
 }

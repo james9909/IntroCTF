@@ -10,37 +10,39 @@
     <a class="waves-effect waves-light btn modal-trigger" href="#export_data">Export data</a>
 
     <div id="add_problem" class="modal">
-        <div class="modal-content">
-            <h4>Add problem</h4>
-            <div class="input-field">
-                <input autocomplete="off" name="problem_name" type="text" required>
-                <label for="problem_name">Problem Name</label>
+        <form action="return false;" id="add-form">
+            <div class="modal-content">
+                <h4>Add problem</h4>
+                <div class="input-field">
+                    <input autocomplete="off" name="problem_name" type="text" required>
+                    <label for="problem_name">Problem Name</label>
+                </div>
+                <div class="input-field">
+                    <textarea name="problem_desc" class="materialize-textarea"></textarea>
+                    <label for="problem_desc">Problem Description</label>
+                </div>
+                <div class="input-field">
+                    <input autocomplete="off" name="problem_hint" type="text" required>
+                    <label for="problem_hint">Problem Hint</label>
+                </div>
+                <div class="input-field">
+                    <input autocomplete="off" name="problem_category" type="text" required>
+                    <label for="problem_category">Problem Category</label>
+                </div>
+                <div class="input-field">
+                    <input autocomplete="off" name="problem_value" type="number" required>
+                    <label for="problem_value">Problem Value</label>
+                </div>
+                <div class="input-field">
+                    <input autocomplete="off" name="problem_flag" type="text" required>
+                    <label for="problem_flag">Problem Flag</label>
+                </div>
             </div>
-            <div class="input-field">
-                <textarea name="problem_desc" class="materialize-textarea"></textarea>
-                <label for="problem_desc">Problem Description</label>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-teal btn-flat">Close</a>
+                <button id="add" name="add" class="modal-action waves-effect waves-teal btn-flat">Add</button>
             </div>
-            <div class="input-field">
-                <input autocomplete="off" name="problem_hint" type="text" required>
-                <label for="problem_hint">Problem Hint</label>
-            </div>
-            <div class="input-field">
-                <input autocomplete="off" name="problem_category" type="text" required>
-                <label for="problem_category">Problem Category</label>
-            </div>
-            <div class="input-field">
-                <input autocomplete="off" name="problem_value" type="number" required>
-                <label for="problem_value">Problem Value</label>
-            </div>
-            <div class="input-field">
-                <input autocomplete="off" name="problem_flag" type="text" required>
-                <label for="problem_flag">Problem Flag</label>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-teal btn-flat">Close</a>
-            <button id="add" name="add" class="modal-action waves-effect waves-teal btn-flat">Add</button>
-        </div>
+        </form>
     </div>
     <div id="export_data" class="modal">
         <form action="/api/export_data" method="POST">

@@ -1,10 +1,10 @@
 function graph() {
-    $.post("/api/export_data", {
+    $.post("/api/top/5", {
         scoreboard: true
     }, function(data) {
         var series = [];
         teams = $.parseJSON(JSON.stringify(data));
-        teams = teams["data"]["scoreboard"].splice(0, 5); // Only top 5
+        teams = teams["data"]["scoreboard"];
         for (var i = 0; i < teams.length; i++) {
             var team = {};
             var data = [];

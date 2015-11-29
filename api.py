@@ -74,6 +74,21 @@ def update_problem():
     response = problemdb.update_problem(pid, name, desc, hint, category, points, flag)
     return response
 
+@api.route("/api/top/<count>", methods=["GET", "POST"])
+def top(count):
+    data = {}
+    teams = teamdb.get_scoreboard_data(5)
+    scoreboard = []
+    for team in teams:
+        jason = {}
+        jason["name"] = team[0]
+        jason["score"] = team[2]
+        jason["last_solve"] = team[5]
+        jason["progression"] = team[6] + ",%s,%s" % (team[2], utils.get_time_since_epoch()) # Add current time score to make graph look nicer
+        scoreboard.append(jason)
+    data["scoreboard"] = scoreboard
+    return jsonify(data=data)
+
 @api.route("/api/export_data", methods=["GET", "POST"])
 @admins_only
 def export_data():

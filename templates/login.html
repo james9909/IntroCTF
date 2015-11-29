@@ -5,24 +5,26 @@
 
 {% block body_content %}
 <h2 class="center teal-text">Login</h2>
-<div class="col s12">
-    <div class="row">
-	<div class="input-field col s6 m10 l8 offset-m1 offset-l2">
-	    <input autocomplete="off" id="team_name" name="team_name" type="text">
-            <label for="icon_prefix">Team Name</label>
-	</div>
-	<div class="row">
-	    <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-		<input autocomplete="off" id="password" name="password" type="password">
-		<label for="icon_prefix">Password</label>
-	    </div>
-	</div>
-	<div class="row center">
-	    <button class="btn waves-effect waves-light" name="login" id="login">Login
-		<i class="mdi-content-send right"></i>
-	    </button>
-	</div>
+<form action="return false;" id="login-form">
+    <div class="col s12">
+        <div class="row">
+            <div class="input-field col s6 m10 l8 offset-m1 offset-l2">
+                <input autocomplete="off" id="team_name" name="team_name" type="text">
+                <label for="icon_prefix">Team Name</label>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                    <input autocomplete="off" id="password" name="password" type="password">
+                    <label for="icon_prefix">Password</label>
+                </div>
+            </div>
+            <div class="row center">
+                <button class="btn waves-effect waves-light" name="login" id="login">Login
+                    <i class="mdi-content-send right"></i>
+                </button>
+            </div>
+        </div>
     </div>
-</div>
+</form>
 <script type="text/javascript" src="{{ url_for('static', filename='js/login.js') }}"></script>
 {% endblock body_content %}

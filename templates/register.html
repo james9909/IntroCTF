@@ -6,32 +6,34 @@
 {% block body_content %}
 <h2 class="center teal-text">Register</h2>
 <div class="col s12">
-    <div class="row">
-        <div class="input-field col s6 m10 l8 offset-m1 offset-l2">
-            <input autocomplete="off" name="team_name" id="team_name" type="text" required>
-            <label for="icon_prefix">Team Name</label>
-        </div>
+    <form action="return false;" id="register-form">
         <div class="row">
-            <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                <input autocomplete="off" name="password" id="password" type="password" required>
-                <label for="icon_prefix">Password</label>
+            <div class="input-field col s6 m10 l8 offset-m1 offset-l2">
+                <input autocomplete="off" name="team_name" id="team_name" type="text" required>
+                <label for="icon_prefix">Team Name</label>
             </div>
-            <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
-                <input autocomplete="off" name="password2" id="password2" type="password" required>
-                <label for="icon_prefix">Confirm password</label>
+            <div class="row">
+                <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                    <input autocomplete="off" name="password" id="password" type="password" required>
+                    <label for="icon_prefix">Password</label>
+                </div>
+                <div class="input-field col s12 m10 l8 offset-m1 offset-l2">
+                    <input autocomplete="off" name="password2" id="password2" type="password" required>
+                    <label for="icon_prefix">Confirm password</label>
+                </div>
             </div>
+            <br>
         </div>
-        <br>
-    </div>
 
-    <div class="container">
-        <br>
-        <div class="row center">
-            <button class="btn waves-effect waves-light" name="register" id="register">Register
-                <i class="mdi-content-send right"></i>
-            </button>
+        <div class="container">
+            <br>
+            <div class="row center">
+                <button class="btn waves-effect waves-light" name="register" id="register">Register
+                    <i class="mdi-content-send right"></i>
+                </button>
+            </div>
         </div>
-    </div>
+    </form>
 </div>
 <script type="text/javascript" src="{{ url_for('static', filename='js/register.js') }}"></script>
 {% endblock body_content %}

@@ -1,4 +1,6 @@
-$('#login').click(function(e) {
+$('#login-form').on("submit", function(e) {
+    e.preventDefault();
+    $("#login").addClass("disabled").attr("disabled", true);
     login($("#team_name").val(), $("#password").val());
 });
 
@@ -7,15 +9,11 @@ function login(team, password) {
         team: team,
         password: password
     }, function(data) {
-        if (data == -1) {
-            Materialize.toast("Database error... Please contact an admin as soon as possible.", 2000);
-        } else if (data == 0) {
-            Materialize.toast("Invalid credentials", 2000);
-        } else if (data == 1) {
-            Materialize.toast("Successfully logged in", 2000);
+        Materialize.toast(data.message, 2000);
+        if (data.success == 1) {
             setTimeout(function() {
-                window.location.href = "/";
-            }, 2000);
+                $("#login").removeClass("disabled").removeAttr("disabled");
+            }, 2000)
         }
     });
 }

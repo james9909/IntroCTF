@@ -3,6 +3,7 @@ import sqlite3
 import utils
 import teamdb
 import problemdb
+from functools import wraps
 from flask import Flask, Blueprint, request, session, jsonify, make_response
 from flask import current_app as app
 from utils import admins_only, redirect_if_not_logged_in
@@ -10,15 +11,44 @@ from utils import admins_only, redirect_if_not_logged_in
 api = Blueprint("api", __name__)
 db_name = "introctf.db"
 
+def api_wrapper(f):
+    @wraps(f)
+    def wrapper(*args, **kwds):
+        web_result = {}
+        response = 200
+        try:
+            web_result = f(*args, **kwds)
+        except WebException as error:
+            response = 200
+            web_result = { "success": 0, "message": str(error) }
+        except APIException as error:
+            response = 500
+            web_result = { "success": 0, "message": str(error) }
+        except Exception as error:
+            response = 200
+            traceback.print_exc()
+            web_result = { "success": 0, "message": "Something went wrong! Please notify us about this immediately.", error: traceback.format_exc() }
+        return json.dumps(web_result), response, { "Content-Type": "application/json; charset=utf-8" }
+    return wrapper
+
 @api.route("/api/register", methods=["POST"])
+@api_wrapper
 def register():
     team = request.form["team"]
     password = request.form["password"]
+    password2 = request.form["password2"]
+    if password != password2:
+        return {"success": 0, "message": "Passwords do not match"}
+    if len(password) < 4:
+        return {"success": 0, "message": "Passwords should be at least 4 characters long"}
     if teamdb.team_exists(team):
-        return "0"
+        return {"success": 0, "message": "Team already exists"}
     else:
-        teamdb.add_team(team, password)
-        return "1"
+        try:
+            teamdb.add_team(team, password)
+        except:
+            return {"success": 0, "message": "Database error... Please contact an admin as soon as possible"}
+        return {"success": 1, "message": "Success!"}
 
 @api.route("/api/login", methods=["POST"])
 def login():
@@ -30,9 +60,9 @@ def login():
         session["logged_in"] = True
         if teamdb.is_admin(team):
             session["admin"] = True
-        return "1"
+        return {"success": 1, "message": "Success!"}
     else:
-        return "0"
+        return {"success": 0, "message": "Invalid credentials"}
 
 @api.route("/api/add_problem", methods=["POST"])
 @admins_only

@@ -3,6 +3,7 @@ import os
 import sqlite3
 import problemdb
 import teamdb
+from wipe_db import wipe_database
 
 db_name = "introctf.db"
 
@@ -30,5 +31,11 @@ if not os.path.isfile(".secret_key"):
     print "Done!"
 
 print "Initializing the database..."
-init_db()
+try:
+    init_db()
+except sqlite3.DatabaseError, e:
+    response = str(raw_input("A database seems to already exist. Would you like to wipe it and re-initalize? [y/n] "))
+    if response.lower() == "y":
+        wipe_database()
+        init_db()
 print "Done!"

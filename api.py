@@ -1,3 +1,4 @@
+import logging
 import json
 import sqlite3
 import utils
@@ -18,16 +19,8 @@ def api_wrapper(f):
         response = 200
         try:
             web_result = f(*args, **kwds)
-        except WebException as error:
-            response = 200
-            web_result = { "success": 0, "message": str(error) }
-        except APIException as error:
-            response = 500
-            web_result = { "success": 0, "message": str(error) }
         except Exception as error:
-            response = 200
-            traceback.print_exc()
-            web_result = { "success": 0, "message": "Something went wrong! Please notify us about this immediately.", error: traceback.format_exc() }
+            web_result = { "success": 0, "message": "Something went wrong! Please notify us about this immediately: %s" % error }
         return json.dumps(web_result), response, { "Content-Type": "application/json; charset=utf-8" }
     return wrapper
 
@@ -37,6 +30,7 @@ def register():
     team = request.form["team"]
     password = request.form["password"]
     password2 = request.form["password2"]
+
     if password != password2:
         return {"success": 0, "message": "Passwords do not match"}
     if len(password) < 4:
@@ -48,6 +42,8 @@ def register():
             teamdb.add_team(team, password)
         except:
             return {"success": 0, "message": "Database error... Please contact an admin as soon as possible"}
+
+        utils.log("registrations", logging.INFO, "%s has registered" % team)
         return {"success": 1, "message": "Success!"}
 
 @api.route("/api/login", methods=["POST"])
@@ -61,6 +57,9 @@ def login():
         session["logged_in"] = True
         if teamdb.is_admin(team):
             session["admin"] = True
+            utils.log("logins", 30, "%s logged as admin" % team)
+        else:
+            utils.log("logins", 20, "%s logged in" % team)
         return {"success": 1, "message": "Success!"}
     else:
         return {"success": 0, "message": "Invalid credentials"}

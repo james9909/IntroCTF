@@ -1,3 +1,4 @@
+import logging
 import problemdb
 import teamdb
 import utils
@@ -57,6 +58,9 @@ def page_not_found(e):
     return render_template('404.html'), 404
 
 if __name__ == '__main__':
+    log = logging.getLogger('werkzeug')
+    log.setLevel(logging.ERROR)
+    utils.initalize_logs()
     app.jinja_env.trim_blocks = True
     app.register_blueprint(api)
     app.run(host="0.0.0.0", port=5000)

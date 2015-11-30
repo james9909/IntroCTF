@@ -136,8 +136,10 @@ def submit_flag(team, pid, flag, date=None):
             progression.append(str(int(teamdb.get_score(team))+int(data[5]))+","+date)
             c.execute("UPDATE teams SET solves = ?, score = score + ?, last_solve = ?, progression = ? WHERE name = ?", (",".join(solves), data[5], date, ",".join(progression), team,))
             conn.commit()
+            utils.log("submissions", 20, "%s has submitted %s to %s [CORRECT]" % (team, flag, get_name_from_pid(pid)))
             return "Correct!"
         else:
+            utils.log("submissions", 20, "%s has submitted %s to %s [INCORRECT]" % (team, flag, get_name_from_pid(pid)))
             return "Incorrect"
     except sqlite3.DatabaseError, e:
         print e

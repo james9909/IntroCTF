@@ -15,13 +15,7 @@ function submit_flag(pid, flag) {
         pid: pid,
         flag: flag
     }, function(data) {
-        if (data == 1) {
-            Materialize.toast("Correct!", 2000);
-        } else if (data == 0) {
-            Materialize.toast("Incorrect", 2000);
-        } else if (data == -1) {
-            Materialize.toast("You already solved this problem!", 2000)
-        }
+        Materialize.toast(data.message, 2000);
     });
 }
 

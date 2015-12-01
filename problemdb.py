@@ -49,6 +49,8 @@ def remove_problem(pid):
     try:
         c.execute("DELETE from problems WHERE pid = ?", (pid,))
         conn.commit()
+        teamdb.recalculate_scores()
+        teamdb.recalculate_solves()
         return "Problem removed"
     except sqlite3.DatabaseError, e:
         return "Database error. Please contact an administrator as soon as possible: %s" % e
@@ -156,6 +158,7 @@ def update_problem(pid, name, desc, hint, category, points, flag):
     try:
         c.execute("UPDATE problems SET name = ?, description = ?, hint = ?, category = ?, points = ?, flag = ? WHERE pid = ?", (name, desc, hint, category, points, flag, pid,))
         conn.commit()
+        teamdb.recalculate_scores()
         return "Problem updated!"
     except sqlite3.DatabaseError, e:
         print e

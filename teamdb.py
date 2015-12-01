@@ -1,3 +1,4 @@
+import problemdb
 import utils
 import sqlite3
 
@@ -192,3 +193,55 @@ def get_score(team):
         return "-1"
     if conn:
         conn.close()
+
+def update_score(team, new_score):
+    conn = sqlite3.connect(db_name)
+    if conn == None:
+        return "-1"
+    c = conn.cursor()
+    try:
+        c.execute("UPDATE teams SET score = ? WHERE name = ?", (new_score, team))
+        conn.commit()
+    except sqlite3.DatabaseError, e:
+        print e
+        return "-1"
+    if conn:
+        conn.close()
+
+def update_solves(team, new_solves):
+    conn = sqlite3.connect(db_name)
+    if conn == None:
+        return "-1"
+    c = conn.cursor()
+    try:
+        c.execute("UPDATE teams SET solves = ? WHERE name = ?", (new_solves, team))
+        conn.commit()
+    except sqlite3.DatabaseError, e:
+        print e
+        return "-1"
+    if conn:
+        conn.close()
+
+def recalculate_scores():
+    raw_data = get_teams()
+    data = [[team[0], team[4].split(",")[1:]] for team in raw_data]
+    for team,solves in data:
+        new_score = 0
+        for pid in solves:
+            try:
+                new_score += int(problemdb.get_problem_data(pid)[5])
+            except TypeError:
+                # Problem does not exist
+                pass
+        update_score(team, new_score)
+
+def recalculate_solves():
+    raw_data = get_teams()
+    data = [[team[0], team[4].split(",")[1:]] for team in raw_data]
+    for team,solves in data:
+        new_solves = []
+        for pid in solves:
+            if problemdb.pid_exists(pid):
+                new_solves.append(pid)
+        new_solves = ",".join(new_solves)
+        update_solves(team, new_solves)

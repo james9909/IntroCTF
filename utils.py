@@ -1,12 +1,13 @@
-from datetime import datetime
+import datetime
 import logging
 import logging.handlers
 import os
-import string
 import random
-from werkzeug.security import generate_password_hash, check_password_hash
-from flask import current_app as app, url_for, redirect, session
+import string
+
+from flask import url_for, redirect, session
 from functools import wraps
+from werkzeug.security import generate_password_hash, check_password_hash
 
 def initalize_logs():
     registration_logger = logging.getLogger("registrations")
@@ -35,7 +36,7 @@ def initalize_logs():
 
 def log(log, level, message):
     log = logging.getLogger(log)
-    message = "[%s] %s" % (datetime.now().strftime("%m/%d/%Y %X"), message)
+    message = "[%s] %s" % (datetime.datetime.now().strftime("%m/%d/%Y %X"), message)
     log.log(level, message)
 
 def hash_password(s):
@@ -65,8 +66,8 @@ def redirect_if_not_logged_in(f):
     return decorated_function
 
 def unix_time_millis(dt):
-    epoch = datetime.utcfromtimestamp(0)
+    epoch = datetime.datetime.utcfromtimestamp(0)
     return (dt - epoch).total_seconds() * 1000.0
 
 def get_time_since_epoch():
-    return unix_time_millis(datetime.now())
+    return unix_time_millis(datetime.datetime.now())

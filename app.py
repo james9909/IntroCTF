@@ -1,10 +1,12 @@
 import logging
+
 import problemdb
 import teamdb
 import utils
-from utils import admins_only, redirect_if_not_logged_in
+
 from api import api
 from flask import Flask, render_template, session, redirect, url_for
+from utils import admins_only, redirect_if_not_logged_in
 
 app = Flask(__name__)
 app.debug = True

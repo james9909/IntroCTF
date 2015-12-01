@@ -1,9 +1,8 @@
-import json
 import os
 import sqlite3
-import problemdb
+
 import teamdb
-from wipe_db import wipe_database
+import wipe_db
 
 db_name = "introctf.db"
 
@@ -36,6 +35,6 @@ try:
 except sqlite3.DatabaseError, e:
     response = str(raw_input("A database seems to already exist. Would you like to wipe it and re-initalize? [y/n] "))
     if response.lower() == "y":
-        wipe_database()
+        wipe_db.wipe_database()
         init_db()
 print "Done!"

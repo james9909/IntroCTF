@@ -1,6 +1,7 @@
 import sqlite3
-import utils
+
 import teamdb
+import utils
 
 db_name = "introctf.db"
 

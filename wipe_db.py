@@ -4,7 +4,7 @@ db_name = "introctf.db"
 
 def wipe_database():
     conn = sqlite3.connect(db_name)
-    if conn == None:
+    if conn is None:
         print "Error connecting to the database"
     else:
         c = conn.cursor()

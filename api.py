@@ -1,13 +1,13 @@
-import logging
 import json
-import sqlite3
+import logging
 import utils
-import teamdb
+
 import problemdb
+import teamdb
+
+from flask import Blueprint, request, session, jsonify, make_response
 from functools import wraps
-from flask import Flask, Blueprint, request, session, jsonify, make_response
-from flask import current_app as app
-from utils import admins_only, redirect_if_not_logged_in
+from utils import admins_only
 
 api = Blueprint("api", __name__)
 db_name = "introctf.db"
@@ -32,19 +32,18 @@ def register():
     password2 = request.form["password2"]
 
     if password != password2:
-        return {"success": 0, "message": "Passwords do not match"}
+        return {"message": "Passwords do not match"}
     if len(password) < 4:
-        return {"success": 0, "message": "Passwords should be at least 4 characters long"}
+        return {"message": "Passwords should be at least 4 characters long"}
     if teamdb.team_exists(team):
-        return {"success": 0, "message": "Team already exists"}
+        return {"message": "Team already exists"}
     else:
-        try:
-            teamdb.add_team(team, password)
-        except:
-            return {"success": 0, "message": "Database error... Please contact an admin as soon as possible"}
+        response = teamdb.add_team(team, password)
+        if "Success" in response:
+            utils.log("registrations", logging.INFO, "%s has registered" % team)
 
-        utils.log("registrations", logging.INFO, "%s has registered" % team)
-        return {"success": 1, "message": "Success!"}
+        return {"message": response}
+
 
 @api.route("/api/login", methods=["POST"])
 @api_wrapper

@@ -1,1 +1,41 @@
 {% extends "base.html" %}
+{% block body_content %}
+<h2 class="teal-text center">IntroCTF</h2>
+
+<div class="container">
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title teal-text">New platform!</span>
+            <p>
+            We've migrated to a <b>brand new</b> platform, using Flask for the
+            framework, and SQLite3 to handle the data. As a result, the platform will give a
+            faster, more fluid experience for users, compared to our <a href="http://marge.stuy.edu/~james.wang/proj">older platform</a>.
+            Most importantly, the new platform is extensible, making it easier to add new features.
+            </p>
+            <p>Problems have been taken down, but if you want, contact one of us and we'll put them up again.</p>
+            <p>For the full list of changes, view the <a href="#changelog" class="modal-trigger">changelog</a>.</p>
+            <p>As always, feel free to view the source on <a href="https://github.com/james9909/IntroCTF">github</a>.</p>
+        </div>
+    </div>
+    <div id="changelog" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h4>Changelog</h4>
+            <ol>
+                <li>Migrated from cgi to Flask.</li>
+                <li>Migrated from csv databases to SQLite3 databases.</li>
+                <li>Increased security and cleaned up codebase.</li>
+                <li>Unified teams under one account.</li>
+                <li>Changed sorting of problems to point value, not category.</li>
+                <li>Added an admin interface with the following features:
+                    <ul>
+                        <li>- Easy method for adding adding/updating/removing problems.</li>
+                        <li>- Ability to preview problems.</li>
+                        <li>- Export data to json.</li>
+                    </ul>
+                </li>
+                <li>Added a graph for the score progression of the top 5 teams to the scoreboard.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+{% endblock body_content %}

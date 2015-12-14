@@ -21,6 +21,8 @@ def api_wrapper(f):
             web_result = f(*args, **kwds)
         except Exception as error:
             web_result = { "success": 0, "message": "Something went wrong! Please notify us about this immediately: %s" % error }
+            import traceback
+            print traceback.print_exc()
         return json.dumps(web_result), response, { "Content-Type": "application/json; charset=utf-8" }
     return wrapper
 

@@ -15,6 +15,7 @@ def add_team(name, password, date=None):
             date = str(utils.get_time_since_epoch())
         c.execute("INSERT into teams VALUES (?, ?, 0, 0, '', '', ?)", (name, utils.hash_password(password), "0,"+date))
         conn.commit()
+        return "Success!"
     except sqlite3.DatabaseError, e:
         print e
         return "-1"
@@ -30,6 +31,7 @@ def remove_team(name):
     try:
         c.execute("DELETE FROM teams WHERE name = ?", (name,))
         conn.commit()
+        return "Success!"
     except sqlite3.DatabaseError, e:
         print e
         return "-1"

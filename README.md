@@ -18,5 +18,6 @@ If you really wish to run it using this method, make sure to turn off debug mode
 ##### Gunicorn
 [Gunicorn](http://gunicorn.org/) is a much more powerful alternative to running the app bare, and is
 also very easy to setup. It takes two steps to deploy using this method.
+
 1. `sudo pip install gunicorn`
 2. `gunicorn --bind 0.0.0.0:8000 -w 4 "app:app"` where 4 can be any number of workers that you would like to have

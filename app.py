@@ -11,10 +11,12 @@ from utils import admins_only, redirect_if_not_logged_in
 
 app = Flask(__name__)
 app.debug = True
-
 app.secret_key = open(".secret_key", "r").read()
+app.jinja_env.trim_blocks = True
+app.register_blueprint(api)
+
 conn = sqlite3.connect("introctf.db", check_same_thread=False)
-print "generating connection"
+conn.text_factory = str
 
 @app.route('/')
 def index():
@@ -66,6 +68,4 @@ if __name__ == '__main__':
     log = logging.getLogger('werkzeug')
     log.setLevel(logging.ERROR)
     utils.initalize_logs()
-    app.jinja_env.trim_blocks = True
-    app.register_blueprint(api)
     app.run(host="0.0.0.0", port=5000)

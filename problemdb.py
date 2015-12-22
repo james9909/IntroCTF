@@ -134,7 +134,7 @@ def update_problem(pid, name, desc, hint, category, points, flag):
     try:
         c.execute("UPDATE problems SET name = ?, description = ?, hint = ?, category = ?, points = ?, flag = ? WHERE pid = ?", (name, desc, hint, category, points, flag, pid,))
         conn.commit()
-        teamdb.recalculate_scores()
+        teamdb.recalculate_scores(pid=pid, new_value=points)
         return "Problem updated!"
     except sqlite3.DatabaseError, e:
         print e
@@ -148,6 +148,18 @@ def get_name_from_pid(pid):
     try:
         c.execute("SELECT name FROM problems WHERE pid = ?", (pid,))
         return c.fetchone()[0]
+    except sqlite3.DatabaseError, e:
+        print e
+        return
+
+def get_teams_who_solved(pid):
+    conn = app.conn
+    if conn == None:
+        return
+    c = conn.cursor()
+    try:
+        c.execute("SELECT name FROM teams WHERE solves LIKE ?", ("%" + pid + "%",))
+        return c.fetchall()
     except sqlite3.DatabaseError, e:
         print e
         return

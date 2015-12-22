@@ -189,26 +189,45 @@ def update_solves(team, new_solves):
         print e
         return "-1"
 
-def recalculate_scores():
-    raw_data = get_teams()
-    data = [[team[0], team[4].split(",")[1:]] for team in raw_data]
-    for team,solves in data:
-        new_score = 0
-        for pid in solves:
-            try:
-                new_score += int(problemdb.get_problem_data(pid)[5])
-            except TypeError:
-                # Problem does not exist
-                pass
-        update_score(team, new_score)
+def recalculate_scores(pid=None, new_value=None):
+    if pid is None or new_value is None:
+        raw_data = get_teams()
+        data = [[team[0], team[4].split(",")[1:]] for team in raw_data]
+        for team,solves in data:
+            new_score = 0
+            for pid in solves:
+                try:
+                    new_score += int(problemdb.get_problem_data(pid)[5])
+                except TypeError:
+                    # Problem does not exist
+                    pass
+            update_score(team, new_score)
+    elif pid and new_value:
+        original_value = problemdb.get_problem_data(pid)[5]
+        teams = problemdb.get_teams_who_solved(pid)
+        for team in teams:
+            score = teamdb.get_score(team)
+            new_score = score - original_value + int(new_value)
+            update_score(team, new_score)
 
-def recalculate_solves():
-    raw_data = get_teams()
-    data = [[team[0], team[4].split(",")[1:]] for team in raw_data]
-    for team,solves in data:
-        new_solves = []
-        for pid in solves:
-            if problemdb.pid_exists(pid):
-                new_solves.append(pid)
-        new_solves = ",".join(new_solves)
-        update_solves(team, new_solves)
+def recalculate_solves(pid=None):
+    if pid is None:
+        raw_data = get_teams()
+        data = [[team[0], team[4].split(",")[1:]] for team in raw_data]
+        for team,solves in data:
+            new_solves = []
+            for pid in solves:
+                if problemdb.pid_exists(pid):
+                    new_solves.append(pid)
+            new_solves = ",".join(new_solves)
+            update_solves(team, new_solves)
+    else:
+        teams = problemdb.get_teams_who_solved(pid)
+        for team in teams:
+            new_solves = []
+            solved = teamdb.get_solves(team)
+            for problem in solved:
+                if problemdb.pid_exists(problem):
+                    new_solves.append(problem)
+            new_solves = ",".join(new_solves)
+            update_solves(team, new_solves)

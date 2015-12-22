@@ -1,12 +1,11 @@
 import sqlite3
 
+import app
 import teamdb
 import utils
 
-db_name = "introctf.db"
-
 def get_problems():
-    conn = sqlite3.connect(db_name)
+    conn = app.conn
     if conn == None:
         return
     c = conn.cursor()
@@ -16,14 +15,11 @@ def get_problems():
     except sqlite3.DatabaseError, e:
         print e
         return
-    finally:
-        if conn:
-            conn.close()
 
 def add_problem(name, description, hint, category, points, flag):
     if name_exists(name):
         return "Problem name already taken"
-    conn = sqlite3.connect(db_name)
+    conn = app.conn
     pid = utils.generate_string(16)
     while pid_exists(pid):
         pid = utils.generate_string(16)
@@ -36,14 +32,11 @@ def add_problem(name, description, hint, category, points, flag):
         return "Successfully added problem"
     except sqlite3.DatabaseError, e:
         return "Database error. Please contact an administrator as soon as possible: %s" % e
-    finally:
-        if conn:
-            conn.close()
 
 def remove_problem(pid):
     if not pid_exists(pid):
         return "Problem does not exist"
-    conn = sqlite3.connect(db_name)
+    conn = app.conn
     if conn == None:
         return "Could not connect to database"
     c = conn.cursor()
@@ -55,12 +48,9 @@ def remove_problem(pid):
         return "Problem removed"
     except sqlite3.DatabaseError, e:
         return "Database error. Please contact an administrator as soon as possible: %s" % e
-    finally:
-        if conn:
-            conn.close()
 
 def pid_exists(pid):
-    conn = sqlite3.connect(db_name)
+    conn = app.conn
     if conn == None:
         return
     c = conn.cursor()
@@ -70,12 +60,9 @@ def pid_exists(pid):
     except sqlite3.DatabaseError, e:
         print e
         return
-    finally:
-        if conn:
-            conn.close()
 
 def name_exists(name):
-    conn = sqlite3.connect(db_name)
+    conn = app.conn
     if conn == None:
         return
     c = conn.cursor()
@@ -85,12 +72,9 @@ def name_exists(name):
     except sqlite3.DatabaseError, e:
         print e
         return
-    finally:
-        if conn:
-            conn.close()
 
 def get_problems_from_category(category):
-    conn = sqlite3.connect(db_name)
+    conn = app.conn
     if conn == None:
         return
     c = conn.cursor()
@@ -100,12 +84,9 @@ def get_problems_from_category(category):
     except sqlite3.DatabaseError, e:
         print e
         return
-    finally:
-        if conn:
-            conn.close()
 
 def get_problem_data(pid):
-    conn = sqlite3.connect(db_name)
+    conn = app.conn
     if conn == None:
         return
     c = conn.cursor()
@@ -115,14 +96,11 @@ def get_problem_data(pid):
     except sqlite3.DatabaseError, e:
         print e
         return
-    finally:
-        if conn:
-            conn.close()
 
 def submit_flag(team, pid, flag, date=None):
     if teamdb.already_solved(pid, team):
         return "You already solved this problem!"
-    conn = sqlite3.connect(db_name)
+    conn = app.conn
     if conn == None:
         return "Could not connect to database"
     c = conn.cursor()
@@ -147,12 +125,9 @@ def submit_flag(team, pid, flag, date=None):
     except sqlite3.DatabaseError, e:
         print e
         return "Database error. Please contact an administrator as soon as possible: %s" % e
-    finally:
-        if conn:
-            conn.close()
 
 def update_problem(pid, name, desc, hint, category, points, flag):
-    conn = sqlite3.connect(db_name)
+    conn = app.conn
     if conn == None:
         return "Database Error"
     c = conn.cursor()
@@ -164,12 +139,9 @@ def update_problem(pid, name, desc, hint, category, points, flag):
     except sqlite3.DatabaseError, e:
         print e
         return "Database error. Please contact an administrator as soon as possible: %s" % e
-    finally:
-        if conn:
-            conn.close()
 
 def get_name_from_pid(pid):
-    conn = sqlite3.connect(db_name)
+    conn = app.conn
     if conn == None:
         return
     c = conn.cursor()
@@ -179,6 +151,3 @@ def get_name_from_pid(pid):
     except sqlite3.DatabaseError, e:
         print e
         return
-    finally:
-        if conn:
-            conn.close()

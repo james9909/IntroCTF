@@ -10,7 +10,6 @@ from functools import wraps
 from utils import admins_only
 
 api = Blueprint("api", __name__)
-db_name = "introctf.db"
 
 def api_wrapper(f):
     @wraps(f)

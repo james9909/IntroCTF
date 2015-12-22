@@ -1,4 +1,5 @@
 import logging
+import sqlite3
 
 import problemdb
 import teamdb
@@ -12,6 +13,8 @@ app = Flask(__name__)
 app.debug = True
 
 app.secret_key = open(".secret_key", "r").read()
+conn = sqlite3.connect("introctf.db", check_same_thread=False)
+print "generating connection"
 
 @app.route('/')
 def index():

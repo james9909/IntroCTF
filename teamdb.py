@@ -1,12 +1,11 @@
 import sqlite3
 
+import app
 import problemdb
 import utils
 
-db_name = "introctf.db"
-
 def add_team(name, password, date=None):
-    conn = sqlite3.connect(db_name)
+    conn = app.conn
     if conn is None:
         return "-1"
     c = conn.cursor()
@@ -19,12 +18,9 @@ def add_team(name, password, date=None):
     except sqlite3.DatabaseError, e:
         print e
         return "-1"
-    finally:
-        if conn:
-            conn.close()
 
 def remove_team(name):
-    conn = sqlite3.connect(db_name)
+    conn = app.conn
     if conn is None:
         return "-1"
     c = conn.cursor()
@@ -35,12 +31,9 @@ def remove_team(name):
     except sqlite3.DatabaseError, e:
         print e
         return "-1"
-    finally:
-        if conn:
-            conn.close()
 
 def team_exists(name):
-    conn = sqlite3.connect(db_name)
+    conn = app.conn
     if conn is None:
         return "-1"
     c = conn.cursor()
@@ -50,12 +43,9 @@ def team_exists(name):
     except sqlite3.DatabaseError, e:
         print e
         return "-1"
-    finally:
-        if conn:
-            conn.close()
 
 def get_team_password(name):
-    conn = sqlite3.connect(db_name)
+    conn = app.conn
     if conn is None:
         return "-1"
     c = conn.cursor()
@@ -66,12 +56,9 @@ def get_team_password(name):
     except sqlite3.DatabaseError, e:
         print e
         return "-1"
-    finally:
-        if conn:
-            conn.close()
 
 def get_team_score(name):
-    conn = sqlite3.connect(db_name)
+    conn = app.conn
     if conn is None:
         return "-1"
     c = conn.cursor()
@@ -81,12 +68,9 @@ def get_team_score(name):
     except sqlite3.DatabaseError, e:
         print e
         return "-1"
-    finally:
-        if conn:
-            conn.close()
 
 def add_admin_team(name, password, date=None):
-    conn = sqlite3.connect(db_name)
+    conn = app.conn
     if conn is None:
         return "-1"
     c = conn.cursor()
@@ -98,12 +82,9 @@ def add_admin_team(name, password, date=None):
     except sqlite3.DatabaseError, e:
         print e
         return "-1"
-    finally:
-        if conn:
-            conn.close()
 
 def is_admin(team_name):
-    conn = sqlite3.connect(db_name)
+    conn = app.conn
     if conn is None:
         return "-1"
     c = conn.cursor()
@@ -114,12 +95,9 @@ def is_admin(team_name):
     except sqlite3.DatabaseError, e:
         print e
         return "-1"
-    finally:
-        if conn:
-            conn.close()
 
 def get_solves(team):
-    conn = sqlite3.connect(db_name)
+    conn = app.conn
     if conn is None:
         return "-1"
     c = conn.cursor()
@@ -129,8 +107,6 @@ def get_solves(team):
     except sqlite3.DatabaseError, e:
         print e
         return "-1"
-    if conn:
-        conn.close()
 
 def already_solved(pid, team):
     solves = get_solves(team)
@@ -139,7 +115,7 @@ def already_solved(pid, team):
     return False
 
 def get_scoreboard_data(limit=None):
-    conn = sqlite3.connect(db_name)
+    conn = app.conn
     if conn is None:
         return "-1"
     c = conn.cursor()
@@ -152,11 +128,9 @@ def get_scoreboard_data(limit=None):
     except sqlite3.DatabaseError, e:
         print e
         return "-1"
-    if conn:
-        conn.close()
 
 def get_teams():
-    conn = sqlite3.connect(db_name)
+    conn = app.conn
     if conn is None:
         return "-1"
     c = conn.cursor()
@@ -166,11 +140,9 @@ def get_teams():
     except sqlite3.DatabaseError, e:
         print e
         return "-1"
-    if conn:
-        conn.close()
 
 def get_progression(team):
-    conn = sqlite3.connect(db_name)
+    conn = app.conn
     if conn is None:
         return "-1"
     c = conn.cursor()
@@ -180,11 +152,9 @@ def get_progression(team):
     except sqlite3.DatabaseError, e:
         print e
         return "-1"
-    if conn:
-        conn.close()
 
 def get_score(team):
-    conn = sqlite3.connect(db_name)
+    conn = app.conn
     if conn is None:
         return "-1"
     c = conn.cursor()
@@ -194,11 +164,9 @@ def get_score(team):
     except sqlite3.DatabaseError, e:
         print e
         return "-1"
-    if conn:
-        conn.close()
 
 def update_score(team, new_score):
-    conn = sqlite3.connect(db_name)
+    conn = app.conn
     if conn is None:
         return "-1"
     c = conn.cursor()
@@ -208,11 +176,9 @@ def update_score(team, new_score):
     except sqlite3.DatabaseError, e:
         print e
         return "-1"
-    if conn:
-        conn.close()
 
 def update_solves(team, new_solves):
-    conn = sqlite3.connect(db_name)
+    conn = app.conn
     if conn is None:
         return "-1"
     c = conn.cursor()
@@ -222,8 +188,6 @@ def update_solves(team, new_solves):
     except sqlite3.DatabaseError, e:
         print e
         return "-1"
-    if conn:
-        conn.close()
 
 def recalculate_scores():
     raw_data = get_teams()

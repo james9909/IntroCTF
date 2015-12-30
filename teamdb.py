@@ -7,7 +7,7 @@ import utils
 def add_team(name, password, date=None):
     conn = app.conn
     if conn is None:
-        return "-1"
+        return "Could not connect to the database"
     c = conn.cursor()
     try:
         if date is None:
@@ -17,12 +17,12 @@ def add_team(name, password, date=None):
         return "Success!"
     except sqlite3.DatabaseError, e:
         print e
-        return "-1"
+        return "Could not connect to the database"
 
 def remove_team(name):
     conn = app.conn
     if conn is None:
-        return "-1"
+        return "Could not connect to the database"
     c = conn.cursor()
     try:
         c.execute("DELETE FROM teams WHERE name = ?", (name,))
@@ -30,24 +30,24 @@ def remove_team(name):
         return "Success!"
     except sqlite3.DatabaseError, e:
         print e
-        return "-1"
+        return "Could not connect to the database"
 
 def team_exists(name):
     conn = app.conn
     if conn is None:
-        return "-1"
+        return "Could not connect to the database"
     c = conn.cursor()
     try:
         c.execute("SELECT 1 from teams where name = ? LIMIT 1", (name,))
         return True if c.fetchone() else False
     except sqlite3.DatabaseError, e:
         print e
-        return "-1"
+        return "Could not connect to the database"
 
 def get_team_password(name):
     conn = app.conn
     if conn is None:
-        return "-1"
+        return "Could not connect to the database"
     c = conn.cursor()
     try:
         c.execute("SELECT password from teams where name = ? LIMIT 1", (name,))
@@ -55,24 +55,24 @@ def get_team_password(name):
         return results[0] if results else ""
     except sqlite3.DatabaseError, e:
         print e
-        return "-1"
+        return "Could not connect to the database"
 
 def get_team_score(name):
     conn = app.conn
     if conn is None:
-        return "-1"
+        return "Could not connect to the database"
     c = conn.cursor()
     try:
         c.execute("SELECT score from teams where name = ? LIMIT 1", (name,))
         return c.fetchone()
     except sqlite3.DatabaseError, e:
         print e
-        return "-1"
+        return "Could not connect to the database"
 
 def add_admin_team(name, password, date=None):
     conn = app.conn
     if conn is None:
-        return "-1"
+        return "Could not connect to the database"
     c = conn.cursor()
     try:
         if date is None:
@@ -81,12 +81,12 @@ def add_admin_team(name, password, date=None):
         conn.commit()
     except sqlite3.DatabaseError, e:
         print e
-        return "-1"
+        return "Could not connect to the database"
 
 def is_admin(team_name):
     conn = app.conn
     if conn is None:
-        return "-1"
+        return "Could not connect to the database"
     c = conn.cursor()
     try:
         c.execute("SELECT admin FROM teams WHERE name = ?", (team_name,))
@@ -94,19 +94,19 @@ def is_admin(team_name):
         return 1 in result
     except sqlite3.DatabaseError, e:
         print e
-        return "-1"
+        return "Could not connect to the database"
 
 def get_solves(team):
     conn = app.conn
     if conn is None:
-        return "-1"
+        return "Could not connect to the database"
     c = conn.cursor()
     try:
         c.execute("SELECT solves FROM teams WHERE name = ?", (team,))
         return list(c.fetchone())[0].split(",")
     except sqlite3.DatabaseError, e:
         print e
-        return "-1"
+        return "Could not connect to the database"
 
 def already_solved(pid, team):
     solves = get_solves(team)
@@ -117,7 +117,7 @@ def already_solved(pid, team):
 def get_scoreboard_data(limit=None):
     conn = app.conn
     if conn is None:
-        return "-1"
+        return "Could not connect to the database"
     c = conn.cursor()
     try:
         if limit is None:
@@ -127,67 +127,67 @@ def get_scoreboard_data(limit=None):
         return c.fetchall()
     except sqlite3.DatabaseError, e:
         print e
-        return "-1"
+        return "Could not connect to the database"
 
 def get_teams():
     conn = app.conn
     if conn is None:
-        return "-1"
+        return "Could not connect to the database"
     c = conn.cursor()
     try:
         c.execute("SELECT * FROM teams")
         return c.fetchall()
     except sqlite3.DatabaseError, e:
         print e
-        return "-1"
+        return "Could not connect to the database"
 
 def get_progression(team):
     conn = app.conn
     if conn is None:
-        return "-1"
+        return "Could not connect to the database"
     c = conn.cursor()
     try:
         c.execute("SELECT progression FROM teams WHERE name = ?", (team,))
         return c.fetchone()[0].split(",")
     except sqlite3.DatabaseError, e:
         print e
-        return "-1"
+        return "Could not connect to the database"
 
 def get_score(team):
     conn = app.conn
     if conn is None:
-        return "-1"
+        return "Could not connect to the database"
     c = conn.cursor()
     try:
         c.execute("SELECT score FROM teams WHERE name = ?", (team,))
         return c.fetchone()[0]
     except sqlite3.DatabaseError, e:
         print e
-        return "-1"
+        return "Could not connect to the database"
 
 def update_score(team, new_score):
     conn = app.conn
     if conn is None:
-        return "-1"
+        return "Could not connect to the database"
     c = conn.cursor()
     try:
         c.execute("UPDATE teams SET score = ? WHERE name = ?", (new_score, team))
         conn.commit()
     except sqlite3.DatabaseError, e:
         print e
-        return "-1"
+        return "Could not connect to the database"
 
 def update_solves(team, new_solves):
     conn = app.conn
     if conn is None:
-        return "-1"
+        return "Could not connect to the database"
     c = conn.cursor()
     try:
         c.execute("UPDATE teams SET solves = ? WHERE name = ?", (new_solves, team))
         conn.commit()
     except sqlite3.DatabaseError, e:
         print e
-        return "-1"
+        return "Could not connect to the database"
 
 def recalculate_scores(pid=None, new_value=None):
     if pid is None or new_value is None:

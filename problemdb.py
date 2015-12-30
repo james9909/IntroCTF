@@ -6,7 +6,7 @@ import utils
 
 def get_problems():
     conn = app.conn
-    if conn == None:
+    if conn is None:
         return
     c = conn.cursor()
     try:
@@ -14,7 +14,7 @@ def get_problems():
         return c.fetchall()
     except sqlite3.DatabaseError, e:
         print e
-        return
+        return "Could not connect to database"
 
 def add_problem(name, description, hint, category, points, flag):
     if name_exists(name):
@@ -23,7 +23,7 @@ def add_problem(name, description, hint, category, points, flag):
     pid = utils.generate_string(16)
     while pid_exists(pid):
         pid = utils.generate_string(16)
-    if conn == None:
+    if conn is None:
         return "Could not connect to database"
     c = conn.cursor()
     try:
@@ -37,7 +37,7 @@ def remove_problem(pid):
     if not pid_exists(pid):
         return "Problem does not exist"
     conn = app.conn
-    if conn == None:
+    if conn is None:
         return "Could not connect to database"
     c = conn.cursor()
     try:
@@ -51,7 +51,7 @@ def remove_problem(pid):
 
 def pid_exists(pid):
     conn = app.conn
-    if conn == None:
+    if conn is None:
         return
     c = conn.cursor()
     try:
@@ -63,7 +63,7 @@ def pid_exists(pid):
 
 def name_exists(name):
     conn = app.conn
-    if conn == None:
+    if conn is None:
         return
     c = conn.cursor()
     try:
@@ -75,7 +75,7 @@ def name_exists(name):
 
 def get_problems_from_category(category):
     conn = app.conn
-    if conn == None:
+    if conn is None:
         return
     c = conn.cursor()
     try:
@@ -87,7 +87,7 @@ def get_problems_from_category(category):
 
 def get_problem_data(pid):
     conn = app.conn
-    if conn == None:
+    if conn is None:
         return
     c = conn.cursor()
     try:
@@ -101,7 +101,7 @@ def submit_flag(team, pid, flag, date=None):
     if teamdb.already_solved(pid, team):
         return "You already solved this problem!"
     conn = app.conn
-    if conn == None:
+    if conn is None:
         return "Could not connect to database"
     c = conn.cursor()
     try:
@@ -128,7 +128,7 @@ def submit_flag(team, pid, flag, date=None):
 
 def update_problem(pid, name, desc, hint, category, points, flag):
     conn = app.conn
-    if conn == None:
+    if conn is None:
         return "Database Error"
     c = conn.cursor()
     try:
@@ -142,7 +142,7 @@ def update_problem(pid, name, desc, hint, category, points, flag):
 
 def get_name_from_pid(pid):
     conn = app.conn
-    if conn == None:
+    if conn is None:
         return
     c = conn.cursor()
     try:
@@ -154,7 +154,7 @@ def get_name_from_pid(pid):
 
 def get_teams_who_solved(pid):
     conn = app.conn
-    if conn == None:
+    if conn is None:
         return
     c = conn.cursor()
     try:

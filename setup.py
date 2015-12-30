@@ -1,7 +1,6 @@
 import os
 import sqlite3
 
-import teamdb
 import wipe_db
 
 db_name = "introctf.db"
@@ -19,7 +18,7 @@ def init_db():
     if response.lower() == "y":
         name = str(raw_input("Please input a name: "))
         password = str(raw_input("Please input a password: "))
-    teamdb.add_admin_team(name, password)
+        teamdb.add_admin_team(name, password)
 
     conn.commit()
     conn.close()
@@ -31,6 +30,7 @@ if not os.path.isfile(".secret_key"):
 
 print "Initializing the database..."
 try:
+    import teamdb
     init_db()
 except sqlite3.DatabaseError, e:
     response = str(raw_input("A database seems to already exist. Would you like to wipe it and re-initalize? [y/n] "))

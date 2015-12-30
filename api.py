@@ -6,24 +6,9 @@ import problemdb
 import teamdb
 
 from flask import Blueprint, request, session, jsonify, make_response
-from functools import wraps
 from utils import admins_only
 
 api = Blueprint("api", __name__)
-
-def api_wrapper(f):
-    @wraps(f)
-    def wrapper(*args, **kwds):
-        web_result = {}
-        response = 200
-        try:
-            web_result = f(*args, **kwds)
-        except Exception as error:
-            web_result = { "success": 0, "message": "Something went wrong! Please notify us about this immediately: %s" % error }
-            import traceback
-            print traceback.print_exc()
-        return json.dumps(web_result), response, { "Content-Type": "application/json; charset=utf-8" }
-    return wrapper
 
 @api.route("/api/register", methods=["POST"])
 @api_wrapper

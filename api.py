@@ -1,12 +1,13 @@
 import json
-import logging
 import utils
 
+import logger
 import problemdb
 import teamdb
 
+from decorators import api_wrapper
 from flask import Blueprint, request, session, jsonify, make_response
-from utils import admins_only
+from decorators import admins_only
 
 api = Blueprint("api", __name__)
 
@@ -26,7 +27,7 @@ def register():
     else:
         response = teamdb.add_team(team, password)
         if "Success" in response:
-            utils.log("registrations", logging.INFO, "%s has registered" % team)
+            logger.log("registrations", logger.INFO, "%s has registered" % team)
 
         return {"message": response}
 
@@ -42,9 +43,9 @@ def login():
         session["logged_in"] = True
         if teamdb.is_admin(team):
             session["admin"] = True
-            utils.log("logins", 30, "%s logged as admin" % team)
+            logger.log("logins", logger.WARNING, "%s logged as admin" % team)
         else:
-            utils.log("logins", 20, "%s logged in" % team)
+            logger.log("logins", logger.INFO, "%s logged in" % team)
         return {"success": 1, "message": "Success!"}
     else:
         return {"success": 0, "message": "Invalid credentials"}

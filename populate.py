@@ -14,7 +14,7 @@ categories = [
         ]
 
 def random_words(number):
-    return str(" ".join([word.capitalize() for word in random.sample(words, number)])).replace("'", "")
+    return str(" ".join([word.decode("unicode_escape").encode("ascii", "ignore").capitalize() for word in random.sample(words, number)])).replace("'", "")
 
 def generate_sentence():
     return random_words(60)

@@ -1,18 +1,28 @@
 import logging
 import sqlite3
 
+import logger
 import problemdb
 import teamdb
 import utils
 
 from api import api
-from flask import Flask, render_template, session, redirect, url_for
-from utils import admins_only, redirect_if_not_logged_in
+from flask import Flask, jsonify, make_response, render_template, session, redirect, url_for
+from flask_limiter import Limiter
+from decorators import admins_only, redirect_if_not_logged_in
 
 app = Flask(__name__)
+limiter = Limiter(app)
+
+@app.errorhandler(429)
+def error_handler(optional_argument=""):
+    logger.log("spam", logger.CRITICAL, "%s is using the api too quickly!", session["tid"])
+    return make_response(jsonify(message="Slow down!"), 200)
+
 app.debug = True
 app.secret_key = open(".secret_key", "r").read()
 app.jinja_env.trim_blocks = True
+limiter.limit("10/minute", error_message=error_handler, exempt_when=lambda: is_admin())(api)
 app.register_blueprint(api)
 
 conn = sqlite3.connect("introctf.db", check_same_thread=False)
@@ -65,7 +75,5 @@ def page_not_found(e):
     return render_template('404.html'), 404
 
 if __name__ == '__main__':
-    log = logging.getLogger('werkzeug')
-    log.setLevel(logging.ERROR)
     utils.initalize_logs()
     app.run(host="0.0.0.0", port=5000)

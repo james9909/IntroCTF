@@ -206,7 +206,8 @@ def recalculate_scores(pid=None, new_value=None):
         original_value = problemdb.get_problem_data(pid)[5]
         teams = problemdb.get_teams_who_solved(pid)
         for team in teams:
-            score = teamdb.get_score(team)
+            team = team[0]
+            score = get_score(team)
             new_score = score - original_value + int(new_value)
             update_score(team, new_score)
 
@@ -225,7 +226,7 @@ def recalculate_solves(pid=None):
         teams = problemdb.get_teams_who_solved(pid)
         for team in teams:
             new_solves = []
-            solved = teamdb.get_solves(team)
+            solved = get_solves(team)
             for problem in solved:
                 if problemdb.pid_exists(problem):
                     new_solves.append(problem)

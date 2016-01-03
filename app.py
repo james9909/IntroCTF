@@ -4,7 +4,6 @@ import sqlite3
 import logger
 import problemdb
 import teamdb
-import utils
 
 from api import api
 from flask import Flask, jsonify, make_response, render_template, session, redirect, url_for
@@ -75,5 +74,5 @@ def page_not_found(e):
     return render_template('404.html'), 404
 
 if __name__ == '__main__':
-    utils.initalize_logs()
+    logger.initalize_logs()
     app.run(host="0.0.0.0", port=5000)

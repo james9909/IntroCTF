@@ -1,3 +1,4 @@
+import getpass
 import os
 import sqlite3
 
@@ -17,7 +18,7 @@ def init_db():
     response = str(raw_input("An admin team does not currently exist. Would you like to make one? [y/n] "))
     if response.lower() == "y":
         name = str(raw_input("Please input a name: "))
-        password = str(raw_input("Please input a password: "))
+        password = str(getpass.getpass("Please input a password: "))
         teamdb.add_admin_team(name, password)
 
     conn.commit()

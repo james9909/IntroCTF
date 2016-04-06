@@ -40,6 +40,8 @@ def scoreboard():
 @redirect_if_not_logged_in
 def problems():
     problems = problemdb.get_problems()
+    if len(problems) == 0:
+        return render_template("problems.html", logged_in=is_logged_in(), admin=is_admin())
     team = session["tid"]
     solved = teamdb.get_solves(team)
     return render_template("problems.html", logged_in=is_logged_in(), admin=is_admin(), problems=problems, solved=solved)

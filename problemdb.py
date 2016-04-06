@@ -26,6 +26,7 @@ def add_problem(name, description, hint, category, points, flag):
         pid = utils.generate_string(16)
     if conn is None:
         return "Could not connect to database"
+    flag = utils.hash_password(flag)
     c = conn.cursor()
     try:
         c.execute("INSERT into problems VALUES (?, ?, ?, ?, ?, ?, ?, 0)", (pid, name, description, hint, category, points, flag,))
@@ -106,8 +107,9 @@ def submit_flag(team, pid, flag, date=None):
         return "Could not connect to database"
     c = conn.cursor()
     try:
-        c.execute("SELECT * FROM problems WHERE pid = ? AND flag = ?", (pid, flag,))
-        if c.fetchone():
+        c.execute("SELECT flag FROM problems WHERE pid = ?", (pid,))
+        encrypted_flag = c.fetchone()[0]
+        if utils.check_password(encrypted_flag, flag):
             c.execute("UPDATE problems SET solves = solves + 1 WHERE pid = ?", (pid,))
             solves = teamdb.get_solves(team)
             solves.append(pid)
@@ -132,6 +134,7 @@ def update_problem(pid, name, desc, hint, category, points, flag):
     if conn is None:
         return "Database Error"
     c = conn.cursor()
+    flag = utils.hash_password(flag)
     try:
         c.execute("UPDATE problems SET name = ?, description = ?, hint = ?, category = ?, points = ?, flag = ? WHERE pid = ?", (name, desc, hint, category, points, flag, pid,))
         conn.commit()

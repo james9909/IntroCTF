@@ -16,19 +16,10 @@ $("[name='preview']").click(function(e) {
     var name = $("input[name=problem_name]", problem).val();
     var desc = $("textarea[name=problem_desc]", problem).val();
     var hint = $("input[name=problem_hint]", problem).val();
-    var flag = $("input[name=problem_flag]", problem).val();
     $("#preview-name").text(name);
     $("#preview-desc").html(marked(desc));
     document.getElementById("preview-hint").onclick = function() {
         Materialize.toast(hint, 4000);
-    }
-    document.getElementById("preview-submit").onclick = function() {
-        var candidate = $("input[name=flag]").val();
-        if (candidate == flag) {
-            Materialize.toast("Correct!", 2000);
-        } else {
-            Materialize.toast("Incorrect", 2000);
-        }
     }
 });
 

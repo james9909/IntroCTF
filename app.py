@@ -15,7 +15,8 @@ limiter = Limiter(app)
 
 @app.errorhandler(429)
 def error_handler(optional_argument=""):
-    logger.log("spam", logger.CRITICAL, "%s is using the api too quickly!", session["tid"])
+    if "tid" in session:
+        logger.log("spam", logger.CRITICAL, "%s is using the api too quickly!", session["tid"])
     return make_response(jsonify(message="Slow down!"), 200)
 
 app.debug = True
